@@ -1,0 +1,41 @@
+/* tslint:disable:no-unused-variable */
+
+import { async, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { AppComponent } from './app.component';
+import { AppMainComponent } from './app.main.component';
+import { AppTopBarComponent } from './app.topbar.component';
+import { AppFooterComponent } from './app.footer.component';
+import { AppMenuComponent, AppSubMenuComponent } from './app.menu.component';
+import { ScrollPanelModule } from 'primeng/primeng';
+import { AppConfigComponent } from './app.config.component';
+import { AppRightPanelComponent } from './app.rightpanel.component';
+import { AppBreadcrumbComponent } from './app.breadcrumb.component';
+import { BreadcrumbService } from './breadcrumb.service';
+
+describe('AppComponent', () => {
+    beforeEach(() => {
+        TestBed.configureTestingModule({
+            imports: [RouterTestingModule, ScrollPanelModule],
+            declarations: [
+                AppComponent,
+                AppMainComponent,
+                AppMenuComponent,
+                AppSubMenuComponent,
+                AppTopBarComponent,
+                AppConfigComponent,
+                AppRightPanelComponent,
+                AppFooterComponent,
+                AppBreadcrumbComponent
+            ],
+            providers: [BreadcrumbService]
+        });
+        TestBed.compileComponents();
+    });
+
+    it('should create the app', async(() => {
+        const fixture = TestBed.createComponent(AppComponent);
+        const app = fixture.debugElement.componentInstance;
+        expect(app).toBeTruthy();
+    }));
+});
