@@ -1076,6 +1076,9 @@ body {
                 background-color: $toggleButtonHoverBgColor;
                 border-color: $toggleButtonHoverBorderColor;
             }
+            &.ui-state-focus {
+                @include focused-input();
+            }
         }
 
         &.ui-state-active {
@@ -1085,6 +1088,7 @@ body {
 
             &.ui-state-focus {
                 background-color: darken($primaryColor, 5%);
+                @include focused-input();
             }
         }
 
@@ -1116,6 +1120,9 @@ body {
                         border-left-color: $toggleButtonHoverBorderColor;
                     }
                 }
+                &.ui-state-focus {
+                    @include focused-input();
+                }
             }
 
             &.ui-state-active {
@@ -1125,6 +1132,7 @@ body {
 
                 &.ui-state-focus {
                     background-color: darken($primaryColor, 5%);
+                    @include focused-input();
                 }
             }
 

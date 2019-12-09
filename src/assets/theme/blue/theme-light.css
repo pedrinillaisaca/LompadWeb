@@ -111,6 +111,9 @@ body .ajax-loader {
   font-size: 28px;
   color: #5E81AC;
 }
+body .pi {
+  font-size: 1em;
+}
 
 body {
   /* Validations */
@@ -1163,6 +1166,13 @@ body .ui-togglebutton:not(.ui-state-disabled):not(.ui-state-active):hover, body 
   background-color: #e5e9f0;
   border-color: #d8dee9;
 }
+body .ui-togglebutton:not(.ui-state-disabled):not(.ui-state-active).ui-state-focus {
+  border-color: #9EB3CD;
+  outline: 0;
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(22, 107, 212, 0.25);
+  -moz-box-shadow: 0 0 0 0.2rem rgba(22, 107, 212, 0.25);
+  box-shadow: 0 0 0 0.2rem rgba(22, 107, 212, 0.25);
+}
 body .ui-togglebutton.ui-state-active {
   background-color: #5E81AC;
   color: #ffffff;
@@ -1170,6 +1180,11 @@ body .ui-togglebutton.ui-state-active {
 }
 body .ui-togglebutton.ui-state-active.ui-state-focus {
   background-color: #52749f;
+  border-color: #9EB3CD;
+  outline: 0;
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(22, 107, 212, 0.25);
+  -moz-box-shadow: 0 0 0 0.2rem rgba(22, 107, 212, 0.25);
+  box-shadow: 0 0 0 0.2rem rgba(22, 107, 212, 0.25);
 }
 body .ui-togglebutton.ui-state-disabled {
   background-color: #eceff4;
@@ -1199,6 +1214,13 @@ body .ui-selectbutton .ui-button:not(.ui-state-disabled):not(.ui-state-active):h
 body .ui-selectbutton .ui-button:not(.ui-state-disabled):not(.ui-state-active):hover + .ui-button:not(.ui-state-disabled):not(.ui-state-active), body .ui-selectbutton .ui-button:not(.ui-state-disabled):not(.ui-state-active).ui-state-focus + .ui-button:not(.ui-state-disabled):not(.ui-state-active) {
   border-left-color: #d8dee9;
 }
+body .ui-selectbutton .ui-button:not(.ui-state-disabled):not(.ui-state-active).ui-state-focus {
+  border-color: #9EB3CD;
+  outline: 0;
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(22, 107, 212, 0.25);
+  -moz-box-shadow: 0 0 0 0.2rem rgba(22, 107, 212, 0.25);
+  box-shadow: 0 0 0 0.2rem rgba(22, 107, 212, 0.25);
+}
 body .ui-selectbutton .ui-button.ui-state-active {
   background-color: #5E81AC;
   color: #ffffff;
@@ -1206,6 +1228,11 @@ body .ui-selectbutton .ui-button.ui-state-active {
 }
 body .ui-selectbutton .ui-button.ui-state-active.ui-state-focus {
   background-color: #52749f;
+  border-color: #9EB3CD;
+  outline: 0;
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(22, 107, 212, 0.25);
+  -moz-box-shadow: 0 0 0 0.2rem rgba(22, 107, 212, 0.25);
+  box-shadow: 0 0 0 0.2rem rgba(22, 107, 212, 0.25);
 }
 body .ui-selectbutton .ui-button:first-child {
   -moz-border-radius-topleft: 4px;
