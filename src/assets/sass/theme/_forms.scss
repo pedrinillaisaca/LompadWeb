@@ -11,56 +11,60 @@ body {
         -moz-appearance: none;
         appearance: none;
 
-        &:enabled:focus:not(.ui-state-error) {
-            @include focused-input();
+        &:enabled:hover:not(.ui-state-error) {
+            border-color: $inputHoverBorderColor;
         }
 
-        &.ng-dirty.ng-invalid {
-            background-color: $inputInvalidBgColor;
-
-            &:hover {
-                border-color: $inputInvalidBorderColor;
-            }
-
-            &:focus {
-                border-color: $inputInvalidBorderColor;
-                box-shadow: none;
-            }
-
-            &:active {
-                border-color: $inputInvalidBorderColor;
-            }
-
+        &:enabled:focus:not(.ui-state-error) {
+            @include focused-input();
         }
 
         &.ui-state-disabled, &:disabled {
             @include disabled-input();
         }
+
+        &.ng-dirty.ng-invalid {
+            border-color: $errorColor;
+
+            &:hover {
+                border-color: $errorColor;
+            }
+
+            &:focus {
+                border-color: $errorColor;
+                box-shadow: none;
+            }
+
+            &:active {
+                border-color: $errorColor;
+            }
+
+        }
     }
 
     .ui-button {
-        color: $buttonTextColor;
-        background-color: $buttonBgColor;
+        color: $primaryButtonTextColor;
+        background-color: $primaryButtonBgColor;
         border: 1px solid transparent;
         font-size: $fontSize;
-        @include transition(background-color $transitionDuration);
+        @include transition(background-color $transitionDuration,box-shadow $transitionDuration);
 
         &:enabled:focus {
             outline: 0 none;
-            @include shadow(0 0 0 0.2rem $buttonFocusBorderShadow);
+            @include shadow(0 0 0 0.2rem $primaryButtonFocusBorderShadow);
         }
 
         &:enabled:active {
-            background-color: $buttonActiveBgColor;
-            border-color: $buttonActiveBorderColor;
+            background-color: $primaryButtonActiveBgColor;
+            border-color: $primaryButtonActiveBorderColor;
         }
 
         &:enabled:hover {
-            background-color: $buttonHoverBgColor;
-            border-color: $buttonHoverBorderColor;
+            background-color: $primaryButtonHoverBgColor;
+            border-color: $primaryButtonHoverBorderColor;
         }
 
-        &.ui-state-disabled, &:disabled {
+        &.ui-state-disabled, &:disabled { //???
             background-color: $primaryColor;
             @include opacity(.65);
         }
@@ -92,45 +96,45 @@ body {
         }
 
         &.secondary-btn {
-            color: #ffffff;
-            background-color: #6c757d;
-            border-color: #6c757d;
+            color: $secondaryButtonTextColor;
+            background-color: $secondaryButtonBgColor;
+            border-color: $secondaryButtonBorderColor;
 
             &:enabled:hover {
-                background-color: #5a6268;
-                border-color: #545b62;
+                background-color: $secondaryButtonHoverBgColor;
+                border-color: $secondaryButtonHoverBorderColor;
             }
 
             &:enabled:focus {
                 outline: 0 none;
-                @include shadow(0 0 0 0.2rem rgba(108,117,125,.5));
+                @include shadow(0 0 0 0.2rem $secondaryButtonFocusBorderShadow);
             }
 
             &:enabled:active {
-                background-color: #545b62;
-                border-color: #545b62;
+                background-color: $secondaryButtonActiveBgColor;
+                border-color: $secondaryButtonActiveBorderColor;
             }
         }
     }
 
     .ui-button.ui-state-default.ui-button-secondary, .ui-buttonset.ui-button-secondary > .ui-button.ui-state-default  {
-        color: #ffffff;
-        background-color: #6c757d;
-        border-color: #6c757d;
+        color: $secondaryButtonTextColor;
+        background-color: $secondaryButtonBgColor;
+        border-color: $secondaryButtonBorderColor;
 
         &:enabled:hover {
-            background-color: #5a6268;
-            border-color: #545b62;
+            background-color: $secondaryButtonHoverBgColor;
+            border-color: $secondaryButtonHoverBorderColor;
         }
 
         &:enabled:focus {
             outline: 0 none;
-            @include shadow(0 0 0 0.2rem rgba(108,117,125,.5));
+            @include shadow(0 0 0 0.2rem $secondaryButtonFocusBorderShadow);
         }
 
         &:enabled:active {
-            background-color: #545b62;
-            border-color: #545b62;
+            background-color: $secondaryButtonActiveBgColor;
+            border-color: $secondaryButtonActiveBorderColor;
         }
     }
 
@@ -139,22 +143,23 @@ body {
     .ui-splitbutton.success-btn > .ui-button,
     .ui-button.ui-state-default.ui-button-success,
     .ui-buttonset.ui-button-success > .ui-button.ui-state-default {
-        background-color: #28a745;
-        border-color: #28a745;
+        color: $successButtonTextColor;
+        background-color: $successButtonBgColor;
+        border-color: $successButtonBorderColor;
 
         &:enabled:hover {
-            background-color: #218838;
-            border-color: #1e7e34;
+            background-color: $successButtonHoverBgColor;
+            border-color: $successButtonHoverBorderColor;
         }
 
         &:enabled:focus {
             outline: 0 none;
-            @include shadow(0 0 0 0.2rem rgba(40,167,69,.5));
+            @include shadow(0 0 0 0.2rem $successButtonFocusBorderShadow);
         }
 
         &:enabled:active  {
-            background-color: #1e7e34;
-            border-color: #1c7430;
+            background-color: $successButtonActiveBgColor;
+            border-color: $successButtonActiveBorderColor;
         }
     }
 
@@ -163,22 +168,23 @@ body {
     .ui-splitbutton.info-btn > .ui-button,
     .ui-button.ui-state-default.ui-button-info,
     .ui-buttonset.ui-button-info > .ui-button.ui-state-default {
-        background-color: #17a2b8;
-        border-color: #17a2b8;
+        color: $infoButtonTextColor;
+        background-color: $infoButtonBgColor;
+        border-color: $infoButtonBorderColor;
 
         &:enabled:hover {
-            background-color: #138496;
-            border-color: #117a8b;
+            background-color: $infoButtonHoverBgColor;
+            border-color: $infoButtonHoverBorderColor;
         }
 
         &:enabled:focus {
             outline: 0 none;
-            @include shadow(0 0 0 0.2rem rgba(23,162,184,.5));
+            @include shadow(0 0 0 0.2rem $infoButtonFocusBorderShadow);
         }
 
         &:enabled:active  {
-            background-color: #117a8b;
-            border-color: #10707f;
+            background-color: $infoButtonActiveBgColor;
+            border-color: $infoButtonActiveBorderColor;
         }
     }
 
@@ -187,23 +193,23 @@ body {
     .ui-splitbutton.warning-btn > .ui-button,
     .ui-button.ui-state-default.ui-button-warning,
     .ui-buttonset.ui-button-warning > .ui-button.ui-state-default {
-        color: #212529;
-        background-color: #ffc107;
-        border-color: #ffc107;
+        color: $warningButtonTextColor;
+        background-color: $warningButtonBgColor;
+        border-color: $warningButtonBorderColor;
 
         &:enabled:hover {
-            background-color: #e0a800;
-            border-color: #d39e00;
+            background-color: $warningButtonHoverBgColor;
+            border-color: $warningButtonHoverBorderColor;
         }
 
         &:enabled:focus {
             outline: 0 none;
-            @include shadow(0 0 0 0.2rem rgba(255,193,7,.5));
+            @include shadow(0 0 0 0.2rem $warningButtonFocusBorderShadow);
         }
 
         &:enabled:active  {
-            background-color: #d39e00;
-            border-color: #c69500;
+            background-color: $warningButtonActiveBgColor;
+            border-color: $warningButtonActiveBorderColor;
         }
     }
 
@@ -212,22 +218,23 @@ body {
     .ui-splitbutton.danger-btn > .ui-button,
     .ui-button.ui-state-default.ui-button-danger,
     .ui-buttonset.ui-button-danger > .ui-button.ui-state-default {
-        background-color: #dc3545;
-        border-color: #dc3545;
+        color: $dangerButtonTextColor;
+        background-color: $dangerButtonBgColor;
+        border-color: $dangerButtonBorderColor;
 
         &:enabled:hover {
-            background-color: #c82333;
-            border-color: #bd2130;
+            background-color: $dangerButtonHoverBgColor;
+            border-color: $dangerButtonHoverBorderColor;
         }
 
         &:enabled:focus {
             outline: 0 none;
-            @include shadow(0 0 0 0.2rem rgba(220,53,69,.5));
+            @include shadow(0 0 0 0.2rem $dangerButtonFocusBorderShadow);
         }
 
         &:enabled:active  {
-            background-color: #bd2130;
-            border-color: #b21f2d;
+            background-color: $dangerButtonActiveBgColor;
+            border-color: $dangerButtonActiveBorderColor;
         }
     }
 
@@ -236,23 +243,23 @@ body {
     .ui-splitbutton.light-btn > .ui-button,
     .ui-button.ui-state-default.ui-button-light,
     .ui-buttonset.ui-button-light > .ui-button.ui-state-default  {
-        color: #212529;
-        background-color: #f8f9fa;
-        border-color: #f8f9fa;
+        color: $lightButtonTextColor;
+        background-color: $lightButtonBgColor;
+        border-color: $lightButtonBorderColor;
 
         &:enabled:hover {
-            background-color: #e2e6ea;
-            border-color: #dae0e5;
+            background-color: $lightButtonHoverBgColor;
+            border-color: $lightButtonHoverBorderColor;
         }
 
         &:enabled:focus {
             outline: 0 none;
-            @include shadow(0 0 0 0.2rem rgba(248,249,250,.5));
+            @include shadow(0 0 0 0.2rem $lightButtonFocusBorderShadow);
         }
 
         &:enabled:active  {
-            background-color: #dae0e5;
-            border-color: #d3d9df;
+            background-color: $lightButtonActiveBgColor;
+            border-color: $lightButtonActiveBorderColor;
         }
     }
 
@@ -261,23 +268,28 @@ body {
     .ui-splitbutton.dark-btn > .ui-button,
     .ui-button.ui-state-default.ui-button-dark,
     .ui-buttonset.ui-button-dark > .ui-button.ui-state-default {
-        background-color: #343a40;
-        border-color: #343a40;
+        color: $darkButtonTextColor;
+        background-color: $darkButtonBgColor;
+        border-color: $darkButtonBorderColor;
 
         &:enabled:hover {
-            background-color: #23272b;
-            border-color: #1d2124;
+            background-color: $darkButtonHoverBgColor;
+            border-color: $darkButtonHoverBorderColor;
         }
 
         &:enabled:focus {
             outline: 0 none;
-            @include shadow(0 0 0 0.2rem rgba(52,58,64,.5));
+            @include shadow(0 0 0 0.2rem $darkButtonFocusBorderShadow);
         }
 
         &:enabled:active  {
-            background-color: #1d2124;
-            border-color: #171a1d;
+            background-color: $darkButtonActiveBgColor;
+            border-color: $darkButtonActiveBorderColor;
         }
+    }
+
+    .ui-button-rounded {
+        @include border-radius($roundedButtonBorderRadius);
     }
 
 
@@ -310,6 +322,7 @@ body {
             &.ui-state-focus {
                 color: $primaryColor;
                 @include focused-input();
+                @include no-shadow();
             }
 
             &.ui-state-active {
@@ -323,7 +336,7 @@ body {
                 }
             }
 
-            &.ui-state-disabled {
+            &.ui-state-disabled { //???
                 background-color: $disabledBgColor;
                 border-color: $inputBorderColor;
                 color: $textSecondaryColor;
@@ -333,10 +346,7 @@ body {
                 display: inline-block;
                 margin-top: 1px;
                 margin-left: 1px;
-
-                &.ui-icon-check {
-                    font-size: $fontSize + 2;
-                }
+                font-size: $fontSize + 2;
             }
         }
     }
@@ -351,8 +361,7 @@ body {
             display: inline-block;
 
             &:not(.ui-state-disabled).ui-state-focus {
-                border: 1px solid $primaryColor;
-                @include border-shadow();
+                @include focused-input();
             }
 
             .ui-chips-input-token {
@@ -361,6 +370,7 @@ body {
 
                 input {
                     font-family: $fontFamily;
+					color: $inputTextColor;
                     font-size: $fontSize;
                     padding: 0;
                     margin: 0;
@@ -371,7 +381,6 @@ body {
 
                     &:focus {
                         border: 0 none;
-                        @include no-shadow();
                     }
                 }
             }
@@ -405,18 +414,20 @@ body {
                 border: 1px solid $inputHoverBorderColor;
             }
 
-            &.ui-state-active {
-                border: 1px solid $primaryColor;
+            &.ui-state-focus {
+                @include focused-input();
+                @include no-shadow();
 
-                .ui-radiobutton-icon {
+                .ui-radiobutton-icon.ui-icon-bullet {
                     background-color: $primaryColor;
                 }
             }
 
-            &.ui-state-focus {
-                @include focused-input();
+            &.ui-state-active {
+                border: 1px solid $primaryColor;
+                @include no-shadow();
 
-                .ui-radiobutton-icon.ui-icon-bullet {
+                .ui-radiobutton-icon {
                     background-color: $primaryColor;
                 }
             }
@@ -436,7 +447,7 @@ body {
                 }
             }
 
-            &.ui-state-disabled {
+            &.ui-state-disabled { //???
                 background-color: $disabledBgColor;
                 border-color: $inputBorderColor;
 
@@ -454,81 +465,63 @@ body {
     }
 
     .ui-inputswitch {
-        height: 2em;
+		height: 24px;
+		width: 3.5em;
         @include transition(background-color $transitionDuration, border-color $transitionDuration, box-shadow $transitionDuration);
 
         .ui-inputswitch-slider {
-            background-color: #ffffff;
-            color: #ffffff;
-            border: 1px solid $contentBorderColor;
+			background-color:$toggleButtonBgColor;
+			color: $textColor;
+			border: 1px solid $toggleButtonBorderColor;
             @include border-radius(4px);
             @include transition(background-color .3s);
 
             &:before {
-                background-color: #a8acb1;
+                background-color: $contentBgColor;
                 border: 1px solid transparent;
-                height: 1.7em;
-                width: 1.429em;
+                height: 1.429em;
+                width: calc(3em / 2);
                 left: 0;
                 bottom: 0;
                 border-radius: 0;
-                border-bottom-left-radius: 3px;
-                -webkit-border-bottom-left-radius: 3px;
-                -moz-border-radius-bottomleft: 3px;
-                border-top-left-radius: 3px;
-                -webkit-border-top-left-radius: 3px;
-                -moz-border-radius-topleft: 3px;
-                -webkit-transition: $transitionDuration;
-                transition: $transitionDuration;
+                @include border-radius-left(3px);
+                @include transition(.3s);
             }
         }
 
         &.ui-inputswitch-checked {
             .ui-inputswitch-slider:before {
-                -webkit-transform: translateX(1.28em);
-                -ms-transform: translateX(1.28em);
-                transform: translateX(1.28em);
+                @include translateX(calc(2em - 4px));
+                @include translateXForIE(2em, -4px);
             }
         }
 
         &.ui-inputswitch-focus {
             .ui-inputswitch-slider {
                 @include focused-input();
-                background-color: $inputBgColor;
-            }
-        }
-
-        &:not(.ui-state-disabled):hover {
-            .ui-inputswitch-slider {
-                background-color: $inputBgColor;
             }
         }
 
         &.ui-inputswitch-checked {
             .ui-inputswitch-slider {
-                background-color: $inputBgColor;
+				background-color: $primaryColor;
+				color: $highlightTextColor;
 
                 &:before {
-                    background-color: $highlightBgColor;
                     border-radius: 0;
-                    border-bottom-right-radius: 3px;
-                    -webkit-border-bottom-right-radius: 3px;
-                    -moz-border-radius-bottomright: 3px;
-                    border-top-right-radius: 3px;
-                    -webkit-border-top-right-radius: 3px;
-                    -moz-border-radius-topright: 3px;
+                    @include border-radius-right(3px);
                 }
             }
 
             &:not(.ui-state-disabled):hover {
                 .ui-inputswitch-slider {
-                    background-color: $inputBgColor;
+					background-color: $primaryColor;
                 }
             }
 
             &.ui-inputswitch-focus {
                 .ui-inputswitch-slider {
-                    background-color: $inputBgColor;
+					background-color: $primaryColor;
                 }
             }
         }
@@ -539,7 +532,6 @@ body {
             width: 2em;
             padding: .06em;
             border-left: 0 none;
-            @include input-shadow-vertical();
 
             &:enabled:focus {
                 outline: 0 none;
@@ -555,7 +547,6 @@ body {
         &.ui-autocomplete-multiple {
             .ui-autocomplete-multiple-container {
                 padding: 0.286em 0.857em;
-                @include input-shadow-vertical();
 
                 &:not(.ui-state-disabled).ui-state-focus {
                     @include focused-input();
@@ -601,6 +592,7 @@ body {
             .ui-autocomplete-list-item {
                 margin: 0;
                 padding: $listItemPadding;
+				line-height: 1;
                 @include border-radius(0);
             }
 
@@ -656,7 +648,6 @@ body {
             line-height: 2em;
             text-align: center;
             padding: 0;
-            @include input-shadow-vertical();
 
             .pi-caret-down {
                 color: $textColor;
@@ -701,7 +692,7 @@ body {
         }
 
         .ui-dropdown-items {
-            padding: 0.357em 0;
+			padding: $listPadding;
 
             .ui-dropdown-item {
                 margin: 0;
@@ -734,19 +725,17 @@ body {
         .ui-multiselect-trigger {
             width: 2em;
             line-height: 2em;
-            box-sizing: border-box;
             padding: 0;
             text-align: center;
             @include box-sizing(border-box);
 
             .pi {
-                color: $textSecondaryColor;
+                color: $textColor;
             }
         }
 
         &:not(.ui-state-disabled).ui-state-focus {
-            border: 1px solid $primaryColor;
-            @include border-shadow();
+			@include focused-input();
 
             .ui-multiselect-trigger {
                 .pi {
@@ -755,7 +744,7 @@ body {
             }
         }
 
-        &.ui-state-disabled {
+        &.ui-state-disabled { //???
             > * {
                 @include disabled-input();
             }
@@ -769,11 +758,13 @@ body {
         @include overlay();
 
         .ui-multiselect-header {
-            padding: $listItemPadding;
+            padding: $headerPadding;
+			padding-left: 20px;
+			padding-right: 20px;
             border: 0 none;
             border-bottom: 1px solid $headerBorderColor;
-            margin-bottom: 0 none;
-            @include border-radius-bottom(0);
+            margin-bottom: 0;
+			@include border-radius(0);
 
             .ui-multiselect-filter-container {
                 float: none;
@@ -803,7 +794,7 @@ body {
 
                 .ui-chkbox-box {
                     &.ui-state-active {
-                        border-color: $highlightTextColor;
+                        border-color: $headerIconColor;
                     }
                 }
             }
@@ -844,14 +835,9 @@ body {
                     margin-top: 0;
                     display: inline-block;
                     vertical-align: middle;
-                    .ui-chkbox-box {
-                        &.ui-state-active {
-                            border-color: $highlightTextColor;
-                        }
-                    }
                 }
 
-                label {
+                > span {
                     padding: 0;
                     margin: 0 0 0 0.615em;
                     display: inline-block;
@@ -874,13 +860,7 @@ body {
         }
 
         .ui-chkbox {
-            margin-right: .2em;
-
-            .ui-chkbox-box {
-                &.ui-state-active {
-                    border-color: $highlightTextColor;
-                }
-            }
+            margin-right: 0.615em;
         }
 
         .ui-listbox-header {
@@ -922,7 +902,7 @@ body {
             @include border-radius(0);
 
             &.ui-state-highlight {
-                @include list-item-highlight();
+				@include highlight();
             }
 
             > td {
@@ -938,7 +918,7 @@ body {
             }
         }
 
-        &.ui-state-disabled {
+        &.ui-state-disabled { //???
             .ui-chkbox-box {
                 background-color: $disabledBgColor;
                 border-color: $inputBorderColor;
@@ -975,15 +955,15 @@ body {
             }
 
             .pi {
-                font-size: 20px;
-                height: 20px;
-                width: 20px;
+                font-size: 25px;
+                height: 25px;
+                width: 25px;
 
                 &.pi-ban {
-                    color: $pink;
+                    color: $ratingStarColor;
 
                     &:hover {
-                        color: lighten($pink,5%);
+                        color: lighten($ratingStarColor,5%);
                     }
                 }
             }
@@ -1074,7 +1054,7 @@ body {
             }
         }
 
-        &.ui-state-disabled {
+        &.ui-state-disabled { //???
             .ui-slider-handle {
                 background-color: $disabledBgColor;
             }
@@ -1108,7 +1088,7 @@ body {
             }
         }
 
-        &.ui-state-disabled {
+        &.ui-state-disabled { //???
             background-color: $toggleButtonBgColor;
             @include opacity(.65);
 
@@ -1172,8 +1152,11 @@ body {
         @include border-radius($borderRadius);
 
         .ui-button {
-            border: 1px solid transparent;
-        }
+			color: $primaryButtonTextColor;
+			background-color: $primaryButtonBgColor;
+			border: 1px solid $primaryButtonBorderColor;
+			@include transition(background-color $transitionDuration,box-shadow $transitionDuration);
+		}
 
         .ui-menu {
             width: 100%;
@@ -1219,23 +1202,28 @@ body {
             }
         }
 
+        .ui-datepicker-group {
+            @include border-radius(4px);
+        }
+
         .ui-datepicker-header {
             padding: $headerPadding;
             border-top: 0;
             border-left: 0;
             border-right: 0;
             @include border-radius(0);
+			@include border-radius-top($borderRadius);
 
             .ui-datepicker-prev {
                 cursor: pointer;
-                top: 1.2em;
+                top: 0.714em;
                 color: $headerIconColor;
                 @include transition(color $transitionDuration);
             }
 
             .ui-datepicker-next {
                 cursor: pointer;
-                top: 1.2em;
+                top: 0.714em;
                 color: $headerIconColor;
                 @include transition(color $transitionDuration);
             }
@@ -1254,6 +1242,7 @@ body {
                     color: $textColor;
                     padding: .35em;
                     @include border-radius($borderRadius);
+					@include transition(box-shadow $transitionDuration);
                 }
 
                 > a {
@@ -1264,20 +1253,28 @@ body {
                     }
 
                     &.ui-state-active {
-                        color: $primaryTextColor;
-                        background-color: $highlightBgColor;
+						color: $highlightTextColor;
+						background-color: $highlightBgColor;
                     }
 
                     &.ui-state-highlight {
-                        color: $textColor;
-                        background-color: $dividerColor;
+						color: $highlightTextColor;
+						background-color: $highlightBgColor;
                     }
+					&:focus {
+						@include focused-input();
+					}
                 }
 
                 &.ui-datepicker-today {
                     a {
                         background-color: $dividerColor;
                         color: $textColor;
+
+                        &.ui-state-active {
+                            color: $highlightTextColor;
+                            background-color: $highlightBgColor;
+                        }
                     }
                 }
             }
@@ -1285,7 +1282,7 @@ body {
 
         .ui-timepicker {
             border: 0 none;
-            border-top: 1px solid $headerBorderColor;
+            border-top: 1px solid $contentBorderColor;
 
             a {
                 color: $headerIconColor;
@@ -1301,8 +1298,8 @@ body {
                 color: $textColor;
 
                 &.ui-state-active {
-                    color: $primaryTextColor;
-                    background-color: $highlightBgColor;
+					color: $primaryTextColor;
+					background-color: $primaryColor;
                 }
             }
         }
@@ -1310,7 +1307,7 @@ body {
         &.ui-datepicker-multiple-month {
             width: auto;
             .ui-datepicker-group {
-                border-right: 1px solid $dividerColor;
+                border-right: 1px solid $contentBorderColor;
                 padding-top: 0;
                 padding-bottom: 0;
 
@@ -1398,7 +1395,7 @@ body {
 
     .ui-inputgroup {
         .ui-inputgroup-addon {
-            border-color: $inputBorderColor;
+            border-color: $inputGroupBorderColor;
             background-color: $inputGroupBgColor;
             padding: $inputPadding;
 
@@ -1454,7 +1451,7 @@ body {
     p-spinner.ng-dirty.ng-invalid > .ui-inputtext,
     p-selectbutton.ng-dirty.ng-invalid .ui-button,
     p-togglebutton.ng-dirty.ng-invalid .ui-button {
-        border-color: $inputInvalidBorderColor;
+        border-color: $errorColor;
     }
 
 }

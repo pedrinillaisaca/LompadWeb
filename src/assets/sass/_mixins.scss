@@ -10,7 +10,7 @@
     border-top-right-radius: $val;
     -moz-border-radius-bottomright: $val;
     -webkit-border-bottom-right-radius: $val;
-    border-bottom-right-radius: $val; 
+    border-bottom-right-radius: $val;
 }
 
 @mixin border-radius-left($val) {
@@ -102,7 +102,7 @@
 }
 
 @mixin overlay-shadow {
-    
+
 }
 
 @mixin no-shadow() {
@@ -143,30 +143,13 @@
   filter: alpha(opacity=$opacity-ie);
 }
 
-// Icon Override Mixin
-@mixin icon-override($icon) {
-    background: none;
-    display: inline-block;
-    font: normal normal normal 14px/1 FontAwesome;
-    font-size: inherit;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-indent: 0px !important;
-    text-align: center;
-
-    &:before {
-        content: $icon;
-    }
-}
-
 @mixin border-box-sizing() {
-  -webkit-box-sizing: border-box; 
+  -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
           box-sizing: border-box;
 }
 
-@mixin rotate($deg) {    
+@mixin rotate($deg) {
     -webkit-transform: rotate($deg);
     -moz-transform: rotate($deg);
     -o-transform: rotate($deg);
@@ -174,7 +157,7 @@
     transform: rotate($deg);
 }
 
-@mixin scale($deg) {    
+@mixin scale($deg) {
     -webkit-transform: scale($deg);
     -moz-transform: scale($deg);
     -o-transform: scale($deg);
@@ -203,26 +186,26 @@
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
   -ms-flex-direction: row;
-  flex-direction: row; 
+  flex-direction: row;
 }
 
 @mixin flex-direction-column() {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
-  flex-direction: column; 
+  flex-direction: column;
 }
 
 @mixin flex-justify-center() {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
-  justify-content: center; 
+  justify-content: center;
 }
 
 @mixin flex-justify-between() {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
-  justify-content: space-between; 
+  justify-content: space-between;
 }
 
 @mixin flex-align-center() {

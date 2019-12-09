@@ -1,9 +1,10 @@
-import {Component, OnInit} from '@angular/core';
-import {CarService} from '../service/carservice';
-import {CountryService} from '../service/countryservice';
-import {NodeService} from '../service/nodeservice';
-import {Car} from '../domain/car';
-import {SelectItem, MenuItem, TreeNode} from 'primeng/primeng';
+import { Component, OnInit } from '@angular/core';
+import { CarService } from '../service/carservice';
+import { CountryService } from '../service/countryservice';
+import { NodeService } from '../service/nodeservice';
+import { Car } from '../domain/car';
+import { SelectItem, MenuItem, TreeNode } from 'primeng/primeng';
+import { BreadcrumbService } from '../../breadcrumb.service';
 
 @Component({
     templateUrl: './sampledemo.component.html'
@@ -64,7 +65,13 @@ export class SampleDemoComponent implements OnInit {
 
     selectedType: string;
 
-    constructor(private carService: CarService, private countryService: CountryService, private nodeService: NodeService) { }
+    constructor(private carService: CarService, private countryService: CountryService, private nodeService: NodeService,
+                private breadcrumbService: BreadcrumbService) {
+        this.breadcrumbService.setItems([
+            { label: 'Components' },
+            { label: 'Sample', routerLink: ['/sample'] }
+        ]);
+    }
 
     ngOnInit() {
         this.carService.getCarsSmall().then(cars => this.cars = cars);
@@ -81,87 +88,87 @@ export class SampleDemoComponent implements OnInit {
         this.carService.getCarsSmall().then(cars => this.orderListCars = cars);
 
         this.cities1 = [];
-        this.cities1.push({label: 'Select City', value: null});
-        this.cities1.push({label: 'New York', value: {id: 1, name: 'New York', code: 'NY'}});
-        this.cities1.push({label: 'Rome', value: {id: 2, name: 'Rome', code: 'RM'}});
-        this.cities1.push({label: 'London', value: {id: 3, name: 'London', code: 'LDN'}});
-        this.cities1.push({label: 'Istanbul', value: {id: 4, name: 'Istanbul', code: 'IST'}});
-        this.cities1.push({label: 'Paris', value: {id: 5, name: 'Paris', code: 'PRS'}});
+        this.cities1.push({ label: 'Select City', value: null });
+        this.cities1.push({ label: 'New York', value: { id: 1, name: 'New York', code: 'NY' } });
+        this.cities1.push({ label: 'Rome', value: { id: 2, name: 'Rome', code: 'RM' } });
+        this.cities1.push({ label: 'London', value: { id: 3, name: 'London', code: 'LDN' } });
+        this.cities1.push({ label: 'Istanbul', value: { id: 4, name: 'Istanbul', code: 'IST' } });
+        this.cities1.push({ label: 'Paris', value: { id: 5, name: 'Paris', code: 'PRS' } });
 
         this.cities2 = this.cities1.slice(1, 6);
 
         this.splitButtonItems = [
-            {label: 'Update', icon: 'fa fa-fw fa-refresh'},
-            {label: 'Delete', icon: 'fa fa-fw fa-close'},
-            {label: 'Home', icon: 'fa fa-fw fa-home', url: 'http://www.primefaces.org/primeng'}
+            { label: 'Update', icon: 'pi pi-fw pi-refresh' },
+            { label: 'Delete', icon: 'pi pi-fw pi-times' },
+            { label: 'Home', icon: 'pi pi-fw pi-home', url: 'http://www.primefaces.org/primeng' }
         ];
 
         this.carOptions = [];
-        this.carOptions.push({label: 'Audi', value: 'Audi'});
-        this.carOptions.push({label: 'BMW', value: 'BMW'});
-        this.carOptions.push({label: 'Fiat', value: 'Fiat'});
-        this.carOptions.push({label: 'Ford', value: 'Ford'});
-        this.carOptions.push({label: 'Honda', value: 'Honda'});
-        this.carOptions.push({label: 'Jaguar', value: 'Jaguar'});
-        this.carOptions.push({label: 'Mercedes', value: 'Mercedes'});
-        this.carOptions.push({label: 'Renault', value: 'Renault'});
-        this.carOptions.push({label: 'VW', value: 'VW'});
-        this.carOptions.push({label: 'Volvo', value: 'Volvo'});
+        this.carOptions.push({ label: 'Audi', value: 'Audi' });
+        this.carOptions.push({ label: 'BMW', value: 'BMW' });
+        this.carOptions.push({ label: 'Fiat', value: 'Fiat' });
+        this.carOptions.push({ label: 'Ford', value: 'Ford' });
+        this.carOptions.push({ label: 'Honda', value: 'Honda' });
+        this.carOptions.push({ label: 'Jaguar', value: 'Jaguar' });
+        this.carOptions.push({ label: 'Mercedes', value: 'Mercedes' });
+        this.carOptions.push({ label: 'Renault', value: 'Renault' });
+        this.carOptions.push({ label: 'Volkswagen', value: 'Volkswagen' });
+        this.carOptions.push({ label: 'Volvo', value: 'Volvo' });
 
         this.types = [];
-        this.types.push({label: 'Apartment', value: 'Apartment'});
-        this.types.push({label: 'House', value: 'House'});
-        this.types.push({label: 'Studio', value: 'Studio'});
+        this.types.push({ label: 'Apartment', value: 'Apartment' });
+        this.types.push({ label: 'House', value: 'House' });
+        this.types.push({ label: 'Studio', value: 'Studio' });
 
         this.menuItems = [{
             label: 'File',
             items: [
-                {label: 'New', icon: 'fa fa-fw fa-plus'},
-                {label: 'Open', icon: 'fa fa-fw fa-download'}
+                { label: 'New', icon: 'pi pi-fw pi-plus' },
+                { label: 'Open', icon: 'pi pi-fw pi-download' }
             ]
         },
-            {
-                label: 'Edit',
-                items: [
-                    {label: 'Undo', icon: 'fa fa-fw fa-refresh'},
-                    {label: 'Redo', icon: 'fa fa-fw fa-repeat'}
-                ]
+        {
+            label: 'Edit',
+            items: [
+                { label: 'Undo', icon: 'pi pi-fw pi-refresh' },
+                { label: 'Redo', icon: 'pi pi-fw pi-refresh' }
+            ]
         }];
 
         this.panelMenuItems = [
             {
                 label: 'File',
-                icon: 'fa fa-fw fa-file-o',
+                icon: 'pi pi-fw pi-file',
                 items: [{
                     label: 'New',
-                    icon: 'fa fa-fw fa-plus',
+                    icon: 'pi pi-fw pi-plus',
                     items: [
-                        {label: 'Project'},
-                        {label: 'Other'},
+                        { label: 'Project' },
+                        { label: 'Other' },
                     ]
                 },
-                    {label: 'Open'},
-                    {label: 'Quit'}
+                    { label: 'Open' },
+                    { label: 'Quit' }
                 ]
             },
             {
                 label: 'Edit',
-                icon: 'fa fa-fw fa-edit',
+                icon: 'pi pi-fw pi-pencil',
                 items: [
-                    {label: 'Undo', icon: 'fa fa-fw fa-mail-forward'},
-                    {label: 'Redo', icon: 'fa fa-fw fa-mail-reply'}
+                    { label: 'Undo', icon: 'pi pi-fw pi-step-backward' },
+                    { label: 'Redo', icon: 'pi pi-fw pi-step-forward' }
                 ]
             },
             {
                 label: 'Help',
-                icon: 'fa fa-fw fa-question',
+                icon: 'pi pi-fw pi-question',
                 items: [
                     {
                         label: 'Contents'
                     },
                     {
                         label: 'Search',
-                        icon: 'fa fa-fw fa-search',
+                        icon: 'pi pi-fw pi-search',
                         items: [
                             {
                                 label: 'Text',
@@ -174,26 +181,27 @@ export class SampleDemoComponent implements OnInit {
                             {
                                 label: 'File'
                             }
-                        ]}
+                        ]
+                    }
                 ]
             },
             {
                 label: 'Actions',
-                icon: 'fa fa-fw fa-gear',
+                icon: 'pi pi-fw pi-cog',
                 items: [
                     {
                         label: 'Edit',
-                        icon: 'fa fa-fw fa-refresh',
+                        icon: 'pi pi-fw pi-refresh',
                         items: [
-                            {label: 'Save', icon: 'fa fa-fw fa-save'},
-                            {label: 'Update', icon: 'fa fa-fw fa-save'},
+                            { label: 'Save', icon: 'pi pi-fw pi-save' },
+                            { label: 'Update', icon: 'pi pi-fw pi-save' },
                         ]
                     },
                     {
                         label: 'Other',
-                        icon: 'fa fa-fw fa-phone',
+                        icon: 'pi pi-fw pi-phone',
                         items: [
-                            {label: 'Delete', icon: 'fa fa-fw fa-minus'}
+                            { label: 'Delete', icon: 'pi pi-fw pi-minus' }
                         ]
                     }
                 ]
@@ -201,15 +209,15 @@ export class SampleDemoComponent implements OnInit {
         ];
 
         this.carouselCars = [
-            {vin: 'r3278r2', year: 2010, brand: 'Audi', color: 'Black'},
-            {vin: 'jhto2g2', year: 2015, brand: 'BMW', color: 'White'},
-            {vin: 'h453w54', year: 2012, brand: 'Honda', color: 'Blue'},
-            {vin: 'g43gwwg', year: 1998, brand: 'Renault', color: 'White'},
-            {vin: 'gf45wg5', year: 2011, brand: 'VW', color: 'Red'},
-            {vin: 'bhv5y5w', year: 2015, brand: 'Jaguar', color: 'Blue'},
-            {vin: 'ybw5fsd', year: 2012, brand: 'Ford', color: 'Yellow'},
-            {vin: '45665e5', year: 2011, brand: 'Mercedes', color: 'Brown'},
-            {vin: 'he6sb5v', year: 2015, brand: 'Ford', color: 'Black'}
+            { vin: 'r3278r2', year: 2010, brand: 'Audi', color: 'Black' },
+            { vin: 'jhto2g2', year: 2015, brand: 'BMW', color: 'White' },
+            { vin: 'h453w54', year: 2012, brand: 'Honda', color: 'Blue' },
+            { vin: 'g43gwwg', year: 1998, brand: 'Renault', color: 'White' },
+            { vin: 'gf45wg5', year: 2011, brand: 'Volkswagen', color: 'Red' },
+            { vin: 'bhv5y5w', year: 2015, brand: 'Jaguar', color: 'Blue' },
+            { vin: 'ybw5fsd', year: 2012, brand: 'Ford', color: 'Yellow' },
+            { vin: '45665e5', year: 2011, brand: 'Mercedes', color: 'Brown' },
+            { vin: 'he6sb5v', year: 2015, brand: 'Ford', color: 'Black' }
         ];
     }
 
@@ -221,8 +229,8 @@ export class SampleDemoComponent implements OnInit {
     }
 
     searchCountry(query, countries: any[]): any[] {
-        // in a real application, make a request to a remote url with the query and
-        // return filtered results, for demo we filter at client side
+        // in a real application, make a request to a remote url with the query and return filtered results,
+        // for demo we filter at client side
         const filtered: any[] = [];
         for (const item of countries) {
             const country = item;

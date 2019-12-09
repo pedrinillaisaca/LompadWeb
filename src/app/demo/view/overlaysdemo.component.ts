@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {Car} from '../domain/car';
-import {CarService} from '../service/carservice';
-import {ConfirmationService} from 'primeng/primeng';
+import { Component, OnInit } from '@angular/core';
+import { Car } from '../domain/car';
+import { CarService } from '../service/carservice';
+import { ConfirmationService } from 'primeng/primeng';
+import { BreadcrumbService } from '../../breadcrumb.service';
 
 @Component({
     templateUrl: './overlaysdemo.component.html',
@@ -17,7 +18,13 @@ export class OverlaysDemoComponent implements OnInit {
 
     display: boolean;
 
-    constructor(private carService: CarService, private confirmationService: ConfirmationService) { }
+    constructor(private carService: CarService, private confirmationService: ConfirmationService,
+                private breadcrumbService: BreadcrumbService) {
+        this.breadcrumbService.setItems([
+            { label: 'Components' },
+            { label: 'Overlays', routerLink: ['/overlays'] }
+        ]);
+    }
 
     ngOnInit() {
         this.carService.getCarsSmall().then(cars => this.cars = cars.splice(0, 5));
@@ -29,16 +36,23 @@ export class OverlaysDemoComponent implements OnInit {
             { field: 'color', header: 'Color' }
         ];
 
-
         this.images = [];
-        this.images.push({source: 'assets/demo/images/sopranos/sopranos1.jpg',
-            thumbnail: 'assets/demo/images/sopranos/sopranos1_small.jpg', title: 'Nature 1'});
-        this.images.push({source: 'assets/demo/images/sopranos/sopranos2.jpg',
-            thumbnail: 'assets/demo/images/sopranos/sopranos2_small.jpg', title: 'Nature 2'});
-        this.images.push({source: 'assets/demo/images/sopranos/sopranos3.jpg',
-            thumbnail: 'assets/demo/images/sopranos/sopranos3_small.jpg', title: 'Nature 3'});
-        this.images.push({source: 'assets/demo/images/sopranos/sopranos4.jpg',
-            thumbnail: 'assets/demo/images/sopranos/sopranos4_small.jpg', title: 'Nature 4'});
+        this.images.push({
+            source: 'assets/demo/images/sopranos/sopranos1.jpg',
+            thumbnail: 'assets/demo/images/sopranos/sopranos1_small.jpg', title: 'Sopranos 1'
+        });
+        this.images.push({
+            source: 'assets/demo/images/sopranos/sopranos2.jpg',
+            thumbnail: 'assets/demo/images/sopranos/sopranos2_small.jpg', title: 'Sopranos 2'
+        });
+        this.images.push({
+            source: 'assets/demo/images/sopranos/sopranos3.jpg',
+            thumbnail: 'assets/demo/images/sopranos/sopranos3_small.jpg', title: 'Sopranos 3'
+        });
+        this.images.push({
+            source: 'assets/demo/images/sopranos/sopranos4.jpg',
+            thumbnail: 'assets/demo/images/sopranos/sopranos4_small.jpg', title: 'Sopranos 4'
+        });
     }
 
     confirm() {

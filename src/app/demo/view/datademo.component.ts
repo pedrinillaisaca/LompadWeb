@@ -1,17 +1,21 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { CarService } from '../service/carservice';
+import { NodeService } from '../service/nodeservice';
+import { EventService } from '../service/eventservice';
+import { Car } from '../domain/car';
+import { TreeNode, SelectItem, LazyLoadEvent } from 'primeng/api';
+import { BreadcrumbService } from '../../breadcrumb.service';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
-import {CarService} from '../service/carservice';
-import {NodeService} from '../service/nodeservice';
-import {EventService} from '../service/eventservice';
-import {Car} from '../domain/car';
-import {TreeNode, SelectItem, LazyLoadEvent} from 'primeng/primeng';
-import {BreadcrumbService} from '../../breadcrumb.service';
 
 @Component({
     templateUrl: './datademo.component.html',
     styles: [`
+        .ui-dataview .search-icon {
+            margin-top: 3em;
+        }
+
         .ui-dataview .filter-container {
             text-align: center;
         }
@@ -26,9 +30,8 @@ import {BreadcrumbService} from '../../breadcrumb.service';
                 text-align: left;
             }
         }
-
         .car-item {
-            padding-top: 5px;
+             padding-top: 5px;
         }
 
         .car-item .ui-md-3 {
@@ -138,7 +141,7 @@ export class DataDemoComponent implements OnInit {
 
     selectedNodes: TreeNode[];
 
-    fullcalendarOptions: any;
+    scheduleHeader: any;
 
     sortOptions: SelectItem[];
 
@@ -148,13 +151,15 @@ export class DataDemoComponent implements OnInit {
 
     sortOrder: number;
 
+    fullCalendarOptions: any;
+
     timeout: any;
-    
+
     constructor(private carService: CarService, private eventService: EventService, private nodeService: NodeService,
                 private breadcrumbService: BreadcrumbService) {
         this.breadcrumbService.setItems([
-            {label: 'Components'},
-            {label: 'Data Components', routerLink: ['/data']}
+            { label: 'Components' },
+            { label: 'Data', routerLink: ['/data'] }
         ]);
     }
 
@@ -180,26 +185,27 @@ export class DataDemoComponent implements OnInit {
         this.nodeService.getFiles().then(files => this.files2 = files);
         this.nodeService.getFiles().then(files => this.files3 = files);
         this.nodeService.getFilesystem().then(files => this.files4 = files);
-        this.eventService.getEvents().then(events => {this.events = events; });
+        this.eventService.getEvents().then(events => { this.events = events; });
 
         this.carouselCars = [
-            {vin: 'r3278r2', year: 2010, brand: 'Audi', color: 'Black'},
-            {vin: 'jhto2g2', year: 2015, brand: 'BMW', color: 'White'},
-            {vin: 'h453w54', year: 2012, brand: 'Honda', color: 'Blue'},
-            {vin: 'g43gwwg', year: 1998, brand: 'Renault', color: 'White'},
-            {vin: 'gf45wg5', year: 2011, brand: 'VW', color: 'Red'},
-            {vin: 'bhv5y5w', year: 2015, brand: 'Jaguar', color: 'Blue'},
-            {vin: 'ybw5fsd', year: 2012, brand: 'Ford', color: 'Yellow'},
-            {vin: '45665e5', year: 2011, brand: 'Mercedes', color: 'Brown'},
-            {vin: 'he6sb5v', year: 2015, brand: 'Ford', color: 'Black'}
+            { vin: 'r3278r2', year: 2010, brand: 'Audi', color: 'Black' },
+            { vin: 'jhto2g2', year: 2015, brand: 'BMW', color: 'White' },
+            { vin: 'h453w54', year: 2012, brand: 'Honda', color: 'Blue' },
+            { vin: 'g43gwwg', year: 1998, brand: 'Renault', color: 'White' },
+            { vin: 'gf45wg5', year: 2011, brand: 'Volkswagen', color: 'Red' },
+            { vin: 'bhv5y5w', year: 2015, brand: 'Jaguar', color: 'Blue' },
+            { vin: 'ybw5fsd', year: 2012, brand: 'Ford', color: 'Yellow' },
+            { vin: '45665e5', year: 2011, brand: 'Mercedes', color: 'Brown' },
+            { vin: 'he6sb5v', year: 2015, brand: 'Ford', color: 'Black' }
         ];
 
-        this.fullcalendarOptions = {
+        this.fullCalendarOptions = {
             plugins: [ dayGridPlugin, timeGridPlugin, interactionPlugin ],
             defaultDate: '2016-01-12',
             header: {
-                right: 'prev,next, today',
-                left: 'title'
+                left: 'prev,next today',
+                center: 'title',
+                right: 'dayGridMonth,timeGridWeek,timeGridDay'
             }
         };
 

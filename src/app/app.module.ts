@@ -100,7 +100,6 @@ import {MiscDemoComponent} from './demo/view/miscdemo.component';
 import {EmptyDemoComponent} from './demo/view/emptydemo.component';
 import {ChartsDemoComponent} from './demo/view/chartsdemo.component';
 import {FileDemoComponent} from './demo/view/filedemo.component';
-import {UtilsDemoComponent} from './demo/view/utilsdemo.component';
 import {DocumentationComponent} from './demo/view/documentation.component';
 
 import {CarService} from './demo/service/carservice';
@@ -206,7 +205,6 @@ import {BreadcrumbService} from './breadcrumb.service';
         ChartsDemoComponent,
         EmptyDemoComponent,
         FileDemoComponent,
-        UtilsDemoComponent,
         DocumentationComponent,
         AppNotfoundComponent,
         AppErrorComponent,
