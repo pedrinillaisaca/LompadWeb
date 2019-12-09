@@ -72,6 +72,39 @@ import interactionPlugin from '@fullcalendar/interaction';
             text-align: left;
         }
 
+		.ui-carousel .ui-carousel-content .ui-carousel-item .car-details > .p-grid {
+			border: 1px solid #b3c2ca;
+			border-radius: 3px;
+			margin: 0.3em;
+			text-align: center;
+			padding: 2em 0 2.25em 0;
+		}
+		.ui-carousel .ui-carousel-content .ui-carousel-item .car-data .car-title {
+			font-weight: 700;
+			font-size: 20px;
+			margin-top: 24px;
+		}
+		.ui-carousel .ui-carousel-content .ui-carousel-item .car-data .car-subtitle {
+			margin: 0.25em 0 2em 0;
+		}
+		.ui-carousel .ui-carousel-content .ui-carousel-item .car-data button {
+			margin-left: 0.5em;
+		}
+		.ui-carousel .ui-carousel-content .ui-carousel-item .car-data button:first-child {
+			margin-left: 0;
+		}
+		.ui-carousel.custom-carousel .ui-carousel-dot-icon {
+			width: 16px !important;
+			height: 16px !important;
+			border-radius: 50%;
+		}
+		.ui-carousel.ui-carousel-horizontal .ui-carousel-content .ui-carousel-item.ui-carousel-item-start .car-details > .p-grid {
+			margin-left: 0.6em;
+		}
+		.ui-carousel.ui-carousel-horizontal .ui-carousel-content .ui-carousel-item.ui-carousel-item-end .car-details > .p-grid {
+			margin-right: 0.6em;
+		}
+
         @media (max-width: 40em) {
             .car-item {
                 text-align: center;
@@ -105,6 +138,8 @@ export class DataDemoComponent implements OnInit {
 
     cars3: Car[];
 
+    cars4: Car[];
+
     carsVirtual: Car[] = [];
 
     cols: any[];
@@ -114,6 +149,8 @@ export class DataDemoComponent implements OnInit {
     data: TreeNode[];
 
     selectedCar: Car;
+
+    selectedCar2: Car;
 
     sourceCars: Car[];
 
@@ -155,6 +192,8 @@ export class DataDemoComponent implements OnInit {
 
     timeout: any;
 
+    responsiveOptions: any;
+
     constructor(private carService: CarService, private eventService: EventService, private nodeService: NodeService,
                 private breadcrumbService: BreadcrumbService) {
         this.breadcrumbService.setItems([
@@ -165,6 +204,7 @@ export class DataDemoComponent implements OnInit {
 
     ngOnInit() {
         this.carService.getCarsMedium().then(cars => this.cars1 = cars);
+        this.carService.getCarsMedium().then(cars => this.cars4 = cars);
         this.cols = [
             { field: 'vin', header: 'Vin' },
             { field: 'year', header: 'Year' },
@@ -244,6 +284,24 @@ export class DataDemoComponent implements OnInit {
             { label: 'Newest First', value: '!year' },
             { label: 'Oldest First', value: 'year' },
             { label: 'Brand', value: 'brand' }
+        ];
+
+        this.responsiveOptions = [
+            {
+                breakpoint: '1024px',
+                numVisible: 3,
+                numScroll: 3
+            },
+            {
+                breakpoint: '768px',
+                numVisible: 2,
+                numScroll: 2
+            },
+            {
+                breakpoint: '560px',
+                numVisible: 1,
+                numScroll: 1
+            }
         ];
     }
 

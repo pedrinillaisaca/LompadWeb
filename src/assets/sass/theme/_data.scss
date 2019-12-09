@@ -1,6 +1,6 @@
 body {
     .ui-paginator {
-        background-color: $paginatorBgColor;
+        background-color: $headerBgColor;
         border-color: $headerBorderColor;
 
         .ui-paginator-first,.ui-paginator-prev,.ui-paginator-next,.ui-paginator-last {
@@ -21,7 +21,7 @@ body {
 
             &.ui-state-disabled {
                 @include opacity(1);
-                background-color: $disabledColor;
+                background-color: $disabledBgColor;
             }
 
             &:before {
@@ -35,7 +35,7 @@ body {
         }
 
         .ui-paginator-first {
-            background-color: #ffffff;
+            background-color: $contentBgColor;
             border-right: 1px solid $datatableCellBorderColor;
             border-left: 1px solid $datatableCellBorderColor;
             @include border-radius-left($borderRadius);
@@ -47,7 +47,7 @@ body {
         }
 
         .ui-paginator-prev {
-            background-color: #ffffff;
+            background-color: $contentBgColor;
             border-right: 1px solid $datatableCellBorderColor;
             border-left: 1px solid $datatableCellBorderColor;
             margin-right: -4px;
@@ -58,7 +58,7 @@ body {
         }
 
         .ui-paginator-next {
-            background-color: #ffffff;
+            background-color: $contentBgColor;
             border-right: 1px solid $datatableCellBorderColor;
             border-left: 1px solid $datatableCellBorderColor;
             margin-left: -4px;
@@ -69,7 +69,7 @@ body {
         }
 
         .ui-paginator-last {
-            background-color: #ffffff;
+            background-color: $contentBgColor;
             border-right: 1px solid $datatableCellBorderColor;
             border-left: 1px solid $datatableCellBorderColor;
             @include border-radius-right($borderRadius);
@@ -92,7 +92,7 @@ body {
                 margin-right: 0;
                 margin-left: 0;
                 border: 1px solid $datatableCellBorderColor;
-                background-color: #ffffff;
+                background-color: $contentBgColor;
                 border-right: 0 none;
                 color: $primaryColor;
                 min-width: 34px;
@@ -144,7 +144,7 @@ body {
 
         .ui-table-thead > tr > th,
         .ui-table-tfoot > tr > td {
-            color: $headerTextColor;
+            color: $textColor;
             border: 1px solid $datatableCellBorderColor;
         }
 
@@ -156,21 +156,17 @@ body {
             color: $textColor;
 
             .ui-sortable-column-icon {
-                color: $textSecondaryColor;
+                color: $textColor;
             }
 
-            &:not(.ui-state-highlight):hover {
-                @include list-item-hover();
-
-                .ui-sortable-column-icon {
-                    @include list-item-hover();
-                }
+            &:not(.ui-state-highlight):hover { //???
+                background-color:$datatableHoverBgColor;
             }
 
             &.ui-state-highlight {
-                background-color: $primaryColor;
-                color: $primaryTextColor;
-                border-top-color: $primaryColor;
+                background-color: $highlightBgColor;
+                color: $highlightTextColor;
+                border-color: darken($highlightBgColor, 5%);
 
                 .ui-sortable-column-icon {
                     color: $primaryTextColor;
@@ -184,35 +180,38 @@ body {
 
         .ui-table-tbody {
             > tr {
-                background: $contentBgColor;
+                background: $datableEvenRowBgColor;
 
                 > td {
-                    background: inherit;
                     border: 1px solid $datatableCellBorderColor;
                 }
 
                 &.ui-state-highlight {
-                    background-color: $primaryColor;
-                    color: $primaryTextColor;
+                    background-color: $highlightBgColor;
+                    color: $highlightTextColor;
+                    border-color: darken($highlightBgColor,5%);
                 }
 
                 &.ui-contextmenu-selected {
-                    background-color: lighten($primaryColor, 20%);
-                    color: $primaryTextColor;
+                    background-color: $highlightBgColor;
+                    color: $highlightTextColor;
+                    border-color: darken($highlightBgColor,5%);
                 }
             }
 
             > tr:nth-child(even) {
-                background-color: $datableEvenRowBgColor;
+                background-color: $contentBgColor;
 
                 &.ui-state-highlight {
-                    background-color: $primaryColor;
-                    color: $primaryTextColor;
+                    background-color: $highlightBgColor;
+                    color: $highlightTextColor;
+                    border-color: darken($highlightBgColor,5%);
                 }
 
                 &.ui-contextmenu-selected {
-                    background-color: lighten($primaryColor, 20%);
-                    color: $primaryTextColor;
+                    background-color: $highlightBgColor;
+                    color: $highlightTextColor;
+                    border-color: darken($highlightBgColor,5%);
                 }
             }
         }
@@ -220,12 +219,57 @@ body {
         &.ui-table-hoverable-rows {
             .ui-table-tbody > tr.ui-selectable-row:not(.ui-state-highlight):not(.ui-contextmenu-selected):hover {
                 cursor: pointer;
-                @include list-item-hover();
+                background-color: $datatableHoverBgColor;
+                border-color: $datatableCellBorderColor;
+            }
+        }
+
+        &.ui-table-borderless {
+            .ui-paginator-top {
+                border-left: 0 none;
+                border-right: 0 none;
+                border-bottom: $datatableCellBorderColor;
+            }
+
+            .ui-paginator-bottom {
+                border-left: 0 none;
+                border-right: 0 none;
+                border-top: $datatableCellBorderColor;
+            }
+
+            .ui-table-caption  {
+                border-top: 0 none;
+                border-left: 0 none;
+                border-right: 0 none;
+            }
+
+            .ui-table-summary {
+                border-bottom: 0 none;
+                border-left: 0 none;
+                border-right: 0 none;
+            }
+
+            thead {
+                > tr {
+                    > th {
+                        border: 0 none;
+                    }
+                }
+            }
+
+            .ui-table-tbody {
+                > tr {
+                    border: 0 none;
+
+                    > td {
+                        border: 0 none;
+                    }
+                }
             }
         }
     }
 
-    .ui-datatable {
+    /*.ui-datatable {
         .ui-datatable-header, .ui-datatable-footer {
             padding: $headerPadding;
         }
@@ -383,7 +427,7 @@ body {
                 }
             }
         }
-    }
+    }*/
 
     .ui-dataview {
 
@@ -396,7 +440,7 @@ body {
         }
     }
 
-    .ui-datagrid {
+    /*.ui-datagrid {
         .ui-datagrid-header {
             padding: $headerPadding;
         }
@@ -414,7 +458,7 @@ body {
         .ui-paginator {
             padding: $headerPadding;
         }
-    }
+    }*/
 
     .ui-datascroller {
         .ui-datascroller-header,
@@ -523,55 +567,46 @@ body {
     }
 
     .ui-carousel {
-        padding: 0;
+        .ui-carousel-content {
+            .ui-carousel-prev,
+            .ui-carousel-next {
+                color: $primaryButtonTextColor;
+                background-color: $primaryButtonBgColor;
+                border: 1px solid transparent;
+                @include transition(background-color $transitionDuration,box-shadow $transitionDuration);
 
-        .ui-carousel-header {
-            padding: $headerPadding;
-            margin: 0;
-            border: 0 none;
-            border-bottom: 1px solid $headerBorderColor;
-            @include border-radius(0);
-
-            .ui-carousel-header-title {
-                padding: 0;
+                &:not(.ui-state-disabled) {
+                    &:hover {
+                        background-color: $primaryButtonHoverBgColor;
+                        border-color: $primaryButtonHoverBorderColor;
+                    }
+                }
             }
         }
 
-        .ui-carousel-footer {
-            padding: $headerPadding;
-            border: 0 none;
-            border-top: 1px solid $headerBorderColor;
-            margin: 0;
-            @include border-radius(0);
-        }
-
-        .ui-carousel-button {
-            margin-top: .4em;
-            @include transition(color .3s);
-            color: $headerIconColor;
-
-            &:not(.ui-state-disabled):hover {
-                color: $headerIconHoverColor;
-            }
-        }
-
-        .ui-carousel-page-links {
-            margin-top: .4em;
-
-            .ui-carousel-page-link {
-                color: $headerIconColor;
-                @include transition(color $transitionDuration);
-
-                &:hover {
-                    color: darken($headerIconColor, 10%);
+        .ui-carousel-dots-container {
+            .ui-carousel-dot-item {
+                > .ui-button {
+                    border-color: transparent;
+                    background-color: transparent;
                 }
 
-                &.pi-circle-off {
-                    color: $headerIconColor;
+                .ui-carousel-dot-icon {
+                    width: 20px;
+                    height: 6px;
+                    background-color: $primaryButtonBgColor;
+                    margin: 0 .2em;
+
+                    &::before {
+                        content: ' ';
+                    }
                 }
 
-                &.pi-circle-on {
-                    color: $headerIconColor;
+                &.ui-state-highlight {
+                    background-color: transparent;
+                    .ui-carousel-dot-icon {
+                        background-color: $primaryButtonActiveBgColor;
+                    }
                 }
             }
         }
@@ -668,7 +703,7 @@ body {
                 color: $textSecondaryColor;
             }
 
-            &:not(.ui-state-highlight):hover {
+            &:not(.ui-state-highlight):hover { //???
                 @include list-item-hover();
 
                 .ui-sortable-column-icon {
@@ -677,12 +712,12 @@ body {
             }
 
             &.ui-state-highlight {
-                background-color: $primaryColor;
-                color: $primaryTextColor;
-                border-top-color: $primaryColor;
+                background-color: $highlightBgColor;
+                color: $highlightTextColor;
+                border-color: darken($highlightBgColor,5%);
 
                 .ui-sortable-column-icon {
-                    color: $primaryTextColor;
+                    color: $highlightTextColor;
                 }
             }
 
@@ -714,8 +749,9 @@ body {
                 }
 
                 &.ui-state-highlight {
-                    background-color: $primaryColor;
-                    color: $primaryTextColor;
+                    background-color: $highlightBgColor;
+                    color: $highlightTextColor;
+                    border-color: darken($highlightBgColor,5%);
 
                     > td {
                         background: inherit;
@@ -727,8 +763,8 @@ body {
                     }
 
                     &.ui-contextmenu-selected {
-                        background-color: $primaryColor;
-                        color: $primaryTextColor;
+                        background-color: $highlightBgColor;
+                        color: $highlightTextColor;
                     }
                 }
             }
@@ -743,7 +779,7 @@ body {
     }
 
     .ui-tree {
-        padding: .25em .5em;
+        padding: $contentPadding;
 
         .ui-treenode {
             padding: .15em 0;
@@ -773,22 +809,25 @@ body {
                     padding: 0 .25em;
 
                     &.ui-state-highlight {
-                        background-color: $highlightBgColor;
+                        @include highlight();
                     }
                 }
 
                 .ui-chkbox {
                     margin: 0 .25em;
-
-                    .ui-chkbox-icon {
-                        margin: 0;
-                        font-size: inherit;
-                    }
                 }
 
                 &.ui-treenode-selectable {
                     .ui-treenode-label:not(.ui-state-highlight):hover {
                         @include list-item-hover();
+                    }
+                }
+
+                &.ui-treenode-content-selected {
+                    .ui-chkbox-box {
+                        border-color: $primaryColor;
+                        background-color: $primaryColor;
+                        color: $primaryTextColor;
                     }
                 }
 
@@ -806,15 +845,14 @@ body {
             padding: .85em 0;
 
             .ui-treenode {
-                background: url("../layout/images/tth-connector.png") repeat-x scroll center center transparent;
-
                 .ui-treenode-content {
                     padding: $contentPadding;
                     background-color: $contentBgColor;
                     border: 1px solid $contentBorderColor;
 
                     &.ui-state-highlight {
-                        @include list-item-highlight();
+                        background-color: $highlightBgColor;
+                        color: $highlightTextColor;
                     }
 
                     .ui-treenode-label:not(.ui-state-highlight):hover {
@@ -827,17 +865,13 @@ body {
                     }
                 }
             }
-
-            .ui-treenode-connector-line {
-                background: url("../layout/images/tth-connector.png") repeat-y scroll 0 0 transparent
-            }
         }
     }
 
     .fc {
         .fc-button {
-            background-color: $primaryColor;
-            color: $buttonTextColor;
+            color: $primaryButtonTextColor;
+            background-color: $primaryButtonBgColor;
             font-size: $fontSize;
             font-family: $fontFamily;
             height: 2.25em;
@@ -845,20 +879,22 @@ body {
             border: 0 none;
 
             &:enabled:not(:focus):not(.fc-button-active):hover {
-                background-color: darken($primaryColor,5%);
+                background-color: $primaryButtonHoverBgColor;
+                border-color: $primaryButtonHoverBorderColor;
             }
 
             &:enabled:not(.fc-button-active):focus {
                 outline: 0 none;
-                background-color: darken($primaryColor,5%);
+                @include shadow(0 0 0 0.2rem $primaryButtonFocusBorderShadow);
             }
 
-            &.fc-button-active {
-                background-color: darken($primaryColor,10%);
-                @include shadow(inset 0 3px 5px rgba(0,0,0,.125));
+            &:not(:disabled).fc-button-active, &:active {
+                background-color: $primaryButtonActiveBgColor;
+                border-color: $primaryButtonActiveBorderColor;
 
                 &:focus {
-                    box-shadow: none;
+                    outline: 0 none;
+                    @include shadow(0 0 0 0.2rem $primaryButtonFocusBorderShadow);
                 }
             }
         }
@@ -867,6 +903,11 @@ body {
             .fc-row {
                 background-color: $headerBgColor;
                 color: $headerTextColor;
+
+                th {
+                    border: $headerBorderColor;
+                    padding: $headerPadding;
+                }
             }
         }
 
@@ -882,11 +923,6 @@ body {
             }
         }
 
-        .fc-event {
-            background-color: darken($primaryColor,5%);
-            color: $primaryTextColor;
-        }
-
         table {
             box-sizing: border-box;
         }
@@ -894,6 +930,21 @@ body {
         div.ui-widget-content {
             padding-left: 0px;
             padding-right: 0px;
+        }
+
+        .fc-event {
+            background-color: darken($primaryColor,5%);
+            color: $primaryTextColor;
+        }
+    }
+
+    .ui-fluid {
+        .fc {
+            .fc-toolbar {
+                .ui-button {
+                    width: auto;
+                }
+            }
         }
     }
 }
