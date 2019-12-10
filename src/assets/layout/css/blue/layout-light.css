@@ -9029,6 +9029,14 @@ body.hidden-overflow {
   color: #2e3440;
   font-size: 22px;
 }
+.landing-body .landing-nav-menu .menu-button .landing-menu-button .landing-menu-button-icon {
+  background: url("../../images/landing/icon-mainmenu-black.svg");
+  background-repeat: no-repeat;
+  background-size: 18px 23px;
+  width: 18px;
+  height: 24px;
+  text-align: center;
+}
 .landing-body .landing-header-wrapper {
   height: 600px;
   position: relative;
@@ -9420,15 +9428,12 @@ body.hidden-overflow {
   color: #9199a9;
   height: 100%;
 }
-.landing-body .footer .icons .icon:first-child i {
+.landing-body .footer .icons .icon:first-child img {
   margin-left: 0;
 }
-.landing-body .footer .icons .icon i {
+.landing-body .footer .icons .icon img {
   margin-left: 20px;
   cursor: pointer;
-}
-.landing-body .footer .icons .icon i:hover {
-  color: #5e81ac;
 }
 .landing-body .landing-mask {
   display: none;
@@ -9500,16 +9505,7 @@ body.hidden-overflow {
     -webkit-transition: background-color 0.15s;
     transition: background-color 0.15s;
   }
-  .landing-body .landing-nav-menu.active-menu .landing-menu-button {
-    background-color: #2e3440;
-  }
-  .landing-body .landing-nav-menu.active-menu .landing-menu-button a {
-    color: #ffffff;
-  }
-  .landing-body.landing-menu-active {
-    overflow: hidden;
-  }
-  .landing-body.landing-menu-active .landing-nav-menu .landing-menu-button {
+  .landing-body .landing-nav-menu .landing-menu-button.landing-menu-active {
     background-color: #2e3440;
     -moz-transition: background-color 0.15s;
     -o-transition: background-color 0.15s;
@@ -9517,11 +9513,16 @@ body.hidden-overflow {
     transition: background-color 0.15s;
     color: #ffffff;
   }
-  .landing-body.landing-menu-active .landing-nav-menu .nav-menu-wrapper ul {
+  .landing-body .landing-nav-menu .landing-menu-button.landing-menu-active .landing-menu-button-icon {
+    background: url("../../images/landing/icon-mainmenu-white.svg");
+    background-repeat: no-repeat;
+    background-size: 18px 23px;
+  }
+  .landing-body .landing-nav-menu .nav-menu-wrapper ul.landing-menu-active {
     max-height: 300px;
     overflow: hidden;
   }
-  .landing-body.landing-menu-active .landing-mask {
+  .landing-body .landing-mask.landing-menu-active {
     display: block;
   }
   .landing-body .landing-header-wrapper .landing-header-content {
