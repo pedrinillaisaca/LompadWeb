@@ -1,12 +1,24 @@
 import {Component, Renderer2} from '@angular/core';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
     selector: 'app-main',
     templateUrl: './app.main.component.html',
+    animations: [
+        trigger('mask-anim', [
+            state('void', style({
+                opacity: 0
+            })),
+            state('visible', style({
+                opacity: 0.8
+            })),
+            transition('* => *', animate('250ms cubic-bezier(0, 0, 0.2, 1)'))
+        ])
+    ]
 })
 export class AppMainComponent {
 
-    horizontalMenu = false;
+    horizontalMenu = true;
 
     darkMode = false;
 

@@ -36,21 +36,21 @@ import {AppMainComponent} from './app.main.component';
 								<a href="#">JavaServer Faces <i class="pi pi-angle-down"></i></a>
 								<ul>
 									<li class="active-row ">
-										<i class="pi pi-circle"></i>
+										<i class="pi pi-circle-on"></i>
 										<span>
                                         <h3>PrimeFaces</h3>
                                         <span>UI Components for JSF</span>
                                     </span>
 									</li>
 									<li>
-										<i class="pi pi-circle"></i>
+										<i class="pi pi-circle-on"></i>
 										<span>
                                         <h3>Premium Templates</h3>
                                         <span>UI Components for JSF</span>
                                     </span>
 									</li>
 									<li>
-										<i class="pi pi-circle"></i>
+										<i class="pi pi-circle-on"></i>
 										<span>
                                         <h3>Extensions</h3>
                                         <span>UI Components for JSF</span>
@@ -62,7 +62,7 @@ import {AppMainComponent} from './app.main.component';
 								<a href="#">Angular <i class="pi pi-angle-down"></i></a>
 								<ul>
 									<li>
-										<i class="pi pi-circle"></i>
+										<i class="pi pi-circle-on"></i>
 										<span>
                                         <h3>PrimeNG</h3>
                                         <span>UI Components for Angular</span>
@@ -70,7 +70,7 @@ import {AppMainComponent} from './app.main.component';
 
 									</li>
 									<li>
-										<i class="pi pi-circle"></i>
+										<i class="pi pi-circle-on"></i>
 										<span>
                                         <h3>Premium Templates</h3>
                                         <span>UI Components for Angular</span>
@@ -82,14 +82,14 @@ import {AppMainComponent} from './app.main.component';
 								<a href="#">React <i class="pi pi-angle-down"></i></a>
 								<ul>
 									<li>
-										<i class="pi pi-circle"></i>
+										<i class="pi pi-circle-on"></i>
 										<span>
                                         <h3>PrimeReact</h3>
                                         <span>UI Components for React</span>
                                     </span>
 									</li>
 									<li class="active-row">
-										<i class="pi pi-circle"></i>
+										<i class="pi pi-circle-on"></i>
 										<span>
                                         <h3>Premium Templates</h3>
                                         <span>UI Components for React</span>
@@ -106,7 +106,7 @@ import {AppMainComponent} from './app.main.component';
 							<a href="#" class="topbar-search-mobile-button" (click)="app.onTopbarItemClick($event,search)">
 								<i class="topbar-icon pi pi-search"></i>
 							</a>
-							<ul class="search-item-submenu fadeInDown">
+							<ul class="search-item-submenu fadeInDown" (click)="app.topbarItemClick = true">
 								<li>
                                     <span class="md-inputfield search-input-wrapper">
                                         <input pInputText placeholder="Search..."/>
@@ -119,7 +119,7 @@ import {AppMainComponent} from './app.main.component';
 							<a href="#" (click)="app.onTopbarItemClick($event,calendar)">
 								<i class="topbar-icon pi pi-calendar"></i>
 							</a>
-							<ul class="fadeInDown">
+							<ul class="fadeInDown" (click)="app.topbarItemClick = true">
 								<li class="layout-submenu-header">
 									<h1>Calendar</h1>
 								</li>

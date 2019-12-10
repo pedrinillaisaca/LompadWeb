@@ -24,16 +24,16 @@
 
         .sidebar-pin {
             display: none;
-            width: 27px;
-            height: 27px;
-            line-height: 27px;
+            width: 30px;
+            height: 30px;
+            line-height: 29px;
             text-align: center;
             @include border-radius(50%);
             @include transition(all $transitionDuration);
 
             i {
                 line-height: inherit;
-                font-size: 14px;
+                font-size: 18px;
             }
         }
 
@@ -105,17 +105,15 @@
                     position: relative;
 
                     i {
-                        width: 17px;
-                        height: 17px;
-                        font-size: 17px;
+                        width: 22px;
+                        height: 22px;
+                        font-size: 22px;
                         position: absolute;
                         right: 10px;
-                        top: 50%;
-                        margin-top: -8.5px;
 
                         &.layout-submenu-toggler {
                             @include transition(all $transitionDuration);
-                            font-size: 18px;
+                            font-size: 22px;
                             display: none;
                             margin-right: 4px;
                             right: 30px;

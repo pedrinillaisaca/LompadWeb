@@ -383,9 +383,9 @@ body.hidden-overflow {
 }
 .layout-sidebar .sidebar-logo .sidebar-pin {
   display: none;
-  width: 27px;
-  height: 27px;
-  line-height: 27px;
+  width: 30px;
+  height: 30px;
+  line-height: 29px;
   text-align: center;
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
@@ -397,7 +397,7 @@ body.hidden-overflow {
 }
 .layout-sidebar .sidebar-logo .sidebar-pin i {
   line-height: inherit;
-  font-size: 14px;
+  font-size: 18px;
 }
 .layout-sidebar .sidebar-logo img {
   vertical-align: middle;
@@ -467,20 +467,18 @@ body.hidden-overflow {
   position: relative;
 }
 .layout-sidebar .layout-menu-container .layout-menu li > a i {
-  width: 17px;
-  height: 17px;
-  font-size: 17px;
+  width: 22px;
+  height: 22px;
+  font-size: 22px;
   position: absolute;
   right: 10px;
-  top: 50%;
-  margin-top: -8.5px;
 }
 .layout-sidebar .layout-menu-container .layout-menu li > a i.layout-submenu-toggler {
   -moz-transition: all 0.15s;
   -o-transition: all 0.15s;
   -webkit-transition: all 0.15s;
   transition: all 0.15s;
-  font-size: 18px;
+  font-size: 22px;
   display: none;
   margin-right: 4px;
   right: 30px;
@@ -799,6 +797,8 @@ body.hidden-overflow {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   }
   .layout-wrapper.layout-horizontal .layout-sidebar .layout-menu-container .ui-scrollpanel .layout-menu > li > ul li a {
+    padding-top: 5px;
+    padding-bottom: 5px;
     flex-flow: row-reverse;
     justify-content: flex-end;
   }
@@ -808,24 +808,13 @@ body.hidden-overflow {
   }
   .layout-wrapper.layout-horizontal .layout-sidebar .layout-menu-container .ui-scrollpanel .layout-menu > li > ul li a i {
     position: relative;
+    right: 0;
   }
   .layout-wrapper.layout-horizontal .layout-sidebar .layout-menu-container .ui-scrollpanel .layout-menu > li > ul li a .layout-submenu-toggler {
     display: block;
     left: auto;
     right: 10px;
     position: absolute;
-  }
-  .layout-wrapper.layout-horizontal .layout-sidebar .layout-menu-container .ui-scrollpanel .layout-menu > li > ul li ul li a {
-    padding-left: 50px;
-  }
-  .layout-wrapper.layout-horizontal .layout-sidebar .layout-menu-container .ui-scrollpanel .layout-menu > li > ul li ul li a i:first-child {
-    left: 20px;
-  }
-  .layout-wrapper.layout-horizontal .layout-sidebar .layout-menu-container .ui-scrollpanel .layout-menu > li > ul li ul ul li a {
-    padding-left: 60px;
-  }
-  .layout-wrapper.layout-horizontal .layout-sidebar .layout-menu-container .ui-scrollpanel .layout-menu > li > ul li ul ul li a i:first-child {
-    left: 30px;
   }
   .layout-wrapper.layout-horizontal .layout-sidebar .layout-menu-container .ui-scrollpanel .layout-menu > li.active-menuitem > ul {
     -moz-border-radius-bottomleft: 3px;
@@ -835,6 +824,27 @@ body.hidden-overflow {
     -webkit-border-bottom-right-radius: 3px;
     border-bottom-right-radius: 3px;
     box-shadow: 0 2px 6px 0 rgba(29, 29, 33, 0.22);
+  }
+  .layout-wrapper.layout-horizontal .layout-sidebar .layout-menu-container .ui-scrollpanel .layout-menu li ul li a {
+    padding-left: 12px;
+  }
+  .layout-wrapper.layout-horizontal .layout-sidebar .layout-menu-container .ui-scrollpanel .layout-menu li ul li ul li a {
+    padding-left: 24px;
+  }
+  .layout-wrapper.layout-horizontal .layout-sidebar .layout-menu-container .ui-scrollpanel .layout-menu li ul li ul li ul li a {
+    padding-left: 36px;
+  }
+  .layout-wrapper.layout-horizontal .layout-sidebar .layout-menu-container .ui-scrollpanel .layout-menu li ul li ul li ul ul li a {
+    padding-left: 48px;
+  }
+  .layout-wrapper.layout-horizontal .layout-sidebar .layout-menu-container .ui-scrollpanel .layout-menu li ul li ul li ul ul ul li a {
+    padding-left: 60px;
+  }
+  .layout-wrapper.layout-horizontal .layout-sidebar .layout-menu-container .ui-scrollpanel .layout-menu li ul li ul li ul ul ul ul li a {
+    padding-left: 72px;
+  }
+  .layout-wrapper.layout-horizontal .layout-sidebar .layout-menu-container .ui-scrollpanel .layout-menu li ul li ul li ul ul ul ul ul li a {
+    padding-left: 84px;
   }
   .layout-wrapper.layout-horizontal .layout-sidebar .layout-menu-container .ui-scrollpanel .layout-menu li a .menuitem-badge {
     left: 18px;
@@ -5903,6 +5913,10 @@ body.hidden-overflow {
   -webkit-transition: background-color 0.15s;
   transition: background-color 0.15s;
 }
+.layout-topbar .layout-topbar-wrapper .layout-topbar-left .layout-megamenu-button i {
+  font-size: 20px;
+  vertical-align: middle;
+}
 .layout-topbar .layout-topbar-wrapper .layout-topbar-left .layout-megamenu-button:hover, .layout-topbar .layout-topbar-wrapper .layout-topbar-left .layout-megamenu-button:focus {
   background-color: #5e81ac;
   color: #ffffff;
@@ -6042,6 +6056,10 @@ body.hidden-overflow {
   width: 100%;
   padding: 0.7em;
   margin: 0 0.5em;
+}
+.layout-topbar .layout-topbar-wrapper .layout-topbar-right .layout-topbar-actions > li > a.layout-rightpanel-button i {
+  font-size: 25px;
+  font-weight: bold;
 }
 .layout-topbar .layout-topbar-wrapper .layout-topbar-right .layout-topbar-actions > li > a i {
   color: #d8dee9;
@@ -9584,7 +9602,8 @@ body.hidden-overflow {
   box-shadow: 0 7px 8px -4px rgba(0, 0, 0, 0.2), 0 5px 22px 4px rgba(0, 0, 0, 0.12), 0 12px 17px 2px rgba(0, 0, 0, 0.14);
 }
 .layout-config-button i {
-  font-size: 32px;
+  font-size: 40px;
+  font-weight: bold;
   color: #49688e;
   line-height: inherit;
   cursor: pointer;
@@ -9634,7 +9653,6 @@ body.hidden-overflow {
   color: #ffffff;
   line-height: inherit;
   font-size: 24px;
-  margin-top: -2px;
 }
 .layout-config .layout-config-close:hover {
   background-color: #D81B60;
@@ -9680,6 +9698,7 @@ body.hidden-overflow {
 .layout-config .layout-config-option i {
   line-height: inherit;
   font-size: 28px;
+  font-weight: bold;
   color: #a3be8c;
   position: absolute;
   top: 50%;

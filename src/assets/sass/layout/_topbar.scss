@@ -38,6 +38,11 @@
                 margin-top: 2px;
                 @include transition(background-color $transitionDuration);
 
+                i {
+                    font-size: 20px;
+                    vertical-align: middle;
+                }
+
                 &:hover,
                 &:focus {
                     background-color: $primaryColor;
@@ -166,6 +171,13 @@
                         width: 100%;
                         padding: .7em;
                         margin: 0 .5em;
+
+                        &.layout-rightpanel-button {
+                            i {
+                                font-size: 25px;
+                                font-weight: bold;
+                            }
+                        }
 
                         i {
                             color: $textColor;
