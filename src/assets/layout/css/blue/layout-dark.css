@@ -9652,7 +9652,7 @@ body.hidden-overflow {
 .layout-config .p-col {
   text-align: center;
 }
-.layout-config .ui-tabs {
+.layout-config .ui-tabview {
   border: 0 none;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -9663,11 +9663,11 @@ body.hidden-overflow {
   flex-direction: column;
   height: 100%;
 }
-.layout-config .ui-tabs.ui-tabs-top > .ui-tabs-nav {
+.layout-config .ui-tabview.ui-tabview-top .ui-tabview-nav {
   background-color: #5a657c;
   border: 1px solid #5a657c;
 }
-.layout-config .ui-tabs.ui-tabs-top > .ui-tabs-nav li {
+.layout-config .ui-tabview.ui-tabview-top .ui-tabview-nav li {
   vertical-align: bottom;
   top: auto;
   margin: 0 0.125em 0px 0;
@@ -9679,25 +9679,25 @@ body.hidden-overflow {
   transition: border-color 0.15s;
   border-radius: 0;
 }
-.layout-config .ui-tabs.ui-tabs-top > .ui-tabs-nav li:hover {
+.layout-config .ui-tabview.ui-tabview-top .ui-tabview-nav li:not(.ui-state-active):not(.ui-state-disabled):hover {
   background-color: #65718b;
 }
-.layout-config .ui-tabs.ui-tabs-top > .ui-tabs-nav li.ui-state-active {
+.layout-config .ui-tabview.ui-tabview-top .ui-tabview-nav li.ui-state-active {
   background-color: #2e3440;
   border: 0 none;
 }
-.layout-config .ui-tabs.ui-tabs-top > .ui-tabs-nav li.ui-state-active:hover {
+.layout-config .ui-tabview.ui-tabview-top .ui-tabview-nav li.ui-state-active:hover {
   background-color: #39404f;
 }
-.layout-config .ui-tabs.ui-tabs-top > .ui-tabs-nav li > a {
+.layout-config .ui-tabview.ui-tabview-top .ui-tabview-nav li > a {
   color: #ffffff;
 }
-.layout-config .ui-tabs .ui-tabs-panels {
+.layout-config .ui-tabview .ui-tabview-panels {
   height: 100%;
   overflow: auto;
   background-color: #ffffff;
 }
-.layout-config .ui-tabs .ui-tabs-panels .ui-tabs-panel {
+.layout-config .ui-tabview .ui-tabview-panels .ui-tabview-panel {
   height: 100%;
   background-color: #ffffff;
 }
