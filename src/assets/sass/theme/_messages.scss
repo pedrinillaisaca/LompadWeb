@@ -14,7 +14,7 @@ body {
             padding: 12px 20px;
 
             .ui-messages-icon {
-                color: darken($infoMessageBgColor, 30%);
+                color: darken($infoMessageBgColor, 25%);
             }
 
             .ui-messages-close {
@@ -31,7 +31,7 @@ body {
             padding: 12px 20px;
 
             .ui-messages-icon {
-                color: darken($warnMessageBgColor, 30%);
+                color: darken($warnMessageBgColor, 25%);
             }
 
             .ui-messages-close {
@@ -48,7 +48,7 @@ body {
             padding: 12px 20px;
 
             .ui-messages-icon {
-                color: darken($errorMessageBgColor, 30%);
+                color: darken($errorMessageBgColor, 25%);
             }
 
             .ui-messages-close {
@@ -65,7 +65,7 @@ body {
             padding: 12px 20px;
 
             .ui-messages-icon {
-                color: darken($successMessageBgColor, 20%);
+                color: darken($successMessageBgColor, 25%);
             }
 
             .ui-messages-close {
@@ -115,6 +115,15 @@ body {
             text-decoration: none;
             color: #fff;
             right: .25em;
+        }
+
+        .ui-message-icon {
+            font-size: 1.286em;
+            vertical-align: inherit;
+        }
+
+        .ui-message-text {
+            vertical-align: inherit;
         }
     }
 
@@ -197,7 +206,7 @@ body {
                 }
 
                 .ui-toast-icon {
-                    color: darken($infoMessageBgColor, 30%);
+                    color: darken($infoMessageBgColor, 25%);
                 }
             }
 
@@ -211,7 +220,7 @@ body {
                 }
 
                 .ui-toast-icon {
-                    color: darken($successMessageBgColor, 30%);
+                    color: darken($successMessageBgColor, 25%);
                 }
             }
 
@@ -225,7 +234,7 @@ body {
                 }
 
                 .ui-toast-icon {
-                    color: darken($warnMessageBgColor, 30%);
+                    color: darken($warnMessageBgColor, 25%);
                 }
             }
 
@@ -239,7 +248,7 @@ body {
                 }
 
                 .ui-toast-icon {
-                    color: darken($errorMessageBgColor, 30%);
+                    color: darken($errorMessageBgColor, 25%);
                 }
             }
         }
