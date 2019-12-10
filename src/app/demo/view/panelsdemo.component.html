@@ -89,17 +89,17 @@
             <p-toolbar>
                 <div class="ui-toolbar-group-left">
                     <button pButton type="button" label="New" icon="pi pi-plus"></button>
-                    <button pButton type="button" label="Update" icon="pi pi-refresh"></button>
+                    <button pButton type="button" label="Update" icon="pi pi-refresh" class="ui-button-secondary"></button>
 
                     <i class="pi pi-bars ui-toolbar-separator"></i>
 
                     <button pButton type="button" icon="pi pi-check" class="ui-button-success"></button>
-                    <button pButton type="button" icon="pi pi-print" class="ui-button-info"></button>
-                    <button pButton type="button" icon="pi pi-trash" class="ui-button-danger"></button>
+                    <button pButton type="button" icon="pi pi-print" class="ui-button-danger"></button>
+                    <button pButton type="button" icon="pi pi-trash" class="ui-button-warning"></button>
                 </div>
 
                 <div class="ui-toolbar-group-right">
-                    <p-splitButton label="Save" icon="pi pi-check" [model]="items" styleClass="ui-button-success"></p-splitButton>
+                    <p-splitButton label="Save" icon="pi pi-check" [model]="items"></p-splitButton>
                 </div>
             </p-toolbar>
         </div>

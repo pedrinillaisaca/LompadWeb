@@ -26,7 +26,7 @@ body {
         }
 
         .ui-panel-content {
-            border: 1px solid $panelContentBorderColor;
+            border: 1px solid $contentBorderColor;
             border-top: 0 none;
             line-height: $contentLineHeight;
             padding: $contentPadding;
@@ -59,7 +59,7 @@ body {
                 float: none;
                 display: inline-block;
                 vertical-align: middle;
-                margin: 0 0.286em;
+                margin-right: 0.286em;
                 height: $fontSize;
                 margin-top: 0;
                 padding: 0;
@@ -94,11 +94,11 @@ body {
             background-color: $headerBgColor;
             padding: 0;
             color: $textColor;
-            font-size: $fontSize;
             border: 1px solid $headerBorderColor;
             margin-bottom: 0;
             font-weight: bold;
             margin-top: 0.357em;
+            font-size: $fontSize + 2px;
 
             &:not(.ui-state-active):not(.ui-state-disabled) > a:hover {
                 border-color: $headerHoverBorderColor;
@@ -111,7 +111,6 @@ body {
 
             > a {
                 padding: $headerPadding;
-                font-size: $fontSize + 2;
                 color: $textColor;
                 outline: 0 none;
 
@@ -127,6 +126,7 @@ body {
                 .ui-accordion-toggle-icon {
                     color: $textColor;
                     vertical-align: middle;
+                    font-weight: bold;
 
                     &.pi-caret-right {
                         font-size: $fontSize + 2;
@@ -168,7 +168,7 @@ body {
 
                     a {
                         padding: $headerPadding;
-                        color: $primaryColor;
+                        color: $textColor;
                         font-weight: normal;
 
                         .ui-tabview-left-icon {
@@ -194,7 +194,7 @@ body {
 
                     &.ui-state-active {
                         border: 1px solid $headerBorderColor;
-                        background-color: #ffffff;
+                        background-color: $contentBgColor;
                     }
                 }
             }
@@ -210,7 +210,7 @@ body {
                     @include border-radius-bottom(0);
 
                     &.ui-state-active {
-                        border-bottom-color: $contentBgColor;
+                        border-bottom-color: transparent;
                     }
                 }
             }
@@ -240,13 +240,14 @@ body {
                     @include border-radius-right(0);
 
                     &.ui-state-active {
-                        border-right-color: $contentBgColor;
+                        border-right-color: transparent;
                     }
                 }
             }
 
             .ui-tabview-panels {
                 position: relative;
+                background-color: $contentBgColor;
                 left: -1px;
                 border-left: 1px solid $contentBorderColor;
             }
@@ -261,13 +262,14 @@ body {
                     @include border-radius-left(0);
 
                     &.ui-state-active {
-                        border-left-color: $contentBgColor;
+                        border-left-color: transparent;
                     }
                 }
             }
 
             .ui-tabview-panels {
                 position: relative;
+                background-color: $contentBgColor;
                 right: -1px;
                 border-right: 1px solid $contentBorderColor;
             }
