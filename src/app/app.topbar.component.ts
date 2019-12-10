@@ -263,7 +263,7 @@ import {AppMainComponent} from './app.main.component';
 									</div>
 								</li>
 								<li class="layout-submenu-item">
-									<i class="pi pi-server icon icon-1"></i>
+									<i class="pi pi-list icon icon-1"></i>
 									<div class="menu-text">
 										<p>Tasks</p>
 										<span>3 open issues</span>
@@ -271,7 +271,7 @@ import {AppMainComponent} from './app.main.component';
 									<i class="pi pi-angle-right"></i>
 								</li>
 								<li class="layout-submenu-item">
-									<i class="pi pi-credit-card icon icon-2"></i>
+									<i class="pi pi-shopping-cart icon icon-2"></i>
 									<div class="menu-text">
 										<p>Payments</p>
 										<span>24 new</span>
@@ -323,28 +323,28 @@ import {AppMainComponent} from './app.main.component';
 									</div>
 								</li>
 								<li>
-									<i class="fa fa-server icon icon-1"></i>
+									<i class="pi pi-list icon icon-1"></i>
 									<div class="menu-text">
 										<p>Tasks</p>
 										<span>3 open issues</span>
 									</div>
-									<i class="fa fa-angle-right"></i>
+									<i class="pi pi-angle-right"></i>
 								</li>
 								<li>
-									<i class="fa fa-credit-card icon icon-2"></i>
+									<i class="pi pi-shopping-cart icon icon-2"></i>
 									<div class="menu-text">
 										<p>Payments</p>
 										<span>24 new</span>
 									</div>
-									<i class="fa fa-angle-right"></i>
+									<i class="pi pi-angle-right"></i>
 								</li>
 								<li>
-									<i class="fa fa-users icon icon-3"></i>
+									<i class="pi pi-users icon icon-3"></i>
 									<div class="menu-text">
 										<p>Clients</p>
 										<span>+80%</span>
 									</div>
-									<i class="fa fa-angle-right"></i>
+									<i class="pi pi-angle-right"></i>
 								</li>
 								<li class="layout-submenu-footer">
 									<button class="signout-button">Sign Out</button>

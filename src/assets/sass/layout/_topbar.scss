@@ -285,7 +285,7 @@
                             &.calendar {
                                 padding: 0;
 
-                                form {
+                                p-calendar, .ui-calendar {
                                     width: 100%;
                                 }
 
@@ -801,10 +801,6 @@
                                 .topbar-icon {
                                     font-size: 26px;
                                     color: $textColor;
-
-                                    &.fa-gift {
-                                        font-size: 34px;
-                                    }
                                 }
 
                                 &:hover,

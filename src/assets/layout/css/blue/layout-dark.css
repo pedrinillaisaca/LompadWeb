@@ -6168,7 +6168,7 @@ body.hidden-overflow {
 .layout-topbar .layout-topbar-wrapper .layout-topbar-right .layout-topbar-actions > li > ul > li.calendar {
   padding: 0;
 }
-.layout-topbar .layout-topbar-wrapper .layout-topbar-right .layout-topbar-actions > li > ul > li.calendar form {
+.layout-topbar .layout-topbar-wrapper .layout-topbar-right .layout-topbar-actions > li > ul > li.calendar p-calendar, .layout-topbar .layout-topbar-wrapper .layout-topbar-right .layout-topbar-actions > li > ul > li.calendar .ui-calendar {
   width: 100%;
 }
 .layout-topbar .layout-topbar-wrapper .layout-topbar-right .layout-topbar-actions > li > ul > li.calendar .ui-datepicker-inline {
@@ -6723,9 +6723,6 @@ body.hidden-overflow {
   .layout-wrapper .layout-topbar .layout-topbar-wrapper .layout-topbar-right .layout-topbar-actions > li > a .topbar-icon {
     font-size: 26px;
     color: #d8dee9;
-  }
-  .layout-wrapper .layout-topbar .layout-topbar-wrapper .layout-topbar-right .layout-topbar-actions > li > a .topbar-icon.fa-gift {
-    font-size: 34px;
   }
   .layout-wrapper .layout-topbar .layout-topbar-wrapper .layout-topbar-right .layout-topbar-actions > li > a:hover i, .layout-wrapper .layout-topbar .layout-topbar-wrapper .layout-topbar-right .layout-topbar-actions > li > a:focus i {
     color: #5e81ac;
