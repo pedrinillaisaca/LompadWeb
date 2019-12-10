@@ -85,9 +85,6 @@ import {AppConfigComponent} from './app.config.component';
 import {AppRightPanelComponent} from './app.rightpanel.component';
 import {AppTopBarComponent} from './app.topbar.component';
 import {AppFooterComponent} from './app.footer.component';
-import {AppInvoiceComponent} from './pages/app.invoice.component';
-import {AppHelpComponent} from './pages/app.help.component';
-import {AppWizardComponent} from './pages/app.wizard.component';
 import {DashboardDemoComponent} from './demo/view/dashboarddemo.component';
 import {SampleDemoComponent} from './demo/view/sampledemo.component';
 import {FormsDemoComponent} from './demo/view/formsdemo.component';
@@ -209,10 +206,7 @@ import {BreadcrumbService} from './breadcrumb.service';
         AppNotfoundComponent,
         AppErrorComponent,
         AppAccessdeniedComponent,
-        AppLoginComponent,
-        AppInvoiceComponent,
-        AppHelpComponent,
-        AppWizardComponent
+        AppLoginComponent
     ],
     providers: [
         {provide: LocationStrategy, useClass: HashLocationStrategy},

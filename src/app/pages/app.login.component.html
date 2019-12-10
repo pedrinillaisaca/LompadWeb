@@ -1,34 +1,43 @@
-<div class="login-body">
-    <div class="login-image"></div>
-    <div class="card login-panel ui-fluid">
-        <div class="login-panel-content">
-            <div class="ui-g">
-                <div class="ui-g-3" style="text-align:left;">
-                    <img src="assets/layout/images/login/icon-login.svg" alt="avalon-ng"/>
+<div class="login-body" [ngClass]="{'layout-dark': dark, 'layout-light': !dark}">
+
+    <div class="login-content">
+        <div class="night-switch">
+            <p-button styleClass="dark-switch"  icon="pi pi-circle-on" (click)="dark = true"></p-button>
+            <p-button styleClass="light-switch"  icon="pi pi-circle-off" (click)="dark = false"></p-button>
+        </div>
+        <div class="login-panel">
+            <div class="login-panel-content">
+                <div class="logo">
+                    <img src="assets/layout/images/logo-mirage@2x.png" alt="mirage-layout" />
                 </div>
-                <div class="ui-g-9" style="text-align:right;">
-                    <h2 class="welcome-text">Welcome Guest</h2>
-                    <span class="guest-sign-in">Sign in to Avalon Network</span>
-                </div>
-                <div class="ui-g-12" style="text-align:left;">
-                    <label class="login-label">Username</label>
-                    <div class="login-input">
-                        <input type="text" pInputText/>
+                <h1>Sign in to Mirage</h1>
+                <p>Welcome, please use the form to sign-in Mirage network</p>
+                <div class="forms">
+                    <div class="login-input-wrapper">
+                        <label for="username">Username</label>
+                        <input id="username" pInputText placeholder="Type your username..." />
+                        <i class="pi pi-user"></i>
                     </div>
-                </div>
-                <div class="ui-g-12" style="text-align:left;">
-                    <label class="login-label">Password</label>
-                    <div class="login-input">
-                        <input type="password" pPassword/>
+
+                    <div class="login-input-wrapper">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="Type your password" pPassword [feedback]="false"/>
+                        <i class="pi pi-lock"></i>
                     </div>
-                </div>
-                <div class="ui-g-12 ui-md-6 button-pane">
-                    <button pButton type="button" [routerLink]="['/']" label="Sign In"></button>
-                </div>
-                <div class="ui-g-12 ui-md-6 link-pane">
-                    <a href="#">Forget Password?</a>
+
+                    <div class="p-col-12">
+                        <p-checkbox [(ngModel)]="checked" label="Remember me" value="SaveInfo" binary="true"></p-checkbox>
+                    </div>
+
+
+                    <div class="buttons">
+                        <button pButton type="button" [routerLink]="['/']" label="Login"></button>
+                        <a href="#" class="secondary-button">Forget Password?</a>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <div class="desert"></div>
     </div>
 </div>

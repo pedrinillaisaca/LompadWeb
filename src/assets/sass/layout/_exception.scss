@@ -92,32 +92,32 @@
         &::after{
             @include background-gradient-top2bottom(#444c5b -9%, #20252e);
         }
-    
+
         .exception-content{
             .exception-panel{
                 border-color:rgba(76,86,106,.3);
                 background-color: rgba(0, 0, 0, 0.3);
 
                 .exception-panel-content{
-    
+
                     h1{
                         color: #9199a9;
                     }
-    
+
                     .tag{
                         background-color: #eceff4;
                     }
-    
+
                     p{
                         color: #c3ccdd;
                     }
                 }
             }
-    
+
             .desert{
-                background-image: url("\#{resource['mirage-layout:images/pages/asset-desert-night.svg']}");
+                background-image: url("../../images/pages/asset-desert-night.svg");
             }
-    
+
         }
     }
     &.error{
@@ -131,65 +131,65 @@
             .exception-panel{
                 border-color: rgba(195,204,221,.3);
                 background-color: rgba(255,255,255,0.3);
-            
+
                 .exception-panel-content{
 
                     h1{
                         color: #c3ccdd;
                     }
-    
+
                     .tag{
                         background-color: #bf616a;
                         color: #ffffff;
-                        
+
                     }
-    
+
                     p{
                         color: #c3ccdd;
                     }
                 }
             }
-    
+
             .desert{
-                background-image: url("\#{resource['mirage-layout:images/pages/asset-desert-error.svg']}");
+                background-image: url("../../images/pages/asset-desert-error.svg");
             }
-    
+
         }
     }
     &.access{
        background-color: #d08770;
-    
+
         &::after{
             @include background-gradient-top2bottom (#5b5544 -9%, #20262e);
         }
-    
-    
+
+
         .exception-content{
             .exception-panel{
                 border-color:rgba(76,86,106,.3);
                 background-color: rgba(255,255,255,0.3);
 
                 .exception-panel-content{
-                    
-    
+
+
                     h1{
                         color: #c3ccdd;
                     }
-    
+
                     .tag{
                         background-color: #ebcb8b;
                     }
-    
+
                     p{
                         color: #c3ccdd;
                     }
                 }
             }
-    
+
             .desert{
-                background-image: url("\#{resource['mirage-layout:images/pages/asset-desert-night-orange.svg']}");
+                background-image: url("../../images/pages/asset-desert-night-orange.svg");
             }
-    
+
         }
     }
 }
@@ -199,7 +199,7 @@
         .exception-content{
             .exception-panel{
                 width: 100%;
-                
+
                 .exception-panel-content{
                     width: 90%;
                 }

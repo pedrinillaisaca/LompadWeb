@@ -18,7 +18,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 })
 export class AppMainComponent {
 
-    horizontalMenu = true;
+    horizontalMenu = false;
 
     darkMode = false;
 

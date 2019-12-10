@@ -18,9 +18,6 @@ import { AppNotfoundComponent } from './pages/app.notfound.component';
 import { AppErrorComponent } from './pages/app.error.component';
 import { AppAccessdeniedComponent } from './pages/app.accessdenied.component';
 import { AppLoginComponent } from './pages/app.login.component';
-import { AppInvoiceComponent } from './pages/app.invoice.component';
-import { AppHelpComponent } from './pages/app.help.component';
-import { AppWizardComponent } from './pages/app.wizard.component';
 
 export const routes: Routes = [
     { path: '', component: AppMainComponent,
@@ -37,16 +34,13 @@ export const routes: Routes = [
             { path: 'empty', component: EmptyDemoComponent },
             { path: 'charts', component: ChartsDemoComponent },
             { path: 'file', component: FileDemoComponent },
-            { path: 'documentation', component: DocumentationComponent },
-            { path: 'invoice', component: AppInvoiceComponent },
-            { path: 'help', component: AppHelpComponent }
+            { path: 'documentation', component: DocumentationComponent }
         ]
     },
     {path: 'error', component: AppErrorComponent},
     {path: 'accessdenied', component: AppAccessdeniedComponent},
     {path: 'notfound', component: AppNotfoundComponent},
     {path: 'login', component: AppLoginComponent},
-    {path: 'wizard', component: AppWizardComponent},
     {path: '**', redirectTo: '/notfound'},
 
 ];

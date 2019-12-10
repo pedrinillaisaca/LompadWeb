@@ -8474,7 +8474,7 @@ body.hidden-overflow {
   outline: none;
   z-index: 101;
 }
-.login-body .login-content .night-switch .ui-button .ui-icon {
+.login-body .login-content .night-switch .ui-button .pi {
   width: 32px;
   height: 32px;
   font-size: 32px;
@@ -8598,15 +8598,12 @@ body.hidden-overflow {
   min-width: 100px;
   padding: 2px;
 }
-.login-body .login-content .login-panel .login-panel-content .buttons .ui-button.secondary-button {
+.login-body .login-content .login-panel .login-panel-content .buttons a.secondary-button {
   background-color: transparent;
   border: none;
   color: #c3ccdd;
   padding: 2px 0;
-}
-.login-body .login-content .login-panel .login-panel-content .buttons .ui-button.secondary-button span {
   text-decoration: underline;
-  padding: 0;
 }
 .login-body .login-content .desert {
   width: 100%;
@@ -8615,7 +8612,7 @@ body.hidden-overflow {
   background-size: cover;
   position: absolute;
   bottom: 0;
-  background-image: url("#{resource['mirage-layout:images/pages/asset-desert.svg']}");
+  background-image: url("../../images/pages/asset-desert.svg");
 }
 .login-body.layout-light {
   background-color: #eceff4;
@@ -8649,14 +8646,14 @@ body.hidden-overflow {
 .login-body.layout-light .login-content .login-panel .login-panel-content .forms label {
   color: #4c566a;
 }
-.login-body.layout-light .login-content .login-panel .login-panel-content .buttons button {
+.login-body.layout-light .login-content .login-panel .login-panel-content .buttons button, .login-body.layout-light .login-content .login-panel .login-panel-content .buttons a {
   background-color: #5e81ac;
 }
-.login-body.layout-light .login-content .login-panel .login-panel-content .buttons button.secondary-button {
+.login-body.layout-light .login-content .login-panel .login-panel-content .buttons button.secondary-button, .login-body.layout-light .login-content .login-panel .login-panel-content .buttons a.secondary-button {
   background-color: transparent;
   color: #9199a9;
 }
-.login-body.layout-light .login-content .login-panel .login-panel-content .buttons button.secondary-button.ui-state-hover {
+.login-body.layout-light .login-content .login-panel .login-panel-content .buttons button.secondary-button.ui-state-hover, .login-body.layout-light .login-content .login-panel .login-panel-content .buttons a.secondary-button.ui-state-hover {
   background-color: transparent;
   color: #636975;
   -moz-transition: color 0.15s;
@@ -8664,7 +8661,7 @@ body.hidden-overflow {
   -webkit-transition: color 0.15s;
   transition: color 0.15s;
 }
-.login-body.layout-light .login-content .login-panel .login-panel-content .buttons button.ui-state-hover {
+.login-body.layout-light .login-content .login-panel .login-panel-content .buttons button.ui-state-hover, .login-body.layout-light .login-content .login-panel .login-panel-content .buttons a.ui-state-hover {
   background-color: #76a1d6;
   -moz-transition: background-color 0.15s;
   -o-transition: background-color 0.15s;
@@ -8675,7 +8672,7 @@ body.hidden-overflow {
   display: block;
 }
 .login-body.layout-dark {
-  background-image: url("#{resource['mirage-layout:images/pages/asset-login-bg@3x.jpg']}");
+  background-image: url("../../images/pages/asset-login-bg@3x.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -8707,14 +8704,14 @@ body.hidden-overflow {
 .login-body.layout-dark .login-content .login-panel .login-panel-content .forms label {
   color: #c3ccdd;
 }
-.login-body.layout-dark .login-content .login-panel .login-panel-content .buttons button {
+.login-body.layout-dark .login-content .login-panel .login-panel-content .buttons button, .login-body.layout-dark .login-content .login-panel .login-panel-content .buttons a {
   background-color: #bd69ae;
 }
-.login-body.layout-dark .login-content .login-panel .login-panel-content .buttons button.secondary-button {
+.login-body.layout-dark .login-content .login-panel .login-panel-content .buttons button.secondary-button, .login-body.layout-dark .login-content .login-panel .login-panel-content .buttons a.secondary-button {
   background-color: transparent;
   color: #c3ccdd;
 }
-.login-body.layout-dark .login-content .login-panel .login-panel-content .buttons button.secondary-button.ui-state-hover {
+.login-body.layout-dark .login-content .login-panel .login-panel-content .buttons button.secondary-button.ui-state-hover, .login-body.layout-dark .login-content .login-panel .login-panel-content .buttons a.secondary-button.ui-state-hover {
   background-color: transparent;
   color: #ffffff;
   -moz-transition: color 0.15s;
@@ -8722,7 +8719,7 @@ body.hidden-overflow {
   -webkit-transition: color 0.15s;
   transition: color 0.15s;
 }
-.login-body.layout-dark .login-content .login-panel .login-panel-content .buttons button.ui-state-hover {
+.login-body.layout-dark .login-content .login-panel .login-panel-content .buttons button.ui-state-hover, .login-body.layout-dark .login-content .login-panel .login-panel-content .buttons a.ui-state-hover {
   background-color: #e27dd0;
   -moz-transition: background-color 0.15s;
   -o-transition: background-color 0.15s;
@@ -8863,7 +8860,7 @@ body.hidden-overflow {
   color: #c3ccdd;
 }
 .exception-body.notfound .exception-content .desert {
-  background-image: url("#{resource['mirage-layout:images/pages/asset-desert-night.svg']}");
+  background-image: url("../../images/pages/asset-desert-night.svg");
 }
 .exception-body.error {
   background-color: #d07b70;
@@ -8893,7 +8890,7 @@ body.hidden-overflow {
   color: #c3ccdd;
 }
 .exception-body.error .exception-content .desert {
-  background-image: url("#{resource['mirage-layout:images/pages/asset-desert-error.svg']}");
+  background-image: url("../../images/pages/asset-desert-error.svg");
 }
 .exception-body.access {
   background-color: #d08770;
@@ -8922,7 +8919,7 @@ body.hidden-overflow {
   color: #c3ccdd;
 }
 .exception-body.access .exception-content .desert {
-  background-image: url("#{resource['mirage-layout:images/pages/asset-desert-night-orange.svg']}");
+  background-image: url("../../images/pages/asset-desert-night-orange.svg");
 }
 
 @media (max-width: 740px) {
