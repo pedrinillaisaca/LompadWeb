@@ -8,6 +8,9 @@ import { AppTopBarComponent } from './app.topbar.component';
 import { AppFooterComponent } from './app.footer.component';
 import { AppMenuComponent, AppSubMenuComponent } from './app.menu.component';
 import { ScrollPanelModule } from 'primeng/primeng';
+import { CalendarModule } from 'primeng/primeng';
+import { TabViewModule } from 'primeng/primeng';
+import { CheckboxModule } from 'primeng/primeng';
 import { AppConfigComponent } from './app.config.component';
 import { AppRightPanelComponent } from './app.rightpanel.component';
 import { AppBreadcrumbComponent } from './app.breadcrumb.component';
@@ -16,7 +19,7 @@ import { BreadcrumbService } from './breadcrumb.service';
 describe('AppComponent', () => {
     beforeEach(() => {
         TestBed.configureTestingModule({
-            imports: [RouterTestingModule, ScrollPanelModule],
+            imports: [RouterTestingModule, ScrollPanelModule, CalendarModule, TabViewModule, CheckboxModule],
             declarations: [
                 AppComponent,
                 AppMainComponent,
