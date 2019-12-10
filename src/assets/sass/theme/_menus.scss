@@ -75,14 +75,14 @@ body {
                     display: inline-block;
                     background-color: $primaryColor;
                     @include border-radius(50%);
-                    padding: 0.6em 0 0 0;
-                    font-size: 1em;
+                    padding: 5px 9px;
+                    font-size: 16px;
                     color: $primaryTextColor;
                     position: relative;
-                    top: 1em;
-                    margin-bottom: 1em;
-                    width: 2.5em;
-                    height: 2.5em;
+                    top: 14px;
+                    margin-bottom: 12px;
+                    width: 2em;
+                    height: 2em;
                     border: 1px solid lighten($primaryColor,15%);
                 }
 
@@ -97,7 +97,7 @@ body {
                 @include opacity(1);
 
                 .ui-steps-number {
-                    background-color: $disabledColor;
+                    background-color: $contentBgColor;
                     border-color: $contentBorderColor;
                     color: $textColor;
                 }
@@ -123,12 +123,13 @@ body {
 
         &:before {
             content:' ';
-            border: 1px solid $contentBorderColor;
+            border: .5px solid $contentBorderColor;
             width: 100%;
             top: 45%;
             left: 0;
             display: block;
             position: absolute;
+            border-collapse: collapse;
         }
     }
 
@@ -153,7 +154,7 @@ body {
             vertical-align: middle;
         }
         .ui-submenu-icon {
-            right: 1.429em;
+            right: 0.429em;
         }
     }
 
@@ -193,9 +194,10 @@ body {
         .ui-submenu-header {
             border: 0 none;
             margin: 0;
+            @include border-radius(0);
             padding: $listItemPadding;
-            border-radius: 0;
             background-color: $dividerColor;
+            color: $textColor;
         }
     }
 
@@ -238,7 +240,7 @@ body {
 
                 .ui-submenu-icon {
                     vertical-align: middle;
-                    right: 1.429em;
+                    right: 0.429em;
                 }
             }
             &.ui-menuitem-active {
@@ -383,7 +385,7 @@ body {
     .ui-megamenu-vertical .ui-megamenu-root-list>.ui-menuitem>.ui-menuitem-link {
 
         .ui-submenu-icon {
-            right: 1.429em;
+            right: 0.429em;
         }
     }
 
@@ -457,6 +459,10 @@ body {
                 background-color: $headerHoverBgColor;
             }
 
+            &:focus {
+                background-color: $headerHoverBgColor;
+            }
+
             &.ui-state-active {
                 border-bottom-color: $contentBgColor;
                 @include border-radius-bottom(0);
@@ -480,6 +486,10 @@ body {
 
                 &:hover {
                     @include list-item-hover();
+                }
+
+                &.ui-state-active {
+                    background-color: transparent;
                 }
 
                 .ui-menuitem-text {
