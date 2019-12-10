@@ -178,8 +178,6 @@ export class DataDemoComponent implements OnInit {
 
     selectedNodes: TreeNode[];
 
-    scheduleHeader: any;
-
     sortOptions: SelectItem[];
 
     sortKey: string;
