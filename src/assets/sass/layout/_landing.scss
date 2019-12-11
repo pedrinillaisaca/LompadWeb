@@ -327,9 +327,28 @@
 						height: 70px;
 						@include border-radius(50%);
 
-						i {
-							font-size: 32px;
-							color: #5a657c;
+						.feature {
+							width: 32px;
+							height: 32px;
+							text-align: center;
+
+							&.first {
+								background: url("../../images/landing/icon-feature-1.svg");
+								background-repeat: no-repeat;
+								background-size: 32px 32px;
+							}
+
+							&.second {
+								background: url("../../images/landing/icon-feature-2.svg");
+								background-repeat: no-repeat;
+								background-size: 32px 32px;
+							}
+
+							&.third {
+								background: url("../../images/landing/icon-feature-3.svg");
+								background-repeat: no-repeat;
+								background-size: 32px 32px;
+							}
 						}
 					}
 
@@ -356,10 +375,25 @@
 						background-color: #ffffff;
 
 						.features-row-icon {
-							background-color: #ebcb8b;
+							.feature {
+								width: 70px;
+								height: 70px;
 
-							i {
-								color: #ffffff;
+								&.first {
+									background: url("../../images/landing/icon-feature-1-hover.svg");
+									background-repeat: no-repeat;
+									background-size: 70px 70px;
+								}
+								&.second {
+									background: url("../../images/landing/icon-feature-2-hover.svg");
+									background-repeat: no-repeat;
+									background-size: 70px 70px;
+								}
+								&.third {
+									background: url("../../images/landing/icon-feature-3-hover.svg");
+									background-repeat: no-repeat;
+									background-size: 70px 70px;
+								}
 							}
 						}
 					}
@@ -710,8 +744,48 @@
 							width: 46px;
 							height: 46px;
 
-							i {
-								font-size: 20px;
+							.feature {
+								background-repeat: no-repeat;
+								background-size: 20px 20px;
+								width: 20px;
+								height: 20px;
+								&.first {
+									background-repeat: no-repeat;
+									background-size: 20px 20px;
+								}
+								&.second {
+									background-repeat: no-repeat;
+									background-size: 20px 20px;
+								}
+								&.third {
+									background-repeat: no-repeat;
+									background-size: 20px 20px;
+								}
+							}
+						}
+						&:hover {
+							.features-row-icon {
+								.feature {
+									width: 46px;
+									height: 46px;
+
+									&.first {
+										background: url("../../images/landing/icon-feature-1-hover.svg");
+										background-repeat: no-repeat;
+										background-size: 46px 46px;
+									}
+									&.second {
+										background: url("../../images/landing/icon-feature-2-hover.svg");
+										background-repeat: no-repeat;
+										background-size: 46px 46px;
+									}
+									&.third {
+										background: url("../../images/landing/icon-feature-3-hover.svg");
+										background-repeat: no-repeat;
+										background-size: 46px 46px;
+									}
+
+								}
 							}
 						}
 

@@ -9229,9 +9229,25 @@ body.hidden-overflow {
   -webkit-border-radius: 50%;
   border-radius: 50%;
 }
-.landing-body .section#features .features-rows .features-row .features-row-icon i {
-  font-size: 32px;
-  color: #5a657c;
+.landing-body .section#features .features-rows .features-row .features-row-icon .feature {
+  width: 32px;
+  height: 32px;
+  text-align: center;
+}
+.landing-body .section#features .features-rows .features-row .features-row-icon .feature.first {
+  background: url("../../images/landing/icon-feature-1.svg");
+  background-repeat: no-repeat;
+  background-size: 32px 32px;
+}
+.landing-body .section#features .features-rows .features-row .features-row-icon .feature.second {
+  background: url("../../images/landing/icon-feature-2.svg");
+  background-repeat: no-repeat;
+  background-size: 32px 32px;
+}
+.landing-body .section#features .features-rows .features-row .features-row-icon .feature.third {
+  background: url("../../images/landing/icon-feature-3.svg");
+  background-repeat: no-repeat;
+  background-size: 32px 32px;
 }
 .landing-body .section#features .features-rows .features-row .features-row-content {
   margin-left: 24px;
@@ -9254,11 +9270,24 @@ body.hidden-overflow {
   box-shadow: 0 1px 30px 3px rgba(0, 0, 0, 0.07);
   background-color: #ffffff;
 }
-.landing-body .section#features .features-rows .features-row:hover .features-row-icon {
-  background-color: #ebcb8b;
+.landing-body .section#features .features-rows .features-row:hover .features-row-icon .feature {
+  width: 70px;
+  height: 70px;
 }
-.landing-body .section#features .features-rows .features-row:hover .features-row-icon i {
-  color: #ffffff;
+.landing-body .section#features .features-rows .features-row:hover .features-row-icon .feature.first {
+  background: url("../../images/landing/icon-feature-1-hover.svg");
+  background-repeat: no-repeat;
+  background-size: 70px 70px;
+}
+.landing-body .section#features .features-rows .features-row:hover .features-row-icon .feature.second {
+  background: url("../../images/landing/icon-feature-2-hover.svg");
+  background-repeat: no-repeat;
+  background-size: 70px 70px;
+}
+.landing-body .section#features .features-rows .features-row:hover .features-row-icon .feature.third {
+  background: url("../../images/landing/icon-feature-3-hover.svg");
+  background-repeat: no-repeat;
+  background-size: 70px 70px;
 }
 .landing-body .section#features .effect-feature {
   position: absolute;
@@ -9550,8 +9579,42 @@ body.hidden-overflow {
     width: 46px;
     height: 46px;
   }
-  .landing-body .section#features .features-rows .features-row .features-row-icon i {
-    font-size: 20px;
+  .landing-body .section#features .features-rows .features-row .features-row-icon .feature {
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    width: 20px;
+    height: 20px;
+  }
+  .landing-body .section#features .features-rows .features-row .features-row-icon .feature.first {
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+  }
+  .landing-body .section#features .features-rows .features-row .features-row-icon .feature.second {
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+  }
+  .landing-body .section#features .features-rows .features-row .features-row-icon .feature.third {
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+  }
+  .landing-body .section#features .features-rows .features-row:hover .features-row-icon .feature {
+    width: 46px;
+    height: 46px;
+  }
+  .landing-body .section#features .features-rows .features-row:hover .features-row-icon .feature.first {
+    background: url("../../images/landing/icon-feature-1-hover.svg");
+    background-repeat: no-repeat;
+    background-size: 46px 46px;
+  }
+  .landing-body .section#features .features-rows .features-row:hover .features-row-icon .feature.second {
+    background: url("../../images/landing/icon-feature-2-hover.svg");
+    background-repeat: no-repeat;
+    background-size: 46px 46px;
+  }
+  .landing-body .section#features .features-rows .features-row:hover .features-row-icon .feature.third {
+    background: url("../../images/landing/icon-feature-3-hover.svg");
+    background-repeat: no-repeat;
+    background-size: 46px 46px;
   }
   .landing-body .section#features .features-rows .features-row .features-row-content {
     margin-left: 12px;
