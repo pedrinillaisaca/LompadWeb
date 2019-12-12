@@ -252,7 +252,8 @@ export class AppConfigComponent implements OnInit {
         const urlTokens = element.getAttribute('href').split('/');
         urlTokens[urlTokens.length - 1] = value + '.css';
         const newURL = urlTokens.join('/');
-        element.setAttribute('href', newURL);
+
+        this.replaceLink(element, newURL);
     }
 
     changeLightDarkLayout(id, color, mode) {
@@ -261,7 +262,8 @@ export class AppConfigComponent implements OnInit {
         urlTokens[urlTokens.length - 2] = color;
         urlTokens[urlTokens.length - 1] = mode + '.css';
         const newURL = urlTokens.join('/');
-        element.setAttribute('href', newURL);
+
+        this.replaceLink(element, newURL);
     }
 
     changeMenuToHorizontal(event, mode) {
@@ -315,7 +317,8 @@ export class AppConfigComponent implements OnInit {
         const urlTokens = element.getAttribute('href').split('/');
         urlTokens[urlTokens.length - 2] = value;
         const newURL = urlTokens.join('/');
-        element.setAttribute('href', newURL);
+
+        this.replaceLink(element, newURL);
     }
 
     onConfigButtonClick(event) {
@@ -326,5 +329,21 @@ export class AppConfigComponent implements OnInit {
     onConfigCloseClick(event) {
         this.app.configDialogActive = false;
         event.preventDefault();
+    }
+
+
+    replaceLink(linkElement, href) {
+        const id = linkElement.getAttribute('id');
+        const cloneLinkElement = linkElement.cloneNode(true);
+
+        cloneLinkElement.setAttribute('href', href);
+        cloneLinkElement.setAttribute('id', id + '-clone');
+
+        linkElement.parentNode.insertBefore(cloneLinkElement, linkElement.nextSibling);
+
+        cloneLinkElement.addEventListener('load', () => {
+            linkElement.remove();
+            cloneLinkElement.setAttribute('id', id);
+        });
     }
 }
