@@ -1175,6 +1175,26 @@ body {
 			background-color: $primaryButtonBgColor;
 			border: 1px solid $primaryButtonBorderColor;
 			@include transition(background-color $transitionDuration,box-shadow $transitionDuration);
+
+            &:enabled:focus {
+                outline: 0 none;
+                @include shadow(0 0 0 0.2rem $primaryButtonFocusBorderShadow);
+            }
+
+            &:enabled:active {
+                background-color: $primaryButtonActiveBgColor;
+                border-color: $primaryButtonActiveBorderColor;
+            }
+
+            &:enabled:hover {
+                background-color: $primaryButtonHoverBgColor;
+                border-color: $primaryButtonHoverBorderColor;
+            }
+
+            &.ui-state-disabled, &:disabled {
+                background-color: $primaryColor;
+                @include opacity(.65);
+            }
 		}
 
         .ui-menu {
