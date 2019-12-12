@@ -991,18 +991,18 @@ body {
             &.ui-button {
                 z-index: auto;
                 background-color: transparent;
-                color: $headerIconColor;
+                color: $textSecondaryColor;
 
                 &:not(.ui-state-disabled):hover {
-                    color: $headerIconHoverColor;
+                    color: $textColor;
                 }
 
                 &:not(.ui-state-disabled):focus {
-                    color: $headerIconHoverColor;
+                    color: $textColor;
                 }
 
                 &:not(.ui-state-disabled):active {
-                    color: $headerIconHoverColor;
+                    color: $textColor;
                     @include no-shadow();
                 }
 
@@ -1015,6 +1015,17 @@ body {
                     bottom: 1px;
                     right: 1px;
                 }
+            }
+        }
+    }
+
+    .ui-fluid {
+        .ui-spinner {
+            .ui-spinner-button {
+                .ui-spinner-button-icon {
+                    left:inherit;
+                }
+
             }
         }
     }
