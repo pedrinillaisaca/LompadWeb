@@ -37,7 +37,7 @@
                     display: none;
                 }
 
-                &.ui-state-hover{
+                &:enabled:hover{
                     border: none;
                     opacity: .7;
                     @include transition(opacity $transitionDuration);
@@ -218,14 +218,14 @@
                                 background-color: transparent;
                                 color: #9199a9;
 
-                                &.ui-state-hover{
+                                &:enabled:hover{
                                     background-color: transparent;
                                     color: #636975;
                                     @include transition (color $transitionDuration);
                                 }
                             }
 
-                            &.ui-state-hover{
+                            &:enabled:hover{
                                 background-color: #76a1d6;
                                 @include transition (background-color $transitionDuration);
                             }
@@ -297,7 +297,7 @@
                                 background-color: transparent;
                                 color: #c3ccdd;
 
-                                &.ui-state-hover{
+                                &:enabled:hover{
                                     background-color: transparent;
                                     color: #ffffff;
                                     @include transition (color $transitionDuration);
@@ -305,7 +305,7 @@
                             }
 
 
-                            &.ui-state-hover{
+                            &:enabled:hover{
                                 background-color: #e27dd0;
                                 @include transition (background-color $transitionDuration);
                             }
