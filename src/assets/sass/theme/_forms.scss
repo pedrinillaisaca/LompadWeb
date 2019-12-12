@@ -944,6 +944,7 @@ body {
         a {
             color: $primaryColor;
             text-align: center;
+            cursor: pointer;
             display: inline-block;
             border-bottom: 1px solid transparent;
 
@@ -1183,6 +1184,31 @@ body {
     .ui-datepicker {
         padding: 0;
         width: 18.571em;
+
+        .ui-datepicker-buttonbar {
+            .ui-button {
+                color: $primaryButtonTextColor;
+                background-color: $primaryButtonBgColor;
+                border: 1px solid transparent;
+                font-size: $fontSize;
+                @include transition(background-color $transitionDuration,box-shadow $transitionDuration);
+
+                &:enabled:focus {
+                    outline: 0 none;
+                    @include shadow(0 0 0 0.2rem $primaryButtonFocusBorderShadow);
+                }
+
+                &:enabled:active {
+                    background-color: $primaryButtonActiveBgColor;
+                    border-color: $primaryButtonActiveBorderColor;
+                }
+
+                &:enabled:hover {
+                    background-color: $primaryButtonHoverBgColor;
+                    border-color: $primaryButtonHoverBorderColor;
+                }
+            }
+        }
 
         &:not(.ui-datepicker-inline) {
             border: 1px solid $inputBorderColor;
