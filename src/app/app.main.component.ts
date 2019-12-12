@@ -110,7 +110,7 @@ export class AppMainComponent {
         this.megaMenuActive = !this.megaMenuActive;
         event.preventDefault();
     }
-    
+
     onMegaMenuClick(event) {
         this.megaMenuClick = true;
         event.preventDefault();
