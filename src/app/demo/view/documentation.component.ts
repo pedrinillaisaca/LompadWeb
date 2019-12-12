@@ -6,7 +6,7 @@ import { BreadcrumbService } from '../../breadcrumb.service';
     styles: [`
         .docs pre.doc-command {
             font-family: monospace;
-            background-color: #434A63;
+            background-color: #5a657c;
             color: #ffffff;
             padding: 1em;
             font-size: 14px;
@@ -15,9 +15,21 @@ import { BreadcrumbService } from '../../breadcrumb.service';
         }
 
         .docs p,
-        .docs li {
-            line-height: 1.5;
-        }`
+        .docs li{
+            line-height: 2;
+        }
+        
+        .docs i {
+            background: #f1daad;
+            font-family: monaco,Consolas,Lucida Console,monospace;
+            font-weight: 700;
+            padding: 2px 4px;
+            letter-spacing: .5px;
+            font-style: normal;
+            color: #424242;
+            border-radius: 4px;
+        }
+        `
     ]
 })
 export class DocumentationComponent {
