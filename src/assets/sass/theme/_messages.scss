@@ -86,6 +86,7 @@ body {
     }
 
     .ui-message {
+        padding: .4em .5em;
 
         &.ui-message-info {
             background-color: $infoMessageBgColor;

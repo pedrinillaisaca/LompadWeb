@@ -6,7 +6,7 @@ import { MessageService } from 'primeng/api';
     templateUrl: './messagesdemo.component.html',
     styles: [`
         :host ::ng-deep button {
-            margin-right: .25em;
+            margin-right: .5em;
             min-width: 8em;
         }
 

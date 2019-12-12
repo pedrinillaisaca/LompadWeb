@@ -6,6 +6,11 @@ import { BreadcrumbService } from '../../breadcrumb.service';
 
 @Component({
     templateUrl: './overlaysdemo.component.html',
+    styles: [`
+        :host ::ng-deep a {
+            margin-right: .5em;
+        }
+    `],
     providers: [ConfirmationService]
 })
 export class OverlaysDemoComponent implements OnInit {
