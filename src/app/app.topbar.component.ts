@@ -31,7 +31,8 @@ import {AppMainComponent} from './app.main.component';
 							<i class="pi pi-comment"></i>
 							Mega Menu
 						</a>
-						<ul class="layout-megamenu" [ngClass]="{'layout-megamenu-active fadeInDown': app.megaMenuActive}">
+						<ul class="layout-megamenu" [ngClass]="{'layout-megamenu-active fadeInDown': app.megaMenuActive}"
+                            (click)="app.onMegaMenuClick($event)">
 							<li [ngClass]="{'active-topmenuitem': activeItem === 1}" (click)="mobileMegaMenuItemClick(1)">
 								<a href="#">JavaServer Faces <i class="pi pi-angle-down"></i></a>
 								<ul>
