@@ -229,22 +229,37 @@ export class AppConfigComponent implements OnInit {
     changeLayout(event, mode) {
         this.app.darkMode = mode;
         if (mode === true) {
+            this.app.menuColorMode = 'dark';
             this.app.menuColor = 'layout-menu-dark';
-            this.changeLightDark('layout-css', 'layout-dark');
-            this.changeLightDark('theme-css', 'theme-dark');
+            this.selectedColorOptions = this.darkColors;
+            this.app.layoutColor = this.selectedColorOptions[0].file;
+            this.changeLightDarkLayout('layout-css', this.selectedColorOptions[0].file, 'layout-dark');
+            this.changeLightDarkTheme('theme-css', 'theme-dark');
         } else {
+            this.app.menuColorMode = 'light';
             this.app.menuColor = 'layout-menu-light';
-            this.changeLightDark('layout-css', 'layout-light');
-            this.changeLightDark('theme-css', 'theme-light');
+            this.selectedColorOptions = this.lightColors;
+            this.app.layoutColor = this.selectedColorOptions[0].file;
+            this.changeLightDarkLayout('layout-css', this.selectedColorOptions[0].file, 'layout-light');
+            this.changeLightDarkTheme('theme-css', 'theme-light');
         }
 
         event.preventDefault();
     }
 
-    changeLightDark(id, value) {
+    changeLightDarkTheme(id, value) {
         const element = document.getElementById(id);
         const urlTokens = element.getAttribute('href').split('/');
         urlTokens[urlTokens.length - 1] = value + '.css';
+        const newURL = urlTokens.join('/');
+        element.setAttribute('href', newURL);
+    }
+
+    changeLightDarkLayout(id, color, mode) {
+        const element = document.getElementById(id);
+        const urlTokens = element.getAttribute('href').split('/');
+        urlTokens[urlTokens.length - 2] = color;
+        urlTokens[urlTokens.length - 1] = mode + '.css';
         const newURL = urlTokens.join('/');
         element.setAttribute('href', newURL);
     }
@@ -262,9 +277,11 @@ export class AppConfigComponent implements OnInit {
             this.app.menuColor = 'layout-menu-' + mode;
             if (mode === 'dark') {
                 this.selectedColorOptions = this.darkColors;
+                this.app.layoutColor = this.selectedColorOptions[0].file;
                 this.changeStyleSheetsColor('layout-css', this.selectedColorOptions[0].file);
             } else {
                 this.selectedColorOptions = this.lightColors;
+                this.app.layoutColor = this.selectedColorOptions[0].file;
                 this.changeStyleSheetsColor('layout-css', this.selectedColorOptions[0].file);
             }
         } else {
