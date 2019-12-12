@@ -304,9 +304,9 @@ body {
         border-color: $contentBorderColor;
         padding: $headerPadding;
 
-        .ui-toolbar-seperator {
+        .ui-toolbar-separator {
             vertical-align: middle;
-            margin: 0 0.5em;
+            margin: 0 0.25em 0 .5em;
         }
     }
 }
