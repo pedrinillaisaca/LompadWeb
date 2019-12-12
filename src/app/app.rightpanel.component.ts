@@ -10,7 +10,7 @@ import {AppMainComponent} from './app.main.component';
 					<span>Today</span>
 					<h1>Wednesday, 26 Jun</h1>
 				</div>
-				<a href="#" class="rightpanel-exit-button">
+				<a href="#" class="rightpanel-exit-button" (click)="app.onRightPanelClose($event)">
 					<i class="pi pi-times"></i>
 				</a>
 			</div>

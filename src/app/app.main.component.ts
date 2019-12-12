@@ -128,6 +128,13 @@ export class AppMainComponent {
         event.preventDefault();
     }
 
+    onRightPanelClose(event) {
+        this.rightPanelActive = false;
+        this.rightPanelClick = false;
+
+        event.preventDefault();
+    }
+
     onRightPanelClick(event) {
         this.rightPanelClick = true;
 
