@@ -203,14 +203,13 @@ body {
 
     .ui-menubar {
         padding: .357em 0;
-        background-color: $headerBgColor;
 
         .ui-menubar-root-list {
             &>.ui-menuitem {
                 > .ui-menuitem-link {
                     padding: 15px;
                     line-height: $fontSize + 1;
-                    color: $textSecondaryColor;
+                    color: $textColor;
 
                     &:hover {
                         color: $textColor;
@@ -330,7 +329,6 @@ body {
     }
     .ui-megamenu {
         padding: .357em 0;
-        background-color: $headerBgColor;
 
         .ui-megamenu-submenu-header {
             border-radius: 0;
@@ -361,7 +359,7 @@ body {
             .ui-menuitem-link {
                 padding: 15px;
                 line-height: $fontSize + 1;
-                color: $textSecondaryColor;
+                color: $textColor;
 
                 &:hover {
                     color: $textColor;
@@ -391,10 +389,10 @@ body {
 
     .ui-tabmenu {
         padding: 0;
-        background: $headerBgColor;
         border: 1px solid $headerBorderColor;
 
         .ui-tabmenu-nav {
+            background-color: $contentBgColor;
             padding: 0;
             border: 0 none;
             @include border-radius(0);
@@ -408,7 +406,7 @@ body {
 
                 .ui-menuitem-link {
                     padding: 15px;
-                    color: $textSecondaryColor;
+                    color: $textColor;
                     font-weight: normal;
 
                     .ui-menuitem-icon, .ui-menuitem-text {
@@ -424,10 +422,7 @@ body {
 
                 &:not(.ui-state-active):not(.ui-state-disabled):hover {
                     .ui-menuitem-link {
-                        color: $textColor;
-                        .ui-menuitem-icon {
-                            color: $textColor;
-                        }
+                        @include menu-item-hover();
                     }
                 }
 
@@ -465,7 +460,7 @@ body {
             }
 
             &:not(.ui-state-active):hover {
-                background-color: $headerHoverBgColor;
+                @include menu-item-hover();
             }
 
             &:focus {

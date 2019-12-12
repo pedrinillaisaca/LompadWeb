@@ -19,7 +19,7 @@
 					height: 100%;
 
 					.layout-menu {
-						margin: 2px 15px;
+						margin: 0px 15px;
 						padding-bottom: 0;
 
 						@include flex();
@@ -190,6 +190,7 @@
 
 			.layout-topbar {
 				width: 100%;
+				@include no-shadow();
 
 				.layout-topbar-logo-wrapper {
 					@include flex();
