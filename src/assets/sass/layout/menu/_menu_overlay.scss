@@ -56,33 +56,11 @@
         overflow: auto;
         height: calc(100% - 72px);
 
-        .ui-scrollpanel {
-            border: none;
-            background-color: transparent;
-            border-radius: 0;
-
-            .ui-scrollpanel-bar {
-                background-color: #aaaaaa;
-                opacity: 0.3;
-                filter: alpha(opacity=30);
-            }
-            .ui-scrollpanel-hidden {
-                display: block;
-                visibility: hidden;
-            }
-            .ui-scrollpanel-content {
-                overflow-x: hidden;
-            }
-
-            .layout-menu {
-                padding-bottom: 120px;
-            }
-        }
-
         .layout-menu {
             list-style-type: none;
             margin: 10px 0 0 0;
             padding: 0;
+            padding-bottom: 120px;
 
             li {
                 padding: 4px 10px;

@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {CarService} from '../service/carservice';
 import {EventService} from '../service/eventservice';
 import {Car} from '../domain/car';
-import {SelectItem} from 'primeng/primeng';
+import {SelectItem} from 'primeng/api';
 import {BreadcrumbService} from '../../breadcrumb.service';
 
 @Component({

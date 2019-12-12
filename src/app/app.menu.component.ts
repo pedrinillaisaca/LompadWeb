@@ -1,25 +1,19 @@
 import {Component, Input, OnInit, AfterViewInit, EventEmitter, ViewChild} from '@angular/core';
 import {trigger, state, style, transition, animate} from '@angular/animations';
-import {MenuItem, ScrollPanel} from 'primeng/primeng';
+import {MenuItem} from 'primeng/api';
 import {AppMainComponent} from './app.main.component';
 
 @Component({
     selector: 'app-menu',
     templateUrl: './app.menu.component.html'
 })
-export class AppMenuComponent implements OnInit, AfterViewInit {
+export class AppMenuComponent implements OnInit {
 
     @Input() reset: boolean;
 
     model: any[];
 
-    @ViewChild('scrollPanel', { static: true }) layoutMenuScrollerViewChild: ScrollPanel;
-
     constructor(public app: AppMainComponent) {}
-
-    ngAfterViewInit() {
-        setTimeout(() => {this.layoutMenuScrollerViewChild.moveBar(); }, 100);
-    }
 
     ngOnInit() {
         this.model = [
@@ -187,9 +181,7 @@ export class AppSubMenuComponent {
         }
 
         // activate current item and deactivate active sibling if any
-        if (item.routerLink || item.items || item.command || item.url) {
-            this.activeIndex = (this.activeIndex as number === index) ? -1 : index;
-        }
+        this.activeIndex = (this.activeIndex === index) ? null : index;
 
         // execute command
         if (item.command) {
@@ -198,9 +190,6 @@ export class AppSubMenuComponent {
 
         // prevent hash change
         if (item.items || (!item.url && !item.routerLink)) {
-            setTimeout(() => {
-                this.appMenu.layoutMenuScrollerViewChild.moveBar();
-            }, 450);
             event.preventDefault();
         }
 
