@@ -171,7 +171,6 @@ export class AppSubMenuComponent {
     itemClick(event: Event, item: MenuItem, index: number) {
         if (this.root) {
             this.app.menuHoverActive = !this.app.menuHoverActive;
-            event.preventDefault();
         }
 
         // avoid processing disabled items
