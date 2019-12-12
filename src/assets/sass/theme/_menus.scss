@@ -425,11 +425,20 @@ body {
                 &:not(.ui-state-active):not(.ui-state-disabled):hover {
                     .ui-menuitem-link {
                         color: $textColor;
+                        .ui-menuitem-icon {
+                            color: $textColor;
+                        }
                     }
                 }
 
                 &.ui-state-active {
                     background-color: $dividerColor;
+                    .ui-menuitem-link {
+                        color: $textColor;
+                        .ui-menuitem-icon {
+                            color: $textColor;
+                        }
+                    }
                 }
             }
         }
