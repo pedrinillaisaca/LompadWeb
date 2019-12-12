@@ -188,7 +188,7 @@ import {AppMainComponent} from './app.main.component';
 											<img src="assets/layout/images/topbar/deal-icon-sapphire.png" alt="mirage-layout" width="35" />
 											<div class="menu-text">
 												<p>Sapphire</p>
-												<span>For Angular</span>
+												<span>Angular</span>
 											</div>
 											<i class="pi pi-angle-right"></i>
 										</li>

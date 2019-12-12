@@ -159,7 +159,7 @@ body {
                 color: $textColor;
             }
 
-            &:not(.ui-state-highlight):hover { //???
+            &:not(.ui-state-highlight):hover {
                 background-color:$datatableHoverBgColor;
             }
 
@@ -703,7 +703,7 @@ body {
                 color: $textSecondaryColor;
             }
 
-            &:not(.ui-state-highlight):hover { //???
+            &:not(.ui-state-highlight):hover {
                 @include list-item-hover();
 
                 .ui-sortable-column-icon {
