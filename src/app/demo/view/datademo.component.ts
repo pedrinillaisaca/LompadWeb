@@ -12,26 +12,90 @@ import interactionPlugin from '@fullcalendar/interaction';
 @Component({
     templateUrl: './datademo.component.html',
     styles: [`
-        .ui-dataview .search-icon {
-            margin-top: 3em;
+        /* Table */
+        .ui-table.ui-table-cars .ui-table-caption.ui-widget-header {
+            border: 0 none;
+            padding: 12px;
+            text-align: left;
+            font-size: 20px;
         }
 
-        .ui-dataview .filter-container {
+        .ui-column-filter {
+            margin-top: 1em;
+        }
+
+        .ui-column-filter .ui-multiselect-label {
+            font-weight: 500;
+        }
+
+        .ui-table.ui-table-cars .ui-table-thead > tr > th {
+            border: 0 none;
+            text-align: left;
+        }
+
+        .ui-table-globalfilter-container {
+            float: right;
+            display: inline;
+        }
+
+        .ui-table.ui-table-cars .ui-table-tbody > tr > td {
+            border: 0 none;
+        }
+
+        .ui-table.ui-table-cars .ui-table-tbody .ui-column-title {
+            font-size: 16px;
+        }
+
+        .ui-table.ui-table-cars .ui-paginator {
+            border: 0 none;
+            padding: 1em;
+        }
+
+        /* DataView */
+        .filter-container {
             text-align: center;
         }
 
-        @media (max-width: 40em) {
-            .ui-dataview .car-details, .ui-dataview .search-icon{
-                text-align: center;
-                margin-top: 0;
+        .car-details-list {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2em;
+            border-bottom: 1px solid #d9dad9;
+        }
+
+        .car-details-list > div {
+            display: flex;
+            align-items: center;
+        }
+
+        .car-details-list > div img {
+            margin-right: 14px;
+        }
+
+        .car-detail {
+            padding: 0 1em 1em 1em;
+            border-bottom: 1px solid #d9dad9;
+            margin: 1em;
+        }
+
+        .ui-panel-content {
+            padding: 1em;
+        }
+        
+        @media (max-width: 1024px) {
+            .car-details-list img {
+                width: 75px;
             }
 
-            .ui-dataview .filter-container {
+            .filter-container {
                 text-align: left;
             }
         }
+
+        /* Carousel */
         .car-item {
-             padding-top: 5px;
+            padding-top: 5px;
         }
 
         .car-item .ui-md-3 {
@@ -201,7 +265,7 @@ export class DataDemoComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.carService.getCarsMedium().then(cars => this.cars1 = cars);
+        this.carService.getCarsLarge().then(cars => this.cars1 = cars);
         this.carService.getCarsMedium().then(cars => this.cars4 = cars);
         this.cols = [
             { field: 'vin', header: 'Vin' },
