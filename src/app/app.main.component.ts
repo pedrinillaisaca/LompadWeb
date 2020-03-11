@@ -19,7 +19,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 })
 export class AppMainComponent {
 
-    horizontalMenu;
+    horizontalMenu: boolean;
 
     darkMode = false;
 
@@ -37,7 +37,7 @@ export class AppMainComponent {
 
     menuClick: boolean;
 
-    staticMenuActive: boolean = true;
+    staticMenuActive: boolean;
 
     menuMobileActive: boolean;
 
