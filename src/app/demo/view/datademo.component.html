@@ -1,10 +1,9 @@
 <div class="p-grid">
     <div class="p-col-12">
         <div class="card card-w-title">
-            <h1>DataTable</h1>
             <p-table #dt [columns]="cols" styleClass="ui-table-cars" [value]="cars1" [paginator]="true" [rows]="10" dataKey="vin" selectionMode="single" [(selection)]="selectedCar">
                 <ng-template pTemplate="caption">
-                    List of Cars
+                    DataTable
                     <div class="ui-table-globalfilter-container">
                         <input type="text" pInputText size="50" placeholder="Global Filter" (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:250px;">
                     </div>

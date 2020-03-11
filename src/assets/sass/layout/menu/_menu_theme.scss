@@ -20,9 +20,12 @@
             color: $appNameTextColor;
         }
     }
+    
     .layout-menu {
         li {
             > a {
+                cursor: pointer;
+                
                 &.active-menuitem-routerlink {
                     .menuitem-text {
                         color: $activeSubmenuItemTextColor;
@@ -76,10 +79,10 @@
                 }
             }
 
-            > ul {
+            ul {
                 background-color: $submenuBgColor;
 
-                > li {
+                li {
                     a {
                         .menuitem-text {
                             color: $submenuItemTextColor;

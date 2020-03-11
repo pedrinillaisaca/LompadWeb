@@ -18,6 +18,12 @@ import interactionPlugin from '@fullcalendar/interaction';
             padding: 12px;
             text-align: left;
             font-size: 20px;
+            font-weight: normal;
+        }
+        
+        .ui-table .ui-table-globalfilter-container {
+            position: relative;
+            top: -4px;
         }
 
         .ui-column-filter {

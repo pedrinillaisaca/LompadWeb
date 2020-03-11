@@ -1,4 +1,5 @@
 import {Component, Renderer2} from '@angular/core';
+import { MenuService } from './app.menu.service';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
@@ -18,7 +19,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 })
 export class AppMainComponent {
 
-    horizontalMenu = false;
+    horizontalMenu;
 
     darkMode = false;
 
@@ -36,7 +37,7 @@ export class AppMainComponent {
 
     menuClick: boolean;
 
-    staticMenuActive: boolean;
+    staticMenuActive: boolean = true;
 
     menuMobileActive: boolean;
 
@@ -60,13 +61,11 @@ export class AppMainComponent {
 
     activeTopbarItem: any;
 
-    resetMenu: boolean;
-
     topbarMenuActive: boolean;
 
     menuHoverActive: boolean;
 
-    constructor(public renderer: Renderer2) {}
+    constructor(public renderer: Renderer2, private menuService: MenuService) {}
 
     onLayoutClick() {
         if (!this.topbarItemClick) {
@@ -88,10 +87,10 @@ export class AppMainComponent {
 
         if (!this.menuClick) {
             if (this.isHorizontal()) {
-                this.resetMenu = true;
+                this.menuService.reset();
             }
 
-            if ( this.menuMobileActive) {
+            if (this.menuMobileActive) {
                 this.menuMobileActive = false;
             }
 
@@ -173,7 +172,6 @@ export class AppMainComponent {
 
     onSidebarClick(event: Event) {
         this.menuClick = true;
-        this.resetMenu = false;
     }
 
     onToggleMenuClick(event: Event) {
