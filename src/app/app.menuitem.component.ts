@@ -12,7 +12,7 @@ import { AppMainComponent } from './app.main.component';
     /* tslint:enable:component-selector */
     template: `
           <ng-container>
-              <a [attr.href]="item.url" (click)="itemClick($event)" *ngIf="!item.routerLink || item.items" (mouseenter)="onMouseEnter()" (keydown.enter)="itemClick($event)" 
+              <a [attr.href]="item.url" (click)="itemClick($event)" *ngIf="!item.routerLink || item.items" (mouseenter)="onMouseEnter()" (keydown.enter)="itemClick($event)"
                 [attr.target]="item.target" [attr.tabindex]="0">
                   <span class="menuitem-text">{{item.label}}</span>
                   <i class="pi pi-fw pi-angle-down layout-submenu-toggler" *ngIf="item.items"></i>
@@ -25,7 +25,7 @@ import { AppMainComponent } from './app.main.component';
                   <i class="pi pi-fw pi-angle-down layout-submenu-toggler" *ngIf="item.items"></i>
                   <i [ngClass]="item.icon"></i>
               </a>
-              <ul *ngIf="item.items && (active || animating)" (@children.done)="onAnimationDone()" 
+              <ul *ngIf="item.items && (active || animating)" (@children.done)="onAnimationDone()"
                   [@children]="(app.isHorizontal() && root) ? (active ? 'visible' : 'hidden') : (active ? 'visibleAnimated' : 'hiddenAnimated')">
                   <ng-template ngFor let-child let-i="index" [ngForOf]="item.items">
                       <li app-menuitem [item]="child" [index]="i" [parentKey]="key" [class]="child.badgeClass"></li>
@@ -62,7 +62,7 @@ import { AppMainComponent } from './app.main.component';
         ])
     ]
 })
-export class AppMenuitemComponent implements OnInit,OnDestroy {
+export class AppMenuitemComponent implements OnInit, OnDestroy {
 
     @Input() item: any;
 
@@ -84,7 +84,7 @@ export class AppMenuitemComponent implements OnInit,OnDestroy {
 
     constructor(public app: AppMainComponent, public router: Router, private cd: ChangeDetectorRef, private menuService: MenuService) {
         this.menuSourceSubscription = this.menuService.menuSource$.subscribe(key => {
-            //deactivate current active menu
+            // deactivate current active menu
             if (this.active && this.key !== key && key.indexOf(this.key) !== 0) {
                 this.active = false;
             }
@@ -98,12 +98,12 @@ export class AppMenuitemComponent implements OnInit,OnDestroy {
             .subscribe(params => {
                 if (this.app.isHorizontal()) {
                     this.active = false;
-                }
-                else {
-                    if (this.item.routerLink)
+                } else {
+                    if (this.item.routerLink) {
                         this.updateActiveStateFromRoute();
-                    else
+                    } else {
                         this.active = false;
+                    }
                 }
             });
     }
@@ -144,8 +144,7 @@ export class AppMenuitemComponent implements OnInit,OnDestroy {
         if (this.item.items) {
             this.active = !this.active;
             this.animating = true;
-        }
-        else {
+        } else {
             // activate item
             this.active = true;
 
@@ -163,7 +162,7 @@ export class AppMenuitemComponent implements OnInit,OnDestroy {
     }
 
     onMouseEnter() {
-        //activate item on hover 
+        // activate item on hover
         if (this.root && this.app.menuHoverActive && this.app.isHorizontal() && this.app.isDesktop()) {
             this.menuService.onMenuStateChange(this.key);
             this.active = true;

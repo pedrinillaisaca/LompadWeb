@@ -18,7 +18,7 @@ import { BreadcrumbService } from '../../breadcrumb.service';
         .docs li{
             line-height: 2;
         }
-        
+
         .docs i {
             background: #f1daad;
             font-family: monaco,Consolas,Lucida Console,monospace;

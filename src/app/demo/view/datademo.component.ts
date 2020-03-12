@@ -20,7 +20,7 @@ import interactionPlugin from '@fullcalendar/interaction';
             font-size: 20px;
             font-weight: normal;
         }
-        
+
         .ui-table .ui-table-globalfilter-container {
             position: relative;
             top: -4px;
@@ -88,7 +88,7 @@ import interactionPlugin from '@fullcalendar/interaction';
         .ui-panel-content {
             padding: 1em;
         }
-        
+
         @media (max-width: 1024px) {
             .car-details-list img {
                 width: 75px;
@@ -216,6 +216,10 @@ export class DataDemoComponent implements OnInit {
 
     cols2: any[];
 
+    brands: SelectItem[];
+
+    colors: SelectItem[];
+
     data: TreeNode[];
 
     selectedCar: Car;
@@ -294,7 +298,29 @@ export class DataDemoComponent implements OnInit {
         this.nodeService.getFiles().then(files => this.files3 = files);
         this.nodeService.getFilesystem().then(files => this.files4 = files);
         this.eventService.getEvents().then(events => { this.events = events; });
+        this.brands = [
+            { label: 'Audi', value: 'Audi' },
+            { label: 'BMW', value: 'BMW' },
+            { label: 'Fiat', value: 'Fiat' },
+            { label: 'Honda', value: 'Honda' },
+            { label: 'Jaguar', value: 'Jaguar' },
+            { label: 'Mercedes', value: 'Mercedes' },
+            { label: 'Renault', value: 'Renault' },
+            { label: 'VW', value: 'VW' },
+            { label: 'Volvo', value: 'Volvo' }
+        ];
 
+        this.colors = [
+            { label: 'White', value: 'White' },
+            { label: 'Green', value: 'Green' },
+            { label: 'Silver', value: 'Silver' },
+            { label: 'Black', value: 'Black' },
+            { label: 'Red', value: 'Red' },
+            { label: 'Maroon', value: 'Maroon' },
+            { label: 'Brown', value: 'Brown' },
+            { label: 'Orange', value: 'Orange' },
+            { label: 'Blue', value: 'Blue' }
+        ];
         this.carouselCars = [
             { vin: 'r3278r2', year: 2010, brand: 'Audi', color: 'Black' },
             { vin: 'jhto2g2', year: 2015, brand: 'BMW', color: 'White' },
