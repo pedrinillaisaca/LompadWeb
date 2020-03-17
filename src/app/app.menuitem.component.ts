@@ -25,7 +25,7 @@ import { AppMainComponent } from './app.main.component';
                   <i class="pi pi-fw pi-angle-down layout-submenu-toggler" *ngIf="item.items"></i>
                   <i [ngClass]="item.icon"></i>
               </a>
-              <ul *ngIf="item.items && (active)" [@children]="(app.isHorizontal() && root) ? (active ? 'visible' : 'hidden') : (active ? 'visibleAnimated' : 'hiddenAnimated')">
+              <ul *ngIf="item.items && active" [@children]="(app.isHorizontal() && root) ? (active ? 'visible' : 'hidden') : (active ? 'visibleAnimated' : 'hiddenAnimated')">
                   <ng-template ngFor let-child let-i="index" [ngForOf]="item.items">
                       <li app-menuitem [item]="child" [index]="i" [parentKey]="key" [class]="child.badgeClass"></li>
                   </ng-template>
