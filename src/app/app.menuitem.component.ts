@@ -25,8 +25,7 @@ import { AppMainComponent } from './app.main.component';
                   <i class="pi pi-fw pi-angle-down layout-submenu-toggler" *ngIf="item.items"></i>
                   <i [ngClass]="item.icon"></i>
               </a>
-              <ul *ngIf="item.items && (active || animating)" (@children.done)="onAnimationDone()"
-                  [@children]="(app.isHorizontal() && root) ? (active ? 'visible' : 'hidden') : (active ? 'visibleAnimated' : 'hiddenAnimated')">
+              <ul *ngIf="item.items && (active)" [@children]="(app.isHorizontal() && root) ? (active ? 'visible' : 'hidden') : (active ? 'visibleAnimated' : 'hiddenAnimated')">
                   <ng-template ngFor let-child let-i="index" [ngForOf]="item.items">
                       <li app-menuitem [item]="child" [index]="i" [parentKey]="key" [class]="child.badgeClass"></li>
                   </ng-template>
@@ -71,8 +70,6 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
     @Input() root: boolean;
 
     @Input() parentKey: string;
-
-    animating: boolean;
 
     active: boolean = false;
 
@@ -143,7 +140,6 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
         // toggle active state
         if (this.item.items) {
             this.active = !this.active;
-            this.animating = true;
         } else {
             // activate item
             this.active = true;
@@ -167,10 +163,6 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
             this.menuService.onMenuStateChange(this.key);
             this.active = true;
         }
-    }
-
-    onAnimationDone() {
-        this.animating = false;
     }
 
     ngOnDestroy() {
