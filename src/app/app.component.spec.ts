@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { AppMainComponent } from './app.main.component';
 import { AppTopBarComponent } from './app.topbar.component';
 import { AppFooterComponent } from './app.footer.component';
-import { AppMenuComponent, AppSubMenuComponent } from './app.menu.component';
+import { AppMenuComponent } from './app.menu.component';
 import { ScrollPanelModule } from 'primeng/scrollpanel';
 import { CalendarModule } from 'primeng/calendar';
 import { TabViewModule } from 'primeng/tabview';
@@ -24,7 +24,6 @@ describe('AppComponent', () => {
                 AppComponent,
                 AppMainComponent,
                 AppMenuComponent,
-                AppSubMenuComponent,
                 AppTopBarComponent,
                 AppConfigComponent,
                 AppRightPanelComponent,
