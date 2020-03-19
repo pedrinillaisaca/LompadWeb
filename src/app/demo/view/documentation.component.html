@@ -743,9 +743,11 @@ $datatableCellBorderColor:#434c5e;
             </ul>
 
 <pre>
+<code class="language-javascript" pCode>
 &lt;div class="layout-wrapper layout-menu-chile"&gt;
 ...
 &lt;/div&gt;
+</code>
 </pre>
 
             <p>Creating a custom menu theme with the color scheme of your choice requires the following steps.</p>
@@ -759,6 +761,7 @@ $datatableCellBorderColor:#434c5e;
 
             <p>Here are the variables required to create a layout.</p>
 <pre>
+<code class="language-css" pCode>
 .layout-menu-myown &#123;
     $menuBgColor: #222932;
     $rootMenuitemTextColor:#eceff4;
@@ -780,10 +783,12 @@ $datatableCellBorderColor:#434c5e;
 
     @import '../_menu_theme';
 &#125;
+</code>
 </pre>
 
             <p>An image can be used as the background of the menu using the menuBgImage variable.</p>
 <pre>
+<code class="language-css" pCode>
 .layout-menu-myown &#123;
     $menuBgColor: #222932;
     $menuBgImage:'myown.jpg';
@@ -807,6 +812,7 @@ $datatableCellBorderColor:#434c5e;
 
     @import '../_menu_theme';
 &#125;
+</code>
 </pre>
 
             <h1>Breadcrumb</h1>
@@ -842,10 +848,10 @@ export class ControlPanelComponent &#123;
                 scss files under sass folder to avoid maintenance issues after an update.</p>
 
             <ul>
-                <li><b>variables/_layout_variables</b>: Variables of the layout.</li>
-                <li><b>variables/_layout_styles</b>: Styles for the layout.</li>
-                <li><b>variables/_theme_variables</b>: Variables of the theme.</li>
-                <li><b>variables/_theme_styles</b>: Styles for the theme.</li>
+                <li><b>overrides/_layout_variables</b>: Variables of the layout.</li>
+                <li><b>overrides/_layout_styles</b>: Styles for the layout.</li>
+                <li><b>overrides/_theme_variables</b>: Variables of the theme.</li>
+                <li><b>overrides/_theme_styles</b>: Styles for the theme.</li>
             </ul>
 
             <h1>Migration Guide</h1>
