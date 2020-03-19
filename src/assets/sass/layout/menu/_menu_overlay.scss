@@ -88,6 +88,8 @@
                         font-size: 22px;
                         position: absolute;
                         right: 10px;
+                        top: 50%;
+                        margin-top: -.5em;
 
                         &.layout-submenu-toggler {
                             @include transition(all $transitionDuration);
