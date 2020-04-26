@@ -179,29 +179,16 @@ export class AppMainComponent {
         event.preventDefault();
     }
 
-    isTablet() {
-        const width = window.innerWidth;
-        return width <= 1024 && width > 640;
-    }
-
     isDesktop() {
-        return window.innerWidth > 1024;
+        return window.innerWidth > 991;
     }
 
     isMobile() {
-        return window.innerWidth <= 640;
+        return window.innerWidth <= 991;
     }
 
     isHorizontal() {
         return this.horizontalMenu === true;
-    }
-
-    isOverlay() {
-        return this.horizontalMenu === false;
-    }
-
-    isDarkMode() {
-        return this.darkMode === true;
     }
 
 }
