@@ -1,9 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-// import {CarService} from '../service/carservice';
-import {EventService} from '../service/eventservice';
-// import {Car} from '../domain/car';
 import {SelectItem} from 'primeng/api';
 import {BreadcrumbService} from '../../breadcrumb.service';
+import {ProductService} from '../service/productservice';
+import {Product} from '../domain/product';
 
 @Component({
     templateUrl: './dashboard.component.html'
@@ -21,18 +20,20 @@ export class DashboardDemoComponent implements OnInit {
 
     cars: any[];
 
-    cols: any[];
-
     selectedCar: any;
 
-    constructor(private eventService: EventService, private breadcrumbService: BreadcrumbService) {
-        this.breadcrumbService.setItems([
-            {label: 'Dashboard'},
-            {label: 'Control Center', routerLink: ['/']}
-        ]);
-    }
+    products: Product[];
+
+    events: any[];
+
+    constructor(private productService: ProductService, private breadcrumbService: BreadcrumbService) {
+      this.breadcrumbService.setItems([
+          {label: 'Dashboard', routerLink: ['/']}
+      ]); }
 
     ngOnInit() {
+        this.productService.getProducts().then(data => this.products = data);
+
         this.lineChartData = {
             labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
             datasets: [
@@ -96,12 +97,6 @@ export class DashboardDemoComponent implements OnInit {
             {label: '2016', value: 2016},
             {label: '2015', value: 2015},
             {label: '2014', value: 2014}
-        ];
-
-        this.cols = [
-            { field: 'year', header: 'Year' },
-            { field: 'brand', header: 'Brand' },
-            { field: 'color', header: 'Color' }
         ];
     }
 }
