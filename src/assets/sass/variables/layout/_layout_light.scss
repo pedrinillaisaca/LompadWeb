@@ -10,6 +10,6 @@ $contentAltBorderColor:#e5e9f0;
 $dividerColor:rgba(145,153,169,0.3);
 $menuShadow:3px 0 5px 0 rgba(33, 35, 39, 0.15);
 
-@import '../overrides/layout_variables';
+@import '../../overrides/layout_variables';
 
-@import './_layout';
+@import './common';
