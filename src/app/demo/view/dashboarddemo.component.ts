@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {CarService} from '../service/carservice';
+// import {CarService} from '../service/carservice';
 import {EventService} from '../service/eventservice';
-import {Car} from '../domain/car';
+// import {Car} from '../domain/car';
 import {SelectItem} from 'primeng/api';
 import {BreadcrumbService} from '../../breadcrumb.service';
 
@@ -19,13 +19,13 @@ export class DashboardDemoComponent implements OnInit {
 
     activeNews = 1;
 
-    cars: Car[];
+    cars: any[];
 
     cols: any[];
 
-    selectedCar: Car;
+    selectedCar: any;
 
-    constructor(private carService: CarService, private eventService: EventService, private breadcrumbService: BreadcrumbService) {
+    constructor(private eventService: EventService, private breadcrumbService: BreadcrumbService) {
         this.breadcrumbService.setItems([
             {label: 'Dashboard'},
             {label: 'Control Center', routerLink: ['/']}
@@ -97,8 +97,6 @@ export class DashboardDemoComponent implements OnInit {
             {label: '2015', value: 2015},
             {label: '2014', value: 2014}
         ];
-
-        this.carService.getCarsSmall().then(cars => this.cars = cars);
 
         this.cols = [
             { field: 'year', header: 'Year' },

@@ -1,20 +1,19 @@
-import { Component } from '@angular/core';
-import { Message } from 'primeng/api';
-import { BreadcrumbService } from '../../breadcrumb.service';
+import {Component} from '@angular/core';
+import {MessageService} from 'primeng/api';
+import {BreadcrumbService} from '../../breadcrumb.service';
 
 @Component({
-    templateUrl: './filedemo.component.html'
+    templateUrl: './filedemo.component.html',
+    providers: [MessageService]
 })
 export class FileDemoComponent {
 
-    msgs: Message[];
-
     uploadedFiles: any[] = [];
 
-    constructor(private breadcrumbService: BreadcrumbService) {
+    constructor(private breadcrumbService: BreadcrumbService, private messageService: MessageService) {
         this.breadcrumbService.setItems([
-            { label: 'Components' },
-            { label: 'File', routerLink: ['/components/file'] }
+            { label: 'UI Kit' },
+            { label: 'File', routerLink: ['/uikit/file'] }
         ]);
     }
 
@@ -23,7 +22,10 @@ export class FileDemoComponent {
             this.uploadedFiles.push(file);
         }
 
-        this.msgs = [];
-        this.msgs.push({ severity: 'info', summary: 'Success', detail: 'Upload Completed' });
+        this.messageService.add({severity: 'info', summary: 'Success', detail: 'File Uploaded'});
+    }
+
+    onBasicUpload(event) {
+        this.messageService.add({severity: 'info', summary: 'Success', detail: 'File Uploaded with Basic Mode'});
     }
 }
