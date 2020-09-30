@@ -55,6 +55,15 @@ a {
     margin-left: 60px;
     padding-top: 75px;
     @include transition(margin-left $transitionDuration);
+
+    @include flex();
+    @include flex-justify-between();
+    @include flex-direction-column();
+    min-height:100vh;
+    -moz-transition: margin-left 0.2s;
+    -o-transition: margin-left 0.2s;
+    -webkit-transition: margin-left 0.2s;
+    transition: margin-left 0.2s;
 }
 
 .layout-footer{

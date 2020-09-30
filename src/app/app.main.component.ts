@@ -1,6 +1,7 @@
-import {Component, Renderer2} from '@angular/core';
+import { Component, Renderer2 } from '@angular/core';
 import { MenuService } from './app.menu.service';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { PrimeNGConfig } from 'primeng/api';
 
 @Component({
     selector: 'app-main',
@@ -55,8 +56,6 @@ export class AppMainComponent {
 
     topbarMobileMenuActive: boolean;
 
-    configDialogActive: boolean;
-
     sidebarActive: boolean;
 
     activeTopbarItem: any;
@@ -65,7 +64,19 @@ export class AppMainComponent {
 
     menuHoverActive: boolean;
 
-    constructor(public renderer: Renderer2, private menuService: MenuService) {}
+    configActive: boolean;
+
+    configClick: boolean;
+
+    ripple: boolean = true;
+
+    inputStyle = 'outlined';
+
+    constructor(public renderer: Renderer2, private menuService: MenuService, private primengConfig: PrimeNGConfig) {}
+
+    ngOnInit() {
+        this.primengConfig.ripple = true;
+    }
 
     onLayoutClick() {
         if (!this.topbarItemClick) {
@@ -97,6 +108,11 @@ export class AppMainComponent {
             this.menuHoverActive = false;
         }
 
+        if (this.configActive && !this.configClick) {
+            this.configActive = false;
+        }
+
+        this.configClick = false;
         this.menuClick = false;
         this.topbarItemClick = false;
         this.megaMenuClick = false;
@@ -177,6 +193,14 @@ export class AppMainComponent {
     onToggleMenuClick(event: Event) {
         this.staticMenuActive = !this.staticMenuActive;
         event.preventDefault();
+    }
+
+    onConfigClick(event) {
+        this.configClick = true;
+    }
+
+    onRippleChange(event) {
+        this.ripple = event.checked;
     }
 
     isDesktop() {

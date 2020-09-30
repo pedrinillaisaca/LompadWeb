@@ -39,21 +39,21 @@ import {AppMainComponent} from './app.main.component';
 									<li class="active-row ">
 										<i class="pi pi-circle-on"></i>
 										<span>
-                                        <h3>PrimeFaces</h3>
+                                        <h5>PrimeFaces</h5>
                                         <span>UI Components for JSF</span>
                                     </span>
 									</li>
 									<li>
 										<i class="pi pi-circle-on"></i>
 										<span>
-                                        <h3>Premium Templates</h3>
+                                        <h5>Premium Templates</h5>
                                         <span>UI Components for JSF</span>
                                     </span>
 									</li>
 									<li>
 										<i class="pi pi-circle-on"></i>
 										<span>
-                                        <h3>Extensions</h3>
+                                        <h5>Extensions</h5>
                                         <span>UI Components for JSF</span>
                                     </span>
 									</li>
@@ -65,7 +65,7 @@ import {AppMainComponent} from './app.main.component';
 									<li>
 										<i class="pi pi-circle-on"></i>
 										<span>
-                                        <h3>PrimeNG</h3>
+                                        <h5>PrimeNG</h5>
                                         <span>UI Components for Angular</span>
                                     </span>
 
@@ -73,7 +73,7 @@ import {AppMainComponent} from './app.main.component';
 									<li>
 										<i class="pi pi-circle-on"></i>
 										<span>
-                                        <h3>Premium Templates</h3>
+                                        <h5>Premium Templates</h5>
                                         <span>UI Components for Angular</span>
                                     </span>
 									</li>
@@ -85,14 +85,14 @@ import {AppMainComponent} from './app.main.component';
 									<li>
 										<i class="pi pi-circle-on"></i>
 										<span>
-                                        <h3>PrimeReact</h3>
+                                        <h5>PrimeReact</h5>
                                         <span>UI Components for React</span>
                                     </span>
 									</li>
 									<li class="active-row">
 										<i class="pi pi-circle-on"></i>
 										<span>
-                                        <h3>Premium Templates</h3>
+                                        <h5>Premium Templates</h5>
                                         <span>UI Components for React</span>
                                     </span>
 									</li>

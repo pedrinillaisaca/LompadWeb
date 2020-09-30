@@ -1078,9 +1078,7 @@
             <p-table [value]="products" [paginator]="true" [rows]="5">
                 <ng-template pTemplate="header">
                     <tr>
-                        <th pSortableColumn="logo">Logo
-                            <p-sortIcon field="logo"></p-sortIcon>
-                        </th>
+                        <th>Logo</th>
                         <th pSortableColumn="name">Name
                             <p-sortIcon field="name"></p-sortIcon>
                         </th>
@@ -1090,9 +1088,7 @@
                         <th pSortableColumn="price">Price
                             <p-sortIcon field="price"></p-sortIcon>
                         </th>
-                        <th pSortableColumn="view">View
-                            <p-sortIcon field="view"></p-sortIcon>
-                        </th>
+                        <th>View</th>
                     </tr>
                 </ng-template>
                 <ng-template pTemplate="body" let-product>

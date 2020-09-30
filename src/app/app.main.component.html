@@ -4,7 +4,9 @@
                 'layout-rightpanel-active': rightPanelActive,
                 'layout-topbar-mobile-active': topbarMobileMenuActive,
                 'layout-megamenu-mobile-active': megaMenuMobileActive,
-                'layout-sidebar-mobile-active': menuMobileActive}" [class]="menuColor">
+                'layout-sidebar-mobile-active': menuMobileActive,
+                'p-input-filled': inputStyle === 'filled',
+                'p-ripple-disabled': !ripple}" [class]="menuColor">
 
     <app-menu></app-menu>
 
@@ -24,7 +26,5 @@
         <app-config></app-config>
 
         <div class="layout-main-mask"></div>
-
-        <div class="layout-config-mask" *ngIf="configDialogActive" [@mask-anim]="'visible'"></div>
     </div>
 </div>

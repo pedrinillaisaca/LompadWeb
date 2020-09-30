@@ -109,7 +109,7 @@
                             }
 
                             >span {
-                                h3 {
+                                h5 {
                                     color: $textColor;
                                     font-weight: 500;
                                     margin: 0;
@@ -133,7 +133,7 @@
                                 }
 
                                 >span {
-                                    h3{
+                                    h5{
                                         color: $primaryColor;
                                         @include transition(color $transitionDuration);
                                     }
@@ -174,14 +174,14 @@
 
                         &.layout-rightpanel-button {
                             i {
-                                font-size: 25px;
+                                font-size: 22px;
                                 font-weight: bold;
                             }
                         }
 
                         i {
                             color: $textColor;
-                            font-size: 30px;
+                            font-size: 22px;
                         }
 
                         &:hover,

@@ -5,96 +5,95 @@ import {AppMainComponent} from './app.main.component';
 @Component({
     selector: 'app-config',
     template: `
-		<a href="#" class="layout-config-button" (click)="onConfigButtonClick($event)">
-			<i class="pi pi-cog"></i>
-		</a>
-		<div id="layout-config" class="layout-config" [ngClass]="{'layout-config-exit-done': !app.configDialogActive,
-        'layout-config-enter-done': app.configDialogActive}" [@children]="app.configDialogActive ? 'visibleAnimated' : 'hiddenAnimated'">
-			<div class="layout-config-content">
-				<a href="#" class="layout-config-close" (click)="onConfigCloseClick($event)">
-					<i class="pi pi-times"></i>
-				</a>
-				<p-tabView id="config-form-tabs">
-					<p-tabPanel header="Light or Dark">
-						<h1>Light or Dark</h1>
-						<p>Mirage offers all dark dashboard &amp; theme design for dark lovers.</p>
+        <div class="layout-config" [ngClass]="{'layout-config-active': app.configActive}" (click)="app.onConfigClick($event)">
+            <a style="cursor: pointer" id="layout-config-button" class="layout-config-button" (click)="onConfigButtonClick($event)">
+                <i class="pi pi-cog"></i>
+            </a>
+            <a style="cursor: pointer" class="layout-config-close" (click)="onConfigCloseClick($event)">
+                <i class="pi pi-times"></i>
+            </a>
+            <div class="layout-config-content">
+                <h5 style="margin-top: 0">Input Style</h5>
+                <div class="p-formgroup-inline">
+                    <div class="p-field-radiobutton">
+                        <p-radioButton inputId="input_outlined" name="inputstyle" [(ngModel)]="app.inputStyle"  value="outlined"></p-radioButton>
+                        <label for="input_outlined">Outlined</label>
+                    </div>
+                    <div class="p-field-radiobutton">
+                        <p-radioButton inputId="input_filled" name="inputstyle" [(ngModel)]="app.inputStyle" value="filled"></p-radioButton>
+                        <label for="input_filled">Filled</label>
+                    </div>
+                </div>
 
-						<div class="p-grid p-justify-center p-align-center">
-							<div class="p-col p-col-fixed">
-								<a href="#" class="layout-config-option layout-config-option-image" (click)="changeLayout($event, false)">
-									<img src="assets/layout/images/configurator/choice-light.png" alt="mirage-layout" style="width:100%"/>
-									<span class="layout-config-option-text">Light</span>
-									<i class="pi pi-check" *ngIf="!app.darkMode"></i>
-								</a>
-							</div>
-							<div class="p-col p-col-fixed p-md-offset-1">
-								<a href="#" class="layout-config-option layout-config-option-image" (click)="changeLayout($event, true)">
-									<img src="assets/layout/images/configurator/choice-dark.png" alt="mirage-layout" style="width:100%"/>
-									<span class="layout-config-option-text">Dark</span>
-									<i class="pi pi-check" *ngIf="app.darkMode"></i>
-								</a>
-							</div>
-						</div>
-					</p-tabPanel>
-					<p-tabPanel header="Menu">
-						<div class="layout-config-subtitle">Mode</div>
-						<div class="p-grid">
-							<div class="p-col p-col-fixed">
-								<a href="#" class="layout-config-option layout-config-option-image"
-								   (click)="changeMenuToHorizontal($event,true)">
-									<img src="assets/layout/images/configurator/menu/horizontal.png" alt="mirage-layout" style="width:100%"/>
-									<span class="layout-config-option-text">Horizontal</span>
-									<i class="pi pi-check" *ngIf="app.horizontalMenu"></i>
-								</a>
-							</div>
-							<div class="p-col p-col-fixed">
-								<a href="#" class="layout-config-option layout-config-option-image"
-								   (click)="changeMenuToHorizontal($event,false)">
-									<img src="assets/layout/images/configurator/menu/overlay.png" alt="mirage-layout" style="width:100%"/>
-									<span class="layout-config-option-text">Overlay</span>
-									<i class="pi pi-check" *ngIf="!app.horizontalMenu"></i>
-								</a>
-							</div>
+                <h5>Ripple Effect</h5>
+                <p-inputSwitch [ngModel]="app.ripple" (onChange)="app.onRippleChange($event)"></p-inputSwitch>
+
+                <h5>Menu Type</h5>
+                <div class="p-grid">
+                    <div class="p-col-6">
+                        <div class="p-field-radiobutton">
+                            <p-radioButton inputId="overlay" name="layoutMode" [(ngModel)]="app.horizontalMenu"></p-radioButton>
+                            <label for="static">Overlay</label>
                         </div>
-
-						<div class="layout-config-subtitle">Color</div>
-						<div class="p-grid">
-							<div class="p-col p-col-fixed" *ngFor="let menuColor of menuColors">
-								<a href="#" class="layout-config-option layout-config-option-image"
-								   (click)="changeMenuColor($event,menuColor.name)">
-									<img src="assets/layout/images/configurator/menu/{{menuColor.name}}.png" alt="{{menuColor.name}}"/>
-									<span class="layout-config-option-text">{{menuColor.name}}</span>
-									<i class="pi pi-check" *ngIf="menuColor.name === app.menuColorMode"></i>
-								</a>
-							</div>
+                    </div>
+                    <div class="p-col-6">
+                        <div class="p-field-radiobutton">
+                            <p-radioButton inputId="horizontal" name="layoutMode" [value]="true" [(ngModel)]="app.horizontalMenu"></p-radioButton>
+                            <label for="horizontal">Horizontal</label>
                         </div>
+                    </div>
+                </div>
 
-						<div class="layout-config-subtitle">Theme</div>
-						<div class="p-grid">
-							<div class="p-col p-col-fixed" *ngFor="let menuTheme of selectedColorOptions">
-								<a href="#" class="layout-config-option layout-config-option-image layout-config-option-theme"
-								   (click)="changeMenuTheme($event,menuTheme.file)">
-									<img src="assets/layout/images/configurator/menu/theme/{{menuTheme.image}}" alt="{{menuTheme.name}}"/>
-									<i class="pi pi-check" *ngIf="app.menuColorMode === 'custom' && 'layout-menu-'+menuTheme.file === app.menuColor"></i>
-									<i class="pi pi-check" *ngIf="app.menuColorMode !== 'custom' && menuTheme.file === app.layoutColor"></i>
-								</a>
-							</div>
-						</div>
-					</p-tabPanel>
-					<p-tabPanel header="Components">
-						<div class="p-grid">
-							<div class="p-col p-col-fixed" *ngFor="let componentTheme of componentThemes">
-								<a href="#" class="layout-config-option layout-config-option-image layout-config-option-theme"
-								   (click)="changeComponentTheme($event,componentTheme.file)">
-									<img src="assets/layout/images/configurator/theme/{{componentTheme.image}}" alt="{{componentTheme.name}}"/>
-									<i class="pi pi-check" *ngIf="componentTheme.file === app.themeColor"></i>
-								</a>
-							</div>
-						</div>
-					</p-tabPanel>
-				</p-tabView>
-			</div>
-		</div>
+                <h5>Color Scheme</h5>
+                <div class="p-grid">
+                    <div class="p-col-6">
+                        <div class="p-field-radiobutton">
+                            <p-radioButton inputId="light" name="colorScheme" [value]="false" [(ngModel)]="app.darkMode" (onClick)="changeLayout($event, false)"></p-radioButton>
+                            <label for="light">Light</label>
+                        </div>
+                    </div>
+                    <div class="p-col-6">
+                        <div class="p-field-radiobutton">
+                            <p-radioButton inputId="dark" name="colorScheme" [value]="true" [(ngModel)]="app.darkMode" (onClick)="changeLayout($event, true)"></p-radioButton>
+                            <label for="dark">Dark</label>
+                        </div>
+                    </div>
+                </div>
+
+                <h5>Menu Colors</h5>
+                <div class="p-formgroup-inline">
+                    <div class="p-field-radiobutton">
+                        <p-radioButton inputId="lightMenu" name="menuColor"  value="light" [ngModel]="app.menuColorMode" (onClick)="changeMenuColorMode($event, 'light')"></p-radioButton>
+                        <label for="lightMenu">Light</label>
+                    </div>
+                    <div class="p-field-radiobutton">
+                        <p-radioButton inputId="darkMenu" name="menuColor" value="dark" [ngModel]="app.menuColorMode" (onClick)="changeMenuColorMode($event, 'dark')"></p-radioButton>
+                        <label for="darkMenu">Dark</label>
+                    </div>
+                    <div class="p-field-radiobutton">
+                        <p-radioButton inputId="customMenu" name="menuColor" value="custom" [ngModel]="app.menuColorMode" (onClick)="changeMenuColorMode($event, 'custom')"></p-radioButton>
+                        <label for="customMenu">Custom</label>
+                    </div>
+                </div>
+                <div class="layout-themes">
+                    <div *ngFor="let color of menuColors">
+                        <a style="cursor: pointer" (click)="changeMenuColor($event, color.file)"  [ngStyle]="{'background-color': color.color}">
+                            <img src="assets/layout/images/configurator/menu/theme/{{color.image}}" *ngIf="app.menuColorMode === 'custom'" style="height: 100%; width: 100%;" alt="{{color.name}}"/>
+                            <i class="pi pi-check" *ngIf="app.layoutColor === color.file"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <h5>Themes</h5>
+                <div class="layout-themes">
+                    <div *ngFor="let t of componentThemes">
+                        <a style="cursor: pointer" (click)="changeComponentTheme($event, t.file)" [ngStyle]="{'background-color': t.color}">
+                            <i class="pi pi-check" *ngIf="app.themeColor === t.file"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     `,
     animations: [
         trigger('children', [
@@ -121,8 +120,6 @@ export class AppConfigComponent implements OnInit {
 
     menuColors: any;
 
-    selectedColorOptions: any;
-
     componentThemes: any;
 
     constructor(public app: AppMainComponent) {
@@ -131,33 +128,33 @@ export class AppConfigComponent implements OnInit {
     ngOnInit() {
 
         this.lightColors = [
-            {name: 'Blue', file: 'blue', image: 'blue.svg'},
-            {name: 'Green', file: 'green', image: 'green.svg'},
-            {name: 'Yellow', file: 'yellow', image: 'yellow.svg'},
-            {name: 'Cyan', file: 'cyan', image: 'cyan.svg'},
-            {name: 'Purple', file: 'purple', image: 'purple.svg'},
-            {name: 'Orange', file: 'orange', image: 'orange.svg'},
-            {name: 'Teal', file: 'teal', image: 'teal.svg'},
-            {name: 'Magenta', file: 'magenta', image: 'magenta.svg'},
-            {name: 'Lime', file: 'lime', image: 'lime.svg'},
-            {name: 'Brown', file: 'brown', image: 'brown.svg'},
-            {name: 'Red', file: 'red', image: 'red.svg'},
-            {name: 'Indigo', file: 'indigo', image: 'indigo.svg'},
+            {name: 'Blue', file: 'blue', color: '#5e81ac'},
+            {name: 'Green', file: 'green', color: '#A3BE8C'},
+            {name: 'Yellow', file: 'yellow', color: "#EBCB8B"},
+            {name: 'Cyan', file: 'cyan', color: '#88C0D0'},
+            {name: 'Purple', file: 'purple', color: '#B48EAD'},
+            {name: 'Orange', file: 'orange', color: '#D08770'},
+            {name: 'Teal', file: 'teal', color: '#88D0BD'},
+            {name: 'Magenta', file: 'magenta', color: '#BD69AE'},
+            {name: 'Lime', file: 'lime', color: '#B9BE7F'},
+            {name: 'Brown', file: 'brown', color: '#BE9B7F'},
+            {name: 'Red', file: 'red', color: '#F28686'},
+            {name: 'Indigo', file: 'indigo', color: '#8886F2'},
         ];
 
         this.darkColors = [
-            {name: 'Blue', file: 'blue', image: 'blue.svg'},
-            {name: 'Green', file: 'green', image: 'green.svg'},
-            {name: 'Yellow', file: 'yellow', image: 'yellow.svg'},
-            {name: 'Cyan', file: 'cyan', image: 'cyan.svg'},
-            {name: 'Purple', file: 'purple', image: 'purple.svg'},
-            {name: 'Orange', file: 'orange', image: 'orange.svg'},
-            {name: 'Teal', file: 'teal', image: 'teal.svg'},
-            {name: 'Magenta', file: 'magenta', image: 'magenta.svg'},
-            {name: 'Lime', file: 'lime', image: 'lime.svg'},
-            {name: 'Brown', file: 'brown', image: 'brown.svg'},
-            {name: 'Red', file: 'red', image: 'red.svg'},
-            {name: 'Indigo', file: 'indigo', image: 'indigo.svg'},
+            {name: 'Blue', file: 'blue', color: '#5e81ac'},
+            {name: 'Green', file: 'green', color: '#A3BE8C'},
+            {name: 'Yellow', file: 'yellow', color: '#EBCB8B'},
+            {name: 'Cyan', file: 'cyan', color: '#88C0D0'},
+            {name: 'Purple', file: 'purple', color: '#B48EAD'},
+            {name: 'Orange', file: 'orange', color: '#D08770'},
+            {name: 'Teal', file: 'teal', color: '#88D0BD'},
+            {name: 'Magenta', file: 'magenta', color: '#BD69AE'},
+            {name: 'Lime', file: 'lime', color: '#B9BE7F'},
+            {name: 'Brown', file: 'brown', color: '#BE9B7F'},
+            {name: 'Red', file: 'red', color: '#F28686'},
+            {name: 'Indigo', file: 'indigo', color: '#8886F2'},
         ];
 
         this.customColors = [
@@ -202,27 +199,21 @@ export class AppConfigComponent implements OnInit {
             {name: 'Orange', file: 'orange', image: 'orange.png'},
         ];
 
-        this.menuColors = [
-            {name: 'light'},
-            {name: 'custom'},
-            {name: 'dark'}
-        ];
-
-        this.selectedColorOptions = this.lightColors;
+        this.menuColors = this.lightColors;
 
         this.componentThemes = [
-            {name: 'Blue', file: 'blue', image: 'blue.svg'},
-            {name: 'Green', file: 'green', image: 'green.svg'},
-            {name: 'Yellow', file: 'yellow', image: 'yellow.svg'},
-            {name: 'Cyan', file: 'cyan', image: 'cyan.svg'},
-            {name: 'Purple', file: 'purple', image: 'purple.svg'},
-            {name: 'Orange', file: 'orange', image: 'orange.svg'},
-            {name: 'Teal', file: 'teal', image: 'teal.svg'},
-            {name: 'Magenta', file: 'magenta', image: 'magenta.svg'},
-            {name: 'Lime', file: 'lime', image: 'lime.svg'},
-            {name: 'Brown', file: 'brown', image: 'brown.svg'},
-            {name: 'Red', file: 'red', image: 'red.svg'},
-            {name: 'Indigo', file: 'indigo', image: 'indigo.svg'},
+            {name: 'Blue', file: 'blue', color: '#5E81AC'},
+            {name: 'Green', file: 'green', color: '#99CE6B'},
+            {name: 'Yellow', file: 'yellow', color: '#EBCB8B'},
+            {name: 'Cyan', file: 'cyan', color: '#88C0D0'},
+            {name: 'Purple', file: 'purple', color: '#B48EAD'},
+            {name: 'Orange', file: 'orange', color: '#D08770'},
+            {name: 'Teal', file: 'teal', color: '#88D0BD'},
+            {name: 'Magenta', file: 'magenta', color: '#BD69AE'},
+            {name: 'Lime', file: 'lime', color: '#B9BE7F'},
+            {name: 'Brown', file: 'brown', color: '#BE9B7F'},
+            {name: 'Red', file: 'red', color: '#F28686'},
+            {name: 'Indigo', file: 'indigo', color: '#8886F2'},
         ];
     }
 
@@ -231,16 +222,17 @@ export class AppConfigComponent implements OnInit {
         if (mode === true) {
             this.app.menuColorMode = 'dark';
             this.app.menuColor = 'layout-menu-dark';
-            this.selectedColorOptions = this.darkColors;
-            this.app.layoutColor = this.selectedColorOptions[0].file;
-            this.changeLightDarkLayout('layout-css', this.selectedColorOptions[0].file, 'layout-dark');
+            this.app.layoutColor = this.darkColors[0].file;
+            this.menuColors = this.darkColors;
+            this.changeLightDarkLayout('layout-css', this.darkColors[0].file, 'layout-dark');
             this.changeLightDarkTheme('theme-css', 'theme-dark');
-        } else {
+        } 
+        else {
             this.app.menuColorMode = 'light';
             this.app.menuColor = 'layout-menu-light';
-            this.selectedColorOptions = this.lightColors;
-            this.app.layoutColor = this.selectedColorOptions[0].file;
-            this.changeLightDarkLayout('layout-css', this.selectedColorOptions[0].file, 'layout-light');
+            this.app.layoutColor = this.lightColors[0].file;
+            this.menuColors = this.lightColors;
+            this.changeLightDarkLayout('layout-css', this.lightColors[0].file, 'layout-light');
             this.changeLightDarkTheme('theme-css', 'theme-light');
         }
 
@@ -266,39 +258,37 @@ export class AppConfigComponent implements OnInit {
         this.replaceLink(element, newURL);
     }
 
-    changeMenuToHorizontal(event, mode) {
-        this.app.horizontalMenu = mode;
-
-        event.preventDefault();
-    }
-
-    changeMenuColor(event, mode) {
+    changeMenuColorMode(event, mode) {
         this.app.menuColorMode = mode;
-
-        if (mode !== 'custom') {
-            this.app.menuColor = 'layout-menu-' + mode;
-            if (mode === 'dark') {
-                this.selectedColorOptions = this.darkColors;
-                this.app.layoutColor = this.selectedColorOptions[0].file;
-                this.changeStyleSheetsColor('layout-css', this.selectedColorOptions[0].file);
-            } else {
-                this.selectedColorOptions = this.lightColors;
-                this.app.layoutColor = this.selectedColorOptions[0].file;
-                this.changeStyleSheetsColor('layout-css', this.selectedColorOptions[0].file);
+        if(mode !== 'custom') {
+            if (mode === 'light') {
+                this.menuColors = this.lightColors;
+                this.changeMenuColor(event, this.lightColors[0].file);
             }
-        } else {
-            this.app.menuColor = 'layout-menu-' + this.customColors[0].file;
-            this.selectedColorOptions = this.customColors;
+            else {
+                this.menuColors = this.darkColors;
+                this.changeMenuColor(event, this.darkColors[0].file);
+            }
         }
-
-        event.preventDefault();
+        else {
+                this.menuColors = this.customColors;
+                this.changeMenuColor(event, this.customColors[0].file);
+        }
     }
 
-    changeMenuTheme(event, color) {
+    changeMenuColor(event, color) {
         if (this.app.menuColorMode !== 'custom') {
-            this.changeStyleSheetsColor('layout-css', color);
+            this.app.menuColor = 'layout-menu-' + this.app.menuColorMode;
+            if (this.app.menuColorMode === 'dark') {
+                this.app.layoutColor = color;
+                this.changeStyleSheetsColor('layout-css', color);
+            } else {
+                this.app.layoutColor = color;
+                this.changeStyleSheetsColor('layout-css', color);
+            }
+        } 
+        else {
             this.app.layoutColor = color;
-        } else {
             this.app.menuColor = 'layout-menu-' + color;
         }
 
@@ -322,12 +312,12 @@ export class AppConfigComponent implements OnInit {
     }
 
     onConfigButtonClick(event) {
-        this.app.configDialogActive = true;
+        this.app.configActive = !this.app.configActive;
         event.preventDefault();
     }
 
     onConfigCloseClick(event) {
-        this.app.configDialogActive = false;
+        this.app.configActive = false;
         event.preventDefault();
     }
 
