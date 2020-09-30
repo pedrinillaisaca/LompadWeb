@@ -149,22 +149,22 @@
             .calendar{
                 padding: 18px;
 
-                .ui-datepicker-inline{
+                .p-datepicker-inline{
                     background-color: $contentBgColor;
                     border: none;
 
-                    .ui-datepicker-header {
+                    .p-datepicker-header {
                         font-size: 13px;
                         color: $textColor;
 
-                        .ui-datepicker-title{
+                        .p-datepicker-title{
                             span{
                                 color: $textColor;
                             }
                         }
                     }
 
-                    .ui-datepicker-calendar{
+                    .p-datepicker-calendar{
                         th{
                             color: $textSecondaryColor;
                         }
@@ -172,10 +172,6 @@
                         td{
                             a{
                                 color: $textColor;
-
-                                &.ui-state-active {
-                                    color: #ffffff;
-                                }
                             }
                         }
                     }

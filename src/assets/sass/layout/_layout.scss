@@ -1,5 +1,7 @@
 @import '../_mixins';
 @import './_utils';
+@import './_animation';
+@import './_typography';
 @import './_loader';
 @import './_main';
 @import './menu/_menu';
@@ -12,5 +14,5 @@
 @import './_exception';
 @import './_landing';
 @import './_config';
-@import './_typography';
+@import './_widgets.scss';
 @import '../overrides/_layout_styles';

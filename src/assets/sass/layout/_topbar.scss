@@ -285,21 +285,21 @@
                             &.calendar {
                                 padding: 0;
 
-                                p-calendar, .ui-calendar {
+                                p-calendar, .p-calendar {
                                     width: 100%;
                                 }
 
-                                .ui-datepicker-inline {
+                                .p-datepicker-inline {
                                     background-color: $contentBgColor;
                                     border: none;
                                     width: 100%;
 
-                                    .ui-datepicker-next,
-                                    .ui-datepicker-prev {
+                                    .p-datepicker-next,
+                                    .p-datepicker-prev {
                                         display: none;
                                     }
 
-                                    .ui-datepicker-calendar {
+                                    .p-datepicker-calendar {
                                         th {
                                             color: $textSecondaryColor;
                                         }

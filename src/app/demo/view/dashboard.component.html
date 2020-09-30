@@ -1,6 +1,6 @@
 <div class="p-grid layout-dashboard">
     <div class="p-col-12 p-xl-3 p-md-6">
-        <div class="p-grid p-nogutter overview-box overview-box-1">
+        <div class="p-grid p-nogutter widget-overview-box overview-box-1">
             <div class="p-col-3 overview-box-icon">
                 <img src="assets/layout/images/dashboard/icon-messages.svg" alt="mirage-layout" />
             </div>
@@ -14,7 +14,7 @@
         </div>
     </div>
     <div class="p-col-12 p-xl-3 p-md-6">
-        <div class="p-grid p-nogutter overview-box overview-box-2">
+        <div class="p-grid p-nogutter widget-overview-box overview-box-2">
             <div class="p-col-3 overview-box-icon">
                 <img src="assets/layout/images/dashboard/icon-checkins.svg" alt="mirage-layout" />
             </div>
@@ -28,7 +28,7 @@
         </div>
     </div>
     <div class="p-col-12 p-xl-3 p-md-6">
-        <div class="p-grid p-nogutter overview-box overview-box-3">
+        <div class="p-grid p-nogutter widget-overview-box overview-box-3">
             <div class="p-col-3 overview-box-icon">
                 <img src="assets/layout/images/dashboard/icon-filessynced.svg" alt="mirage-layout" />
             </div>
@@ -42,7 +42,7 @@
         </div>
     </div>
     <div class="p-col-12 p-xl-3 p-md-6">
-        <div class="p-grid p-nogutter overview-box overview-box-4">
+        <div class="p-grid p-nogutter widget-overview-box overview-box-4">
             <div class="p-col-3 overview-box-icon">
                 <img src="assets/layout/images/dashboard/icon-usersonline.png" alt="mirage-layout" />
             </div>
@@ -59,7 +59,7 @@
     <div class="p-col-12 p-lg-6 ">
         <div class="p-grid p-dir-col p-nogutter">
             <div class="p-col-12 ">
-                <div class="card statistics">
+                <div class="card widget-statistics">
                     <div class="p-grid">
                         <div class="p-col-6 p-md-8">
                             <h5>Statistics</h5>
@@ -71,7 +71,7 @@
                     <p-chart id="dashboard-chart" type="line" [data]="lineChartData" [options]="lineChartOptions"></p-chart>
                 </div>
             </div>
-            <div class="p-col-12 news-row-wrapper">
+            <div class="p-col-12 widget-news">
                 <div class="news-row" [ngStyle]="{'transform': activeNews === 1 ? 'translate3d(0px, 0px, 0px)':activeNews === 2
                 ?'translate3d(-100%, 0px, 0px)':'translate3d(-200%, 0px, 0px)'}">
                     <div class="card news news-1 active-news">
@@ -132,7 +132,7 @@
     <div class="p-col-12 p-lg-6">
         <div class="p-grid">
             <div class="p-col-12">
-                <div class="card timeline">
+                <div class="card widget-timeline">
                     <h5>Timeline</h5>
                     <div class="timeline-row">
                         <div class="p-grid p-nogutter">
@@ -248,12 +248,12 @@
         </div>
     </div>
     <div class="p-col-12 p-lg-4 p-md-6">
-        <div class="card tasks">
-            <div class="p-grid p-nogutter">
-                <div class="p-col-6 title">
+        <div class="card widget-tasks">
+            <div class="card-header">
+                <div class="title">
                     <h5>Tasks</h5>
                 </div>
-                <div class="p-col-6 task-info">
+                <div class=" task-info">
                     <span>You have</span><span class="highlighted"> 2 tasks</span><span> today</span>
                 </div>
             </div>
@@ -396,7 +396,7 @@
         </div>
     </div>
     <div class="p-col-12 p-lg-4 p-md-6">
-        <div class="card support-request">
+        <div class="card widget-support-request">
             <div class="p-grid p-nogutter">
                 <div class="p-col-6 title">
                     <h5>Support Request</h5>
@@ -420,7 +420,7 @@
         </div>
     </div>
     <div class="p-col-12 p-lg-4">
-        <div class="card team">
+        <div class="card widget-team">
             <h5>Team Members</h5>
             <ul>
                 <li>
@@ -547,7 +547,7 @@
         </div>
     </div>
     <div class="p-col-12 p-lg-8">
-        <div class="card store-items">
+        <div class="card widget-store-items">
             <div class="p-grid p-nogutter">
                 <div class="p-col-6 title">
                     <h5>Store Items</h5>
@@ -856,12 +856,12 @@
         </div>
     </div>
     <div class="p-col-12 p-lg-4">
-        <div class="card download-files">
-            <div class="p-grid p-nogutter">
-                <div class="p-col-6 title">
+        <div class="card widget-download-files">
+            <div class="card-header">
+                <div class="title">
                     <h5>Download Files</h5>
                 </div>
-                <div class="p-col-6 files-info">
+                <div class="files-info">
                     <span>Download All</span>
                 </div>
             </div>
@@ -988,7 +988,7 @@
         </div>
     </div>
     <div class="p-col-12 p-lg-3 p-md-6">
-        <div class="card card-graph graph-1">
+        <div class="card widget-card-graph graph-1">
             <div class="graph-header">
                 <h5>Orders</h5>
                 <div class="graph">
@@ -1011,7 +1011,7 @@
         </div>
     </div>
     <div class="p-col-12 p-lg-3 p-md-6">
-        <div class="card card-graph graph-2">
+        <div class="card widget-card-graph graph-2">
             <div class="graph-header">
                 <h5>Graph Type 2</h5>
                 <div class="graph">
@@ -1032,7 +1032,7 @@
         </div>
     </div>
     <div class="p-col-12 p-lg-3 p-md-6">
-        <div class="card card-graph graph-3">
+        <div class="card widget-card-graph graph-3">
             <div class="graph-header">
                 <h5>Graph Type 3</h5>
                 <div class="graph">
@@ -1053,7 +1053,7 @@
         </div>
     </div>
     <div class="p-col-12 p-lg-3 p-md-6">
-        <div class="card card-graph graph-4">
+        <div class="card widget-card-graph graph-4">
             <div class="graph-header">
                 <img src="assets/layout/images/dashboard/asset-bars-all.svg" alt="mirage-layout" />
                 <div class="title-tag">Graph Type 4</div>
