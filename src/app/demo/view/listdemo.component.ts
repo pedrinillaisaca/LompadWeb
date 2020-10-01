@@ -24,6 +24,8 @@ export class ListDemoComponent implements OnInit {
 
     orderCities: any[];
 
+    sortKey: any
+
     constructor(private productService: ProductService, private breadcrumbService: BreadcrumbService) {
         this.breadcrumbService.setItems([
             { label: 'UI Kit' },
