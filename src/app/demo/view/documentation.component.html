@@ -2,13 +2,13 @@
     <div class="p-col-12">
         <div class="card docs no-margin">
 
-            <h1>Current Version</h1>
+            <h4>Current Version</h4>
             <p>Angular 10 and PrimeNG 10</p>
 
-            <h1>Dependencies</h1>
+            <h4>Dependencies</h4>
             <p>Mirage has no direct dependency. More information about dependencies is available at <a href="https://www.primefaces.org/why-primeng-templates/">Why PrimeNG Templates</a> article.</p>
 
-            <h1>Getting Started</h1>
+            <h4>Getting Started</h4>
             <p>Mirage is a true native application template for Angular and is distributed as a CLI project. In case CLI is not installed already, use
                 the command below to set it up.</p>
 
@@ -26,7 +26,7 @@ ng serve
 
             <p>The application should run at http://localhost:4200/, you may now start with the development of your application.</p>
 
-            <h1>Important CLI Commands</h1>
+            <h4>Important CLI Commands</h4>
             <p>Following commands are derived from CLI.</p>
 <app-code ngPreserveWhitespaces ngNonBindable lang="markup">
 Run 'ng serve' for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
@@ -42,12 +42,12 @@ Run 'ng e2e' to execute the end-to-end tests via [Protractor](http://www.protrac
 Run 'ng help' for more options.
 </app-code>
 
-            <h1>Structure</h1>
+            <h4>Structure</h4>
             <p>Mirage consists of 3 main parts; the application layout, layout resources and theme resources for PrimeNG components. <i>app.component.html</i> inside app folder is the html template for the base layout,
                 required resources for the layout are placed inside the <i>src/assets/layout</i> folder and similarly theme resources are inside <i>src/assets/theme</i> folder.
             </p>
 
-            <h1>Template</h1>
+            <h4>Template</h4>
             <p>Main layout is the html template of the <i>app.main.component.ts</i>, it is divided into a couple of sections such as topbar, sidebar and footer. Here is the code for
                 the main template. The component class <i>app.main.component.ts</i> implements the logic such as opening menus and managing layout modes.
             </p>
@@ -84,7 +84,7 @@ Run 'ng help' for more options.
 &lt;/div&gt;
 </app-code>
 
-            <h1>Menu</h1>
+            <h4>Menu</h4>
             <p>Menu is a separate component defined in <i>app.menu.component.ts</i> file based on PrimeNG MenuModel API. In order to define the menuitems,
             navigate to this file and define your own model as a nested structure. Here is the menu component from the sample application.</p>
 
@@ -201,7 +201,7 @@ export class AppMenuComponent implements OnInit &#123;
 </app-code>
 </div>
 
-            <h1>Integration with an Existing CLI Project</h1>
+            <h4>Integration with an Existing CLI Project</h4>
             <p>To setup Mirage in an existing project, follow the steps below;</p>
 
 <ul>
@@ -228,9 +228,7 @@ npm install primeicons@latest --save
             <p>Last part is adding theme and layout css files, in the CLI app they are defined using link tags in index.html so the demo can switch them on
             the fly by changing the path however if this is not a requirement, you may also add them to the styles configuration above or import them in <i>styles.scss </i>so they go inside the bundle.</p>
 
-            <h1>Component Themes</h1>
-
-            <h1>Component Theme</h1>
+            <h4>Component Themes</h4>
             <p>Mirage provides 24 PrimeNG themes out of the box featuring light and dark alternatives.</p>
 
             <ul>
@@ -313,7 +311,7 @@ sass src/assets/theme/mytheme/theme.scss src/assets/theme/mytheme/theme.css
 sass --watch src/:src/ --no-source-map
 </app-code>
 
-            <h1>Layout Theme</h1>
+            <h4>Layout Theme</h4>
             <p>There are 24 layout colors in total with light and dark alternatives which is enabled by including the <i>layout-*.scss</i> file to the project such as <i>blue/layout-light.scss.</i>.
             Note that the primary colors are not utilized when a custom menu theme is used.</p>
 
@@ -364,7 +362,7 @@ $primaryTextColor:#ffffff;
 @import '../../../sass/layout/_layout';
 </app-code>
 
-            <h1>Common SASS Variables</h1>
+            <h4>Common SASS Variables</h4>
             <p>In case you'd like to customize common variables, the <i>_common.scss</i> under sass variables folder is where the core variables (e.g. font size, paddings) for the layout are defined.</p>
 <app-code ngPreserveWhitespaces ngNonBindable lang="css">
 //general
@@ -663,7 +661,7 @@ $datatableCellBorderColor:#434c5e;
 </app-code>
 </div>
 
-            <h1>Menu Modes</h1>
+            <h4>Menu Modes</h4>
             <p>Menu has 3 modes; <b>static</b>, <b>overlay</b> and <b>horizontal</b>. Layout wrapper element in template.xhtml is used to define which mode to use by adding specific classes. Default
             is overlay and adding <i>layout-menu-horizontal</i> enables horizontal menu whereas for static menu use <i>ayout-wrapper-static</i>.</p>
 
@@ -674,7 +672,7 @@ $datatableCellBorderColor:#434c5e;
             <p>It is also possible to leave the choice to the user by keeping the preference at a component and using an ngClass expression so that user can switch between modes. Sample
                     application has an example implementation of such use case. Refer to <i>app.main.component.ts</i> for an example.</p>
 
-            <h1>Light and Dark Menu</h1>
+            <h4>Light and Dark Menu</h4>
             <p>Menu theme is defined at the main container element, template uses the default light menus whereas a dark theme can be applied using the <i>layout-menu-dark</i> style class.</p>
 <app-code  ngPreserveWhitespaces ngNonBindable lang="markup">
 &lt;div class="layout-wrapper layout-menu-dark"&gt;
@@ -682,7 +680,7 @@ $datatableCellBorderColor:#434c5e;
 &lt;/div&gt;
 </app-code>
 
-            <h1>Custom Menu Themes</h1>
+            <h4>Custom Menu Themes</h4>
             <p>Light and Dark menus utilize the primary color of the chosen layout whereas custom menu themes listed below define their own design. Apply
                 the following style classes for a custom menu theme.
             </p>
@@ -796,7 +794,7 @@ $datatableCellBorderColor:#434c5e;
 &#125;
 </app-code>
 
-            <h1>Breadcrumb</h1>
+            <h4>Breadcrumb</h4>
             <p>Mirage has an optional built-in breadcrumb section right below the topbar.
                 The items are dynamically generated using a BreadcrumbService where each main page that goes into the router-outlet should provide a collection of MenuItem instances.
                 Here is an example component that updates the breadcrumb.</p>
@@ -819,10 +817,10 @@ export class ControlPanelComponent &#123;
 &#125;
 </app-code>
 
-            <h1>Grid CSS</h1>
+            <h4>Grid CSS</h4>
             <p>Mirage uses PrimeFlex CSS throughout the demos such as Dashboard, however any Grid library can be used with it since Mirage itself does not depend on PrimeFlex except demo pages.</p>
 
-            <h1>Customizing Styles</h1>
+            <h4>Customizing Styles</h4>
             <p>It is suggested to add your customizations in the following sass files under the override folder instead of adding them to the
                 scss files under sass folder to avoid maintenance issues after an update.</p>
 
@@ -833,23 +831,9 @@ export class ControlPanelComponent &#123;
                 <li><b>overrides/_theme_styles</b>: Styles for the theme.</li>
             </ul>
 
-            <h1>Migration Guide</h1>
+            <h4>Migration Guide</h4>
+            <p>Every change is included in <b>CHANGELOG.md</b> file at the root folder of the distribution along with the instructions to update.</p>
 
-            <h4>9.0.0 to 9.0.1</h4>
-            <ul>
-                <li>Update app.main.component.ts.</li>
-                <li>Update layout css files.</li>
-                <li>Update theme css files.</li>
-            </ul>
-
-            <p>Angular 9 and PrimeNG 9</p>
-            <ul>
-                <li>Update dependencies with <a href="https://angular.io/cli/update">ng update</a>.</li>
-                <li>Update theme.css and layout.css files.</li>
-                <li>Update app.menu.component.ts and app.menu.component.html while retaining your MenuModel.</li>
-                <li>Include app.menuitem.component.ts under app folder and define it app.module.ts with declarations property.</li>
-                <li>Include app.menu.service.ts under app folder and define it app.module.ts with providers property.</li>
-            </ul>
         </div>
     </div>
 </div>

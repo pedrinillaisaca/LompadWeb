@@ -1,6 +1,6 @@
 {
     "name": "mirage",
-    "version": "9.0.2-SNAPSHOT",
+    "version": "10.0.0",
     "scripts": {
         "ng": "ng",
         "start": "ng serve",
