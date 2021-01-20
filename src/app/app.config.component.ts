@@ -1,11 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
+import {AppComponent} from './app.component';
 import {AppMainComponent} from './app.main.component';
 
 @Component({
     selector: 'app-config',
     template: `
-        <div class="layout-config" [ngClass]="{'layout-config-active': app.configActive}" (click)="app.onConfigClick($event)">
+        <div class="layout-config" [ngClass]="{'layout-config-active': appMain.configActive}" (click)="appMain.onConfigClick($event)">
             <a style="cursor: pointer" id="layout-config-button" class="layout-config-button" (click)="onConfigButtonClick($event)">
                 <i class="pi pi-cog"></i>
             </a>
@@ -26,7 +27,7 @@ import {AppMainComponent} from './app.main.component';
                 </div>
 
                 <h5>Ripple Effect</h5>
-                <p-inputSwitch [ngModel]="app.ripple" (onChange)="app.onRippleChange($event)"></p-inputSwitch>
+                <p-inputSwitch [ngModel]="app.ripple" (onChange)="appMain.onRippleChange($event)"></p-inputSwitch>
 
                 <h5>Menu Type</h5>
                 <div class="p-grid">
@@ -122,7 +123,7 @@ export class AppConfigComponent implements OnInit {
 
     componentThemes: any;
 
-    constructor(public app: AppMainComponent) {
+    constructor(public app: AppComponent, public appMain: AppMainComponent) {
     }
 
     ngOnInit() {
@@ -130,7 +131,7 @@ export class AppConfigComponent implements OnInit {
         this.lightColors = [
             {name: 'Blue', file: 'blue', color: '#5e81ac'},
             {name: 'Green', file: 'green', color: '#A3BE8C'},
-            {name: 'Yellow', file: 'yellow', color: "#EBCB8B"},
+            {name: 'Yellow', file: 'yellow', color: '#EBCB8B'},
             {name: 'Cyan', file: 'cyan', color: '#88C0D0'},
             {name: 'Purple', file: 'purple', color: '#B48EAD'},
             {name: 'Orange', file: 'orange', color: '#D08770'},
@@ -226,7 +227,7 @@ export class AppConfigComponent implements OnInit {
             this.menuColors = this.darkColors;
             this.changeLightDarkLayout('layout-css', this.darkColors[0].file, 'layout-dark');
             this.changeLightDarkTheme('theme-css', 'theme-dark');
-        } 
+        }
         else {
             this.app.menuColorMode = 'light';
             this.app.menuColor = 'layout-menu-light';
@@ -260,7 +261,7 @@ export class AppConfigComponent implements OnInit {
 
     changeMenuColorMode(event, mode) {
         this.app.menuColorMode = mode;
-        if(mode !== 'custom') {
+        if (mode !== 'custom') {
             if (mode === 'light') {
                 this.menuColors = this.lightColors;
                 this.changeMenuColor(event, this.lightColors[0].file);
@@ -286,7 +287,7 @@ export class AppConfigComponent implements OnInit {
                 this.app.layoutColor = color;
                 this.changeStyleSheetsColor('layout-css', color);
             }
-        } 
+        }
         else {
             this.app.layoutColor = color;
             this.app.menuColor = 'layout-menu-' + color;
@@ -312,12 +313,12 @@ export class AppConfigComponent implements OnInit {
     }
 
     onConfigButtonClick(event) {
-        this.app.configActive = !this.app.configActive;
+        this.appMain.configActive = !this.appMain.configActive;
         event.preventDefault();
     }
 
     onConfigCloseClick(event) {
-        this.app.configActive = false;
+        this.appMain.configActive = false;
         event.preventDefault();
     }
 
@@ -325,7 +326,7 @@ export class AppConfigComponent implements OnInit {
     replaceLink(linkElement, href) {
         if (this.isIE()) {
             linkElement.setAttribute('href', href);
-        } 
+        }
         else {
             const id = linkElement.getAttribute('id');
             const cloneLinkElement = linkElement.cloneNode(true);

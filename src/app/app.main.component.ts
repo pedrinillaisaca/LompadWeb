@@ -2,6 +2,7 @@ import { Component, Renderer2 } from '@angular/core';
 import { MenuService } from './app.menu.service';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { PrimeNGConfig } from 'primeng/api';
+import {AppComponent} from './app.component';
 
 @Component({
     selector: 'app-main',
@@ -19,18 +20,6 @@ import { PrimeNGConfig } from 'primeng/api';
     ]
 })
 export class AppMainComponent {
-
-    horizontalMenu: boolean;
-
-    darkMode = false;
-
-    menuColorMode = 'light';
-
-    menuColor = 'layout-menu-light';
-
-    themeColor = 'blue';
-
-    layoutColor = 'blue';
 
     rightPanelClick: boolean;
 
@@ -68,15 +57,8 @@ export class AppMainComponent {
 
     configClick: boolean;
 
-    ripple: boolean = true;
-
-    inputStyle = 'outlined';
-
-    constructor(public renderer: Renderer2, private menuService: MenuService, private primengConfig: PrimeNGConfig) {}
-
-    ngOnInit() {
-        this.primengConfig.ripple = true;
-    }
+    constructor(public renderer: Renderer2, private menuService: MenuService,
+                private primengConfig: PrimeNGConfig, public app: AppComponent) {}
 
     onLayoutClick() {
         if (!this.topbarItemClick) {
@@ -200,7 +182,8 @@ export class AppMainComponent {
     }
 
     onRippleChange(event) {
-        this.ripple = event.checked;
+        this.app.ripple = event.checked;
+        this.primengConfig = event.checked;
     }
 
     isDesktop() {
@@ -212,7 +195,7 @@ export class AppMainComponent {
     }
 
     isHorizontal() {
-        return this.horizontalMenu === true;
+        return this.app.horizontalMenu === true;
     }
 
 }

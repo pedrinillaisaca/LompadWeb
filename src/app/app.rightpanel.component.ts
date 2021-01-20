@@ -4,13 +4,13 @@ import {AppMainComponent} from './app.main.component';
 @Component({
     selector: 'app-rightpanel',
     template: `
-        <div class="layout-rightpanel" (click)="app.onRightPanelClick($event)">
+        <div class="layout-rightpanel" (click)="appMain.onRightPanelClick($event)">
 			<div class="right-panel-header">
 				<div class="title">
 					<span>Today</span>
 					<h1>Wednesday, 26 Jun</h1>
 				</div>
-				<a href="#" class="rightpanel-exit-button" (click)="app.onRightPanelClose($event)">
+				<a href="#" class="rightpanel-exit-button" (click)="appMain.onRightPanelClose($event)">
 					<i class="pi pi-times"></i>
 				</a>
 			</div>
@@ -174,5 +174,5 @@ import {AppMainComponent} from './app.main.component';
     `
 })
 export class AppRightPanelComponent {
-    constructor(public app: AppMainComponent) {}
+    constructor(public appMain: AppMainComponent) {}
 }

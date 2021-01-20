@@ -9,7 +9,7 @@ export class AppMenuComponent implements OnInit {
 
     model: any[];
 
-    constructor(public app: AppMainComponent) {}
+    constructor(public appMain: AppMainComponent) {}
 
     ngOnInit() {
         this.model = [
@@ -112,6 +112,6 @@ export class AppMenuComponent implements OnInit {
     }
 
     onMenuClick() {
-        this.app.menuClick = true;
+        this.appMain.menuClick = true;
     }
 }
