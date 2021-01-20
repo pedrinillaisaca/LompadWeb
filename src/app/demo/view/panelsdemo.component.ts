@@ -13,7 +13,14 @@ import {BreadcrumbService} from '../../breadcrumb.service';
 		:host ::ng-deep .p-splitbutton button {
 			margin-right: 0;
 			margin-left: 0;
-		}`
+		}
+
+        @media screen and (max-width: 960px) {
+            .card.toolbar-demo {
+                overflow: auto;
+            }
+        }
+    `
     ]
 })
 export class PanelsDemoComponent implements OnInit {
