@@ -8,31 +8,39 @@ import {HashLocationStrategy, LocationStrategy} from '@angular/common';
 // PrimeNG Components for demos
 import {AccordionModule} from 'primeng/accordion';
 import {AutoCompleteModule} from 'primeng/autocomplete';
+import {AvatarModule} from 'primeng/avatar';
+import {AvatarGroupModule} from 'primeng/avatargroup';
+import {BadgeModule} from 'primeng/badge';
 import {BreadcrumbModule} from 'primeng/breadcrumb';
 import {ButtonModule} from 'primeng/button';
 import {CalendarModule} from 'primeng/calendar';
 import {CardModule} from 'primeng/card';
 import {CarouselModule} from 'primeng/carousel';
+import {CascadeSelectModule} from 'primeng/cascadeselect';
 import {ChartModule} from 'primeng/chart';
 import {CheckboxModule} from 'primeng/checkbox';
+import {ChipModule} from 'primeng/chip';
 import {ChipsModule} from 'primeng/chips';
 import {CodeHighlighterModule} from 'primeng/codehighlighter';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {ConfirmPopupModule} from 'primeng/confirmpopup';
 import {ColorPickerModule} from 'primeng/colorpicker';
 import {ContextMenuModule} from 'primeng/contextmenu';
 import {DataViewModule} from 'primeng/dataview';
 import {DialogModule} from 'primeng/dialog';
+import {DividerModule} from 'primeng/divider';
 import {DropdownModule} from 'primeng/dropdown';
 import {FieldsetModule} from 'primeng/fieldset';
 import {FileUploadModule} from 'primeng/fileupload';
 import {FullCalendarModule} from 'primeng/fullcalendar';
 import {GalleriaModule} from 'primeng/galleria';
 import {InplaceModule} from 'primeng/inplace';
-import {InputMaskModule} from 'primeng/inputmask';
 import {InputNumberModule} from 'primeng/inputnumber';
+import {InputMaskModule} from 'primeng/inputmask';
 import {InputSwitchModule} from 'primeng/inputswitch';
 import {InputTextModule} from 'primeng/inputtext';
 import {InputTextareaModule} from 'primeng/inputtextarea';
+import {KnobModule} from 'primeng/knob';
 import {LightboxModule} from 'primeng/lightbox';
 import {ListboxModule} from 'primeng/listbox';
 import {MegaMenuModule} from 'primeng/megamenu';
@@ -54,18 +62,22 @@ import {RadioButtonModule} from 'primeng/radiobutton';
 import {RatingModule} from 'primeng/rating';
 import {RippleModule} from 'primeng/ripple';
 import {ScrollPanelModule} from 'primeng/scrollpanel';
+import {ScrollTopModule} from 'primeng/scrolltop';
 import {SelectButtonModule} from 'primeng/selectbutton';
 import {SidebarModule} from 'primeng/sidebar';
+import {SkeletonModule} from 'primeng/skeleton';
 import {SlideMenuModule} from 'primeng/slidemenu';
 import {SliderModule} from 'primeng/slider';
-import {SpinnerModule} from 'primeng/spinner';
 import {SplitButtonModule} from 'primeng/splitbutton';
+import {SplitterModule} from 'primeng/splitter';
 import {StepsModule} from 'primeng/steps';
 import {TabMenuModule} from 'primeng/tabmenu';
 import {TableModule} from 'primeng/table';
 import {TabViewModule} from 'primeng/tabview';
+import {TagModule} from 'primeng/tag';
 import {TerminalModule} from 'primeng/terminal';
 import {TieredMenuModule} from 'primeng/tieredmenu';
+import {TimelineModule} from 'primeng/timeline';
 import {ToastModule} from 'primeng/toast';
 import {ToggleButtonModule} from 'primeng/togglebutton';
 import {ToolbarModule} from 'primeng/toolbar';
@@ -82,8 +94,9 @@ import {AppNotfoundComponent} from './pages/app.notfound.component';
 import {AppErrorComponent} from './pages/app.error.component';
 import {AppAccessdeniedComponent} from './pages/app.accessdenied.component';
 import {AppLoginComponent} from './pages/app.login.component';
-import { AppCrudComponent } from './pages/app.crud.component';
-import { AppCalendarComponent } from './pages/app.calendar.component';
+import {AppCrudComponent} from './pages/app.crud.component';
+import {AppCalendarComponent} from './pages/app.calendar.component';
+import {AppTimelineDemoComponent} from './pages/app.timelinedemo.component';
 import {AppMenuComponent} from './app.menu.component';
 import {AppMenuitemComponent} from './app.menuitem.component';
 import {AppBreadcrumbComponent} from './app.breadcrumb.component';
@@ -95,6 +108,8 @@ import {AppFooterComponent} from './app.footer.component';
 // Demo pages
 import {DashboardDemoComponent} from './demo/view/dashboarddemo.component';
 import {FormLayoutDemoComponent} from './demo/view/formlayoutdemo.component';
+import {FloatLabelDemoComponent} from './demo/view/floatlabeldemo.component';
+import {InvalidStateDemoComponent} from './demo/view/invalidstatedemo.component';
 import {InputDemoComponent} from './demo/view/inputdemo.component';
 import {ButtonDemoComponent} from './demo/view/buttondemo.component';
 import {TableDemoComponent} from './demo/view/tabledemo.component';
@@ -132,7 +147,7 @@ import {IconService} from './demo/service/iconservice';
 // Application services
 import {BreadcrumbService} from './breadcrumb.service';
 import {MenuService} from './app.menu.service';
-import { AppCodeModule } from './app.code.component';
+import {AppCodeModule} from './app.code.component';
 
 @NgModule({
     imports: [
@@ -144,31 +159,39 @@ import { AppCodeModule } from './app.code.component';
         BrowserAnimationsModule,
         AccordionModule,
         AutoCompleteModule,
+        AvatarModule,
+        AvatarGroupModule,
+        BadgeModule,
         BreadcrumbModule,
         ButtonModule,
         CalendarModule,
         CardModule,
         CarouselModule,
+        CascadeSelectModule,
         ChartModule,
         CheckboxModule,
+        ChipModule,
         ChipsModule,
         CodeHighlighterModule,
         ConfirmDialogModule,
+        ConfirmPopupModule,
         ColorPickerModule,
         ContextMenuModule,
         DataViewModule,
         DialogModule,
+        DividerModule,
         DropdownModule,
         FieldsetModule,
         FileUploadModule,
         FullCalendarModule,
         GalleriaModule,
         InplaceModule,
-        InputMaskModule,
         InputNumberModule,
+        InputMaskModule,
         InputSwitchModule,
         InputTextModule,
         InputTextareaModule,
+        KnobModule,
         LightboxModule,
         ListboxModule,
         MegaMenuModule,
@@ -190,17 +213,21 @@ import { AppCodeModule } from './app.code.component';
         RatingModule,
         RippleModule,
         ScrollPanelModule,
+        ScrollTopModule,
         SelectButtonModule,
         SidebarModule,
+        SkeletonModule,
         SlideMenuModule,
         SliderModule,
-        SpinnerModule,
         SplitButtonModule,
+        SplitterModule,
         StepsModule,
         TableModule,
         TabMenuModule,
         TabViewModule,
+        TagModule,
         TerminalModule,
+        TimelineModule,
         TieredMenuModule,
         ToastModule,
         ToggleButtonModule,
@@ -208,7 +235,7 @@ import { AppCodeModule } from './app.code.component';
         TooltipModule,
         TreeModule,
         TreeTableModule,
-        VirtualScrollerModule
+        VirtualScrollerModule,
     ],
     declarations: [
         AppComponent,
@@ -226,8 +253,11 @@ import { AppCodeModule } from './app.code.component';
         AppLoginComponent,
         AppCrudComponent,
         AppCalendarComponent,
+        AppTimelineDemoComponent,
         DashboardDemoComponent,
         FormLayoutDemoComponent,
+        FloatLabelDemoComponent,
+        InvalidStateDemoComponent,
         InputDemoComponent,
         ButtonDemoComponent,
         TableDemoComponent,
@@ -261,4 +291,5 @@ import { AppCodeModule } from './app.code.component';
     ],
     bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
