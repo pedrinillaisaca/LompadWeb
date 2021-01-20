@@ -514,6 +514,17 @@ $treeNodeContentPadding:.5rem;
 $treeNodeChildrenPadding:0 0 0 1rem;
 $treeNodeIconColor:$shade600;
 
+//timeline
+$timelineVerticalEventContentPadding:0 1rem !default;
+$timelineHorizontalEventContentPadding:1rem 0 !default;
+$timelineEventMarkerWidth:1rem !default;
+$timelineEventMarkerHeight:1rem !default;
+$timelineEventMarkerBorderRadius:50% !default;
+$timelineEventMarkerBorder:0 none !default;
+$timelineEventMarkerBackground:$primaryColor !default;
+$timelineEventConnectorSize:2px !default;
+$timelineEventColor:$shade600 !default;
+
 //org chart
 $organizationChartConnectorColor:$shade600;
 
@@ -625,6 +636,7 @@ $overlayMenuBg:$menuBg;
 $overlayMenuBorder:1px solid $shade600;
 $overlayMenuShadow:none;
 $verticalMenuPadding:.5rem 0;
+$verticalMenuitemMargin:0;
 $menuSeparatorMargin:.5rem 0;
 
 $breadcrumbPadding:1rem;
@@ -714,6 +726,40 @@ $galleriaThumbnailNavigatorHoverColor:$shade100;
 $galleriaThumbnailNavigatorBorderRadius:$borderRadius;
 $galleriaThumbnailNavigatorWidth:2rem;
 $galleriaThumbnailNavigatorHeight:2rem;
+
+//divider
+$dividerHorizontalMargin:1rem 0;
+$dividerHorizontalPadding:0 1rem;
+$dividerVerticalMargin:0 1rem;
+$dividerVerticalPadding:1rem 0;
+$dividerSize:1px;
+$dividerColor:$shade600;
+
+//avatar
+$avatarBg:$shade600;
+$avatarTextColor:$textColor;
+
+//chip
+$chipBg:$shade600;
+$chipTextColor:$textColor;
+$chipBorderRadius: 16px;
+
+//scrollTop
+$scrollTopBg:$primaryColor;
+$scrollTopHoverBg:$primaryDarkColor;
+$scrollTopWidth:3rem;
+$scrollTopHeight:3rem;
+$scrollTopBorderRadius:$borderRadius;
+$scrollTopFontSize:1.5rem;
+$scrollTopTextColor:$highlightTextColor;
+
+//skeleton
+$skeletonBg:rgba(255,255,255,.06);
+$skeletonAnimationBg:rgba(255,255,255,.04);
+
+//splitter
+$splitterGutterBg:rgba(255,255,255,.04);
+$splitterGutterHandleBg:$shade600;
 
 :root {
     --surface-a:#{$shade800};
