@@ -99,8 +99,25 @@ import {AppMainComponent} from './app.main.component';
 								</ul>
 							</li>
 						</ul>
+					
+						<a class="layout-megamenu-button" style="margin-left: 30px;" href="#" (click)="appMain.onMegaMenuButtonClick($event)">							
+							Previsualización JSON
+						</a>
+
+						<a class="layout-megamenu-button" style="margin-left: 30px;" href="#" (click)="appMain.onMegaMenuButtonClick($event)">							
+							Previsualización XML
+						</a>
+
+						<a class="layout-megamenu-button" style="margin-left: 30px;" href="#" (click)="appMain.onMegaMenuButtonClick($event)">							
+							PENDIENTE
+						</a>
 					</div>
                 </div>
+
+				
+
+
+
                 <div class="layout-topbar-right fadeInDown">
 					<ul class="layout-topbar-actions">
 						<li #search class="search-item topbar-item" [ngClass]="{'active-topmenuitem': appMain.activeTopbarItem === search}">

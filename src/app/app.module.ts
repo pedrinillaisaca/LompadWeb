@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -148,11 +148,36 @@ import {IconService} from './demo/service/iconservice';
 import {BreadcrumbService} from './breadcrumb.service';
 import {MenuService} from './app.menu.service';
 import {AppCodeModule} from './app.code.component';
+import { ComponentNameComponent } from './component-name/component-name.component';
+import { InicioComponent } from './paginas/inicio/inicio.component';
+import { HomeComponent } from './paginas/home/home.component';
+import { LivecicleComponent } from './paginas/livecicle/livecicle.component';
+import { ViewxmlComponent } from './paginas/viewxml/viewxml.component';
+import { ViewjsonComponent } from './paginas/viewjson/viewjson.component';
+import { UsoeducativoComponent } from './paginas/usoeducativo/usoeducativo.component';
+import { DerechosComponent } from './paginas/derechos/derechos.component';
+import { RelacionComponent } from './paginas/relacion/relacion.component';
+import { AnotacionComponent } from './paginas/anotacion/anotacion.component';
+import { ClasificacionComponent } from './paginas/clasificacion/clasificacion.component';
+import { AccesibilidadComponent } from './paginas/accesibilidad/accesibilidad.component';
+import { TecnicaComponent } from './paginas/tecnica/tecnica.component';
+import { MetadatosComponent } from './paginas/metadatos/metadatos.component';
+import { UploadFileComponent } from './paginas/upload-file/upload-file.component';
+
+
+//subir archivos
+import { AngularFileUploaderModule } from "angular-file-uploader";
+import { ObjaprendizajeModule } from './modulos/objaprendizaje/objaprendizaje.module';
+import { GeneralComponent } from './paginas/general/general.component';
+
 
 @NgModule({
     imports: [
+        AngularFileUploaderModule,
+        ObjaprendizajeModule,        
         BrowserModule,
         FormsModule,
+        ReactiveFormsModule,
         AppRoutingModule,
         AppCodeModule,
         HttpClientModule,
@@ -283,6 +308,22 @@ import {AppCodeModule} from './app.code.component';
         TypographyComponent,
         TextComponent,
         WidgetsComponent,
+        ComponentNameComponent,
+        InicioComponent,
+        HomeComponent,
+        LivecicleComponent,
+        ViewxmlComponent,
+        ViewjsonComponent,
+        UsoeducativoComponent,
+        DerechosComponent,
+        RelacionComponent,
+        AnotacionComponent,
+        ClasificacionComponent,
+        AccesibilidadComponent,
+        TecnicaComponent,
+        MetadatosComponent,
+        UploadFileComponent,
+        GeneralComponent,
     ],
     providers: [
         {provide: LocationStrategy, useClass: HashLocationStrategy},

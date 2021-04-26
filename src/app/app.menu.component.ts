@@ -10,9 +10,27 @@ export class AppMenuComponent implements OnInit {
     model: any[];
 
     constructor(public appMain: AppMainComponent) {}
-
+    // AQUI SE PUEDE ADICIONAR LOS DE MAS COMPONENTES QUE VAN EN EL SISTEMA opciones que van en la 
+    // barra lateral 
     ngOnInit() {
         this.model = [
+            {label: 'LOMpad', icon: 'pi pi-fw pi-home', routerLink: ['/']},
+
+            {label: '1.0. Inicio', icon: 'pi pi-fw pi-file', routerLink: ['/paginas/inicio']},
+            {label: '1. General', icon: 'pi pi-fw pi-file', routerLink: ['/paginas/general']},
+            {label: '2. Ciclo de vida', icon: 'pi pi-fw pi-file', routerLink: ['/paginas/livecicle']},
+            {label: '3. Meta-Datos', icon: 'pi pi-fw pi-file', routerLink: ['/paginas/metadatos']},
+            {label: '4. Técnica', icon: 'pi pi-fw pi-file', routerLink: ['/paginas/tecnica']},
+            {label: '5. Uso Educativo', icon: 'pi pi-fw pi-file', routerLink: ['/paginas/usoeducativo']},
+            {label: '6. Derechos', icon: 'pi pi-fw pi-file', routerLink: ['/paginas/derechos']},
+            {label: '7. Relación', icon: 'pi pi-fw pi-file', routerLink: ['/paginas/relacion']},
+            {label: '8. Anotación', icon: 'pi pi-fw pi-file', routerLink: ['/paginas/anotacion']},
+            {label: '9. Clasificación', icon: 'pi pi-fw pi-file', routerLink: ['/paginas/clasidicacion']},
+            {label: '10. Accesibilidad', icon: 'pi pi-fw pi-file', routerLink: ['/paginas/accesibilidad']},
+            {label: '11. prueba', icon: 'pi pi-fw pi-file', routerLink: ['/paginas/upload']},
+          
+
+
             {label: 'Dashboard', icon: 'pi pi-fw pi-home', routerLink: ['/']},
             {
                 label: 'UI Kit', icon: 'pi pi-fw pi-star', routerLink: ['/uikit'],
@@ -32,7 +50,8 @@ export class AppMenuComponent implements OnInit {
                     {label: 'Message', icon: 'pi pi-fw pi-comment', routerLink: ['/uikit/message']},
                     {label: 'File', icon: 'pi pi-fw pi-file', routerLink: ['/uikit/file']},
                     {label: 'Chart', icon: 'pi pi-fw pi-chart-bar', routerLink: ['/uikit/charts']},
-                    {label: 'Misc', icon: 'pi pi-fw pi-circle-off', routerLink: ['/uikit/misc']}
+                    {label: 'Misc', icon: 'pi pi-fw pi-circle-off', routerLink: ['/uikit/misc']},
+                    {label: 'PRUEBA DE LINK EN GRUPO', icon: 'pi pi-fw pi-circle-off', routerLink: ['/uikit/misc']}
                 ]
             },
             {

@@ -38,6 +38,21 @@ import {AppLoginComponent} from './pages/app.login.component';
 import {AppCrudComponent} from './pages/app.crud.component';
 import {AppCalendarComponent} from './pages/app.calendar.component';
 import {AppTimelineDemoComponent} from './pages/app.timelinedemo.component';
+import { InicioComponent } from './paginas/inicio/inicio.component';
+import { HomeComponent } from './paginas/home/home.component';
+import { LivecicleComponent } from './paginas/livecicle/livecicle.component';
+import { ViewxmlComponent } from './paginas/viewxml/viewxml.component';
+import { ViewjsonComponent } from './paginas/viewjson/viewjson.component';
+import { UsoeducativoComponent } from './paginas/usoeducativo/usoeducativo.component';
+import { DerechosComponent } from './paginas/derechos/derechos.component';
+import { RelacionComponent } from './paginas/relacion/relacion.component';
+import { AnotacionComponent } from './paginas/anotacion/anotacion.component';
+import { ClasificacionComponent } from './paginas/clasificacion/clasificacion.component';
+import { AccesibilidadComponent } from './paginas/accesibilidad/accesibilidad.component';
+import { TecnicaComponent } from './paginas/tecnica/tecnica.component';
+import { MetadatosComponent } from './paginas/metadatos/metadatos.component';
+import { UploadFileComponent } from './paginas/upload-file/upload-file.component';
+import { GeneralComponent } from './paginas/general/general.component';
 
 
 @NgModule({
@@ -78,7 +93,24 @@ import {AppTimelineDemoComponent} from './pages/app.timelinedemo.component';
                     {path: 'pages/timeline', component: AppTimelineDemoComponent},
                     {path: 'components/charts', component: ChartsDemoComponent},
                     {path: 'components/file', component: FileDemoComponent},
-                    {path: 'documentation', component: DocumentationComponent}
+                    {path: 'documentation', component: DocumentationComponent},
+
+                    {path: 'paginas/inicio', component: InicioComponent},
+                    {path: 'paginas/home', component: HomeComponent},
+                    {path: 'paginas/livecicle', component: LivecicleComponent},                    
+                    {path: 'paginas/metadatos', component: MetadatosComponent},
+                    {path: 'paginas/tecnica', component: TecnicaComponent},                    
+                    {path: 'paginas/usoeducativo', component: UsoeducativoComponent},
+                    {path: 'paginas/derechos', component: DerechosComponent},                            
+                    {path: 'paginas/relacion', component: RelacionComponent},
+                    {path: 'paginas/anotacion', component: AnotacionComponent},
+                    {path: 'paginas/clasidicacion', component: ClasificacionComponent},
+                    {path: 'paginas/accesibilidad', component: AccesibilidadComponent},
+                    {path: 'paginas/upload', component: UploadFileComponent},
+                    {path: 'paginas/general', component: GeneralComponent},
+
+                    {path: 'paginas/viewxml', component: ViewxmlComponent},
+                    {path: 'paginas/viewjson', component: ViewjsonComponent}        
                 ]
             },
             {path: 'error', component: AppErrorComponent},
