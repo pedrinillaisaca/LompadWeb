@@ -1,1 +1,77 @@
-<p>clasificacion works!</p>
+<div class="p-grid">
+    <div class="p-col-12">
+        <h5>Tipo</h5>
+        <div class="card">
+            <div class="p-fluid">
+                <!-- [(ngModel)]="selectedDrop" -->
+                <p-dropdown [options]="propositos" placeholder="Seleccionar" [showClear]="true"></p-dropdown>
+            </div>
+        </div>
+    </div>
+
+    <div class="p-col-12">
+        <h5>Ruta Taxonómica</h5>
+        <div class="card">
+            <div class="p-fluid">
+                <label for="fuente">Fuente</label>
+                <input id="fuente" type="text" pInputText>
+            </div>
+            <h6>Taxón</h6>
+            <div class="p-fluid p-formgrid p-grid">
+                <label for="id" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Id</label>
+                <div class="p-field p-col">
+                    <input id="id" type="text" pInputText>
+                </div>
+                <label for="entrada" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Entrada</label>
+                <div class="p-field p-col">
+                    <input id="entrada" type="text" pInputText>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+        <!-- <div class="card">
+            <div class="p-fluid p-formgrid p-grid">
+                <label for="id" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Id</label>
+                <div class="p-field p-col">
+                    <input id="id" type="text" pInputText>
+                </div>
+                <label for="entrada" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Entrada</label>
+                <div class="p-field p-col">
+                    <input id="entrada" type="text" pInputText>
+                </div>
+            </div>
+
+        </div> -->
+
+    </div>
+
+
+    <div class="p-col-12">
+        <h5>Papabras Clave</h5>
+        <div class="card">
+            <div class="p-fluid">
+                <label for="palabrasClave"></label>
+                <input id="palabrasClave" type="text" pInputText>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="p-col-12">
+        <h5>Descripción</h5>
+        <div class="card">
+            <div class="p-fluid">
+                <!-- <label for="descripcion">Descripción</label> -->
+                <textarea id="descripcion" type="text" rows="4" pInputTextarea></textarea>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>

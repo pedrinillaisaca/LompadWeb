@@ -1,1 +1,136 @@
-<p>tecnica works!</p>
+<div class="p-grid">
+    <div class="p-col-12">
+        <h5>Formato</h5>
+        <div class="card">
+            <h4>PIAS HAY QUE PREGUNTAR SOBRE ESTE CAMPO</h4>
+            <div class="p-field p-fluid">
+                <label for="esquema">Esquema</label>
+                <input id="esquema" type="esquema" pInputText aria-describedby="username-help">
+                <!-- <small id="username-help">Enter your username to reset your password.</small> -->
+            </div>
+        </div>
+    </div>
+
+
+    <div class="p-col-12">
+        <div class="card">
+
+            <div class="p-fluid p-formgrid p-grid">
+                <label for="tamanio" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Tamaño</label>
+                <div class="p-field p-col">
+                    <input id="tamanio" type="text" pInputText>
+                </div>
+                <label for="localizacion" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Localización</label>
+                <div class="p-field p-col">
+                    <input id="localizacion" type="text" pInputText>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="p-col-12">
+        <h5>Requisitos</h5>
+        <div class="card">
+            <h6>Argregador Or</h6>
+            <div class="p-fluid">
+                <div class="p-field p-grid">
+                    <label for="tipo" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Tipo</label>
+                    <div class="p-col-12 p-md-10">
+                        <p-dropdown id="tipo" [options]="tiposOr" placeholder="Seleccionar" [showClear]="true"></p-dropdown>
+                    </div>
+                </div>
+                <div class="p-field p-grid">
+                    <label for="nombre" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Nombre</label>
+                    <div class="p-col-12 p-md-10">
+                        <input id="nombre" type="text" pInputText>
+                    </div>
+                </div>
+                <div class="p-field p-grid">
+                    <label for="ver_minima" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Version Mínima</label>
+                    <div class="p-col-12 p-md-10">
+                        <input id="ver_minima" type="text" pInputText>
+                    </div>
+                </div>
+                <div class="p-field p-grid">
+                    <label for="ver_maxima" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Versión Máxima</label>
+                    <div class="p-col-12 p-md-10">
+                        <input id="ver_maxima" type="text" pInputText>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="p-col-12 p-md-6">
+        <h5>Pautas de Instalación</h5>
+        <div class="card">
+            <div class="p-fluid">
+                <div class="p-field p-grid">
+                    <label for="descripcion">Descripción</label>
+                    <textarea id="descripcion" type="text" rows="4" pInputTextarea></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="p-col-12 p-md-6">
+        <h5>Otros Requisitos de Plataforma</h5>
+        <div class="card">
+            <div class="p-fluid">
+                <div class="p-field p-grid">
+                    <label for="descripcion">Descripción</label>
+                    <textarea id="descripcion" type="text" rows="4" pInputTextarea></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="p-col-12">
+        <h5>Duración</h5>
+        <div class="card">
+            <div class="p-fluid p-formgrid p-grid">
+                <div class="p-field p-col">
+                    <label for="anios">Años</label>
+                    <p-inputNumber id="anios" mode="decimal" [showButtons]="true" [min]="0" [max]="100"></p-inputNumber>
+                </div>
+                <div class="p-field p-col">
+                    <label for="meses">Meses</label>
+                    <p-inputNumber id="meses" mode="decimal" [showButtons]="true" [min]="0" [max]="12"></p-inputNumber>
+                </div>
+
+                <div class="p-field p-col">
+                    <label for="dias">Días</label>
+                    <p-inputNumber id="dias" mode="decimal" [showButtons]="true" [min]="0" [max]="30"></p-inputNumber>
+                </div>
+                <div class="p-field p-col">
+                    <label for="horas">Horas</label>
+                    <p-inputNumber id="horas" mode="decimal" [showButtons]="true" [min]="0" [max]="24"></p-inputNumber>
+                </div>
+                <div class="p-field p-col">
+                    <label for="minutos">Minutos</label>
+                    <p-inputNumber id="minutos" mode="decimal" [showButtons]="true" [min]="0" [max]="60"></p-inputNumber>
+                </div>
+                <div class="p-field p-col">
+                    <label for="segundos">Segundos</label>
+                    <p-inputNumber id="segundos" mode="decimal" [showButtons]="true" [min]="0" [max]="60"></p-inputNumber>
+                </div>
+            </div>
+
+
+            <div class="p-fluid">
+                <div class="p-field p-grid">
+                    <label for="descripcion">Descripción</label>
+                    <textarea id="descripcion" type="text" rows="4" pInputTextarea></textarea>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+</div>
