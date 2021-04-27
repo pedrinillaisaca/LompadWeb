@@ -1,1 +1,208 @@
-<p>livecicle works!</p>
+<div class="p-grid ">
+    <!--<div class="p-col-12 p-md-6">
+
+         <div class="card">
+            <h5>InputText</h5>
+            <div class="p-grid p-formgrid">
+                <div class="p-col-12 p-mb-2 p-lg-4 p-mb-lg-0">
+                    <input type="text" pInputText placeholder="Default">
+                </div>
+                <div class="p-col-12 p-mb-2 p-lg-4 p-mb-lg-0">
+                    <input type="text" pInputText placeholder="Disabled" [disabled]="true" />
+                </div>
+                <div class="p-col-12 p-mb-2 p-lg-4 p-mb-lg-0">
+                    <input type="text" pInputText placeholder="Invalid" class="p-invalid" />
+                </div>
+            </div>
+        </div>
+
+
+        <div class="card">
+            <h5>Vertical Grid</h5>
+            <div class="p-fluid p-formgrid p-grid">
+                <div class="p-field p-col">
+                    <label for="firstname2">Name</label>
+                    <input id="firstname2" type="text" pInputText>
+                </div>
+                <div class="p-field p-col">
+                    <label for="lastname2">Email</label>
+                    <input id="lastname2" type="text" pInputText>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="card">
+            <p>pedro </p>
+        </div>
+        <div class="card">
+            <p>pedro </p>
+        </div>
+
+    </div> -->
+    <div class="p-col-12">
+        <div class="card">
+
+            <div class="p-fluid p-formgrid p-grid">
+                <div class="p-field p-col-12 ">
+                    <label for="version">Versión</label>
+                    <input id="version" type="text" pInputText>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="p-col-12">
+        <div class="card">
+            <h5>Estado</h5>
+            <div class="p-fluid">
+                <!-- [(ngModel)]="selectedDrop" -->
+                <p-dropdown [options]="estados" placeholder="Seleccionar" [showClear]="true"></p-dropdown>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="p-col-12 ">
+
+        <div class="card">
+            <h5>Contribución</h5>
+
+
+            <div class="card">
+                <h5>Tipo</h5>
+                <div class="p-fluid">
+                    <!-- [(ngModel)]="selectedDrop" -->
+                    <p-dropdown [options]="tipos" placeholder="Seleccionar" [showClear]="true"></p-dropdown>
+                </div>
+
+            </div>
+
+            <div class="card">
+                <h5>Entidad</h5>
+                <div class="p-fluid">
+                    <div class="p-field p-grid">
+                        <label for="nombre" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Nombre</label>
+                        <div class="p-col-12 p-md-10">
+                            <input id="nombre" type="text" pInputText>
+                        </div>
+                    </div>
+                    <div class="p-field p-grid">
+                        <label for="apellido" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Apellido</label>
+                        <div class="p-col-12 p-md-10">
+
+                            <input id="apellido" type="text" pInputText>
+                        </div>
+                    </div>
+                    <div class="p-field p-grid">
+                        <label for="lastname4" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Email</label>
+                        <div class="p-col-12 p-md-10">
+                            <input id="lastname4" type="text" pInputText>
+                        </div>
+                    </div>
+                    <div class="p-field p-grid">
+                        <label for="organizacion" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Organización</label>
+                        <div class="p-col-12 p-md-10">
+                            <input id="organizacion" type="text" pInputText>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="card">
+                <h5>Fecha</h5>
+
+                <div class="p-fluid">
+
+                    <div class="p-field p-grid">
+                        <div class="p-col-12 p-md-10">
+                            <p-calendar [showIcon]="true" inputId="icon"></p-calendar>
+                        </div>
+                    </div>
+
+                    <div class="p-field p-grid">
+                        <label for="descripcion">Descripción</label>
+                        <textarea id="descripcion" type="text" rows="4" pInputTextarea></textarea>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+
+        </div>
+
+        <div class="card">
+            <h5>Inline</h5>
+            <div class="p-formgroup-inline">
+                <div class="p-field">
+                    <label for="firstname5" class="p-sr-only">Firstname</label>
+                    <input id="firstname5" type="text" pInputText placeholder="Firstname">
+                </div>
+                <div class="p-field">
+                    <label for="lastname5" class="p-sr-only">Lastname</label>
+                    <input id="lastname5" type="text" pInputText placeholder="Lastname">
+                </div>
+                <button pButton pRipple type="button" label="Submit"></button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h5>Help Text</h5>
+            <div class="p-field p-fluid">
+                <label for="username">Username</label>
+                <input id="username" type="username" pInputText aria-describedby="username-help">
+                <small id="username-help">Enter your username to reset your password.</small>
+            </div>
+        </div>
+    </div>
+
+    <div class="p-col-12">
+        <div class="card">
+
+            <div class="p-fluid p-formgrid p-grid">
+                <div class="p-field p-col-12 ">
+                    <label for="version">Versión</label>
+                    <input id="version" type="text" pInputText>
+                </div>
+            </div>
+
+            <div class="card">
+                <h4>pedro card</h4>
+                <div class="p-fluid p-formgrid p-grid">
+                    <div class="p-field p-col-12 ">
+                        <label for="version">Versión</label>
+                        <input id="version" type="text" pInputText>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="p-col-12">
+        <div class="card">
+            <!-- <h5>Advanced</h5> -->
+            <div class="p-fluid p-formgrid p-grid">
+                <div class="p-field p-col-12 ">
+                    <label for="titulo">Título</label>
+                    <input id="titulo" type="text" pInputText>
+                </div>
+
+                <div class="p-field p-col-12">
+                    <label for="address">Address</label>
+                    <textarea id="address" type="text" rows="4" pInputTextarea></textarea>
+                </div>
+                <div class="p-field p-col-12 ">
+                    <label for="palabraClave">Papabra Clave</label>
+                    <input id="palabraClave" type="text" pInputText>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
