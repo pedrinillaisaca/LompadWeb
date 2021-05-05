@@ -1,37 +1,34 @@
 <div class="p-grid">
     <div class="p-col-12">
-        <h5>Tipo</h5>
+        <h5>{{"Tipo"| translate}}</h5>
         <div class="card">
             <div class="p-fluid">
                 <!-- [(ngModel)]="selectedDrop" -->
-                <p-dropdown [options]="propositos" placeholder="Seleccionar" [showClear]="true"></p-dropdown>
+                <p-dropdown [options]="propositos" placeholder='{{"Seleccionar"| translate}} ' [showClear]="true"></p-dropdown>
             </div>
         </div>
     </div>
 
     <div class="p-col-12">
-        <h5>Ruta Taxonómica</h5>
+        <h5>{{"Ruta Taxonómica"| translate}}</h5>
         <div class="card">
             <div class="p-fluid">
-                <label for="fuente">Fuente</label>
+                <label for="fuente">{{"Fuente"| translate}}</label>
                 <input id="fuente" type="text" pInputText>
             </div>
-            <h6>Taxón</h6>
+            <h6>{{"Taxón"| translate}}</h6>
             <div class="p-fluid p-formgrid p-grid">
                 <label for="id" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Id</label>
                 <div class="p-field p-col">
                     <input id="id" type="text" pInputText>
                 </div>
-                <label for="entrada" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Entrada</label>
+                <label for="entrada" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">{{"Entrada" | translate}}</label>
                 <div class="p-field p-col">
                     <input id="entrada" type="text" pInputText>
                 </div>
             </div>
 
         </div>
-
-
-
 
         <!-- <div class="card">
             <div class="p-fluid p-formgrid p-grid">
@@ -51,7 +48,7 @@
 
 
     <div class="p-col-12">
-        <h5>Palabras Clave</h5>
+        <h5>{{"Palabra Clave"| translate}}</h5>
         <div class="card">
             <div class="p-fluid">
                 <label for="palabrasClave"></label>
@@ -63,7 +60,7 @@
     </div>
 
     <div class="p-col-12">
-        <h5>Descripción</h5>
+        <h5>{{"Descripción"| translate}}</h5>
         <div class="card">
             <div class="p-fluid">
                 <!-- <label for="descripcion">Descripción</label> -->

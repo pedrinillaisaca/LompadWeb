@@ -1,10 +1,10 @@
 <div class="p-grid">
     <div class="p-col-12">
-        <h5>Formato</h5>
+        <h5>{{"Formato" | translate}}</h5>
         <div class="card">
             <h4>PIAS HAY QUE PREGUNTAR SOBRE ESTE CAMPO</h4>
             <div class="p-field p-fluid">
-                <label for="esquema">Esquema</label>
+                <label for="esquema">{{"Esquema" | translate}}</label>
                 <input id="esquema" type="esquema" pInputText aria-describedby="username-help">
                 <!-- <small id="username-help">Enter your username to reset your password.</small> -->
             </div>
@@ -16,11 +16,11 @@
         <div class="card">
 
             <div class="p-fluid p-formgrid p-grid">
-                <label for="tamanio" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Tamaño</label>
+                <label for="tamanio" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">{{"Tamaño" | translate}}</label>
                 <div class="p-field p-col">
                     <input id="tamanio" type="text" pInputText>
                 </div>
-                <label for="localizacion" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Localización</label>
+                <label for="localizacion" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">{{"Localización" | translate}}</label>
                 <div class="p-field p-col">
                     <input id="localizacion" type="text" pInputText>
                 </div>
@@ -31,30 +31,30 @@
 
 
     <div class="p-col-12">
-        <h5>Requisitos</h5>
+        <h5>{{"Requisitos" | translate}}</h5>
         <div class="card">
-            <h6>Argregador Or</h6>
+            <h6>{{"Agredador Or" | translate}}</h6>
             <div class="p-fluid">
                 <div class="p-field p-grid">
-                    <label for="tipo" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Tipo</label>
+                    <label for="tipo" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">{{"Tipo" | translate}}</label>
                     <div class="p-col-12 p-md-10">
-                        <p-dropdown id="tipo" [options]="tiposOr" placeholder="Seleccionar" [showClear]="true"></p-dropdown>
+                        <p-dropdown id="tipo" [options]="tiposOr" placeholder='{{"Seleccionar" | translate}} ' [showClear]="true"></p-dropdown>
                     </div>
                 </div>
                 <div class="p-field p-grid">
-                    <label for="nombre" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Nombre</label>
+                    <label for="nombre" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">{{"Nombre" | translate}}</label>
                     <div class="p-col-12 p-md-10">
                         <input id="nombre" type="text" pInputText>
                     </div>
                 </div>
                 <div class="p-field p-grid">
-                    <label for="ver_minima" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Versión Mínima</label>
+                    <label for="ver_minima" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">{{"Versión Mínima" | translate}}</label>
                     <div class="p-col-12 p-md-10">
                         <input id="ver_minima" type="text" pInputText>
                     </div>
                 </div>
                 <div class="p-field p-grid">
-                    <label for="ver_maxima" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Versión Máxima</label>
+                    <label for="ver_maxima" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">{{"Versión Máxima" | translate}}</label>
                     <div class="p-col-12 p-md-10">
                         <input id="ver_maxima" type="text" pInputText>
                     </div>
@@ -65,11 +65,11 @@
     </div>
 
     <div class="p-col-12 p-md-6">
-        <h5>Pautas de Instalación</h5>
+        <h5>{{"Pautas de Instalación" | translate}}</h5>
         <div class="card">
             <div class="p-fluid">
                 <div class="p-field p-grid">
-                    <label for="descripcion">Descripción</label>
+                    <label for="descripcion">{{"Descripción" | translate}}</label>
                     <textarea id="descripcion" type="text" rows="4" pInputTextarea></textarea>
                 </div>
             </div>
@@ -77,11 +77,11 @@
     </div>
 
     <div class="p-col-12 p-md-6">
-        <h5>Otros Requisitos de Plataforma</h5>
+        <h5>{{"Otros Requisitos de Plataforma" | translate}}</h5>
         <div class="card">
             <div class="p-fluid">
                 <div class="p-field p-grid">
-                    <label for="descripcion">Descripción</label>
+                    <label for="descripcion">{{"Descripción" | translate}}</label>
                     <textarea id="descripcion" type="text" rows="4" pInputTextarea></textarea>
                 </div>
             </div>
@@ -90,32 +90,32 @@
 
 
     <div class="p-col-12">
-        <h5>Duración</h5>
+        <h5>{{"Duración"| translate}}</h5>
         <div class="card">
             <div class="p-fluid p-formgrid p-grid">
                 <div class="p-field p-col">
-                    <label for="anios">Años</label>
+                    <label for="anios">{{"Años" | translate}}</label>
                     <p-inputNumber id="anios" mode="decimal" [showButtons]="true" [min]="0" [max]="100"></p-inputNumber>
                 </div>
                 <div class="p-field p-col">
-                    <label for="meses">Meses</label>
+                    <label for="meses">{{"Meses" | translate}}</label>
                     <p-inputNumber id="meses" mode="decimal" [showButtons]="true" [min]="0" [max]="12"></p-inputNumber>
                 </div>
 
                 <div class="p-field p-col">
-                    <label for="dias">Días</label>
+                    <label for="dias">{{"Días" | translate}}</label>
                     <p-inputNumber id="dias" mode="decimal" [showButtons]="true" [min]="0" [max]="30"></p-inputNumber>
                 </div>
                 <div class="p-field p-col">
-                    <label for="horas">Horas</label>
+                    <label for="horas">{{"Horas"| translate}}</label>
                     <p-inputNumber id="horas" mode="decimal" [showButtons]="true" [min]="0" [max]="24"></p-inputNumber>
                 </div>
                 <div class="p-field p-col">
-                    <label for="minutos">Minutos</label>
+                    <label for="minutos">{{"Minutos" | translate}}</label>
                     <p-inputNumber id="minutos" mode="decimal" [showButtons]="true" [min]="0" [max]="60"></p-inputNumber>
                 </div>
                 <div class="p-field p-col">
-                    <label for="segundos">Segundos</label>
+                    <label for="segundos">{{"Segundos"| translate}}</label>
                     <p-inputNumber id="segundos" mode="decimal" [showButtons]="true" [min]="0" [max]="60"></p-inputNumber>
                 </div>
             </div>
@@ -123,7 +123,7 @@
 
             <div class="p-fluid">
                 <div class="p-field p-grid">
-                    <label for="descripcion">Descripción</label>
+                    <label for="descripcion">{{"Descripción" | translate}}</label>
                     <textarea id="descripcion" type="text" rows="4" pInputTextarea></textarea>
                 </div>
             </div>

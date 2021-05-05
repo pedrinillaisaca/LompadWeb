@@ -50,7 +50,7 @@
                 <div class="p-field p-col">
                     <input id="catalogo" type="text" pInputText>
                 </div>
-                <label for="entrada" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Entrada</label>
+                <label for="entrada" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">{{"Entrada" | translate}}</label>
                 <div class="p-field p-col">
                     <input id="entrada" type="text" pInputText>
                 </div>
@@ -60,11 +60,11 @@
     </div>
 
     <div class="p-col-12">
-        <h5>Título</h5>
+        <h5>{{"Título" | translate}}</h5>
         <div class="card">
             <div class="p-fluid p-formgrid p-grid">
                 <div class="p-field p-col-12 ">
-                    <label for="titulo">Título</label>
+                    <label for="titulo">{{"Título" | translate}}</label>
                     <input id="titulo" type="text" pInputText>
                 </div>
 
@@ -75,11 +75,11 @@
 
 
     <div class="p-col-12">
-        <h5>Descripción</h5>
+        <h5>{{"Descripción" | translate}}</h5>
         <div class="card">
             <div class="p-fluid p-formgrid p-grid">
                 <div class="p-field p-col-12 ">
-                    <label for="descripcion">Descripción</label>
+                    <label for="descripcion">{{"Descripción" | translate}}</label>
                     <textarea id="descripcion" type="text" rows="4" pInputTextarea></textarea>
                 </div>
 
@@ -88,11 +88,11 @@
     </div>
 
     <div class="p-col-12">
-        <h5>Palabra Clave</h5>
+        <h5>{{"Palabra Clave" | translate}}</h5>
         <div class="card">
             <div class="p-fluid p-formgrid p-grid">
                 <div class="p-field p-col-12 ">
-                    <label for="palabraclave1">Palabra Clave</label>
+                    <label for="palabraclave1">{{"Palabra Clave" | translate}}</label>
                     <input id="palabraclave1" type="text" pInputText>
                 </div>
 
@@ -102,11 +102,11 @@
 
 
     <div class="p-col-12">
-        <h5>Ámbito</h5>
+        <h5>{{"Ámbito" | translate}}</h5>
         <div class="card">
             <div class="p-fluid p-formgrid p-grid">
                 <div class="p-field p-col-12 ">
-                    <label for="ambito">Ámbito</label>
+                    <label for="ambito">{{"Ámbito" | translate}}</label>
                     <input id="ambito" type="text" pInputText>
                 </div>
 
@@ -116,10 +116,10 @@
 
     <div class="p-col-12">
         <div class="card">
-            <h5>Estructura</h5>
+            <h5>{{"Estructura" | translate}}</h5>
             <div class="p-fluid">
                 <!-- [(ngModel)]="selectedDrop" -->
-                <p-dropdown [options]="estructuras" placeholder="Seleccionar" [showClear]="true"></p-dropdown>
+                <p-dropdown [options]="estructuras" placeholder='{{"Seleccionar" | translate}} ' [showClear]="true"></p-dropdown>
             </div>
 
         </div>
@@ -128,10 +128,10 @@
 
     <div class="p-col-12">
         <div class="card">
-            <h5>Nivel de Agregación</h5>
+            <h5>{{"Nivel de Agregación" | translate }}</h5>
             <div class="p-fluid">
                 <!-- [(ngModel)]="selectedDrop" -->
-                <p-dropdown [options]="nivelesAgregacion" placeholder="Seleccionar" [showClear]="true"></p-dropdown>
+                <p-dropdown [options]="nivelesAgregacion" placeholder='{{"Seleccionar" | translate}} ' [showClear]="true"></p-dropdown>
             </div>
 
         </div>
@@ -144,16 +144,16 @@
             <!-- <h5>Advanced</h5> -->
             <div class="p-fluid p-formgrid p-grid">
                 <div class="p-field p-col-12 ">
-                    <label for="titulo">Título</label>
+                    <label for="titulo">{{"Título" | translate}}</label>
                     <input id="titulo" type="text" pInputText>
                 </div>
 
                 <div class="p-field p-col-12">
-                    <label for="descripcion">Descripción</label>
+                    <label for="descripcion">{{"Descripción" | translate}}</label>
                     <textarea id="descripcion" type="text" rows="4" pInputTextarea></textarea>
                 </div>
                 <div class="p-field p-col-12 ">
-                    <label for="palabraClave">Papabra Clave</label>
+                    <label for="palabraClave">{{"Papabra Clave" | translate}}</label>
                     <input id="palabraClave" type="text" pInputText>
                 </div>
             </div>
