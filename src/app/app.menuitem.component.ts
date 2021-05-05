@@ -9,19 +9,19 @@ import { AppMainComponent } from './app.main.component';
 @Component({
     /* tslint:disable:component-selector */
     selector: '[app-menuitem]',
-    /* tslint:enable:component-selector */
+    /* tslint:enable:component-selector   INTERNACIONALIZACION DE LA BARRA VERTICAL...*/
     template: `
           <ng-container>
               <a [attr.href]="item.url" (click)="itemClick($event)" *ngIf="!item.routerLink || item.items" (mouseenter)="onMouseEnter()" (keydown.enter)="itemClick($event)"
                 [attr.target]="item.target" [attr.tabindex]="0" [ngClass]="item.class">
-                  <span class="menuitem-text">{{item.label}}</span>
+                  <span class="menuitem-text">{{item.label | translate}}</span>
                   <i class="pi pi-fw pi-angle-down layout-submenu-toggler" *ngIf="item.items"></i>
                   <i [ngClass]="item.icon" class="layout-menuitem-icon"></i>
               </a>
               <a (click)="itemClick($event)" (mouseenter)="onMouseEnter()" *ngIf="item.routerLink && !item.items"
                   [routerLink]="item.routerLink" routerLinkActive="active-menuitem-routerlink" [ngClass]="item.class"
                   [routerLinkActiveOptions]="{exact: true}" [attr.target]="item.target" [attr.tabindex]="0">
-                  <span class="menuitem-text">{{item.label}}</span>
+                  <span class="menuitem-text">{{item.label | translate}}</span>
                   <i class="pi pi-fw pi-angle-down layout-submenu-toggler" *ngIf="item.items"></i>
                   <i [ngClass]="item.icon" class="layout-menuitem-icon"></i>
               </a>

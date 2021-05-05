@@ -41,6 +41,103 @@
 
     </div> -->
 
+    <div class="p-col-12">
+        <h5>{{"Idetificador" | translate}}</h5>
+
+        <div class="card">
+            <div class="p-fluid p-formgrid p-grid">
+                <label for="catalogo" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">{{"Catálogo" | translate}}</label>
+                <div class="p-field p-col">
+                    <input id="catalogo" type="text" pInputText>
+                </div>
+                <label for="entrada" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Entrada</label>
+                <div class="p-field p-col">
+                    <input id="entrada" type="text" pInputText>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="p-col-12">
+        <h5>Título</h5>
+        <div class="card">
+            <div class="p-fluid p-formgrid p-grid">
+                <div class="p-field p-col-12 ">
+                    <label for="titulo">Título</label>
+                    <input id="titulo" type="text" pInputText>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="p-col-12">
+        <h5>Descripción</h5>
+        <div class="card">
+            <div class="p-fluid p-formgrid p-grid">
+                <div class="p-field p-col-12 ">
+                    <label for="descripcion">Descripción</label>
+                    <textarea id="descripcion" type="text" rows="4" pInputTextarea></textarea>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="p-col-12">
+        <h5>Palabra Clave</h5>
+        <div class="card">
+            <div class="p-fluid p-formgrid p-grid">
+                <div class="p-field p-col-12 ">
+                    <label for="palabraclave1">Palabra Clave</label>
+                    <input id="palabraclave1" type="text" pInputText>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="p-col-12">
+        <h5>Ámbito</h5>
+        <div class="card">
+            <div class="p-fluid p-formgrid p-grid">
+                <div class="p-field p-col-12 ">
+                    <label for="ambito">Ámbito</label>
+                    <input id="ambito" type="text" pInputText>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="p-col-12">
+        <div class="card">
+            <h5>Estructura</h5>
+            <div class="p-fluid">
+                <!-- [(ngModel)]="selectedDrop" -->
+                <p-dropdown [options]="estructuras" placeholder="Seleccionar" [showClear]="true"></p-dropdown>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="p-col-12">
+        <div class="card">
+            <h5>Nivel de Agregación</h5>
+            <div class="p-fluid">
+                <!-- [(ngModel)]="selectedDrop" -->
+                <p-dropdown [options]="nivelesAgregacion" placeholder="Seleccionar" [showClear]="true"></p-dropdown>
+            </div>
+
+        </div>
+
+    </div>
+
 
     <div class="p-col-12">
         <div class="card">
@@ -52,8 +149,8 @@
                 </div>
 
                 <div class="p-field p-col-12">
-                    <label for="address">Address</label>
-                    <textarea id="address" type="text" rows="4" pInputTextarea></textarea>
+                    <label for="descripcion">Descripción</label>
+                    <textarea id="descripcion" type="text" rows="4" pInputTextarea></textarea>
                 </div>
                 <div class="p-field p-col-12 ">
                     <label for="palabraClave">Papabra Clave</label>

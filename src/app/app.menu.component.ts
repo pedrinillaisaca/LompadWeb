@@ -17,7 +17,7 @@ export class AppMenuComponent implements OnInit {
             {label: 'LOMpad', icon: 'pi pi-fw pi-home', routerLink: ['/']},
 
             {label: '1.0. Inicio', icon: 'pi pi-fw pi-file', routerLink: ['/paginas/inicio']},
-            {label: '1. General', icon: 'pi pi-fw pi-file', routerLink: ['/paginas/general']},
+            {label: '1. General' , icon: 'pi pi-fw pi-file', routerLink: ['/paginas/general']},
             {label: '2. Ciclo de vida', icon: 'pi pi-fw pi-file', routerLink: ['/paginas/livecicle']},
             {label: '3. Meta-Datos', icon: 'pi pi-fw pi-file', routerLink: ['/paginas/metadatos']},
             {label: '4. Técnica', icon: 'pi pi-fw pi-file', routerLink: ['/paginas/tecnica']},

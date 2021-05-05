@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HttpClient } from '@angular/common/http';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HashLocationStrategy, LocationStrategy} from '@angular/common';
@@ -170,6 +170,14 @@ import { AngularFileUploaderModule } from "angular-file-uploader";
 import { ObjaprendizajeModule } from './modulos/objaprendizaje/objaprendizaje.module';
 import { GeneralComponent } from './paginas/general/general.component';
 
+//internacionalizacion 
+import { TranslateHttpLoader} from "@ngx-translate/http-loader";
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+
+export function HttpLoaderFactory(http: HttpClient){
+    return new TranslateHttpLoader(http,'./assets/i18n/','.json');
+}
+
 
 @NgModule({
     imports: [
@@ -261,6 +269,13 @@ import { GeneralComponent } from './paginas/general/general.component';
         TreeModule,
         TreeTableModule,
         VirtualScrollerModule,
+        TranslateModule.forRoot({
+            loader:{
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [HttpClient]
+            }
+        })
     ],
     declarations: [
         AppComponent,
