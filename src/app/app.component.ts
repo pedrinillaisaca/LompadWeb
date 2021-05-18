@@ -8,6 +8,8 @@ import {PrimeNGConfig} from 'primeng/api';
 })
 export class AppComponent implements OnInit{
 
+    idiomas: any[];
+
     horizontalMenu: boolean;
 
     darkMode = false;
@@ -24,14 +26,27 @@ export class AppComponent implements OnInit{
 
     inputStyle = 'outlined';
 
-    constructor(private primengConfig: PrimeNGConfig, private translate: TranslateService) {
+    constructor(private primengConfig: PrimeNGConfig , public translate:TranslateService) {
+        translate.addLangs(['en', 'fr']);
+        translate.setDefaultLang('es');
 
-        this.translate.addLangs(['es','en']);
-        this.translate.setDefaultLang('en');
+        // this.translate.addLangs(['es','en']);
+        // this.translate.setDefaultLang('en');
         // this.translate.use('en'); // ESTE SERIA EL METODO PARA REALIZAR EL CAMBIO DE IDIOMA
     }
 
     ngOnInit() {
         this.primengConfig.ripple = true;
+
+        this.idiomas=[
+            {label: 'es', value: {id: 1, name: 'es', code: 'es'}},
+            {label: 'en', value: {id: 2, name: 'en', code: 'en'}},
+            {label: 'fr', value: {id: 3, name: 'fr', code: 'fr'}},        
+        ];
+    }
+
+    public cambioIdiomaAplication(event){
+        console.log(event.value.name);
+        this.translate.use(event.value.name);
     }
 }

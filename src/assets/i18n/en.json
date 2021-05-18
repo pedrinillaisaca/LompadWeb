@@ -62,5 +62,6 @@
     "Ruta Taxonómica": "Taxonomic Route",
     "Fuente": "Source",
     "Taxón": "Taxon",
-    "id": "ID"
+    "id": "ID",
+    "Lenguaje": "Language"
 }

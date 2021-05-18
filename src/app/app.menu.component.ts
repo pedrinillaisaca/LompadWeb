@@ -131,9 +131,12 @@ export class AppMenuComponent implements OnInit {
                 label: 'Buy Now', icon: 'pi pi-fw pi-money-bill', url: ['https://www.primefaces.org/store']
             }
         ];
+        // Para que el submenu quede estatico    
+        this.appMain.sidebarActive=true;
+        this.appMain.staticMenuActive=true;
     }
 
-    onMenuClick() {
+    onMenuClick() {                
         this.appMain.menuClick = true;
     }
 }

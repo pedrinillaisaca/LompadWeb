@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {AppComponent} from './app.component';
 import {AppMainComponent} from './app.main.component';
+import { TranslateService } from '@ngx-translate/core';
+import { EventService } from './demo/service/eventservice';
 
 @Component({
     selector: 'app-config',
@@ -14,7 +16,23 @@ import {AppMainComponent} from './app.main.component';
                 <i class="pi pi-times"></i>
             </a>
             <div class="layout-config-content">
-                <h5>Menu Type</h5>
+                <h5>Menu Type </h5>
+                
+                <div class="p-grid">
+                    <div class="p-col-6">
+                        <label>{{'Lenguaje' | translate}}</label>                       
+                       <!-- <select #lanSelect (change)="translate.use(lanSelect.value)">
+                           <option *ngFor="let lang of translate.getLangs()" [value]="lang"
+                           [selected]="lang===translate.currentLang"
+                           >{{lang}}</option>
+                       </select> -->                                      
+                    </div>          
+                    <div class="p-col-6">
+                    <p-dropdown [options]="idiomas" (onChange)="cambioIdioma($event)" styleClass="p-mb-2 p-mb-md-0"></p-dropdown>
+                    </div>
+                    
+                </div>
+               
                 <div class="p-grid">
                     <div class="p-col-6">
                         <div class="p-field-radiobutton">
@@ -113,6 +131,8 @@ import {AppMainComponent} from './app.main.component';
 })
 export class AppConfigComponent implements OnInit {
 
+    idiomas: any[];
+
     darkColors: any;
 
     lightColors: any;
@@ -123,7 +143,12 @@ export class AppConfigComponent implements OnInit {
 
     componentThemes: any;
 
-    constructor(public app: AppComponent, public appMain: AppMainComponent) {
+    constructor(public app: AppComponent, public appMain: AppMainComponent, public translate:TranslateService) {
+        translate.addLangs(['en', 'fr']);
+        translate.setDefaultLang('en');
+
+        // const browserLang = translate.getBrowserLang();
+        // translate.use(browserLang.match(/en|fr/) ? browserLang : 'en');
     }
 
     ngOnInit() {
@@ -216,6 +241,17 @@ export class AppConfigComponent implements OnInit {
             {name: 'Red', file: 'red', color: '#F28686'},
             {name: 'Indigo', file: 'indigo', color: '#8886F2'},
         ];
+
+        this.idiomas=[
+            {label: 'es', value: {id: 1, name: 'es', code: 'es'}},
+            {label: 'en', value: {id: 2, name: 'en', code: 'en'}},
+            {label: 'fr', value: {id: 3, name: 'fr', code: 'fr'}},        
+        ];
+    }
+
+    cambioIdioma(event){
+        console.log(event.value.name);
+        this.translate.use(event.value.name);
     }
 
     changeLayout(event, mode) {
