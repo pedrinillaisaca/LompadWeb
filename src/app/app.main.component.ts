@@ -1,8 +1,9 @@
 import { Component, Renderer2 } from '@angular/core';
 import { MenuService } from './app.menu.service';
 import { trigger, state, style, transition, animate } from '@angular/animations';
-import { PrimeNGConfig } from 'primeng/api';
+import { PrimeNGConfig, MegaMenuItem } from 'primeng/api';
 import {AppComponent} from './app.component';
+import { ElevationComponent } from './utilities/elevation.component';
 
 @Component({
     selector: 'app-main',
@@ -57,6 +58,14 @@ export class AppMainComponent {
 
     configClick: boolean;
 
+
+    // DECLARACION DE VARIABLES    
+
+    megaMenuPerfiles: boolean;
+    megaMenuPerfilesClick: boolean;
+    
+
+
     constructor(public renderer: Renderer2, private menuService: MenuService,
                 private primengConfig: PrimeNGConfig, public app: AppComponent) {}
 
@@ -72,6 +81,11 @@ export class AppMainComponent {
 
         if (!this.megaMenuClick) {
             this.megaMenuActive = false;
+        }
+
+        // Agregado para menu personalizado
+        if(!this.megaMenuPerfilesClick){
+            this.megaMenuPerfiles=false;
         }
 
         if (!this.megaMenuMobileClick) {
@@ -98,6 +112,7 @@ export class AppMainComponent {
         this.menuClick = false;
         this.topbarItemClick = false;
         this.megaMenuClick = false;
+        this.megaMenuPerfilesClick = false;
         this.megaMenuMobileClick = false;
         this.rightPanelClick = false;
     }
@@ -105,6 +120,17 @@ export class AppMainComponent {
     onMegaMenuButtonClick(event) {
         this.megaMenuClick = true;
         this.megaMenuActive = !this.megaMenuActive;
+        event.preventDefault();
+    }
+
+    onMegamenuButtonPerfiles(event){
+        this.megaMenuPerfilesClick=true;
+        this.megaMenuPerfiles=!this.megaMenuPerfiles;
+        event.preventDefault();
+    }
+
+    onMegaMenuPerfilClick(event){
+        this.megaMenuPerfilesClick=true;
         event.preventDefault();
     }
 

@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,11 +9,15 @@ import { Component, OnInit } from '@angular/core';
 export class GeneralComponent implements OnInit {
   estructuras:any=[];
   nivelesAgregacion:any=[];
+
+  columns:any[];
+  palabra:string;
   
+  palabraDialog:boolean;
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {    
     this.estructuras=[
       {label: 'atómica', value: {id: 1, name: 'atómica', code: 'ato'}},
       {label: 'colección', value: {id: 2, name: 'colección', code: 'coll'}},
@@ -28,7 +33,30 @@ export class GeneralComponent implements OnInit {
       {label: '3', value: {id: 3, name: '3', code: '3'}},
       {label: '4', value: {id: 4, name: '4', code: '4'}}
     ];
+
+    this.columns = [];
     
-  }
+  }  
+
+addPalabra() {
+  this.palabraDialog=true;
+  
+}
+
+cancelPalabra(){
+  this.palabraDialog=false;
+}
+
+removeColumn() {
+  this.columns.splice(-1, 1);
+}
+
+savePalabra(){
+  console.log(this.palabra);
+  this.palabraDialog=false;
+  this.columns.push(this.palabra);
+  this.palabra="";
+  
+}
 
 }

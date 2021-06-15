@@ -31,12 +31,7 @@ import { AppComponent } from './app.component';
 						<a class="layout-megamenu-button" href="#" (click)="appMain.onMegaMenuButtonClick($event)">
 							<i class="pi pi-comment"></i>
 							Mega Menu
-						</a>
-
-						<a class="layout-megamenu-button" href="#" (click)="appMain.onMegaMenuButtonClick($event)">
-							<i class="pi pi-comment"></i>
-							Mega Menu
-						</a>
+						</a>						
 
 						<ul class="layout-megamenu" [ngClass]="{'layout-megamenu-active fadeInDown': appMain.megaMenuActive}"
                             (click)="appMain.onMegaMenuClick($event)">
@@ -120,6 +115,22 @@ import { AppComponent } from './app.component';
 								</ul>
 							</li>
 						</ul>
+
+
+
+						<!-- MEGA MENU PERSONALIZADO  -->
+						<ul class="layout-megamenu" [ngClass]="{'layout-megamenu-active fadeInDown': appMain.megaMenuPerfiles}"
+							(click)="appMain.onMegaMenuPerfilClick($event)" style="margin-left: 13cm;">
+							<li>
+								<a href="#">{{'Perfíles' | translate}}<i class="pi pi-angle-down"></i></a>
+								<ul>
+								<!-- (onChange)=""  -->
+								<p-dropdown [options]="perfiles" (onChange)="cambioPerfil($event)" styleClass="p-mb-2 p-mb-md-0"></p-dropdown>
+									
+								</ul>
+							</li>
+							
+						</ul>
 					
 						<a class="layout-megamenu-button" style="margin-left: 30px;" href="#" (click)="appMain.onMegaMenuButtonClick($event)">							
 							Previsualización JSON
@@ -129,9 +140,15 @@ import { AppComponent } from './app.component';
 							Previsualización XML
 						</a>
 
-						<a class="layout-megamenu-button" style="margin-left: 30px;" href="#" (click)="appMain.onMegaMenuButtonClick($event)">							
-							PENDIENTE
+						<a class="layout-megamenu-button" style="margin-left: 30px;" href="#" (click)="appMain.onMegamenuButtonPerfiles($event)">							
+						{{'Perfíles' | translate}}
 						</a>
+
+
+						<!-- <a class="layout-megamenu-button" href="#" (click)="appMain.onMegaMenuButtonClick($event)">
+							<i class="pi pi-comment"></i>
+							Mega Menu
+						</a> -->
 					</div>
                 </div>
 
@@ -167,14 +184,22 @@ export class AppTopBarComponent {
 
 	idiomas: any[];
     activeItem: number;
+	perfiles: any[];
+        
 
-    constructor(public appMain: AppMainComponent, private com: AppComponent) {}
+    constructor(public appMain: AppMainComponent, private componentePrincipal: AppComponent) {}
 
 	ngOnInit(){
 		this.idiomas=[
             {label: 'es', value: {id: 1, name: 'es', code: 'es'}},
             {label: 'en', value: {id: 2, name: 'en', code: 'en'}},
             {label: 'fr', value: {id: 3, name: 'fr', code: 'fr'}},        
+        ];
+
+		this.perfiles=[
+            {label: 'IEEE LOM', value: {id: 1, name: 'IEEE LOM', code: 'ieee'}},
+            {label: 'CanCore', value: {id: 2, name: 'CanCore', code: 'cancore'}},
+            {label: 'SCORM', value: {id: 3, name: 'SCORM', code: 'scorm'}}        
         ];
 
 	}
@@ -185,7 +210,12 @@ export class AppTopBarComponent {
     }
 
 	cambioIdioma(event){
-		this.com.cambioIdiomaAplication(event);
+		this.componentePrincipal.cambioIdiomaAplication(event);
+	}
+
+
+	cambioPerfil(event){
+		this.componentePrincipal.cambioPerfil(event);
 	}
 
 

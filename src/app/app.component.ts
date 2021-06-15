@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import {PrimeNGConfig} from 'primeng/api';
+import { ObjOptions } from './modelo/objOptions';
+import { EventService } from './demo/service/eventservice';
 
 @Component({
     selector: 'app-root',
@@ -8,7 +10,7 @@ import {PrimeNGConfig} from 'primeng/api';
 })
 export class AppComponent implements OnInit{
 
-    idiomas: any[];
+    
 
     horizontalMenu: boolean;
 
@@ -26,27 +28,385 @@ export class AppComponent implements OnInit{
 
     inputStyle = 'outlined';
 
+    idiomas: any[];
+    perfiles: any[];
+
+    objOptions:ObjOptions=new ObjOptions();
+
+
+    // ESTE ES EL PRINCIPAL
     constructor(private primengConfig: PrimeNGConfig , public translate:TranslateService) {
         translate.addLangs(['en', 'fr']);
         translate.setDefaultLang('es');
-
-        // this.translate.addLangs(['es','en']);
-        // this.translate.setDefaultLang('en');
-        // this.translate.use('en'); // ESTE SERIA EL METODO PARA REALIZAR EL CAMBIO DE IDIOMA
     }
 
     ngOnInit() {
+        this.objOptions.o1=true;        
+        this.objOptions.o1_1=true;
+        this.objOptions.o1_2=true;
+        this.objOptions.o1_3=true;
+        this.objOptions.o1_4=true;
+        this.objOptions.o1_5=true;
+        this.objOptions.o1_6=true;
+        this.objOptions.o1_7=true;
+        this.objOptions.o1_8=true;
+
+        this.objOptions.o2=true;
+        this.objOptions.o2_2=true;
+        this.objOptions.o2_3=true;
+        this.objOptions.o2_3_1=true;
+        this.objOptions.o2_3_2=true;
+        this.objOptions.o2_3_3=true;
+
+
+        this.objOptions.o3=true;
+        this.objOptions.o3_1=true;
+
+        this.objOptions.o3_2=true;
+        this.objOptions.o3_2_1=true;
+        this.objOptions.o3_2_2=true;
+        this.objOptions.o3_2_3=true;
+
+        this.objOptions.o3_3=true;
+        this.objOptions.o3_4=true;
+
+
+
+        this.objOptions.o4=true;
+        this.objOptions.o4_1=true;
+        this.objOptions.o4_2=true;
+        this.objOptions.o4_3=true;
+        this.objOptions.o4_4=true;
+        this.objOptions.o4_4_1=true;
+        this.objOptions.o4_5=true;
+        this.objOptions.o4_6=true;
+        this.objOptions.o4_7=true;
+
+        this.objOptions.o5=true;
+        this.objOptions.o5_1=true;
+        this.objOptions.o5_2=true;
+        this.objOptions.o5_3=true;
+        this.objOptions.o5_4=true;
+        this.objOptions.o5_5=true;
+        this.objOptions.o5_6=true;
+        this.objOptions.o5_7=true;
+        this.objOptions.o5_8=true;
+        this.objOptions.o5_9=true;
+        this.objOptions.o5_10=true;
+        this.objOptions.o5_11=true;
+
+
+
+        this.objOptions.o6=true;
+        this.objOptions.o6_1=true;
+        this.objOptions.o6_2=true;
+        this.objOptions.o6_3=true;
+
+        this.objOptions.o7=true;
+        this.objOptions.o7_1=true;
+        this.objOptions.o7_2=true;
+        this.objOptions.o7_2_1=true;
+        this.objOptions.o7_2_2=true;
+
+        this.objOptions.o8=true;
+        this.objOptions.o8_1=true;
+        this.objOptions.o8_2=true;
+        this.objOptions.o8_3=true;
+
+        this.objOptions.o9=true;
+        this.objOptions.o9_1=true;
+        this.objOptions.o9_2=true;
+        this.objOptions.o9_2_1=true;
+        this.objOptions.o9_2_2=true;
+        this.objOptions.o9_3=true;
+        this.objOptions.o9_4=true;
+
+        this.objOptions.o10=true;
         this.primengConfig.ripple = true;
 
-        this.idiomas=[
-            {label: 'es', value: {id: 1, name: 'es', code: 'es'}},
-            {label: 'en', value: {id: 2, name: 'en', code: 'en'}},
-            {label: 'fr', value: {id: 3, name: 'fr', code: 'fr'}},        
-        ];
+        
+                                
     }
 
     public cambioIdiomaAplication(event){
         console.log(event.value.name);
         this.translate.use(event.value.name);
     }
+
+
+    public cambioPerfil(event){        
+        if (event.value.name === "IEEE LOM"){            
+            this.formatIEEE();
+        }
+        else if(event.value.name === "CanCore"){
+            this.formatCanCore();
+        }
+        else if(event.value.name === "SCORM"){
+            this.formatSCORM();
+        }
+
+    }
+
+
+    formatIEEE(){
+        console.log("formateando IEEE");
+        this.objOptions.o1=true;        
+        this.objOptions.o1_1=true;
+        this.objOptions.o1_2=true;
+        this.objOptions.o1_3=true;
+        this.objOptions.o1_4=true;
+        this.objOptions.o1_5=true;
+        this.objOptions.o1_6=true;
+        this.objOptions.o1_7=true;
+        this.objOptions.o1_8=true;
+
+        this.objOptions.o2=true;
+        this.objOptions.o2_1=true;
+        this.objOptions.o2_2=true;
+        this.objOptions.o2_3=true;
+        this.objOptions.o2_3_1=true;
+        this.objOptions.o2_3_2=true;
+        this.objOptions.o2_3_3=true;
+
+
+        this.objOptions.o3=true;
+        this.objOptions.o3_1=true;
+
+        this.objOptions.o3_2=true;
+        this.objOptions.o3_2_1=true;
+        this.objOptions.o3_2_2=true;
+        this.objOptions.o3_2_3=true;
+
+        this.objOptions.o3_3=true;
+        this.objOptions.o3_4=true;
+
+
+
+        this.objOptions.o4=true;
+        this.objOptions.o4_1=true;
+        this.objOptions.o4_2=true;
+        this.objOptions.o4_3=true;
+        this.objOptions.o4_4=true;
+        this.objOptions.o4_4_1=true;
+        this.objOptions.o4_5=true;
+        this.objOptions.o4_6=true;
+        this.objOptions.o4_7=true;
+
+        this.objOptions.o5=true;
+        this.objOptions.o5_1=true;
+        this.objOptions.o5_2=true;
+        this.objOptions.o5_3=true;
+        this.objOptions.o5_4=true;
+        this.objOptions.o5_5=true;
+        this.objOptions.o5_6=true;
+        this.objOptions.o5_7=true;
+        this.objOptions.o5_8=true;
+        this.objOptions.o5_9=true;
+        this.objOptions.o5_10=true;
+        this.objOptions.o5_11=true;
+
+
+
+        this.objOptions.o6=true;
+        this.objOptions.o6_1=true;
+        this.objOptions.o6_2=true;
+        this.objOptions.o6_3=true;
+
+        this.objOptions.o7=true;
+        this.objOptions.o7_1=true;
+        this.objOptions.o7_2=true;
+        this.objOptions.o7_2_1=true;
+        this.objOptions.o7_2_2=true;
+
+        this.objOptions.o8=true;
+        this.objOptions.o8_1=true;
+        this.objOptions.o8_2=true;
+        this.objOptions.o8_3=true;
+
+        this.objOptions.o9=true;
+        this.objOptions.o9_1=true;
+        this.objOptions.o9_2=true;
+        this.objOptions.o9_2_1=true;
+        this.objOptions.o9_2_2=true;
+        this.objOptions.o9_3=true;
+        this.objOptions.o9_4=true;
+
+        this.objOptions.o10=true;
+
+    }
+
+    formatCanCore(){
+        console.log("formateando CanCore");
+        this.objOptions.o1=true;        
+        this.objOptions.o1_1=true;
+        this.objOptions.o1_2=true;
+        this.objOptions.o1_3=true;
+        this.objOptions.o1_4=true;
+        this.objOptions.o1_5=true;
+        this.objOptions.o1_6=false;
+        this.objOptions.o1_7=false;
+        this.objOptions.o1_8=true;
+
+        this.objOptions.o2=true;
+        this.objOptions.o2_1=true;
+        this.objOptions.o2_2=false;
+        this.objOptions.o2_3=true;
+        this.objOptions.o2_3_1=true;
+        this.objOptions.o2_3_2=true;
+        this.objOptions.o2_3_3=true;
+
+
+        this.objOptions.o3=true;
+        this.objOptions.o3_1=true;
+
+        this.objOptions.o3_2=true;
+        this.objOptions.o3_2_1=true;
+        this.objOptions.o3_2_2=true;
+        this.objOptions.o3_2_3=true;
+
+        this.objOptions.o3_3=true;
+        this.objOptions.o3_4=true;
+
+
+
+        this.objOptions.o4=true;
+        this.objOptions.o4_1=true;
+        this.objOptions.o4_2=true;
+        this.objOptions.o4_3=true;
+        this.objOptions.o4_4=false;
+        this.objOptions.o4_4_1=false;
+        this.objOptions.o4_5=false;
+        this.objOptions.o4_6=true;
+        this.objOptions.o4_7=true;
+
+        this.objOptions.o5=true;
+        this.objOptions.o5_1=false;
+        this.objOptions.o5_2=true;
+        this.objOptions.o5_3=true;
+        this.objOptions.o5_4=false;
+        this.objOptions.o5_5=true;
+        this.objOptions.o5_6=true;
+        this.objOptions.o5_7=true;
+        this.objOptions.o5_8=false;
+        this.objOptions.o5_9=true;
+        this.objOptions.o5_10=false;
+        this.objOptions.o5_11=true;
+
+
+
+        this.objOptions.o6=true;
+        this.objOptions.o6_1=true;
+        this.objOptions.o6_2=true;
+        this.objOptions.o6_3=true;
+
+        this.objOptions.o7=true;
+        this.objOptions.o7_1=true;
+        this.objOptions.o7_2=true;
+        this.objOptions.o7_2_1=true;
+        this.objOptions.o7_2_2=false;
+
+        this.objOptions.o8=true;
+        this.objOptions.o8_1=true;
+        this.objOptions.o8_2=true;
+        this.objOptions.o8_3=true;
+
+        this.objOptions.o9=true;
+        this.objOptions.o9_1=true;
+        this.objOptions.o9_2=true;
+        this.objOptions.o9_2_1=true;
+        this.objOptions.o9_2_2=true;
+        this.objOptions.o9_3=false;
+        this.objOptions.o9_4=true;
+
+        this.objOptions.o10=true;
+
+    }
+
+    formatSCORM(){
+        console.log("formateando SCRMO");
+        this.objOptions.o1=true;        
+        this.objOptions.o1_1=true;
+        this.objOptions.o1_2=true;
+        this.objOptions.o1_3=false;
+        this.objOptions.o1_4=true;
+        this.objOptions.o1_5=true;
+        this.objOptions.o1_6=false;
+        this.objOptions.o1_7=false;
+        this.objOptions.o1_8=false;
+
+        this.objOptions.o2=true;
+        this.objOptions.o2_1=true;
+        this.objOptions.o2_2=true;
+        this.objOptions.o2_3=false;
+        this.objOptions.o2_3_1=false;
+        this.objOptions.o2_3_2=false;
+        this.objOptions.o2_3_3=false;
+
+
+        this.objOptions.o3=true;
+        this.objOptions.o3_1=true;
+
+        this.objOptions.o3_2=false;
+        this.objOptions.o3_2_1=false;
+        this.objOptions.o3_2_2=false;
+        this.objOptions.o3_2_3=false;
+
+        this.objOptions.o3_3=true;
+        this.objOptions.o3_4=false;
+
+
+
+        this.objOptions.o4=true;
+        this.objOptions.o4_1=true;
+        this.objOptions.o4_2=false;
+        this.objOptions.o4_3=false;
+        this.objOptions.o4_4=false;
+        this.objOptions.o4_4_1=false;
+        this.objOptions.o4_5=false;
+        this.objOptions.o4_6=false;
+        this.objOptions.o4_7=false;
+
+        this.objOptions.o5=false;
+        this.objOptions.o5_1=false;
+        this.objOptions.o5_2=false;
+        this.objOptions.o5_3=false;
+        this.objOptions.o5_4=false;
+        this.objOptions.o5_5=false;
+        this.objOptions.o5_6=false;
+        this.objOptions.o5_7=false;
+        this.objOptions.o5_8=false;
+        this.objOptions.o5_9=false;
+        this.objOptions.o5_10=false;
+        this.objOptions.o5_11=false;
+
+
+
+        this.objOptions.o6=true;
+        this.objOptions.o6_1=true;
+        this.objOptions.o6_2=true;
+        this.objOptions.o6_3=false;
+
+        this.objOptions.o7=false;
+        this.objOptions.o7_1=false;
+        this.objOptions.o7_2=false;
+        this.objOptions.o7_2_1=false;
+        this.objOptions.o7_2_2=false;
+
+        this.objOptions.o8=false;
+        this.objOptions.o8_1=false;
+        this.objOptions.o8_2=false;
+        this.objOptions.o8_3=false;
+
+        this.objOptions.o9_1=false;
+        this.objOptions.o9_2=false;
+        this.objOptions.o9_2_1=false;
+        this.objOptions.o9_2_2=false;
+        this.objOptions.o9_3=false;
+        this.objOptions.o9_4=false;
+
+        this.objOptions.o10=true;
+
+    }
+
+    
 }
