@@ -1,5 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
+import { AppComponent } from 'src/app/app.component';
+import { ObjOptions } from '../../modelo/objOptions';
 
 @Component({
   selector: 'app-general',
@@ -11,11 +13,12 @@ export class GeneralComponent implements OnInit {
   nivelesAgregacion:any=[];
 
   columns:any[];
-  palabra:string;
-  
+  palabra:string;  
   palabraDialog:boolean;
 
-  constructor() { }
+  
+  ObjOptions:ObjOptions=new ObjOptions();
+  constructor(private componentePrincipal: AppComponent) { }
 
   ngOnInit(): void {    
     this.estructuras=[
@@ -35,6 +38,9 @@ export class GeneralComponent implements OnInit {
     ];
 
     this.columns = [];
+
+
+    this.ObjOptions=this.componentePrincipal.objOptions;
     
   }  
 

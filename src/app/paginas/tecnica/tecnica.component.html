@@ -1,8 +1,8 @@
 <div class="p-grid">
-    <div class="p-col-12">
+    <div *ngIf="ObjOptions.o4_1" class="p-col-12">
         <h5>{{"Formato" | translate}}</h5>
         <div class="card">
-            <h4>PIAS HAY QUE PREGUNTAR SOBRE ESTE CAMPO</h4>
+            <!-- <h4>PIAS HAY QUE PREGUNTAR SOBRE ESTE CAMPO</h4> -->
             <div class="p-field p-fluid">
                 <label for="esquema">{{"Esquema" | translate}}</label>
                 <input id="esquema" type="esquema" pInputText aria-describedby="username-help">
@@ -11,8 +11,8 @@
         </div>
     </div>
 
-
-    <div class="p-col-12">
+    <!-- perfiles da lo mismo en tamaño y localizacion -->
+    <div *ngIf="ObjOptions.o4_2" class="p-col-12">
         <div class="card">
 
             <div class="p-fluid p-formgrid p-grid">
@@ -30,7 +30,7 @@
 
 
 
-    <div class="p-col-12">
+    <div *ngIf="ObjOptions.o4_4" class="p-col-12">
         <h5>{{"Requisitos" | translate}}</h5>
         <div class="card">
             <h6>{{"Agredador Or" | translate}}</h6>
@@ -64,7 +64,7 @@
         </div>
     </div>
 
-    <div class="p-col-12 p-md-6">
+    <div *ngIf="ObjOptions.o4_5" class="p-col-12 p-md-6">
         <h5>{{"Pautas de Instalación" | translate}}</h5>
         <div class="card">
             <div class="p-fluid">
@@ -76,7 +76,7 @@
         </div>
     </div>
 
-    <div class="p-col-12 p-md-6">
+    <div *ngIf="ObjOptions.o4_6" class="p-col-12 p-md-6">
         <h5>{{"Otros Requisitos de Plataforma" | translate}}</h5>
         <div class="card">
             <div class="p-fluid">
@@ -89,7 +89,7 @@
     </div>
 
 
-    <div class="p-col-12">
+    <div *ngIf="ObjOptions.o4_7" class="p-col-12">
         <h5>{{"Duración"| translate}}</h5>
         <div class="card">
             <div class="p-fluid p-formgrid p-grid">

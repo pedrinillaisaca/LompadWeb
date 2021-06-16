@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AppComponent } from 'src/app/app.component';
+import { ObjOptions } from 'src/app/modelo/objOptions';
 
 @Component({
   selector: 'app-clasificacion',
@@ -6,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./clasificacion.component.css']
 })
 export class ClasificacionComponent implements OnInit {
-
-  constructor() { }
   propositos:any[];
+  ObjOptions:ObjOptions=new ObjOptions();
+
+  columns:any[];
+  palabra:string;
+  palabraDialog:boolean;
+
+  constructor(private componentePrincipal: AppComponent ) { }
+  
   ngOnInit(): void {
     this.propositos=[
       {label: 'diciplina', value: {id: 1, name: 'diciplina', code: 'dis'}},
@@ -20,6 +28,33 @@ export class ClasificacionComponent implements OnInit {
       {label: 'nivel de habilidad', value: {id: 1, name: 'nivel de habilidad', code: 'n_hab'}},
       {label: 'nivel de seguridad', value: {id: 1, name: 'nivel de seguridad', code: 'n_seg'}},
     ];
+
+    this.ObjOptions=this.componentePrincipal.objOptions;
+    this.columns = [];
   }
+
+  addPalabra() {
+    this.palabraDialog=true;
+    
+  }
+  
+  cancelPalabra(){
+    this.palabraDialog=false;
+  }
+  
+  removeColumn() {
+    this.columns.splice(-1, 1);
+  }
+  
+  savePalabra(){
+    console.log(this.palabra);
+    this.palabraDialog=false;
+    this.columns.push(this.palabra);
+    this.palabra="";
+    
+  }
+
+
+
 
 }

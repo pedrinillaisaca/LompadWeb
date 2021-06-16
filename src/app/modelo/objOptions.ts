@@ -72,6 +72,9 @@ export class ObjOptions{
     o8_1:boolean;
     o8_2:boolean;
     o8_3:boolean;
+    o8_4:boolean;
+    o8_5:boolean;
+    o8_6:boolean;        
 
     o9:boolean;
     o9_1:boolean;

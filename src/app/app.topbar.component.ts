@@ -215,7 +215,7 @@ export class AppTopBarComponent {
 
 
 	cambioPerfil(event){
-		this.componentePrincipal.cambioPerfil(event);
+		this.componentePrincipal.cambioPerfil(event);		
 	}
 
 

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AppComponent } from 'src/app/app.component';
+import { ObjOptions } from 'src/app/modelo/objOptions';
 
 @Component({
   selector: 'app-usoeducativo',
@@ -7,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsoeducativoComponent implements OnInit {
 
-  constructor() { }
+  
+  ObjOptions:ObjOptions=new ObjOptions();
   tiposActividad:any[];
   tiposRecursEducativos:any[];
   nivelesInteractividad:any[];
@@ -15,7 +18,8 @@ export class UsoeducativoComponent implements OnInit {
   destinatarios:any[];
   contextos:any[];
   dificultades:any[];
-  
+  edad=12;
+  constructor(private componentePrincipal: AppComponent ) { }
 
   ngOnInit(): void {
     this.tiposActividad=[
@@ -58,7 +62,17 @@ export class UsoeducativoComponent implements OnInit {
       {label: 'otro', value: {id: 4, name: 'otro', code: 'otro'}},    
 
     ];
-    this.dificultades=[];
+    this.dificultades=[
+      {label: 'muy facíl', value: {id: 1, name: 'muy facíl', code: 'mf'}},    
+      {label: 'facíl', value: {id: 2, name: 'facíl', code: 'f'}},    
+      {label: 'medio', value: {id: 3, name: 'medio', code: 'm'}},    
+      {label: 'dificíl', value: {id: 4, name: 'dificíl', code: 'd'}},
+      {label: 'muy dificíl', value: {id: 5, name: 'muy dificíl', code: 'md'}},
+    ];
+
+    this.ObjOptions=this.componentePrincipal.objOptions;
+
+
   }
 
 }

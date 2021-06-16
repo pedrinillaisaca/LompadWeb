@@ -1,18 +1,18 @@
 <div class="p-grid ">
 
-    <div class="p-col-12">
+    <div *ngIf="ObjOptions.o2_1" class="p-col-12">
         <div class="card">
-
+            <h5>{{"Versión" | translate}}</h5>
             <div class="p-fluid p-formgrid p-grid">
                 <div class="p-field p-col-12 ">
-                    <label for="version">{{"Versión" | translate}}</label>
+                    <!-- <label for="version">{{"Versión" | translate}}</label> -->
                     <input id="version" type="text" pInputText>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="p-col-12">
+    <div *ngIf="ObjOptions.o2_2" class="p-col-12">
         <div class="card">
             <h5>{{"Estado" | translate}}</h5>
             <div class="p-fluid">
@@ -28,11 +28,11 @@
 
     <div class="p-col-12 ">
 
-        <div class="card">
+        <div *ngIf="ObjOptions.o2_3" class="card">
             <h5>{{"Contribución" | translate}}</h5>
 
 
-            <div class="card">
+            <div *ngIf="ObjOptions.o2_3_1" class="card">
                 <h5>{{"Tipo" | translate}}</h5>
                 <div class="p-fluid">
                     <!-- [(ngModel)]="selectedDrop" -->
@@ -41,7 +41,7 @@
 
             </div>
 
-            <div class="card">
+            <div *ngIf="ObjOptions.o2_3_2" class="card">
                 <h5>{{"Entidad" | translate }}</h5>
                 <div class="p-fluid">
                     <div class="p-field p-grid">
@@ -73,7 +73,7 @@
                 </div>
             </div>
 
-            <div class="card">
+            <div *ngIf="ObjOptions.o2_3_3" class="card">
                 <h5>{{"Fecha" | translate}}</h5>
 
                 <div class="p-fluid">
@@ -89,9 +89,6 @@
                         <textarea id="descripcion" type="text" rows="4" pInputTextarea></textarea>
                     </div>
                 </div>
-
-
-
             </div>
 
 

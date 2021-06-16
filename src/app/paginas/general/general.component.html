@@ -41,7 +41,7 @@
 
     </div> -->
 
-    <div class="p-col-12">
+    <div *ngIf="ObjOptions.o1_1" class="p-col-12">
         <h5>{{"Idetificador" | translate}}</h5>
 
         <div class="card">
@@ -59,7 +59,7 @@
 
     </div>
 
-    <div class="p-col-12">
+    <div *ngIf="ObjOptions.o1_2" class="p-col-12">
         <h5>{{"Título" | translate}}</h5>
         <div class="card">
             <div class="p-fluid p-formgrid p-grid">
@@ -74,7 +74,7 @@
 
 
 
-    <div class="p-col-12">
+    <!-- <div *ngIf="ObjOptions.o1_4" class="p-col-12">
         <h5>{{"Descripción" | translate}}</h5>
         <div class="card">
             <div class="p-fluid p-formgrid p-grid">
@@ -85,9 +85,9 @@
 
             </div>
         </div>
-    </div>
+    </div> -->
 
-    <div class="p-col-12">
+    <div *ngIf="ObjOptions.o1_5" class="p-col-12">
         <h5>{{"Palabra Clave" | translate}}</h5>
         <div class="card">
             <div class="p-fluid p-formgrid p-grid">
@@ -106,14 +106,10 @@
             </div>
         </div>
 
-
-
-
-
     </div>
 
 
-    <div class="p-col-12">
+    <div *ngIf="ObjOptions.o1_6" class="p-col-12">
         <h5>{{"Ámbito" | translate}}</h5>
         <div class="card">
             <div class="p-fluid p-formgrid p-grid">
@@ -126,7 +122,7 @@
         </div>
     </div>
 
-    <div class="p-col-12">
+    <div *ngIf="ObjOptions.o1_7" class="p-col-12">
         <div class="card">
             <h5>{{"Estructura" | translate}}</h5>
             <div class="p-fluid">
@@ -138,7 +134,7 @@
 
     </div>
 
-    <div class="p-col-12">
+    <div *ngIf="ObjOptions.o1_8" class="p-col-12">
         <div class="card">
             <h5>{{"Nivel de Agregación" | translate }}</h5>
             <div class="p-fluid">

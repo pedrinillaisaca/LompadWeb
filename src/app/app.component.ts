@@ -31,7 +31,7 @@ export class AppComponent implements OnInit{
     idiomas: any[];
     perfiles: any[];
 
-    objOptions:ObjOptions=new ObjOptions();
+    public objOptions:ObjOptions=new ObjOptions();
 
 
     // ESTE ES EL PRINCIPAL
@@ -52,6 +52,7 @@ export class AppComponent implements OnInit{
         this.objOptions.o1_8=true;
 
         this.objOptions.o2=true;
+        this.objOptions.o2_1=true;
         this.objOptions.o2_2=true;
         this.objOptions.o2_3=true;
         this.objOptions.o2_3_1=true;
@@ -112,6 +113,11 @@ export class AppComponent implements OnInit{
         this.objOptions.o8_1=true;
         this.objOptions.o8_2=true;
         this.objOptions.o8_3=true;
+        this.objOptions.o8_4=true;
+        this.objOptions.o8_5=true;
+        this.objOptions.o8_6=true;
+        
+        
 
         this.objOptions.o9=true;
         this.objOptions.o9_1=true;
@@ -222,6 +228,9 @@ export class AppComponent implements OnInit{
         this.objOptions.o8_1=true;
         this.objOptions.o8_2=true;
         this.objOptions.o8_3=true;
+        this.objOptions.o8_4=true;
+        this.objOptions.o8_5=true;
+        this.objOptions.o8_6=true;
 
         this.objOptions.o9=true;
         this.objOptions.o9_1=true;
@@ -309,6 +318,9 @@ export class AppComponent implements OnInit{
         this.objOptions.o8_1=true;
         this.objOptions.o8_2=true;
         this.objOptions.o8_3=true;
+        this.objOptions.o8_4=true;
+        this.objOptions.o8_5=true;
+        this.objOptions.o8_6=true;
 
         this.objOptions.o9=true;
         this.objOptions.o9_1=true;
@@ -396,6 +408,9 @@ export class AppComponent implements OnInit{
         this.objOptions.o8_1=false;
         this.objOptions.o8_2=false;
         this.objOptions.o8_3=false;
+        this.objOptions.o8_4=false;
+        this.objOptions.o8_5=false;
+        this.objOptions.o8_6=false;
 
         this.objOptions.o9_1=false;
         this.objOptions.o9_2=false;

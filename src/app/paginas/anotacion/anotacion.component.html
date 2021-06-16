@@ -1,5 +1,5 @@
 <div class="p-grid">
-    <div class="p-col-12">
+    <div *ngIf="ObjOptions.o8_1" class="p-col-12">
         <h5>Entidad</h5>
         <div class="card">
             <h6>Identificador</h6>
@@ -37,7 +37,7 @@
     </div>
 
 
-    <div class="p-col-12">
+    <div *ngIf="ObjOptions.o8_2" class="p-col-12">
         <h5>Fecha</h5>
         <div class="card">
             <h5>Fecha</h5>
@@ -49,20 +49,32 @@
                         <p-calendar [showIcon]="true" inputId="icon"></p-calendar>
                     </div>
                 </div>
-
-                <div class="p-field p-grid">
-                    <label for="descripcion">Descripción</label>
-                    <textarea id="descripcion" type="text" rows="4" pInputTextarea></textarea>
-                </div>
             </div>
 
+            <h5>Hora</h5>
+            <div class="card">
+                <div class="p-fluid p-formgrid p-grid">
+                    <div class="p-field p-col">
+                        <label for="horas">{{"Horas"| translate}}</label>
+                        <p-inputNumber id="horas" mode="decimal" [showButtons]="true" [min]="0" [max]="24"></p-inputNumber>
+                    </div>
+                    <div class="p-field p-col">
+                        <label for="minutos">{{"Minutos" | translate}}</label>
+                        <p-inputNumber id="minutos" mode="decimal" [showButtons]="true" [min]="0" [max]="60"></p-inputNumber>
+                    </div>
+                    <div class="p-field p-col">
+                        <label for="segundos">{{"Segundos"| translate}}</label>
+                        <p-inputNumber id="segundos" mode="decimal" [showButtons]="true" [min]="0" [max]="60"></p-inputNumber>
+                    </div>
+                </div>
+            </div>
 
 
         </div>
 
     </div>
 
-    <div class="p-col-12">
+    <div *ngIf="ObjOptions.o8_3" class="p-col-12">
         <h5>Descripción</h5>
         <div class="card">
             <div class="p-fluid">

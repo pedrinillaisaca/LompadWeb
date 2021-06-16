@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AppComponent } from 'src/app/app.component';
+import { ObjOptions } from 'src/app/modelo/objOptions';
 
 @Component({
   selector: 'app-livecicle',
@@ -8,7 +10,8 @@ import { Component, OnInit } from '@angular/core';
 export class LivecicleComponent implements OnInit {
   tipos:any[];
   estados:any[];
-  constructor() { }
+  ObjOptions:ObjOptions=new ObjOptions();
+  constructor(private componentePrincipal: AppComponent) { }
 
   ngOnInit(): void {
 
@@ -28,6 +31,8 @@ export class LivecicleComponent implements OnInit {
       {label: 'revisado', value: {id: 3, name: 'revisado', code: 'rev'}},
       {label: 'no disponible', value: {id: 4, name: 'no disponible', code: 'ndis'}}      
     ];
+
+    this.ObjOptions=this.componentePrincipal.objOptions;
   }
 
 }

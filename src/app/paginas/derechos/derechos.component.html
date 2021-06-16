@@ -1,5 +1,5 @@
 <div class="p-grid">
-    <div class="p-col-12 p-md-6">
+    <div *ngIf="ObjOptions.o6_1" class="p-col-12 p-md-6">
         <h5>{{"Coste" | translate}}</h5>
         <div class="card">
             <div class="p-fluid">
@@ -9,7 +9,7 @@
         </div>
     </div>
 
-    <div class="p-col-12 p-md-6">
+    <div *ngIf="ObjOptions.o6_2" class="p-col-12 p-md-6">
         <h5>{{"Derechos de autor y otras actividades" | translate}}</h5>
         <div class="card">
             <div class="p-fluid">
@@ -20,7 +20,7 @@
     </div>
 
 
-    <div class="p-col-12">
+    <div *ngIf="ObjOptions.o6_3" class="p-col-12">
         <h5>{{"Descripción" | translate}}</h5>
         <div class="card">
             <div class="p-fluid">
@@ -30,8 +30,6 @@
                 </div>
             </div>
         </div>
-
-
     </div>
 
 
