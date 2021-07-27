@@ -4,25 +4,48 @@ import {Component} from '@angular/core';
     selector: 'app-footer',
     template: `
         <div class="layout-footer">
-			<div class="logo-text">
-				<img src="assets/layout/images/logo-mirage@2x.png" alt="mirage-layout" />
+						
+
+		<!-- <div class="p-mb-3 p-text-left">Left</div> -->
+			<div class="p-mb-3 p-text-left" >
+				<img src="assets/layout/images/logoedutech.svg" alt="assets/layout/images/" style="height: 50px; width:50px" />
+				<div >
+					<h1 style="font-size: 18px;
+                 	color: $textColor;
+                 	font-weight: normal;
+    	       		margin: 0;">LOM LRMI Web</h1>						
+				</div>
+			</div>
+			
+				
+			
+
+			<div class="p-mb-3 p-text-center">
+				<a href="https://catedraunescoinclusion.org/">
+					<img src="assets/layout/images/unitwin_ec_salesiana_sp.png" style="height: 80px; width:200px" >					
+				</a>				
 				<div class="text">
-					<h1>LOM web						
-					</h1>
-					<span>Premium Application Template</span>
-				</div>
+				<span>© 2021 Todos los derechos reservados | Developed By EduTech</span>							
+				<span>Términos y condiciones</span>
+				</div>				
 			</div>
-			<div class="icons">
-				<div class="icon icon-hastag">
-					<i class="pi pi-home"></i>
+									
+				
+			
+			
+				<!-- <div class="p-mb-3 p-text-left">Left</div>
+				<div class="p-mb-3 p-text-center">Center</div>
+				<div class="p-text-right">Right</div> -->
+
+				<!-- <div class="p-text-right">
+												
+				</div> -->
+
+				<div class="p-mb-3 p-text-rigth">											
+					<img src="assets/layout/images/cofinanciado_derecha.png" style="height: 60px; width:200px"  />									
 				</div>
-				<div class="icon icon-twitter">
-					<i class="pi pi-globe"></i>
-				</div>
-				<div class="icon icon-prime">
-					<i class="pi pi-bookmark"></i>
-				</div>
-			</div>
+
+		
         </div>
     `
 })

@@ -19,12 +19,10 @@ body {
     margin: 0;
     min-height: 100%;
     background-color: $bodyBgColor;
-
     .ajax-loader {
         font-size: 32px;
     }
-
-    &.hidden-overflow{
+    &.hidden-overflow {
         overflow: hidden;
     }
 }
@@ -32,7 +30,7 @@ body {
 a {
     text-decoration: none;
     color: $textSecondaryColor;
-	color: var(--primary-color);
+    color: var(--primary-color);
 }
 
 .layout-main-mask {
@@ -55,69 +53,68 @@ a {
     margin-left: 60px;
     padding-top: 75px;
     @include transition(margin-left $transitionDuration);
-
     @include flex();
     @include flex-justify-between();
     @include flex-direction-column();
-    min-height:100vh;
+    min-height: 100vh;
     -moz-transition: margin-left 0.2s;
     -o-transition: margin-left 0.2s;
     -webkit-transition: margin-left 0.2s;
     transition: margin-left 0.2s;
 }
 
-.layout-footer{
-    background-color: $contentBgColor;;
-    padding: 10px 30px;
-    @include flex();
-    justify-content: space-between;
-    align-items: center;
-    height: 120px;
-
-
-    .logo-text{
-        @include flex();
-        align-items: center;
-        height: 100%;
-
-        img{
-            height: 50px;
-            width: 50px;
-        }
-
-        .text{
-            margin-left: 15px;
-
-            h1{
-                font-size: 18px;
-                color: $textColor;
-                font-weight: normal;
-                margin: 0;
-            }
-
-            span{
-                color: $textSecondaryColor;
-                font-size: 12px;
-            }
-        }
-    }
-
-    .icons{
-        @include flex();
-        align-items: center;
-        justify-content: flex-end;
-        font-size: 24px;
-        color: $textSecondaryColor;
-        height: 100%;
-
-        i{
-            margin-left: 20px;
-            cursor: pointer;
-            font-size: 28px;
-
-            &:hover{
-                color: #5e81ac;
-            }
-        }
-    }
+.layout-footer {
+    background-color: $contentBgColor;
+    // padding: 10px 30px;
+    // @include flex();
+    // justify-content: space-between;
+    // align-items: center;
+    // height: 120px;
+    // .logo-text {
+    //     @include flex();
+    //     align-items: center;
+    //     height: 100%;
+    //     img {
+    //         height: 50px;
+    //         width: 50px;
+    //     }
+    //     .text {
+    //         margin-left: 15px;
+    //         h1 {
+    //             font-size: 18px;
+    //             color: $textColor;
+    //             font-weight: normal;
+    //             margin: 0;
+    //         }
+    //         span {
+    //             color: $textSecondaryColor;
+    //             font-size: 12px;
+    //         }
+    //     }
+    // }
+    // .puta {
+    //     @include flex();
+    //     align-items: center;
+    //     height: 100%;
+    //     img {
+    //         height: 50px;
+    //         width: 50px;
+    //     }
+    // }
+    // .icons {
+    //     @include flex();
+    //     align-items: center;
+    //     justify-content: flex-end;
+    //     font-size: 24px;
+    //     color: $textSecondaryColor;
+    //     height: 100%;
+    //     i {
+    //         margin-left: 20px;
+    //         cursor: pointer;
+    //         font-size: 28px;
+    //         &:hover {
+    //             color: #5e81ac;
+    //         }
+    //     }
+    // }
 }

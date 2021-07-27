@@ -1,9 +1,9 @@
-import { Component, Renderer2 } from '@angular/core';
+import { Component, Renderer2, OnInit } from '@angular/core';
 import { MenuService } from './app.menu.service';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { PrimeNGConfig, MegaMenuItem } from 'primeng/api';
 import {AppComponent} from './app.component';
-import { ElevationComponent } from './utilities/elevation.component';
+
 
 @Component({
     selector: 'app-main',
@@ -20,6 +20,7 @@ import { ElevationComponent } from './utilities/elevation.component';
         ])
     ]
 })
+
 export class AppMainComponent {
 
     rightPanelClick: boolean;
@@ -63,12 +64,21 @@ export class AppMainComponent {
 
     megaMenuPerfiles: boolean;
     megaMenuPerfilesClick: boolean;
+    public enableGeneral:boolean;
     
 
 
-    constructor(public renderer: Renderer2, private menuService: MenuService,
-                private primengConfig: PrimeNGConfig, public app: AppComponent) {}
+    constructor(
+        public renderer: Renderer2,
+        private menuService: MenuService,
+        private primengConfig: PrimeNGConfig,
+        public app: AppComponent
+        ) {}
 
+        public setGeneral(param:boolean){
+            this.enableGeneral=param;
+        }
+   
     onLayoutClick() {
         if (!this.topbarItemClick) {
             this.activeTopbarItem = null;
@@ -97,7 +107,7 @@ export class AppMainComponent {
                 this.menuService.reset();
             }
 
-            if (this.menuMobileActive) {
+            if (this.menuMobileActive) {    
                 this.menuMobileActive = false;
             }
 

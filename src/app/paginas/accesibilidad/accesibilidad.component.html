@@ -1,1 +1,502 @@
-<p>accesibilidad works!</p>
+<div class="p-grid p-fluid">
+
+
+    <div class="p-col-12">
+
+        <div class="p-col-12">
+
+            <div class="card">
+                <h5>{{"Resumen de accesibilidad " | translate}}</h5>
+                <div class="p-fluid">
+                    <div class="p-field p-grid">
+                        <!-- <label for="descripcion">{{"Descripción" | translate}}</label> -->
+                        <textarea id="descripcion" type="text" rows="4" pInputTextarea></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="card">
+            <h5>Características de accesibilidad</h5>
+            <h5>Contenido del recurso</h5>
+            <div class="p-grid">
+
+
+                <div class="p-col-12 p-md-4">
+                    <div class="p-field-radiobutton">
+                        <p-radioButton name="texalternativo" value="Texto alternativo" [(ngModel)]="valRadio" id="texalternativo1"></p-radioButton>
+                        <label for="texalternativo">Texto alternativo</label>
+                    </div>
+                </div>
+
+
+                <div class="p-col-12 p-md-4">
+                    <div class="p-field-radiobutton">
+                        <p-radioButton name="anotaciones" value="Anotaciones" [(ngModel)]="valRadio" id="anotaciones1"></p-radioButton>
+                        <label for="anotaciones1">Anotaciones</label>
+                    </div>
+                </div>
+
+
+
+                <div class="p-col-12 p-md-4">
+                    <div class="p-field-radiobutton">
+                        <p-radioButton name="printnumpag" value="Imprimir número de páginas" [(ngModel)]="valRadio" id="printnumpag1"></p-radioButton>
+                        <label for="printnumpag1">Imprimir número de páginas</label>
+                    </div>
+                </div>
+
+                <div class="p-col-12 p-md-4">
+                    <div class="p-field-radiobutton">
+                        <p-radioButton name="descprideaudio" value="Descripción de audio" [(ngModel)]="valRadio" id="descprideaudio1"></p-radioButton>
+                        <label for="descprideaudio1">Descripción de audio</label>
+                    </div>
+                </div>
+
+                <div class="p-col-12 p-md-4">
+                    <div class="p-field-radiobutton">
+                        <p-radioButton name="marcadores" value="Marcadores" [(ngModel)]="valRadio" id="marcadores1"></p-radioButton>
+                        <label for="marcadores1">Marcadores</label>
+                    </div>
+                </div>
+
+                <div class="p-col-12 p-md-4">
+                    <div class="p-field-radiobutton">
+                        <p-radioButton name="ordlectura" value="Orden de lectura" [(ngModel)]="valRadio" id="ordlectura1"></p-radioButton>
+                        <label for="ordlectura1">Orden de lectura</label>
+                    </div>
+                </div>
+
+
+                <div class="p-col-12 p-md-4">
+                    <div class="p-field-radiobutton">
+                        <p-radioButton name="subtitulios" value="Subtítulos" [(ngModel)]="valRadio" id="subtitulios1"></p-radioButton>
+                        <label for="subtitulios1">Subtítulos</label>
+                    </div>
+                </div>
+
+                <div class="p-col-12 p-md-4">
+                    <div class="p-field-radiobutton">
+                        <p-radioButton name="braile" value="Braile" [(ngModel)]="valRadio" id="braile1"></p-radioButton>
+                        <label for="braile1">Braile</label>
+                    </div>
+                </div>
+
+
+                <div class="p-col-12 p-md-4">
+                    <div class="p-field-radiobutton">
+                        <p-radioButton name="anotaciones" value="Anotacione de ruby" [(ngModel)]="valRadio" id="anotaciones1"></p-radioButton>
+                        <label for="anotaciones1">Anotacione de ruby</label>
+                    </div>
+                </div>
+
+
+
+                <div class="p-col-12 p-md-4">
+                    <div class="p-field-radiobutton">
+                        <p-radioButton name="pantllaltocontraste" value="Pantalla de alto contraste" [(ngModel)]="valRadio" id="pantllaltocontraste1"></p-radioButton>
+                        <label for="pantllaltocontraste1">Pantalla de alto contraste</label>
+                    </div>
+                </div>
+                <div class="p-col-12 p-md-4">
+                    <div class="p-field-radiobutton">
+                        <p-radioButton name="chemml" value="ChemML" [(ngModel)]="valRadio" id="chemml1"></p-radioButton>
+                        <label for="chemml1">ChemML</label>
+                    </div>
+                </div>
+
+
+                <div class="p-col-12 p-md-4">
+                    <div class="p-field-radiobutton">
+                        <p-radioButton name="tablecontenido" value="Table de contenido" [(ngModel)]="valRadio" id="tablecontenido1"></p-radioButton>
+                        <label for="tablecontenido1">Table de contenido</label>
+                    </div>
+                </div>
+
+                <div class="p-col-12 p-md-4">
+                    <div class="p-field-radiobutton">
+                        <p-radioButton name="descriplarga" value="Descripción larga" [(ngModel)]="valRadio" id="descriplarga1"></p-radioButton>
+                        <label for="descriplarga1">Descripción larga</label>
+                    </div>
+                </div>
+
+
+                <div class="p-col-12 p-md-4">
+                    <div class="p-field-radiobutton">
+                        <p-radioButton name="descripmatematicas" value="Describe las matemáticas" [(ngModel)]="valRadio" id="descripmatematicas1"></p-radioButton>
+                        <label for="descripmatematicas1">Describe las matemáticas</label>
+                    </div>
+                </div>
+
+
+                <div class="p-col-12 p-md-4">
+                    <div class="p-field-radiobutton">
+                        <p-radioButton name="pdfetiquetado" value="PDF etiquetado" [(ngModel)]="valRadio" id="pdfetiquetado1"></p-radioButton>
+                        <label for="pdfetiquetado1">PDF etiquetado</label>
+                    </div>
+                </div>
+
+                <div class="p-col-12 p-md-4">
+                    <div class="p-field-radiobutton">
+                        <p-radioButton name="lengseñas" value="Lenguaje de señas" [(ngModel)]="valRadio" id="lengseñas1"></p-radioButton>
+                        <label for="lengseñas1">Lenguaje de señas</label>
+                    </div>
+                </div>
+
+
+                <div class="p-col-12 p-md-4">
+                    <div class="p-field-radiobutton">
+                        <p-radioButton name="indice" value="Índice" [(ngModel)]="valRadio" id="indice1"></p-radioButton>
+                        <label for="indice1">Índice</label>
+                    </div>
+                </div>
+
+                <div class="p-col-12 p-md-4">
+                    <div class="p-field-radiobutton">
+                        <p-radioButton name="graficotactil" value="Grafico táctil" [(ngModel)]="valRadio" id="graficotactil1"></p-radioButton>
+                        <label for="graficotactil">Grafico táctil</label>
+                    </div>
+                </div>
+
+                <div class="p-col-12 p-md-4">
+                    <div class="p-field-radiobutton">
+                        <p-radioButton name="navegadorestructural" value="Navegación Estructural" [(ngModel)]="valRadio" id="navegadorestructural1"></p-radioButton>
+                        <label for="navegadorestructural1">Navegación Estructural</label>
+                    </div>
+                </div>
+
+
+                <div class="p-col-12 p-md-4">
+                    <div class="p-field-radiobutton">
+                        <p-radioButton name="letragande" value="Letra grande" [(ngModel)]="valRadio" id="letragande1"></p-radioButton>
+                        <label for="letragande1">Letra grande</label>
+                    </div>
+                </div>
+
+                <div class="p-col-12 p-md-4">
+                    <div class="p-field-radiobutton">
+                        <p-radioButton name="objetotac" value="Objeto táctil" [(ngModel)]="valRadio" id="objetotac1"></p-radioButton>
+                        <label for="objetotac1">Objeto táctil</label>
+                    </div>
+                </div>
+
+                <div class="p-col-12 p-md-4">
+                    <div class="p-field-radiobutton">
+                        <p-radioButton name="texaudisincro" value="Texto de audio sincronizado" [(ngModel)]="valRadio" id="texaudisincro1"></p-radioButton>
+                        <label for="texaudisincro1">Texto de audio sincronizado</label>
+                    </div>
+                </div>
+
+                <div class="p-col-12 p-md-4">
+                    <div class="p-field-radiobutton">
+                        <p-radioButton name="latex" value="Latex" [(ngModel)]="valRadio" id="latex1"></p-radioButton>
+                        <label for="latex1">Latex</label>
+                    </div>
+                </div>
+
+                <div class="p-col-12 p-md-4">
+                    <div class="p-field-radiobutton">
+                        <p-radioButton name="marcadodetts" value="Marcado de Tts" [(ngModel)]="valRadio" id="marcadodetts1"></p-radioButton>
+                        <label for="marcadodetts1">Marcado de Tts</label>
+                    </div>
+                </div>
+
+
+
+                <div class="p-col-12 p-md-4">
+                    <div class="p-field-radiobutton">
+                        <p-radioButton name="controltiempo" value="Control de tiempo" [(ngModel)]="valRadio" id="controltiempo1"></p-radioButton>
+                        <label for="controltiempo1">Control de tiempo</label>
+                    </div>
+                </div>
+
+
+
+                <div class="p-col-12 p-md-4">
+                    <div class="p-field-radiobutton">
+                        <p-radioButton name="mathml" value="Math ML" [(ngModel)]="valRadio" id="mathml1"></p-radioButton>
+                        <label for="mathml1">Math ML</label>
+                    </div>
+                </div>
+
+
+                <div class="p-col-12 p-md-4">
+                    <div class="p-field-radiobutton">
+                        <p-radioButton name="desbloqueado1" value="Desbloqueado" [(ngModel)]="valRadio" id="desbloqueado1"></p-radioButton>
+                        <label for="desbloqueado1">Desbloqueado</label>
+                    </div>
+                </div>
+
+                <div class="p-col-12 p-md-4">
+                    <div class="p-field-radiobutton">
+                        <p-radioButton name="transcripcion" value="Transcripción" [(ngModel)]="valRadio" id="transcripcion1"></p-radioButton>
+                        <label for="transcripcion1">Transcripción</label>
+                    </div>
+                </div>
+
+                <div class="p-col-12 p-md-4">
+                    <div class="p-field-radiobutton">
+                        <p-radioButton name="ninguno" value="Ninguno" [(ngModel)]="valRadio" id="ninguno1"></p-radioButton>
+                        <label for="ninguno1">Ninguno</label>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <div class="card">
+            <h5>Peligro de accesibilidad</h5>
+            <div class="p-grid">
+                <div class="p-col-12 p-md-5">
+                    <div class="p-field-radiobutton">
+                        <p-radioButton name="peligro_parpadeo" value="Peligro de parpadeo" [(ngModel)]="valRadio" id="peligro_parpadeo1"></p-radioButton>
+                        <label for="peligro_parpadeo1">Peligro de parpadeo</label>
+                    </div>
+                </div>
+                <div class="p-col-12 p-md-5">
+                    <div class="p-field-radiobutton">
+                        <p-radioButton name="sin_peligro_parpadeo" value="Sin peligro de parpadeo" [(ngModel)]="valRadio" id="sin_peligro_parpadeo1"></p-radioButton>
+                        <label for="sin_peligro_parpadeo1">Sin peligro de parpadeo</label>
+                    </div>
+                </div>
+                <div class="p-col-12 p-md-5">
+                    <div class="p-field-radiobutton">
+                        <p-radioButton name="peligrodesimulacion" value="Peligro de simulación de movimiento" [(ngModel)]="valRadio" id="peligrodesimulacion"></p-radioButton>
+                        <label for="peligrodesimulacion1">Peligro de simulación de movimiento</label>
+                    </div>
+                </div>
+                <div class="p-col-12 p-md-5">
+                    <div class="p-field-radiobutton">
+                        <p-radioButton name="sinpeligrodesimulacion" value="Sin peligro de simulación de movimiento" [(ngModel)]="valRadio" id="sinpeligrodesimulacion1"></p-radioButton>
+                        <label for="sinpeligrodesimulacion1">Sin peligro de simulación de movimiento</label>
+                    </div>
+                </div>
+
+
+                <div class="p-col-12 p-md-5">
+                    <div class="p-field-radiobutton">
+                        <p-radioButton name="peligrodelsonido" value="Peligro del sonido" [(ngModel)]="valRadio" id="peligrodelsonido1"></p-radioButton>
+                        <label for="peligrodelsonido1">Peligro del sonido</label>
+                    </div>
+                </div>
+
+                <div class="p-col-12 p-md-5">
+                    <div class="p-field-radiobutton">
+                        <p-radioButton name="sinpeligrodelsonido" value="Sin peligro del sonido" [(ngModel)]="valRadio" id="sinpeligrodelsonido1"></p-radioButton>
+                        <label for="sinpeligrodelsonido1">Sin peligro del sonido</label>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+            <h5>Control de accesibilidad</h5>
+            <h5>Métodos</h5>
+            <div class="p-grid">
+                <div class="p-col-12 p-md-5">
+                    <div class="p-field-radiobutton">
+                        <p-radioButton name="controldeteclado" value="Control de teclado" [(ngModel)]="valRadio" id="controldeteclado1"></p-radioButton>
+                        <label for="controldeteclado1">Control de teclado</label>
+                    </div>
+                </div>
+                <div class="p-col-12 p-md-5">
+                    <div class="p-field-radiobutton">
+                        <p-radioButton name="controldeinterruptorcompleto" value="Control de interruptor completo" [(ngModel)]="valRadio" id="controldeinterruptorcompleto1"></p-radioButton>
+                        <label for="controldeinterruptorcompleto1">Control de interruptor completo</label>
+                    </div>
+                </div>
+                <div class="p-col-12 p-md-5">
+                    <div class="p-field-radiobutton">
+                        <p-radioButton name="controltotaldelmouse" value="Control total del mouse" [(ngModel)]="valRadio" id="controltotaldelmouse1"></p-radioButton>
+                        <label for="controltotaldelmouse1">Control total del mouse</label>
+                    </div>
+                </div>
+
+
+                <div class="p-col-12 p-md-5">
+                    <div class="p-field-radiobutton">
+                        <p-radioButton name="controltactilcompleto" value="Control táctil completo" [(ngModel)]="valRadio" id="controltactilcompleto1"></p-radioButton>
+                        <label for="controltactilcompleto1">Control táctil completo</label>
+                    </div>
+                </div>
+
+                <div class="p-col-12 p-md-5">
+                    <div class="p-field-radiobutton">
+                        <p-radioButton name="controldevozcompleto" value="Control de voz completo" [(ngModel)]="valRadio" id="controldevozcompleto1"></p-radioButton>
+                        <label for="controldevozcompleto1">Control de voz completo</label>
+                    </div>
+                </div>
+
+                <div class="p-col-12 p-md-5">
+                    <div class="p-field-radiobutton">
+                        <p-radioButton name="controltotaldevideo" value="Control total de video" [(ngModel)]="valRadio" id="controltotaldevideo1"></p-radioButton>
+                        <label for="controltotaldevideo1">Control total de video</label>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+            <!-- <h5>Checkbox</h5>
+            <div class="p-grid">
+                <div class="p-col-12 p-md-4">
+                    <div class="p-field-checkbox">
+                        <p-checkbox name="group1" value="New York" [(ngModel)]="valCheck" id="ny"></p-checkbox>
+                        <label for="ny">New York</label>
+                    </div>
+                </div>
+                <div class="p-col-12 p-md-4">
+                    <div class="p-field-checkbox">
+                        <p-checkbox name="group1" value="San Francisco" [(ngModel)]="valCheck" id="sf"></p-checkbox>
+                        <label for="sf">San Francisco</label>
+                    </div>
+                </div>
+                <div class="p-col-12 p-md-4">
+                    <div class="p-field-checkbox">
+                        <p-checkbox name="group1" value="Los Angeles" [(ngModel)]="valCheck" id="la"></p-checkbox>
+                        <label for="la">Los Angeles</label>
+                    </div>
+                </div>
+            </div> -->
+
+        </div>
+
+        <div class="card">
+            <h5>API de accesibilidad</h5>
+            <h5>Recurso compatible</h5>
+            <div class="p-grid">
+                <div class="p-col-12 p-md-4">
+                    <div class="p-field-radiobutton">
+                        <p-radioButton name="aria" value="ARIA" [(ngModel)]="valRadio" id="aria1"></p-radioButton>
+                        <label for="aria1">ARIA</label>
+                    </div>
+                </div>
+
+                <div class="p-col-12 p-md-4">
+                    <div class="p-field-radiobutton">
+                        <p-radioButton name="accesibilidaandroid" value="Accesibilidad de android" [(ngModel)]="valRadio" id="accesibilidaandroid1"></p-radioButton>
+                        <label for="accesibilidaandroid1">Accesibilidad de android</label>
+                    </div>
+                </div>
+
+
+
+                <div class="p-col-12 p-md-4">
+                    <div class="p-field-radiobutton">
+                        <p-radioButton name="accesibilidios" value="Accesibilidad iOS" [(ngModel)]="valRadio" id="accesibilidios1"></p-radioButton>
+                        <label for="accesibilidios">Accesibilidad iOS</label>
+                    </div>
+                </div>
+
+                <div class="p-col-12 p-md-4">
+                    <div class="p-field-radiobutton" style="visibility: hidden;">
+                        <p-radioButton name="rellno" value="rellno" [(ngModel)]="valRadio" id="rellno"></p-radioButton>
+                        <label for="rellno">rellno</label>
+                    </div>
+                </div>
+
+
+                <div class="p-col-12 p-md-4">
+                    <div class="p-field-radiobutton">
+                        <p-radioButton name="atk" value="ATK" [(ngModel)]="valRadio" id="atk1"></p-radioButton>
+                        <label for="atk1">ATK</label>
+                    </div>
+                </div>
+
+                <div class="p-col-12 p-md-4">
+                    <div class="p-field-radiobutton">
+                        <p-radioButton name="accesibilidadejava" value="Accesibilidad de java" [(ngModel)]="valRadio" id="accesibilidadejava"></p-radioButton>
+                        <label for="accesibilidadejava1">Accesibilidad de java</label>
+                    </div>
+                </div>
+
+
+                <div class="p-col-12 p-md-4">
+                    <div class="p-field-radiobutton" style="visibility: hidden;">
+                        <p-radioButton name="rellno" value="rellno" [(ngModel)]="valRadio" id="rellno"></p-radioButton>
+                        <label for="rellno">rellno</label>
+                    </div>
+                </div>
+
+                <div class="p-col-12 p-md-4">
+                    <div class="p-field-radiobutton">
+                        <p-radioButton name="accesibilidblacberry" value="Accesibilidad blackberry" [(ngModel)]="valRadio" id="accesibilidblacberry1"></p-radioButton>
+                        <label for="accesibilidblacberry1">Accesibilidad blackberry</label>
+                    </div>
+                </div>
+
+
+                <div class="p-col-12 p-md-4">
+                    <div class="p-field-radiobutton">
+                        <p-radioButton name="accesibilidadmac" value="Accesibilidad macOSX" [(ngModel)]="valRadio" id="accesibilidadmac1"></p-radioButton>
+                        <label for="accesibilidadmac1">Accesibilidad macOSX</label>
+                    </div>
+                </div>
+
+                <div class="p-col-12 p-md-4">
+                    <div class="p-field-radiobutton" style="visibility: hidden;">
+                        <p-radioButton name="rellno" value="rellno" [(ngModel)]="valRadio" id="rellno"></p-radioButton>
+                        <label for="rellno">rellno</label>
+                    </div>
+                </div>
+
+
+
+                <div class="p-col-12 p-md-4">
+                    <div class="p-field-radiobutton">
+                        <p-radioButton name="iaccesible2" value="iAccesible 2" [(ngModel)]="valRadio" id="iaccesible21"></p-radioButton>
+                        <label for="iaccesible21">iAccesible 2</label>
+                    </div>
+                </div>
+                <div class="p-col-12 p-md-4">
+                    <div class="p-field-radiobutton">
+                        <p-radioButton name="atk" value="MSAA" [(ngModel)]="valRadio" id="atk1"></p-radioButton>
+                        <label for="atk1">MSAA</label>
+                    </div>
+                </div>
+                <div class="p-col-12 p-md-4">
+                    <div class="p-field-radiobutton" style="visibility: hidden;">
+                        <p-radioButton name="rellno" value="rellno" [(ngModel)]="valRadio" id="rellno"></p-radioButton>
+                        <label for="rellno">rellno</label>
+                    </div>
+                </div>
+
+                <div class="p-col-12 p-md-4">
+                    <div class="p-field-radiobutton" style="visibility: hidden;">
+                        <p-radioButton name="rellno" value="rellno" [(ngModel)]="valRadio" id="rellno"></p-radioButton>
+                        <label for="rellno">rellno</label>
+                    </div>
+                </div>
+
+
+
+
+
+
+                <div class="p-col-12 p-md-4">
+                    <div class="p-field-radiobutton">
+                        <p-radioButton name="autom" value="Automatizaci" [(ngModel)]="valRadio" id="autom1"></p-radioButton>
+                        <label for="autom1">Automatizaci</label>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+    </div>
+</div>

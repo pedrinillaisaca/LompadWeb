@@ -1,6 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { AppComponent } from 'src/app/app.component';
+import { LompadService } from 'src/app/servicios/lompad.service';
 import { ObjOptions } from '../../modelo/objOptions';
 
 @Component({
@@ -15,10 +16,15 @@ export class GeneralComponent implements OnInit {
   columns:any[];
   palabra:string;  
   palabraDialog:boolean;
+  general_obj:any;
 
   
   ObjOptions:ObjOptions=new ObjOptions();
-  constructor(private componentePrincipal: AppComponent) { }
+  constructor(
+    private componentePrincipal: AppComponent,
+    private lompadservice: LompadService    
+    ) {
+     }
 
   ngOnInit(): void {    
     this.estructuras=[
@@ -41,7 +47,9 @@ export class GeneralComponent implements OnInit {
 
 
     this.ObjOptions=this.componentePrincipal.objOptions;
-    
+
+    this.general_obj=this.lompadservice.getObjectGeneral();
+    console.log(this.general_obj);
   }  
 
 addPalabra() {

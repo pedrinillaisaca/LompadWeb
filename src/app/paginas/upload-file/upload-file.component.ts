@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup  } from "@angular/forms";
 import { HttpClient } from '@angular/common/http';
 import { LompadService } from '../../servicios/lompad.service';
 
+
+
 @Component({
   selector: 'app-upload-file',
   templateUrl: './upload-file.component.html',
@@ -12,8 +14,10 @@ export class UploadFileComponent implements OnInit {
   
     form: FormGroup;
     API: "http://172.16.210.80:8000/uploadfile";
+    uploadedFiles: any[] = [];
 
   constructor( 
+    
     public fb: FormBuilder,
     private http: HttpClient,
     private lompadservice: LompadService
@@ -23,16 +27,22 @@ export class UploadFileComponent implements OnInit {
         file: [null]
       })
 
+
+   
+
     }
-//   afuConfig = {
-//     uploadAPI: {
-//       // url:"https://example-file-upload-api"
-//       url:"http://172.16.210.80:8000/uploadfile"
-//     }
-// };
+
 
   ngOnInit(): void {
   }
+
+  onUpload(event) {
+    // for (const file of event.files) {
+    //     this.uploadedFiles.push(file);
+    // }
+ 
+}
+
 
   upload(event) {
     console.log("subir evento")
@@ -41,6 +51,7 @@ export class UploadFileComponent implements OnInit {
       file: file
     });
     this.form.get('file').updateValueAndValidity()
+    
  }
 
 
@@ -51,7 +62,7 @@ export class UploadFileComponent implements OnInit {
   console.log(formData)
   // https://orange-yak-68.loca.lt/docs
   // http://172.16.210.80:8000/uploadfile
-  this.http.post("http://172.16.210.80:8000/uploadfile", formData).subscribe(    
+  this.http.post("http://localhost:8000/uploadfile", formData).subscribe(    
     (response) => this.lompadservice.setObjson(response), //this.lompadservice.setObjson(response)
     (error) => console.log(error)
   )

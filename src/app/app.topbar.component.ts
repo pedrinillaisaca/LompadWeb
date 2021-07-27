@@ -8,12 +8,12 @@ import { AppComponent } from './app.component';
         <div class="layout-topbar">
 			<div class="layout-topbar-wrapper">
                 <div class="layout-topbar-left">
-					<div class="layout-topbar-logo-wrapper">
+					<!-- <div class="layout-topbar-logo-wrapper">
 						<a href="#" class="layout-topbar-logo">
 							<img src="assets/layout/images/logo-mirage@2x.png" alt="mirage-layout" />
-							<span class="app-name">LOM PAD </span>
+							<span class="app-name">PEDRO ILLAISACAAAAAAAAAAAAA </span>
 						</a>
-					</div>
+					</div> -->
 
 					<a href="#" class="sidebar-menu-button" (click)="appMain.onMenuButtonClick($event)">
 						<i class="pi pi-bars"></i>
@@ -28,10 +28,11 @@ import { AppComponent } from './app.component';
 					</a>
 
 					<div class="layout-megamenu-wrapper">
-						<a class="layout-megamenu-button" href="#" (click)="appMain.onMegaMenuButtonClick($event)">
+					<!-- PONER AQUI EL ENLACE AL INICIO -->
+						<!-- <a class="layout-megamenu-button" href="#" (click)="appMain.onMegaMenuButtonClick($event)">
 							<i class="pi pi-comment"></i>
 							Mega Menu
-						</a>						
+						</a>						 -->
 
 						<ul class="layout-megamenu" [ngClass]="{'layout-megamenu-active fadeInDown': appMain.megaMenuActive}"
                             (click)="appMain.onMegaMenuClick($event)">
@@ -145,19 +146,24 @@ import { AppComponent } from './app.component';
 						</a>
 
 
+						
+
+
 						<!-- <a class="layout-megamenu-button" href="#" (click)="appMain.onMegaMenuButtonClick($event)">
 							<i class="pi pi-comment"></i>
 							Mega Menu
 						</a> -->
 					</div>
+					
                 </div>
 
-				
-
-
-
-               
-
+				<!-- ICONOS "-->
+				<div class="icons" style="padding-top: 2.4%;">
+						<div class="icon icon-hastag">
+							<i class="pi pi-home" ></i>
+						</div>							
+				</div>
+				               
 				<div class="layout-topbar-wrapper">
 					<div class="layout-topbar-left"> 
  						<div class="p-col-6">
@@ -168,9 +174,9 @@ import { AppComponent } from './app.component';
                            >{{lang}}</option>
                        </select> -->                                      
                     	</div>          
-                    <div class="p-col-6">
-                    	<p-dropdown [options]="idiomas" (onChange)="cambioIdioma($event)" styleClass="p-mb-2 p-mb-md-0"></p-dropdown>
-                    </div>
+						<div class="p-col-6">
+							<p-dropdown [options]="idiomas" (onChange)="cambioIdioma($event)" styleClass="p-mb-2 p-mb-md-0"></p-dropdown>
+						</div>
 
 					</div>
                    
@@ -199,7 +205,8 @@ export class AppTopBarComponent {
 		this.perfiles=[
             {label: 'IEEE LOM', value: {id: 1, name: 'IEEE LOM', code: 'ieee'}},
             {label: 'CanCore', value: {id: 2, name: 'CanCore', code: 'cancore'}},
-            {label: 'SCORM', value: {id: 3, name: 'SCORM', code: 'scorm'}}        
+            {label: 'SCORM', value: {id: 3, name: 'SCORM', code: 'scorm'}},
+			{label: 'LMRI', value: {id: 4, name: 'LMRI', code: 'lmri'}}                
         ];
 
 	}

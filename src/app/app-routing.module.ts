@@ -39,7 +39,6 @@ import {AppCrudComponent} from './pages/app.crud.component';
 import {AppCalendarComponent} from './pages/app.calendar.component';
 import {AppTimelineDemoComponent} from './pages/app.timelinedemo.component';
 import { InicioComponent } from './paginas/inicio/inicio.component';
-import { HomeComponent } from './paginas/home/home.component';
 import { LivecicleComponent } from './paginas/livecicle/livecicle.component';
 import { ViewxmlComponent } from './paginas/viewxml/viewxml.component';
 import { ViewjsonComponent } from './paginas/viewjson/viewjson.component';
@@ -60,8 +59,10 @@ import { GeneralComponent } from './paginas/general/general.component';
         RouterModule.forRoot([
             {
                 path: '', component: AppMainComponent,
+                
                 children: [
-                    {path: '', component: DashboardDemoComponent},
+                    // {path: '', component: DashboardDemoComponent},
+                    {path: '', component: InicioComponent},//ESTA ES LA CLAVE PARA DETERMINAR CUAL ES LA PAGINA INICIAL
                     {path: 'uikit/formlayout', component: FormLayoutDemoComponent},
                     {path: 'uikit/floatlabel', component: FloatLabelDemoComponent},
                     {path: 'uikit/invalidstate', component: InvalidStateDemoComponent},
@@ -95,8 +96,7 @@ import { GeneralComponent } from './paginas/general/general.component';
                     {path: 'components/file', component: FileDemoComponent},
                     {path: 'documentation', component: DocumentationComponent},
 
-                    {path: 'paginas/inicio', component: InicioComponent},
-                    {path: 'paginas/home', component: HomeComponent},
+                    {path: 'paginas/inicio', component: InicioComponent},                    
                     {path: 'paginas/livecicle', component: LivecicleComponent},                    
                     {path: 'paginas/metadatos', component: MetadatosComponent},
                     {path: 'paginas/tecnica', component: TecnicaComponent},                    

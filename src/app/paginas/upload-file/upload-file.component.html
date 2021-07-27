@@ -1,4 +1,22 @@
-<p>upload-file works!</p>
+<div class="p-grid">
+    <div class="p-col-12">
+
+        <div class="card">
+
+            <p-fileUpload name="demo[]" url="./upload.php" (onUpload)="upload($event)" multiple="multiple" accept=".zip/*" maxFileSize="1000000">
+                <ng-template pTemplate="content">
+                    <ul *ngIf="uploadedFiles.length">
+                        <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
+                    </ul>
+                </ng-template>
+            </p-fileUpload>
+
+        </div>
+    </div>
+</div>
+
+
+
 <!-- <angular-file-uploader [config]="afuConfig">
 </angular-file-uploader> -->
 

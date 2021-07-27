@@ -3,7 +3,7 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 import {AppComponent} from './app.component';
 import {AppMainComponent} from './app.main.component';
 import { TranslateService } from '@ngx-translate/core';
-import { EventService } from './demo/service/eventservice';
+
 
 @Component({
     selector: 'app-config',

@@ -2,7 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import {PrimeNGConfig} from 'primeng/api';
 import { ObjOptions } from './modelo/objOptions';
-import { EventService } from './demo/service/eventservice';
+
+
 
 @Component({
     selector: 'app-root',
@@ -30,17 +31,25 @@ export class AppComponent implements OnInit{
 
     idiomas: any[];
     perfiles: any[];
+    enableGeneral:boolean;
 
     public objOptions:ObjOptions=new ObjOptions();
 
 
     // ESTE ES EL PRINCIPAL
-    constructor(private primengConfig: PrimeNGConfig , public translate:TranslateService) {
+    constructor(
+        private primengConfig: PrimeNGConfig,
+        public translate:TranslateService,
+        // private comMenuIz:AppMenuComponent
+        ) 
+        {
+        this.enableGeneral=false;
         translate.addLangs(['en', 'fr']);
         translate.setDefaultLang('es');
     }
 
     ngOnInit() {
+        
         this.objOptions.o1=true;        
         this.objOptions.o1_1=true;
         this.objOptions.o1_2=true;
@@ -139,7 +148,6 @@ export class AppComponent implements OnInit{
         this.translate.use(event.value.name);
     }
 
-
     public cambioPerfil(event){        
         if (event.value.name === "IEEE LOM"){            
             this.formatIEEE();
@@ -147,14 +155,22 @@ export class AppComponent implements OnInit{
         else if(event.value.name === "CanCore"){
             this.formatCanCore();
         }
+        else if(event.value.name === "LMRI"){
+            this.formatLMRI();
+        }
         else if(event.value.name === "SCORM"){
-            this.formatSCORM();
+            this.formatScorm();
         }
 
     }
 
-
+    public enableGeneralMethod(){
+        console.log("habilitando");
+        this.enableGeneral=true;
+    }
+ 
     formatIEEE(){
+        
         console.log("formateando IEEE");
         this.objOptions.o1=true;        
         this.objOptions.o1_1=true;
@@ -318,8 +334,8 @@ export class AppComponent implements OnInit{
         this.objOptions.o8_1=true;
         this.objOptions.o8_2=true;
         this.objOptions.o8_3=true;
-        this.objOptions.o8_4=true;
-        this.objOptions.o8_5=true;
+        this.objOptions.o8_4=false;
+        this.objOptions.o8_5=false;
         this.objOptions.o8_6=true;
 
         this.objOptions.o9=true;
@@ -330,12 +346,102 @@ export class AppComponent implements OnInit{
         this.objOptions.o9_3=false;
         this.objOptions.o9_4=true;
 
+        this.objOptions.o10=false;
+
+    }
+
+    formatLMRI(){
+        console.log("formateando LMRI");
+        this.objOptions.o1=true;        
+        this.objOptions.o1_1=true;
+        this.objOptions.o1_2=true;
+        this.objOptions.o1_3=false;
+        this.objOptions.o1_4=true;
+        this.objOptions.o1_5=true;
+        this.objOptions.o1_6=false;
+        this.objOptions.o1_7=false;
+        this.objOptions.o1_8=false;
+
+        this.objOptions.o2=true;
+        this.objOptions.o2_1=true;
+        this.objOptions.o2_2=false;
+        this.objOptions.o2_3=true;
+        this.objOptions.o2_3_1=true;
+        this.objOptions.o2_3_2=true;
+        this.objOptions.o2_3_3=true;
+
+
+        this.objOptions.o3=false;
+        this.objOptions.o3_1=false;
+
+        this.objOptions.o3_2=false;
+        this.objOptions.o3_2_1=false;
+        this.objOptions.o3_2_2=false;
+        this.objOptions.o3_2_3=false;
+
+        this.objOptions.o3_3=false;
+        this.objOptions.o3_4=false;
+
+
+
+        this.objOptions.o4=true;
+        this.objOptions.o4_1=false;
+        this.objOptions.o4_2=false;
+        this.objOptions.o4_3=true;
+        this.objOptions.o4_4=false;
+        this.objOptions.o4_4_1=false;
+        this.objOptions.o4_5=false;
+        this.objOptions.o4_6=false;
+        this.objOptions.o4_7=true;
+
+        this.objOptions.o5=true;
+        this.objOptions.o5_1=true;
+        this.objOptions.o5_2=true;
+        this.objOptions.o5_3=true;
+        this.objOptions.o5_4=false;
+        this.objOptions.o5_5=true;
+        this.objOptions.o5_6=true;
+        this.objOptions.o5_7=true;
+        this.objOptions.o5_8=false;
+        this.objOptions.o5_9=true;
+        this.objOptions.o5_10=false;
+        this.objOptions.o5_11=true;
+
+
+
+        this.objOptions.o6=true;
+        this.objOptions.o6_1=false;
+        this.objOptions.o6_2=true;
+        this.objOptions.o6_3=true;
+
+        this.objOptions.o7=true;
+        this.objOptions.o7_1=true;
+        this.objOptions.o7_2=true;
+        this.objOptions.o7_2_1=true;
+        this.objOptions.o7_2_2=true;
+
+        this.objOptions.o8=true;
+        this.objOptions.o8_1=false;
+        this.objOptions.o8_2=false;
+        this.objOptions.o8_3=false;
+        this.objOptions.o8_4=false;
+        this.objOptions.o8_5=true;
+        this.objOptions.o8_6=true;
+
+        this.objOptions.o9=true;
+        this.objOptions.o9_1=true;
+        this.objOptions.o9_2=false;
+        this.objOptions.o9_2_1=false;
+        this.objOptions.o9_2_2=false;
+        this.objOptions.o9_3=true;
+        this.objOptions.o9_4=true;
+
         this.objOptions.o10=true;
 
     }
 
-    formatSCORM(){
-        console.log("formateando SCRMO");
+    formatScorm(){
+        console.log("formateando scorm");
         this.objOptions.o1=true;        
         this.objOptions.o1_1=true;
         this.objOptions.o1_2=true;
@@ -412,6 +518,7 @@ export class AppComponent implements OnInit{
         this.objOptions.o8_5=false;
         this.objOptions.o8_6=false;
 
+        this.objOptions.o9=false;
         this.objOptions.o9_1=false;
         this.objOptions.o9_2=false;
         this.objOptions.o9_2_1=false;
@@ -419,9 +526,8 @@ export class AppComponent implements OnInit{
         this.objOptions.o9_3=false;
         this.objOptions.o9_4=false;
 
-        this.objOptions.o10=true;
+        this.objOptions.o10=false;
 
     }
-
-    
+        
 }

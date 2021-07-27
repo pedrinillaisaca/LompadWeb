@@ -7,9 +7,11 @@
                 'p-input-filled': app.inputStyle === 'filled',
                 'p-ripple-disabled': !app.ripple}" [class]="app.menuColor">
 
+    <!-- ESTE  ES EL MENU LATERAL IZQUIERDO -->
     <app-menu></app-menu>
     <!-- ESTA ES LA PAGINA EN LA QUE HAY QUE PONER LOS COMPONENETES -->
     <div class="layout-main">
+        <!-- Contiene la barra superior -->
         <app-topbar></app-topbar>
 
         <!-- <app-rightpanel></app-rightpanel> -->
@@ -17,6 +19,7 @@
         <app-breadcrumb></app-breadcrumb>
 
         <div class="layout-content">
+            <!-- DONDE SE ENCUENTRAN TODOS LOS COMPONENTES   -->
             <!-- router outlet es el componenete donde se encuentran los contenidos principales -->
             <router-outlet></router-outlet>
         </div>

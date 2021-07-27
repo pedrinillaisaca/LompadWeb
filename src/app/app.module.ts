@@ -150,7 +150,6 @@ import {MenuService} from './app.menu.service';
 import {AppCodeModule} from './app.code.component';
 import { ComponentNameComponent } from './component-name/component-name.component';
 import { InicioComponent } from './paginas/inicio/inicio.component';
-import { HomeComponent } from './paginas/home/home.component';
 import { LivecicleComponent } from './paginas/livecicle/livecicle.component';
 import { ViewxmlComponent } from './paginas/viewxml/viewxml.component';
 import { ViewjsonComponent } from './paginas/viewjson/viewjson.component';
@@ -324,8 +323,7 @@ export function HttpLoaderFactory(http: HttpClient){
         TextComponent,
         WidgetsComponent,
         ComponentNameComponent,
-        InicioComponent,
-        HomeComponent,
+        InicioComponent,        
         LivecicleComponent,
         ViewxmlComponent,
         ViewjsonComponent,
