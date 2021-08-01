@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppComponent } from 'src/app/app.component';
 import { ObjOptions } from 'src/app/modelo/objOptions';
+import { LompadService } from '../../servicios/lompad.service';
 
 @Component({
   selector: 'app-livecicle',
@@ -11,28 +12,51 @@ export class LivecicleComponent implements OnInit {
   tipos:any[];
   estados:any[];
   ObjOptions:ObjOptions=new ObjOptions();
-  constructor(private componentePrincipal: AppComponent) { }
+  objLiveClicle:JSON;
+  estado_LiveC:string;
+  contrib_tipo:string;
+  fecha:any
+
+  constructor(
+    private componentePrincipal: AppComponent,
+    private lompadService:LompadService
+    ) { }
 
   ngOnInit(): void {
 
     this.tipos=[
-      {label: 'Autor', value: {id: 1, name: 'Autor', code: 'au'}},
-      {label: 'Revisor', value: {id: 2, name: 'Revisor', code: 'rv'}},
-      {label: 'Desconocido', value: {id: 3, name: 'Desconocido', code: 'des'}},
-      {label: 'iniciador', value: {id: 4, name: 'iniciador', code: 'in'}},
-      {label: 'terminador', value: {id: 5, name: 'terminador', code: 'ter'}},
-      {label: 'editor', value: {id: 5, name: 'editor', code: 'ed'}},
-      {label: 'escritor', value: {id: 5, name: 'escritor', code: 'es'}}
+      {label: 'Autor', value:  '1', code: 'au'},
+      {label: 'Revisor', value:  '2', code: 'rv'},
+      {label: 'Desconocido', value:'3', code: 'des'},
+      {label: 'iniciador', value: '4', code: 'in'},
+      {label: 'terminador', value: '5', code: 'ter'},
+      {label: 'editor', value: '6', code: 'ed'},
+      {label: 'escritor', value:  '7', code: 'es'}
     ];
 
     this.estados=[
-      {label: 'borrador', value: {id: 1, name: 'borrador', code: 'brr'}},
-      {label: 'final', value: {id: 2, name: 'final', code: 'fin'}},
-      {label: 'revisado', value: {id: 3, name: 'revisado', code: 'rev'}},
-      {label: 'no disponible', value: {id: 4, name: 'no disponible', code: 'ndis'}}      
+      {label: 'borrador', value:  '1', code: 'brr'},
+      {label: 'final', value:  '2', code: 'fin'},
+      {label: 'revisado', value:  '3', code: 'rev'},
+      {label: 'no disponible', value:  '4', code: 'ndis'}
     ];
 
     this.ObjOptions=this.componentePrincipal.objOptions;
+    this.objLiveClicle=this.lompadService.getOjbLifeCycle();
+    console.log("desde ciclo de vida ",this.objLiveClicle);
+    this.estado_LiveC=this.objLiveClicle["Status"];
+    // this.contrib_tipo=this.objLiveClicle["Entity"]["Type"];
+    this.fecha= new Date(this.objLiveClicle["Contribute"]["Date"]);
+  }
+
+  cambioEstadoLC(){
+    console.log(this.estado_LiveC);
+    this.objLiveClicle["Status"]=this.estado_LiveC;
+  }
+  cambio_contr_tipo(){
+    // console.log(this.contrib_tipo);
+    // this.objLiveClicle[]: PILAAASSSSS    
+    console.log("daaatos:  ",this.fecha);
   }
 
 }

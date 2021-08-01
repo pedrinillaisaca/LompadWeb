@@ -1,45 +1,4 @@
 <div class="p-grid ">
-    <!--<div class="p-col-12 p-md-6">
-
-         <div class="card">
-            <h5>InputText</h5>
-            <div class="p-grid p-formgrid">
-                <div class="p-col-12 p-mb-2 p-lg-4 p-mb-lg-0">
-                    <input type="text" pInputText placeholder="Default">
-                </div>
-                <div class="p-col-12 p-mb-2 p-lg-4 p-mb-lg-0">
-                    <input type="text" pInputText placeholder="Disabled" [disabled]="true" />
-                </div>
-                <div class="p-col-12 p-mb-2 p-lg-4 p-mb-lg-0">
-                    <input type="text" pInputText placeholder="Invalid" class="p-invalid" />
-                </div>
-            </div>
-        </div>
-
-
-        <div class="card">
-            <h5>Vertical Grid</h5>
-            <div class="p-fluid p-formgrid p-grid">
-                <div class="p-field p-col">
-                    <label for="firstname2">Name</label>
-                    <input id="firstname2" type="text" pInputText>
-                </div>
-                <div class="p-field p-col">
-                    <label for="lastname2">Email</label>
-                    <input id="lastname2" type="text" pInputText>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="card">
-            <p>pedro </p>
-        </div>
-        <div class="card">
-            <p>pedro </p>
-        </div>
-
-    </div> -->
 
     <div *ngIf="ObjOptions.o1_1" class="p-col-12">
         <h5>{{"Idetificador" | translate}}</h5>
@@ -48,11 +7,11 @@
             <div class="p-fluid p-formgrid p-grid">
                 <label for="catalogo" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">{{"Catálogo" | translate}}</label>
                 <div class="p-field p-col">
-                    <input id="catalogo" type="text" pInputText>
+                    <input [(ngModel)]='general_obj["Identifier"]["Catalog"]' id="catalogo" type="text" pInputText>
                 </div>
                 <label for="entrada" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">{{"Entrada" | translate}}</label>
                 <div class="p-field p-col">
-                    <input id="entrada" type="text" pInputText>
+                    <input [(ngModel)]='general_obj["Identifier"]["Entry"]' id="entrada" type="text" pInputText>
                 </div>
             </div>
         </div>
@@ -65,7 +24,7 @@
             <div class="p-fluid p-formgrid p-grid">
                 <div class="p-field p-col-12 ">
                     <label for="titulo">{{"Título" | translate}}</label>
-                    <input id="titulo" type="text" pInputText>
+                    <input [(ngModel)]='general_obj["Title"]' id="titulo" type="text" pInputText>
                 </div>
 
             </div>
@@ -74,18 +33,6 @@
 
 
 
-    <!-- <div *ngIf="ObjOptions.o1_4" class="p-col-12">
-        <h5>{{"Descripción" | translate}}</h5>
-        <div class="card">
-            <div class="p-fluid p-formgrid p-grid">
-                <div class="p-field p-col-12 ">
-                    <label for="descripcion">{{"Descripción" | translate}}</label>
-                    <textarea id="descripcion" type="text" rows="4" pInputTextarea></textarea>
-                </div>
-
-            </div>
-        </div>
-    </div> -->
 
     <div *ngIf="ObjOptions.o1_5" class="p-col-12">
         <h5>{{"Palabra Clave" | translate}}</h5>
@@ -115,6 +62,7 @@
             <div class="p-fluid p-formgrid p-grid">
                 <div class="p-field p-col-12 ">
                     <label for="ambito">{{"Ámbito" | translate}}</label>
+                    <!-- [(ngModel)]='general_obj["Title"]' -->
                     <input id="ambito" type="text" pInputText>
                 </div>
 
@@ -126,8 +74,7 @@
         <div class="card">
             <h5>{{"Estructura" | translate}}</h5>
             <div class="p-fluid">
-                <!-- [(ngModel)]="selectedDrop" -->
-                <p-dropdown [options]="estructuras" placeholder='{{"Seleccionar" | translate}} ' [showClear]="true"></p-dropdown>
+                <p-dropdown [options]="estructuras" [(ngModel)]='estructuraSelect' name='estructuraSelect' (onChange)="cambioEstructura()" placeholder='{{"Seleccionar" | translate}} ' [showClear]="true"> </p-dropdown>
             </div>
 
         </div>
@@ -139,7 +86,7 @@
             <h5>{{"Nivel de Agregación" | translate }}</h5>
             <div class="p-fluid">
                 <!-- [(ngModel)]="selectedDrop" -->
-                <p-dropdown [options]="nivelesAgregacion" placeholder='{{"Seleccionar" | translate}} ' [showClear]="true"></p-dropdown>
+                <p-dropdown [options]="nivelesAgregacion" [(ngModel)]='nivel_select' name='nivel_select' (onChange)="cambio_nivel()" placeholder='{{"Seleccionar" | translate}} ' [showClear]="true"></p-dropdown>
             </div>
 
         </div>

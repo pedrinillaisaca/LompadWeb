@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppComponent } from 'src/app/app.component';
 import { LompadService } from 'src/app/servicios/lompad.service';
 import { ObjOptions } from '../../modelo/objOptions';
+import { element } from 'protractor';
 
 @Component({
   selector: 'app-general',
@@ -17,6 +18,8 @@ export class GeneralComponent implements OnInit {
   palabra:string;  
   palabraDialog:boolean;
   general_obj:any;
+  estructuraSelect:string;
+  nivel_select:string;
 
   
   ObjOptions:ObjOptions=new ObjOptions();
@@ -24,23 +27,24 @@ export class GeneralComponent implements OnInit {
     private componentePrincipal: AppComponent,
     private lompadservice: LompadService    
     ) {
+
      }
 
   ngOnInit(): void {    
     this.estructuras=[
-      {label: 'atómica', value: {id: 1, name: 'atómica', code: 'ato'}},
-      {label: 'colección', value: {id: 2, name: 'colección', code: 'coll'}},
-      {label: 'en red', value: {id: 3, name: 'en red', code: 'red'}},
-      {label: 'jerárquica', value: {id: 4, name: 'jerárquica', code: 'je'}},
-      {label: 'lineal', value: {id: 5, name: 'lineal', code: 'li'}}
+      {label: 'atómica', value: '1', code: 'ato'},
+      {label: 'colección', value: '2', code: 'coll'},
+      {label: 'en red', value:  '3', code: 'red'},
+      {label: 'jerárquica', value: '4', code: 'je'},
+      {label: 'lineal', value:  '5', code: 'li'}
       
     ];
     
     this.nivelesAgregacion=[
-      {label: '1', value: {id: 1, name: '1', code: '1'}},
-      {label: '2', value: {id: 2, name: '2', code: '2'}},
-      {label: '3', value: {id: 3, name: '3', code: '3'}},
-      {label: '4', value: {id: 4, name: '4', code: '4'}}
+      {label: '1', value: '1', code: '1'},
+      {label: '2', value:  '2', code: '2'},
+      {label: '3', value:  '3', code: '3'},
+      {label: '4', value:  '4', code: '4'}
     ];
 
     this.columns = [];
@@ -49,9 +53,14 @@ export class GeneralComponent implements OnInit {
     this.ObjOptions=this.componentePrincipal.objOptions;
 
     this.general_obj=this.lompadservice.getObjectGeneral();
-    console.log(this.general_obj);
-  }  
+    console.log("Desde General :  ",this.general_obj);
 
+    // PILAS CON ESTOS
+    this.estructuraSelect="2";
+    this.nivel_select=this.general_obj['Aggregation Level'];
+
+    this.cargarkeywords();
+  }  
 addPalabra() {
   this.palabraDialog=true;
   
@@ -71,6 +80,26 @@ savePalabra(){
   this.columns.push(this.palabra);
   this.palabra="";
   
+}
+
+cargarkeywords(){
+  let keys:[]=this.general_obj["Keyword"];
+  keys.forEach(element => {
+    console.log("elementos ",element);
+    this.columns.push(element);    
+  });
+}
+
+
+
+cambioEstructura(){  
+  console.log(this.estructuraSelect);
+  this.general_obj["Structure"]=this.estructuraSelect;
+}
+
+cambio_nivel(){  
+  console.log(this.nivel_select);
+  this.general_obj["Aggregation Level"]=this.nivelesAgregacion;
 }
 
 }

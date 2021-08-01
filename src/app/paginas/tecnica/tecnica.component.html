@@ -5,7 +5,7 @@
             <!-- <h4>PIAS HAY QUE PREGUNTAR SOBRE ESTE CAMPO</h4> -->
             <div class="p-field p-fluid">
                 <label for="esquema">{{"Esquema" | translate}}</label>
-                <input id="esquema" type="esquema" pInputText aria-describedby="username-help">
+                <input [(ngModel)]='objTecnica["Format"]' id="esquema" type="esquema" pInputText aria-describedby="username-help">
                 <!-- <small id="username-help">Enter your username to reset your password.</small> -->
             </div>
         </div>
@@ -18,7 +18,7 @@
         <div class="card">
             <div class="p-fluid">
                 <div class="p-field p-grid">
-                    <input id="tamanio" type="text" pInputText>
+                    <input [(ngModel)]='objTecnica["Size"]' id="tamanio" type="text" pInputText>
                 </div>
             </div>
         </div>
@@ -28,11 +28,13 @@
         <div class="card">
             <div class="p-fluid">
                 <div class="p-field p-grid">
-                    <input id="localizacion" type="text" pInputText>
+                    <input [(ngModel)]='objTecnica["Location"]' id="localizacion" type="text" pInputText>
                 </div>
             </div>
         </div>
     </div>
+
+
 
 
 
@@ -44,25 +46,25 @@
                 <div class="p-field p-grid">
                     <label for="tipo" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">{{"Tipo" | translate}}</label>
                     <div class="p-col-12 p-md-10">
-                        <p-dropdown id="tipo" [options]="tiposOr" placeholder='{{"Seleccionar" | translate}} ' [showClear]="true"></p-dropdown>
+                        <p-dropdown id="tipo" [(ngModel)]='req_tipo_select' name='req_tipo_select' [options]="tiposOr" placeholder='{{"Seleccionar" | translate}} ' [showClear]="true"></p-dropdown>
                     </div>
                 </div>
                 <div class="p-field p-grid">
                     <label for="nombre" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">{{"Nombre" | translate}}</label>
                     <div class="p-col-12 p-md-10">
-                        <input id="nombre" type="text" pInputText>
+                        <input [(ngModel)]='objTecnica["Requirement"]["OrComposite"]["Name"]' id="nombre" type="text" pInputText>
                     </div>
                 </div>
                 <div class="p-field p-grid">
                     <label for="ver_minima" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">{{"Versión Mínima" | translate}}</label>
                     <div class="p-col-12 p-md-10">
-                        <input id="ver_minima" type="text" pInputText>
+                        <input id="ver_minima" [(ngModel)]='objTecnica["Requirement"]["OrComposite"]["Minimum Version"]' type="text" pInputText>
                     </div>
                 </div>
                 <div class="p-field p-grid">
                     <label for="ver_maxima" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">{{"Versión Máxima" | translate}}</label>
                     <div class="p-col-12 p-md-10">
-                        <input id="ver_maxima" type="text" pInputText>
+                        <input id="ver_maxima" [(ngModel)]='objTecnica["Requirement"]["OrComposite"]["Maximum Version"]' type="text" pInputText>
                     </div>
                 </div>
 
@@ -76,7 +78,7 @@
             <div class="p-fluid">
                 <div class="p-field p-grid">
                     <label for="descripcion">{{"Descripción" | translate}}</label>
-                    <textarea id="descripcion" type="text" rows="4" pInputTextarea></textarea>
+                    <textarea [(ngModel)]='objTecnica["Installation Remarks"]' id="descripcion" type="text" rows="4" pInputTextarea></textarea>
                 </div>
             </div>
         </div>
@@ -88,7 +90,7 @@
             <div class="p-fluid">
                 <div class="p-field p-grid">
                     <label for="descripcion">{{"Descripción" | translate}}</label>
-                    <textarea id="descripcion" type="text" rows="4" pInputTextarea></textarea>
+                    <textarea [(ngModel)]='objTecnica["Other Platform Requirements"]' id="descripcion" type="text" rows="4" pInputTextarea></textarea>
                 </div>
             </div>
         </div>

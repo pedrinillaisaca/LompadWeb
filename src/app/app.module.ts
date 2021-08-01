@@ -173,6 +173,7 @@ import { GeneralComponent } from './paginas/general/general.component';
 import { TranslateHttpLoader} from "@ngx-translate/http-loader";
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 
+
 export function HttpLoaderFactory(http: HttpClient){
     return new TranslateHttpLoader(http,'./assets/i18n/','.json');
 }

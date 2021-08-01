@@ -53,8 +53,8 @@ startTimer() {
             {label: '7. Relación', icon: 'pi pi-fw pi-file', routerLink: ['/paginas/relacion']},
             {label: '8. Anotación', icon: 'pi pi-fw pi-file', routerLink: ['/paginas/anotacion']},
             {label: '9. Clasificación', icon: 'pi pi-fw pi-file', routerLink: ['/paginas/clasidicacion']},
-            {label: '10. Accesibilidad', icon: 'pi pi-fw pi-file', routerLink: ['/paginas/accesibilidad']},
-            {label: '11. prueba', icon: 'pi pi-fw pi-file', routerLink: ['/paginas/upload']},
+            {label: '10. Accesibilidad', icon: 'pi pi-fw pi-file', routerLink: ['/paginas/accesibilidad']}
+            
           
 
 

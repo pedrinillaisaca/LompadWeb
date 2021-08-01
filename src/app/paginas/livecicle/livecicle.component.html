@@ -6,7 +6,7 @@
             <div class="p-fluid p-formgrid p-grid">
                 <div class="p-field p-col-12 ">
                     <!-- <label for="version">{{"Versión" | translate}}</label> -->
-                    <input id="version" type="text" pInputText>
+                    <input [(ngModel)]='objLiveClicle["Version"]' id="version" type="text" pInputText>
                 </div>
             </div>
         </div>
@@ -17,7 +17,7 @@
             <h5>{{"Estado" | translate}}</h5>
             <div class="p-fluid">
                 <!-- [(ngModel)]="selectedDrop" -->
-                <p-dropdown [options]="estados" placeholder='{{"Seleccionar"| translate}} ' [showClear]="true"></p-dropdown>
+                <p-dropdown [options]="estados" [(ngModel)]='estado_LiveC' name='estado_LiveC' (OnChange)='cambioEstadoLC()' placeholder='{{"Seleccionar"| translate}} ' [showClear]="true"></p-dropdown>
             </div>
 
         </div>
@@ -36,7 +36,7 @@
                 <h5>{{"Tipo" | translate}}</h5>
                 <div class="p-fluid">
                     <!-- [(ngModel)]="selectedDrop" -->
-                    <p-dropdown [options]="tipos" placeholder="Seleccionar" [showClear]="true"></p-dropdown>
+                    <p-dropdown [options]="tipos" [(ngModel)]='contrib_tipo' name='contrib_tipo' (onChange)='cambio_contr_tipo()' placeholder="Seleccionar" [showClear]="true"></p-dropdown>
                 </div>
 
             </div>
@@ -80,7 +80,7 @@
 
                     <div class="p-field p-grid">
                         <div class="p-col-12 p-md-10">
-                            <p-calendar [showIcon]="true" inputId="icon"></p-calendar>
+                            <p-calendar [(ngModel)]="fecha" [showIcon]="true" inputId="icon"></p-calendar>
                         </div>
                     </div>
 

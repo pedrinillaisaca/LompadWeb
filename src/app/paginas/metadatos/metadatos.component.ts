@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { timeStamp } from 'console';
 import { AppComponent } from 'src/app/app.component';
 import { ObjOptions } from 'src/app/modelo/objOptions';
+import { LompadService } from '../../servicios/lompad.service';
 
 @Component({
   selector: 'app-metadatos',
@@ -8,18 +10,28 @@ import { ObjOptions } from 'src/app/modelo/objOptions';
   styleUrls: ['./metadatos.component.css']
 })
 export class MetadatosComponent implements OnInit {
+  objMetadatos:JSON;
   tipos:any[];
+  tipos_Select:string;  
   ObjOptions:ObjOptions=new ObjOptions();
-  constructor(private componentePrincipal: AppComponent ) { }
+  fecha:any;
+  constructor(
+    private componentePrincipal: AppComponent,
+    private lomapdService: LompadService
+    ) { }
   
   ngOnInit(): void {
     this.tipos=[
-      {label: 'Creador', value: {id: 1, name: 'Creador', code: 'cre'}},
-      {label: 'Visor', value: {id: 2, name: 'Visor', code: 'vie'}}    
+      {label: 'Creador', value: 'creator', code: 'cre'},
+      {label: 'Visor', value: 'validator', code: 'vie'}   
     ];
 
 
     this.ObjOptions=this.componentePrincipal.objOptions;
+    this.objMetadatos=this.lomapdService.getObjMetadata();
+    console.log("Desde metadatos: ",this.objMetadatos);
+    this.fecha=new Date(this.objMetadatos["Contribute"]["Date"])
+    this.tipos_Select=this.objMetadatos["Contribute"]["Role"]
   }
 
 }

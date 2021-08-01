@@ -2,7 +2,6 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { LompadService } from 'src/app/servicios/lompad.service';
 import { HttpClient } from '@angular/common/http';
-import { ObjaprendizajeModule } from '../../modulos/objaprendizaje/objaprendizaje.module';
 import { AppMainComponent } from '../../app.main.component';
 
 
@@ -37,6 +36,13 @@ export class InicioComponent implements OnInit {
   
 }
 
+
+ngOnInit(): void {   
+    this.submit();
+}
+
+
+
 onUpload(event) {    
   // const file = (event.target as HTMLInputElement).files[0];
   const file = event.files[0];
@@ -45,13 +51,8 @@ onUpload(event) {
   });
   this.form.get('file').updateValueAndValidity()   
    
-  this.submit();
+  
 }
-
-
-  ngOnInit(): void {   
-    
-  }
 
   upload(event) {
     console.log("subir evento")
@@ -70,13 +71,12 @@ onUpload(event) {
   //   (response) => this.lompadservice.setObjson(response), //this.lompadservice.setObjson(response)
   //   (error) => console.log(error)
   // )  
-  // console.log("submit2");
+  console.log("submit2");
   this.appMain.staticMenuActive=true;
   //AQUI TENGO QUE CONFIGUAR LA COOKIE PARA GUARDAR LOS DATOS DEL HASH DE CONEXION 
 
   this.lompadservice.getobject();
 }
-
 
 }
 

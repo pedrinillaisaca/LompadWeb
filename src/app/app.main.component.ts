@@ -64,6 +64,15 @@ export class AppMainComponent {
 
     megaMenuPerfiles: boolean;
     megaMenuPerfilesClick: boolean;
+
+
+    megaMenuViewJSON: boolean;
+    megaMenuViewJSONClick: boolean;
+
+
+    megaMenuViewXML: boolean;
+    megaMenuViewXMLClick: boolean;
+
     public enableGeneral:boolean;
     
 
@@ -98,6 +107,14 @@ export class AppMainComponent {
             this.megaMenuPerfiles=false;
         }
 
+        if(!this.megaMenuViewJSONClick){
+            this.megaMenuViewJSON=false;
+        }
+
+        if(!this.megaMenuViewXMLClick){
+            this.megaMenuViewXML=false;
+        }
+
         if (!this.megaMenuMobileClick) {
             this.megaMenuMobileActive = false;
         }
@@ -123,6 +140,8 @@ export class AppMainComponent {
         this.topbarItemClick = false;
         this.megaMenuClick = false;
         this.megaMenuPerfilesClick = false;
+        this.megaMenuViewJSONClick = false;
+        this.megaMenuViewXMLClick = false;
         this.megaMenuMobileClick = false;
         this.rightPanelClick = false;
     }
@@ -138,6 +157,19 @@ export class AppMainComponent {
         this.megaMenuPerfiles=!this.megaMenuPerfiles;
         event.preventDefault();
     }
+
+    onMegamenuButtonJSON(event){
+        this.megaMenuViewJSONClick=true;
+        this.megaMenuViewJSON=!this.megaMenuViewJSON;
+        event.preventDefault();
+    }
+
+    onMegamenuButtonXML(event){
+        this.megaMenuViewXMLClick=true;
+        this.megaMenuViewXML=!this.megaMenuViewXML;
+        event.preventDefault();
+    }
+
 
     onMegaMenuPerfilClick(event){
         this.megaMenuPerfilesClick=true;
