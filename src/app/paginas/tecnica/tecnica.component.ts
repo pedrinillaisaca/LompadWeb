@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppComponent } from 'src/app/app.component';
 import { ObjOptions } from 'src/app/modelo/objOptions';
 import { LompadService } from '../../servicios/lompad.service';
-import { animate } from '@angular/animations';
+
 
 @Component({
   selector: 'app-tecnica',

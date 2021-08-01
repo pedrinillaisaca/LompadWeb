@@ -4,7 +4,7 @@
         <div class="card">
             <div class="p-fluid">
                 <!-- [(ngModel)]="selectedDrop" -->
-                <p-dropdown [options]="tiposActividad" placeholder='{{"Seleccionar" | translate}} ' [showClear]="true"></p-dropdown>
+                <p-dropdown [options]="tiposActividad" [(ngModel)]='tiposActividadSelect' name='tiposActividadSelect' placeholder='{{"Seleccionar" | translate}} ' [showClear]="true"></p-dropdown>
             </div>
         </div>
     </div>
@@ -15,7 +15,7 @@
         <div class="card">
             <div class="p-fluid">
                 <!-- [(ngModel)]="selectedDrop" -->
-                <p-dropdown [options]="tiposRecursEducativos" placeholder='{{"Seleccionar" | translate}} ' [showClear]="true"></p-dropdown>
+                <p-dropdown [options]="tiposRecursEducativos" [(ngModel)]='tiposRecursEducativosSelect' name='tiposRecursEducativosSelect' placeholder='{{"Seleccionar" | translate}} ' [showClear]="true"></p-dropdown>
             </div>
         </div>
     </div>
@@ -25,7 +25,7 @@
         <div class="card">
             <div class="p-fluid">
                 <!-- [(ngModel)]="selectedDrop" -->
-                <p-dropdown [options]="nivelesInteractividad" placeholder='{{"Seleccionar" | translate}} ' [showClear]="true"></p-dropdown>
+                <p-dropdown [options]="nivelesInteractividad" [(ngModel)]='nivelesInteractividadSelect' name='nivelesInteractividadSelect' placeholder='{{"Seleccionar" | translate}} ' [showClear]="true"></p-dropdown>
             </div>
         </div>
     </div>
@@ -34,7 +34,7 @@
         <div class="card">
             <div class="p-fluid">
                 <!-- [(ngModel)]="selectedDrop" -->
-                <p-dropdown [options]="densiadesSemanticas" placeholder='{{"Seleccionar" | translate}} ' [showClear]="true"></p-dropdown>
+                <p-dropdown [options]="densiadesSemanticas" [(ngModel)]='densiadesSemanticasSelect' name='densiadesSemanticasSelect' placeholder='{{"Seleccionar" | translate}} ' [showClear]="true"></p-dropdown>
             </div>
         </div>
     </div>
@@ -43,7 +43,7 @@
         <div class="card">
             <div class="p-fluid">
                 <!-- [(ngModel)]="selectedDrop" -->
-                <p-dropdown [options]="destinatarios" placeholder='{{"Seleccionar" | translate}} ' [showClear]="true"></p-dropdown>
+                <p-dropdown [options]="destinatarios" [(ngModel)]='destinatariosSelect' name='destinatariosSelect' placeholder='{{"Seleccionar" | translate}} ' [showClear]="true"></p-dropdown>
             </div>
         </div>
     </div>
@@ -52,7 +52,7 @@
         <div class="card">
             <div class="p-fluid">
                 <!-- [(ngModel)]="selectedDrop" -->
-                <p-dropdown [options]="contextos" placeholder='{{"Seleccionar" | translate}} ' [showClear]="true"></p-dropdown>
+                <p-dropdown [options]="contextos" [(ngModel)]='contextosSelect' name='contextosSelect' placeholder='{{"Seleccionar" | translate}} ' [showClear]="true"></p-dropdown>
             </div>
         </div>
     </div>
@@ -80,7 +80,7 @@
         <div class="card">
             <div class="p-fluid">
                 <!-- [(ngModel)]="selectedDrop" -->
-                <p-dropdown [options]="dificultades" placeholder='{{"Seleccionar" | translate}} ' [showClear]="true "></p-dropdown>
+                <p-dropdown [options]="dificultades" [(ngModel)]='dificultadesSelect' name='dificultadesSelect' placeholder='{{"Seleccionar" | translate}} ' [showClear]="true "></p-dropdown>
             </div>
         </div>
     </div>
