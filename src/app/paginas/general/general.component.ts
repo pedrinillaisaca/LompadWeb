@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppComponent } from 'src/app/app.component';
 import { LompadService } from 'src/app/servicios/lompad.service';
 import { ObjOptions } from '../../modelo/objOptions';
-import { element } from 'protractor';
+
 
 @Component({
   selector: 'app-general',
@@ -13,13 +13,15 @@ import { element } from 'protractor';
 export class GeneralComponent implements OnInit {
   estructuras:any=[];
   nivelesAgregacion:any=[];
-
   columns:any[];
   palabra:string;  
-  palabraDialog:boolean;
-  general_obj:any;
+  palabraDialog:boolean;  
   estructuraSelect:string;
   nivel_select:string;
+
+
+  general_obj:any;
+  
 
   
   ObjOptions:ObjOptions=new ObjOptions();
@@ -52,7 +54,7 @@ export class GeneralComponent implements OnInit {
 
     this.ObjOptions=this.componentePrincipal.objOptions;
 
-    this.general_obj=this.lompadservice.getObjectGeneral();
+    this.general_obj=this.lompadservice.getObjectGeneral();    
     console.log("Desde General :  ",this.general_obj);
 
     // PILAS CON ESTOS

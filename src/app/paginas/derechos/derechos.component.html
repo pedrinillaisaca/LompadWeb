@@ -4,7 +4,7 @@
         <div class="card">
             <div class="p-fluid">
                 <!-- [(ngModel)]="selectedDrop" -->
-                <p-dropdown [options]="decision" placeholder='{{"Seleccionar" | translate}} ' [showClear]="true"></p-dropdown>
+                <p-dropdown [options]="coste" [(ngModel)]='costeSelect' name='costeSelect' placeholder='{{"Seleccionar" | translate}} ' [showClear]="true"></p-dropdown>
             </div>
         </div>
     </div>
@@ -14,7 +14,7 @@
         <div class="card">
             <div class="p-fluid">
                 <!-- [(ngModel)]="selectedDrop" -->
-                <p-dropdown [options]="decision" placeholder='{{"Seleccionar" | translate}} ' [showClear]="true"></p-dropdown>
+                <p-dropdown [options]="decision" [(ngModel)]='decisionSelect' name='decisionSelect' placeholder='{{"Seleccionar" | translate}} ' [showClear]="true"></p-dropdown>
             </div>
         </div>
     </div>
@@ -26,7 +26,7 @@
             <div class="p-fluid">
                 <div class="p-field p-grid">
                     <label for="descripcion">{{"Descripción" | translate}}</label>
-                    <textarea id="descripcion" type="text" rows="4" pInputTextarea></textarea>
+                    <textarea id="descripcion" [(ngModel)]='objderechos["Description"]' type="text" rows="4" pInputTextarea></textarea>
                 </div>
             </div>
         </div>

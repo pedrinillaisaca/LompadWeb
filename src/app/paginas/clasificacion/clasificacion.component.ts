@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppComponent } from 'src/app/app.component';
 import { ObjOptions } from 'src/app/modelo/objOptions';
+import { LompadService } from '../../servicios/lompad.service';
 
 @Component({
   selector: 'app-clasificacion',
@@ -9,28 +10,38 @@ import { ObjOptions } from 'src/app/modelo/objOptions';
 })
 export class ClasificacionComponent implements OnInit {
   propositos:any[];
+  propositosSelect:string
   ObjOptions:ObjOptions=new ObjOptions();
 
   columns:any[];
   palabra:string;
   palabraDialog:boolean;
+  objClasification:any;
 
-  constructor(private componentePrincipal: AppComponent ) { }
+  constructor(
+    private componentePrincipal: AppComponent,
+    private lompadservice:LompadService
+    ) { }
   
   ngOnInit(): void {
     this.propositos=[
-      {label: 'diciplina', value: {id: 1, name: 'diciplina', code: 'dis'}},
-      {label: 'idea', value: {id: 1, name: 'idea', code: 'id'}},
-      {label: 'prerequisito', value: {id: 1, name: 'prerequisito', code: 'pre'}},
-      {label: 'objetivo educativo', value: {id: 1, name: 'objetivo educativo', code: 'o_b'}},
-      {label: 'accesibilidad', value: {id: 1, name: 'accesibilidad', code: 'acc'}},
-      {label: 'nivel educativo', value: {id: 1, name: 'nivel educativo', code: 'n_ed'}},
-      {label: 'nivel de habilidad', value: {id: 1, name: 'nivel de habilidad', code: 'n_hab'}},
-      {label: 'nivel de seguridad', value: {id: 1, name: 'nivel de seguridad', code: 'n_seg'}},
+      {label: 'disciplina', value: 'discipline', code: 'dis'},
+      {label: 'idea', value: 'idea', code: 'id'},
+      {label: 'prerequisito', value:'prerequisite', code: 'pre'},
+      {label: 'objetivo educativo', value:  'educational objective', code: 'o_b'},
+      {label: 'accesibilidad', value: 'accessibility restrictions', code: 'acc'},
+      {label: 'nivel educativo', value: 'educational level', code: 'n_ed'},
+      {label: 'nivel de habilidad', value:  'skill level', code: 'n_hab'},
+      {label: 'nivel de seguridad', value: 'security level', code: 'n_seg'},
+      {label: 'competencia', value: 'competency', code: 'n_segsr'}
     ];
 
     this.ObjOptions=this.componentePrincipal.objOptions;
     this.columns = [];
+    this.objClasification=this.lompadservice.getClasifiaction();
+    this.propositosSelect=this.objClasification["Purpose"];
+    console.log("DEsde Calsificacion: ", this.objClasification);
+    
   }
 
   addPalabra() {

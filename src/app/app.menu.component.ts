@@ -21,19 +21,7 @@ export class AppMenuComponent implements OnInit {
     }
     // AQUI SE PUEDE ADICIONAR LOS DE MAS COMPONENTES QUE VAN EN EL SISTEMA opciones que van en la 
     // barra lateral 
-    timeLeft: number = 60;
-  interval;
-
-startTimer() {
-    this.interval = setInterval(() => {
-        this.enableGeneral=this.app.enableGeneral;      
-      if(this.timeLeft > 0) {
-        this.timeLeft--;
-      } else {
-        this.timeLeft = 60;
-      }
-    },1000)
-  }
+    
 
 
     ngOnInit() {  

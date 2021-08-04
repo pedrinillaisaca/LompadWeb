@@ -46,7 +46,7 @@
 
                 <div class="p-field p-grid">
                     <div class="p-col-12 p-md-10">
-                        <p-calendar [showIcon]="true" inputId="icon"></p-calendar>
+                        <p-calendar [(ngModel)]='fecha' [showIcon]="true" inputId="icon"></p-calendar>
                     </div>
                 </div>
             </div>
@@ -79,7 +79,7 @@
         <div class="card">
             <div class="p-fluid">
                 <!-- <label for="descripcion">Descripción</label> -->
-                <textarea id="descripcion" type="text" rows="4" pInputTextarea></textarea>
+                <textarea id="descripcion" [(ngModel)]='objAnotacion["Description"]' type="text" rows="4" pInputTextarea></textarea>
             </div>
         </div>
 
@@ -91,7 +91,7 @@
         <div class="card">
             <div class="p-fluid">
                 <!-- [(ngModel)]="selectedDrop" -->
-                <p-dropdown [options]="modo_acceso" placeholder='{{"Seleccionar" | translate}} ' [showClear]="true"></p-dropdown>
+                <p-dropdown [options]="modo_acceso" [(ngModel)]='modo_accesoSelect' name='modo_accesoSelect' placeholder='{{"Seleccionar" | translate}} ' [showClear]="true"></p-dropdown>
             </div>
         </div>
     </div>
@@ -99,8 +99,8 @@
         <h5>{{"Modo de acceso suficiente" | translate}}</h5>
         <div class="card">
             <div class="p-fluid">
-                <!-- [(ngModel)]="selectedDrop" -->
-                <p-dropdown [options]="modo_suficiente" placeholder='{{"Seleccionar" | translate}} ' [showClear]="true"></p-dropdown>
+
+                <p-dropdown [options]="modo_suficiente" [(ngModel)]='modo_suficienteSelect' name='modo_suficienteSelect' placeholder='{{"Seleccionar" | translate}} ' [showClear]="true"></p-dropdown>
             </div>
         </div>
     </div>
@@ -109,7 +109,7 @@
         <div class="card">
             <div class="p-fluid">
                 <!-- [(ngModel)]="selectedDrop" -->
-                <p-dropdown [options]="rol" placeholder='{{"Seleccionar" | translate}} ' [showClear]="true"></p-dropdown>
+                <p-dropdown [options]="rol" [(ngModel)]='rolSelect' name='rolSelect' placeholder='{{"Seleccionar" | translate}} ' [showClear]="true"></p-dropdown>
             </div>
         </div>
     </div>

@@ -14,7 +14,7 @@
         <div class="card">
             <div *ngIf="ObjOptions.o9_2_1" class="p-fluid">
                 <label for="fuente">{{"Fuente"| translate}}</label>
-                <input id="fuente" type="text" pInputText>
+                <input id="fuente" [(ngModel)]='objClasification["Taxon Path"]["Source"]' type="text" pInputText>
             </div>
 
             <div *ngIf="ObjOptions.o9_2_2" class="p-fluid p-formgrid p-grid">
@@ -22,11 +22,11 @@
 
                 <label for="id" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Id</label>
                 <div class="p-field p-col">
-                    <input id="id" type="text" pInputText>
+                    <input id="id" [(ngModel)]='objClasification["Taxon Path"]["Taxon"]["Id"]' type="text" pInputText>
                 </div>
                 <label for="entrada" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">{{"Entrada" | translate}}</label>
                 <div class="p-field p-col">
-                    <input id="entrada" type="text" pInputText>
+                    <input id="entrada" [(ngModel)]='objClasification["Taxon Path"]["Taxon"]["Entry"]' type="text" pInputText>
                 </div>
             </div>
 
@@ -41,7 +41,7 @@
         <div class="card">
             <div class="p-fluid">
                 <!-- <label for="descripcion">Descripción</label> -->
-                <textarea id="descripcion" type="text" rows="4" pInputTextarea></textarea>
+                <textarea id="descripcion" [(ngModel)]='objClasification["Description"]' type="text" rows="4" pInputTextarea></textarea>
             </div>
         </div>
 
