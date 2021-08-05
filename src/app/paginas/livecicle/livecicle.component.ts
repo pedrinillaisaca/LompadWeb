@@ -15,6 +15,11 @@ export class LivecicleComponent implements OnInit {
   estados:any[];
   estadoSelect:string;
   tiposSelect:string;  
+  nombreNew:string;
+  apellidoNew:string;
+  mailNew:string;
+  organizacionNew:string;
+  finalCard:string;
   
   ObjOptions:ObjOptions=new ObjOptions();
   objLiveClicle:JSON;
@@ -67,20 +72,7 @@ export class LivecicleComponent implements OnInit {
       this.estadoSelect=this.objLiveClicle["Status"];
       this.tiposSelect=this.objLiveClicle["Contribute"]["Role"];
       this.fecha= new Date(this.objLiveClicle["Contribute"]["Date"]);
-  
-      // var inicial=this.objLiveClicle["Contribute"]["Entity"];
-      // inicial.trim();
-      // var nombre=inicial.split("\n")[2].split(";")[0];
-      // var apellido=inicial.split("\n")[2].split(";")[1];
-      // var organization=inicial.split("\n")[5];        
-         
-      // console.log("nom: ",nombre.substring(2,nombre.length));
-      // console.log("nom: ",apellido);
-      // console.log("nom: ",organization.substring(4,organization.length));
-  
-      // this.vCard.name.firstNames=nombre.substring(2,nombre.length);
-      // this.vCard.name.lastNames=apellido;
-      // this.vCard.organization=organization.substring(4,organization.length);
+      this.castVcard(this.objLiveClicle["Contribute"]["Entity"]);
       
       this.startTimer();
 
@@ -90,6 +82,63 @@ export class LivecicleComponent implements OnInit {
 
     
   }
+
+  castVcard(card:string){    
+      var inicial=card;
+      inicial=inicial.replace(" ","_");
+      var list=inicial.split("\n");
+      // console.log(list);
+
+      var varN=list[2].substring(2,list[2].length);
+      var list_varN=varN.split(";")      
+      var nombre=list_varN[1];
+      var apellido=list_varN[0];
+
+      var mail=list[4].split(":")[1];
+      var organization=list[5].split(":")[1];
+
+      console.log(nombre)
+      console.log(apellido)
+      console.log(mail)
+      console.log(organization)
+
+
+      this.nombreNew=nombre;
+      
+      this.apellidoNew=apellido
+      
+      this.mailNew=mail;
+      
+      this.organizacionNew=organization;
+                   
+
+  }
+
+  actualizarVcard(card:string){
+    var carrd=card;
+    var inicial=card;
+      inicial=inicial.replace(" ","_");
+      var list=inicial.split("\n");
+      
+
+      var varN=list[2].substring(2,list[2].length);
+      var list_varN=varN.split(";")      
+      var nombre=list_varN[1];
+      var apellido=list_varN[0];
+
+      var mail=list[4].split(":")[1];
+      var organization=list[5].split(":")[1];
+    
+
+      carrd=carrd.replace(nombre,this.nombreNew);
+      carrd=carrd.replace(apellido,this.apellidoNew);
+      carrd=carrd.replace(mail,this.mailNew);
+      carrd=carrd.replace(organization,this.organizacionNew);      
+      console.log("fiNal card: ",carrd);
+      this.objLiveClicle["Contribute"]["Entity"]=carrd;
+  }
+
+  
 
   cambioEstados(){
     console.log(this.estadoSelect);
@@ -102,7 +151,8 @@ export class LivecicleComponent implements OnInit {
 
 
 
-  saveInfo(){                        
+  saveInfo(){            
+    this.actualizarVcard(this.objLiveClicle["Contribute"]["Entity"]);              
     this.lompadService.setOjbLifeCycle(this.objLiveClicle);     
   }
 
@@ -118,7 +168,7 @@ export class LivecicleComponent implements OnInit {
         } else {
           this.timeLeft = 60;
         }
-      },2000)
+      },4000)
     }   
     
 	

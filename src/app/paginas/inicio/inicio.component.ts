@@ -4,6 +4,8 @@ import { LompadService } from 'src/app/servicios/lompad.service';
 import { HttpClient } from '@angular/common/http';
 import { AppMainComponent } from '../../app.main.component';
 
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-inicio',
@@ -26,7 +28,8 @@ export class InicioComponent implements OnInit {
    public fb: FormBuilder,
    private http: HttpClient,     
    private lompadservice: LompadService,
-   private appMain:AppMainComponent
+   private appMain:AppMainComponent,
+   private router:Router
    ) 
    {
 
@@ -76,6 +79,7 @@ onUpload(event) {
   //AQUI TENGO QUE CONFIGUAR LA COOKIE PARA GUARDAR LOS DATOS DEL HASH DE CONEXION 
 
   this.lompadservice.getobject();
+  // this.router.navigateByUrl("/paginas/general");
   
 }
 

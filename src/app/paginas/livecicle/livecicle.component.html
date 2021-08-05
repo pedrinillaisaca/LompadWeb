@@ -46,26 +46,26 @@
                     <div class="p-field p-grid">
                         <label for="nombre" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">{{"Nombre" | translate }}</label>
                         <div class="p-col-12 p-md-10">
-                            <input id="nombre" [(ngModel)]='vCard.name.firstNames' type="text" pInputText>
+                            <input id="nombre" [(ngModel)]='nombreNew' type="text" pInputText>
                         </div>
                     </div>
                     <div class="p-field p-grid">
                         <label for="apellido" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">{{"Apellido" | translate }}</label>
                         <div class="p-col-12 p-md-10">
 
-                            <input id="apellido" [(ngModel)]='vCard.name.lastNames' type="text" pInputText>
+                            <input id="apellido" [(ngModel)]='apellidoNew' type="text" pInputText>
                         </div>
                     </div>
                     <div class="p-field p-grid">
                         <label for="lastname4" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">{{"Email" | translate}}</label>
                         <div class="p-col-12 p-md-10">
-                            <input id="lastname4" type="text" pInputText>
+                            <input id="lastname4" [(ngModel)]='mailNew' type="text" pInputText>
                         </div>
                     </div>
                     <div class="p-field p-grid">
                         <label for="organizacion" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">{{"Organización" | translate}}</label>
                         <div class="p-col-12 p-md-10">
-                            <input id="organizacion" [(ngModel)]='vCard.name.organization' type="text" pInputText>
+                            <input id="organizacion" [(ngModel)]='organizacionNew' type="text" pInputText>
                         </div>
                     </div>
 

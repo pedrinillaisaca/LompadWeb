@@ -1,6 +1,13 @@
 import { Injectable, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Subject, Observable } from 'rxjs';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json',
+    Authorization: 'my-auth-token'
+  })
+};
 
 
 @Injectable({
@@ -56,10 +63,11 @@ export class LompadService{
 
   getObjectPrincipal$(): Observable<JSON>{
     return this.objPricipal$.asObservable();
+    
   }
 
   getObjectGeneral() {
-    return this.objPricipal['DATA']['general'];
+    return this.objPricipal['DATA']['general'];  
   }
 
   getOjbLifeCycle(){
@@ -101,6 +109,26 @@ export class LompadService{
     console.log("setObjetGeneral")
     this.objPricipal['DATA']['general']=obj;
     this.objPricipal$.next(this.objPricipal);
+    var data=JSON.stringify(obj.toLowerCase);    
+    console.log("DATA: ",typeof(data));
+    // this.http.post("http://localhost:8000/private/update/?hashed_code=ArchivoExportado_-4735151486683075299&hoja=general&data="+data,null).subscribe(    
+    // (response) => console.log(response), //this.lompadservice.setObjson(response)
+    // (error) => console.log("ERROR: ",error)
+    // )  
+    const init = {
+      method: 'POST'
+    };
+    
+    fetch('http://localhost:8000/private/update/?hashed_code=ArchivoExportado_-4735151486683075299&hoja=general&data={"identifier":{"catalog":"weoritwru","entry":"entrada 1"},"title":"titutlo del general","language": "es","description": "descripcion del general.","keyword":["key1","key2"],"coverage":"ambitogeneral","structure":"atomic","aggregation level": "2"}', init)
+    .then((response) => {
+      return response.json(); // or .text() or .blob() ...
+    })
+    .then((text) => {
+      // text is the response body
+    })
+    .catch((e) => {
+      // error in e.message
+    });
   }
 
   setOjbLifeCycle(obj:any){
