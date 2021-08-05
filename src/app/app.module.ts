@@ -4,6 +4,7 @@ import {HttpClientModule, HttpClient } from '@angular/common/http';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HashLocationStrategy, LocationStrategy} from '@angular/common';
+import { NgxVcardModule, VCardFormatter } from 'ngx-vcard';
 
 // PrimeNG Components for demos
 import {AccordionModule} from 'primeng/accordion';
@@ -188,7 +189,8 @@ export function HttpLoaderFactory(http: HttpClient){
         ReactiveFormsModule,
         AppRoutingModule,
         AppCodeModule,
-        HttpClientModule,
+        HttpClientModule,        
+        NgxVcardModule,
         BrowserAnimationsModule,
         AccordionModule,
         AutoCompleteModule,

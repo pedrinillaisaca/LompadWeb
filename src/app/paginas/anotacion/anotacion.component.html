@@ -91,7 +91,7 @@
         <div class="card">
             <div class="p-fluid">
                 <!-- [(ngModel)]="selectedDrop" -->
-                <p-dropdown [options]="modo_acceso" [(ngModel)]='modo_accesoSelect' name='modo_accesoSelect' placeholder='{{"Seleccionar" | translate}} ' [showClear]="true"></p-dropdown>
+                <p-dropdown [options]="modo_acceso" [(ngModel)]='modo_accesoSelect' name='modo_accesoSelect' (onChange)='cambio_modo_accesoSelect()' placeholder='{{"Seleccionar" | translate}} ' [showClear]="true"></p-dropdown>
             </div>
         </div>
     </div>
@@ -100,7 +100,7 @@
         <div class="card">
             <div class="p-fluid">
 
-                <p-dropdown [options]="modo_suficiente" [(ngModel)]='modo_suficienteSelect' name='modo_suficienteSelect' placeholder='{{"Seleccionar" | translate}} ' [showClear]="true"></p-dropdown>
+                <p-dropdown [options]="modo_suficiente" [(ngModel)]='modo_suficienteSelect' name='modo_suficienteSelect' (onChange)='cambio_modo_suficienteSelect()' placeholder='{{"Seleccionar" | translate}} ' [showClear]="true"></p-dropdown>
             </div>
         </div>
     </div>
@@ -109,7 +109,7 @@
         <div class="card">
             <div class="p-fluid">
                 <!-- [(ngModel)]="selectedDrop" -->
-                <p-dropdown [options]="rol" [(ngModel)]='rolSelect' name='rolSelect' placeholder='{{"Seleccionar" | translate}} ' [showClear]="true"></p-dropdown>
+                <p-dropdown [options]="rol" [(ngModel)]='rolSelect' name='rolSelect' (onChange)='cambio_rolSelect()' placeholder='{{"Seleccionar" | translate}} ' [showClear]="true"></p-dropdown>
             </div>
         </div>
     </div>

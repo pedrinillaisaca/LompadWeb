@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import {PrimeNGConfig} from 'primeng/api';
 import { ObjOptions } from './modelo/objOptions';
+import { GeneralComponent } from './paginas/general/general.component';
 
 
 
@@ -40,6 +41,7 @@ export class AppComponent implements OnInit{
     constructor(
         private primengConfig: PrimeNGConfig,
         public translate:TranslateService,
+        // private generalcom:GeneralComponent
         // private comMenuIz:AppMenuComponent
         ) 
         {
@@ -142,6 +144,10 @@ export class AppComponent implements OnInit{
         
                                 
     }
+
+    // public saveInfoGen(){
+    //     this.generalcom.saveInfo();
+    // }
 
     public cambioIdiomaAplication(event){
         console.log(event.value.name);

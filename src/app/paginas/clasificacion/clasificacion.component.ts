@@ -41,7 +41,7 @@ export class ClasificacionComponent implements OnInit {
     this.objClasification=this.lompadservice.getClasifiaction();
     this.propositosSelect=this.objClasification["Purpose"];
     console.log("DEsde Calsificacion: ", this.objClasification);
-    
+    this.startTimer();
   }
 
   addPalabra() {
@@ -63,6 +63,29 @@ export class ClasificacionComponent implements OnInit {
     this.columns.push(this.palabra);
     this.palabra="";
     
+  }
+
+  cambio_propositosSelect(){
+    console.log(this.propositosSelect)
+    this.objClasification["Purpose"]=this.propositosSelect;
+  }
+
+
+  timeLeft: number = 60;
+  interval;
+  startTimer() {
+      this.interval = setInterval(() => {          
+          this.saveInfo();
+        if(this.timeLeft > 0) {
+          this.timeLeft--;
+        } else {
+          this.timeLeft = 60;
+        }
+      },2000)
+    }   
+    
+  saveInfo(){
+    this.lompadservice.setClasifiaction(this.objClasification);
   }
 
 

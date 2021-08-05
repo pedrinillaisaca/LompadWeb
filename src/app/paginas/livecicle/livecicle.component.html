@@ -16,8 +16,7 @@
         <div class="card">
             <h5>{{"Estado" | translate}}</h5>
             <div class="p-fluid">
-                <!-- [(ngModel)]="selectedDrop" -->
-                <p-dropdown [options]="estados" [(ngModel)]='estado_LiveC' name='estado_LiveC' (OnChange)='cambioEstadoLC()' placeholder='{{"Seleccionar"| translate}} ' [showClear]="true"></p-dropdown>
+                <p-dropdown [options]="estados" [(ngModel)]='estadoSelect' name='estadoSelect' (onChange)='cambioEstados()' placeholder='{{"Seleccionar"| translate}} ' [showClear]="true"></p-dropdown>
             </div>
 
         </div>
@@ -36,7 +35,7 @@
                 <h5>{{"Tipo" | translate}}</h5>
                 <div class="p-fluid">
                     <!-- [(ngModel)]="selectedDrop" -->
-                    <p-dropdown [options]="tipos" [(ngModel)]='contrib_tipo' name='contrib_tipo' (onChange)='cambio_contr_tipo()' placeholder="Seleccionar" [showClear]="true"></p-dropdown>
+                    <p-dropdown [options]="tipos" [(ngModel)]='tiposSelect' name='tiposSelect' (onChange)='cambio_contr_tipo()' placeholder='{{"Seleccionar"| translate}} ' [showClear]="true"></p-dropdown>
                 </div>
 
             </div>
@@ -47,14 +46,14 @@
                     <div class="p-field p-grid">
                         <label for="nombre" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">{{"Nombre" | translate }}</label>
                         <div class="p-col-12 p-md-10">
-                            <input id="nombre" type="text" pInputText>
+                            <input id="nombre" [(ngModel)]='vCard.name.firstNames' type="text" pInputText>
                         </div>
                     </div>
                     <div class="p-field p-grid">
                         <label for="apellido" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">{{"Apellido" | translate }}</label>
                         <div class="p-col-12 p-md-10">
 
-                            <input id="apellido" type="text" pInputText>
+                            <input id="apellido" [(ngModel)]='vCard.name.lastNames' type="text" pInputText>
                         </div>
                     </div>
                     <div class="p-field p-grid">
@@ -66,7 +65,7 @@
                     <div class="p-field p-grid">
                         <label for="organizacion" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">{{"Organización" | translate}}</label>
                         <div class="p-col-12 p-md-10">
-                            <input id="organizacion" type="text" pInputText>
+                            <input id="organizacion" [(ngModel)]='vCard.name.organization' type="text" pInputText>
                         </div>
                     </div>
 

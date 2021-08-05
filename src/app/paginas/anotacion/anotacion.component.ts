@@ -52,7 +52,41 @@ export class AnotacionComponent implements OnInit {
     this.rolSelect=this.objAnotacion["Rol"];
     this.fecha=new Date(this.objAnotacion["Date"]);    
     console.log("Desde Anotacion: ",this.modo_accesoSelect);
+    this.startTimer();
+  }
 
+  timeLeft: number = 60;
+  interval;
+  startTimer() {
+      this.interval = setInterval(() => {          
+          this.saveInfo();
+        if(this.timeLeft > 0) {
+          this.timeLeft--;
+        } else {
+          this.timeLeft = 60;
+        }
+      },2000)
+    }   
+
+
+  cambio_modo_accesoSelect(){
+    console.log(this.modo_accesoSelect);
+    this.objAnotacion["Mode Access"]=this.modo_accesoSelect;
+  }    
+
+  cambio_modo_suficienteSelect(){
+    console.log(this.modo_suficienteSelect);
+    this.objAnotacion["Mode Access Sufficient"]=this.modo_suficienteSelect;
+  }
+
+  cambio_rolSelect(){
+    console.log(this.rolSelect);
+    this.objAnotacion["Rol"]=this.rolSelect; 
+  }
+    
+     
+  saveInfo(){
+    this.lompadservice.setAnotacion(this.objAnotacion);
   }
 
 }

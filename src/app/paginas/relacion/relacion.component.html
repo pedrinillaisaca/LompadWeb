@@ -6,7 +6,7 @@
         <div class="card">
             <div class="p-fluid">
                 <!-- [(ngModel)]="selectedDrop" -->
-                <p-dropdown [options]="tipos" [(ngModel)]='tiposSelect' name='tiposSelect' placeholder='{{"Seleccionar"| translate}} ' [showClear]="true"></p-dropdown>
+                <p-dropdown [options]="tipos" [(ngModel)]='tiposSelect' name='tiposSelect' (onChange)='cambio_tiposSelect()' placeholder='{{"Seleccionar"| translate}} ' [showClear]="true"></p-dropdown>
             </div>
         </div>
     </div>

@@ -13,7 +13,7 @@ import {Component} from '@angular/core';
 					<h1 style="font-size: 18px;
                  	color: $textColor;
                  	font-weight: normal;
-    	       		margin: 0;">LOM LRMI Web</h1>						
+    	       		margin: 0;">LOMpad Schema</h1>						
 				</div>
 			</div>
 			
@@ -42,7 +42,7 @@ import {Component} from '@angular/core';
 				</div> -->
 
 				<div class="p-mb-3 p-text-rigth">											
-					<img src="assets/layout/images/cofinanciado_derecha.png" style="height: 60px; width:200px"  />									
+					<img src="assets/layout/images/cofinanciado_derecha.png" style="height: 60px; width:235px"  />									
 				</div>
 
 		

@@ -38,7 +38,7 @@ export class InicioComponent implements OnInit {
 
 
 ngOnInit(): void {   
-    this.submit();
+    this.submit();//importante 
 }
 
 
@@ -76,6 +76,7 @@ onUpload(event) {
   //AQUI TENGO QUE CONFIGUAR LA COOKIE PARA GUARDAR LOS DATOS DEL HASH DE CONEXION 
 
   this.lompadservice.getobject();
+  
 }
 
 }

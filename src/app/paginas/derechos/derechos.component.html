@@ -4,7 +4,7 @@
         <div class="card">
             <div class="p-fluid">
                 <!-- [(ngModel)]="selectedDrop" -->
-                <p-dropdown [options]="coste" [(ngModel)]='costeSelect' name='costeSelect' placeholder='{{"Seleccionar" | translate}} ' [showClear]="true"></p-dropdown>
+                <p-dropdown [options]="coste" [(ngModel)]='costeSelect' name='costeSelect' (onChange)='cambio_costeSelect()' placeholder='{{"Seleccionar" | translate}} ' [showClear]="true"></p-dropdown>
             </div>
         </div>
     </div>
@@ -14,7 +14,7 @@
         <div class="card">
             <div class="p-fluid">
                 <!-- [(ngModel)]="selectedDrop" -->
-                <p-dropdown [options]="decision" [(ngModel)]='decisionSelect' name='decisionSelect' placeholder='{{"Seleccionar" | translate}} ' [showClear]="true"></p-dropdown>
+                <p-dropdown [options]="decision" [(ngModel)]='decisionSelect' name='decisionSelect' (onChange)='cambio_decisionSelect()' placeholder='{{"Seleccionar" | translate}} ' [showClear]="true"></p-dropdown>
             </div>
         </div>
     </div>

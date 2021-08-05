@@ -23,22 +23,22 @@ export class LompadService{
     this.perfil="IMS";
   }
 
-  // timeLeft: number = 60;
-  // interval;
+  onInit():void{
+    console.log("AAAAAAAAAAAAAAAAAAAAAAAA")
+  }
 
-  // startTimer() {
-  //     this.interval = setInterval(() => {
-  //         // this.enableGeneral=this.app.enableGeneral;      
-  //       if(this.timeLeft > 0) {
-  //         this.timeLeft--;
-  //       } else {
-  //         this.timeLeft = 60;
-  //       }
-  //     },1000)
-  //   }           
+
+
+  // Service message commands
+  // callComponentMethod(value:any) {
+  //   this.customSubject.next(value);
+  // }
+
 
   setObjson(objsonp:any){
-    this.objPricipal=objsonp;  
+    this.objPricipal=objsonp; 
+    // this.actualizacionGeneral();
+    // this.objPricipal$=objsonp;  
     // console.log(this.objPricipal['DATA']['general']);
   }
    async getobject(){
@@ -98,6 +98,7 @@ export class LompadService{
   // AREA DE ACTUALIZACION
   
   setObjectGeneral(obj:any) {
+    console.log("setObjetGeneral")
     this.objPricipal['DATA']['general']=obj;
     this.objPricipal$.next(this.objPricipal);
   }
@@ -140,6 +141,11 @@ export class LompadService{
   setClasifiaction(obj:any){
     this.objPricipal["DATA"]["classification"]=obj;
     this.objPricipal$.next(this.objPricipal);
+  }
+
+  actualizacionGeneral(){    
+    this.objPricipal$.next(this.objPricipal);
+    console.log("actualizaion Obj GENeral; ",this.objPricipal$);
   }
 
   

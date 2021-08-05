@@ -5,6 +5,7 @@ import { PrimeNGConfig, MegaMenuItem } from 'primeng/api';
 import {AppComponent} from './app.component';
 
 
+
 @Component({
     selector: 'app-main',
     templateUrl: './app.main.component.html',
@@ -81,14 +82,14 @@ export class AppMainComponent {
         public renderer: Renderer2,
         private menuService: MenuService,
         private primengConfig: PrimeNGConfig,
-        public app: AppComponent
+        public app: AppComponent        
         ) {}
 
         public setGeneral(param:boolean){
             this.enableGeneral=param;
         }
    
-    onLayoutClick() {
+        onLayoutClick() {
         if (!this.topbarItemClick) {
             this.activeTopbarItem = null;
             this.topbarMenuActive = false;
@@ -145,6 +146,10 @@ export class AppMainComponent {
         this.megaMenuMobileClick = false;
         this.rightPanelClick = false;
     }
+
+    // saveInfoGeneral(){
+    //     this.generalcom.saveInfo();
+    // }
 
     onMegaMenuButtonClick(event) {
         this.megaMenuClick = true;

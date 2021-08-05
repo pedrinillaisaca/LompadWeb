@@ -32,6 +32,31 @@ export class TecnicaComponent implements OnInit {
     this.objTecnica=this.lompadservice.getObjTecnica();
     console.log("DEsde TEcnica: ",this.objTecnica);
     this.req_tipo_select=this.objTecnica['Requirement']['OrComposite']['Type'];
+    this.startTimer();
   }
+
+
+  cambioreq_tipo_select(){
+    console.log(this.req_tipo_select);
+    this.objTecnica['Requirement']['OrComposite']['Type']=this.req_tipo_select
+  }
+
+  timeLeft: number = 60;
+  interval;
+  startTimer() {
+      this.interval = setInterval(() => {          
+          this.saveInfo();
+        if(this.timeLeft > 0) {
+          this.timeLeft--;
+        } else {
+          this.timeLeft = 60;
+        }
+      },2000)
+    } 
+    
+  saveInfo(){
+    this.lompadservice.setObjTecnica(this.objTecnica);
+  }
+    
 
 }

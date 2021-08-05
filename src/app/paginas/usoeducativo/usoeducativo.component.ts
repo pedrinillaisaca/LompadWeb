@@ -19,7 +19,7 @@ export class UsoeducativoComponent implements OnInit {
   destinatarios:any[];
   contextos:any[];
   dificultades:any[];
-  edad=12;
+  edad:number;
   objUsoEdu:any[];
 
   //asdlkfjasdklj
@@ -51,6 +51,15 @@ export class UsoeducativoComponent implements OnInit {
       {label: 'Figura', value: 'figure', code: 'fig'},
       {label: 'Gráfico', value: 'graph', code: 'gra'},
       {label: 'Indice', value:  'index', code: 'in'},
+      {label: 'Diapositiva', value:  'slide', code: 'in'},
+      {label: 'tabla', value:  'table', code: 'in'},
+      {label: 'texto narrativo', value:  'narrative text', code: 'in'},
+      {label: 'examen', value:  'exam', code: 'in'},
+      {label: 'experimento', value:  'experiment', code: 'in'},
+      {label: 'planteamiento del problema', value:  'problem statement', code: 'in'},
+      {label: 'autoevaluacion', value:  'self assessment', code: 'in'},
+      {label: 'conferencia', value:  'lecture', code: 'in'},
+      
      
     ];
     this.nivelesInteractividad=[
@@ -101,8 +110,65 @@ export class UsoeducativoComponent implements OnInit {
     this.contextosSelect=this.objUsoEdu["Context"];
     this.dificultadesSelect=this.objUsoEdu["Difficulty"];
 
+    this.edad=+this.objUsoEdu["Typical Age Range"];
 
 
+    this.startTimer();
+  }
+
+
+
+  timeLeft: number = 60;
+  interval;
+  startTimer() {
+      this.interval = setInterval(() => {          
+          this.saveInfo();
+        if(this.timeLeft > 0) {
+          this.timeLeft--;
+        } else {
+          this.timeLeft = 60;
+        }
+      },2000)
+    }  
+                                  
+    cambio_tiposActividad(){
+      console.log(this.tiposActividadSelect)
+      this.objUsoEdu["Interactivity Type"]=this.tiposActividadSelect;
+    }
+
+    cambio_tiposRecursEducativos(){
+      console.log(this.tiposRecursEducativosSelect);
+      this.objUsoEdu["Learning Resource Type"]=this.tiposRecursEducativosSelect;
+    }
+    
+    cambio_nivelesInteractividadSelect(){
+      console.log(this.nivelesInteractividadSelect);
+      this.objUsoEdu["Interactivity Level"]=this.nivelesInteractividadSelect;
+    }
+
+    cambio_densiadesSemanticasSelect(){
+      console.log(this.densiadesSemanticasSelect);
+      this.objUsoEdu["Semantic Density"]=this.densiadesSemanticasSelect;
+    }
+    
+    cambio_destinatariosSelect(){
+      console.log(this.destinatariosSelect);
+      this.objUsoEdu["Intended End User Roles"]=this.destinatariosSelect;
+    }
+    
+    cambio_contextosSelect(){
+      console.log(this.contextosSelect)  
+      this.objUsoEdu["Context"]=this.contextosSelect;
+    }
+    
+    cambio_dificultadesSelect(){
+      console.log(this.dificultadesSelect);
+      this.objUsoEdu["Difficulty"]=this.dificultadesSelect;
+    }
+              
+  saveInfo(){
+    this.objUsoEdu["Typical Age Range"]=String(this.edad)
+    this.lompadservice.setUsoEducativo(this.objUsoEdu);
   }
 
 }

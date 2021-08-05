@@ -28,7 +28,7 @@
                 <h5>{{"Tipo" | translate}}</h5>
                 <div class="p-fluid">
                     <!-- [(ngModel)]="selectedDrop" -->
-                    <p-dropdown [options]="tipos" [(ngModel)]='tipos_Select' name='tipos_Select' placeholder='{{"Seleccionar" | translate}} ' [showClear]="true"></p-dropdown>
+                    <p-dropdown [options]="tipos" [(ngModel)]='tipos_Select' name='tipos_Select' (onChange)='cambioTipos()' placeholder='{{"Seleccionar" | translate}} ' [showClear]="true"></p-dropdown>
                 </div>
 
             </div>

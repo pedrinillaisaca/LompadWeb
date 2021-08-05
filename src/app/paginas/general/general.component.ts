@@ -1,5 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { AppComponent } from 'src/app/app.component';
 import { LompadService } from 'src/app/servicios/lompad.service';
 import { ObjOptions } from '../../modelo/objOptions';
@@ -21,6 +22,9 @@ export class GeneralComponent implements OnInit {
 
 
   general_obj:any;
+
+  objprincipal:any;
+	objprincipal$: Observable<any>;
   
 
   
@@ -28,17 +32,32 @@ export class GeneralComponent implements OnInit {
   constructor(
     private componentePrincipal: AppComponent,
     private lompadservice: LompadService    
-    ) {
+    ) {}
 
-     }
+
+
+  timeLeft: number = 60;
+  interval;
+startTimer() {
+      this.interval = setInterval(() => {          
+          this.saveInfo();
+        if(this.timeLeft > 0) {
+          this.timeLeft--;
+        } else {
+          this.timeLeft = 60;
+        }
+      },2000)
+    }   
+    
+
 
   ngOnInit(): void {    
     this.estructuras=[
-      {label: 'atómica', value: '1', code: 'ato'},
-      {label: 'colección', value: '2', code: 'coll'},
-      {label: 'en red', value:  '3', code: 'red'},
-      {label: 'jerárquica', value: '4', code: 'je'},
-      {label: 'lineal', value:  '5', code: 'li'}
+      {label: 'atómica', value: 'atomic', code: 'ato'},
+      {label: 'colección', value: 'collection', code: 'coll'},
+      {label: 'en red', value:  'networked', code: 'red'},
+      {label: 'jerárquica', value: 'hiperarchical', code: 'je'},
+      {label: 'lineal', value:  'linear', code: 'li'}
       
     ];
     
@@ -54,19 +73,32 @@ export class GeneralComponent implements OnInit {
 
     this.ObjOptions=this.componentePrincipal.objOptions;
 
+
+
     this.general_obj=this.lompadservice.getObjectGeneral();    
+    // this.objprincipal$=this.lompadservice.getObjectPrincipal$();
+		// this.objprincipal$.subscribe(objto => this.objprincipal=objto);
+    // this.general_obj=this.objprincipal["DATA"]["general"];
     console.log("Desde General :  ",this.general_obj);
 
     // PILAS CON ESTOS
-    this.estructuraSelect="2";
+    this.estructuraSelect=this.general_obj["Structure"];
     this.nivel_select=this.general_obj['Aggregation Level'];
 
     this.cargarkeywords();
-  }  
+    this.startTimer();
+    // this.lompadservice.customObservable.subscribe((res) => {
+    //   this.saveInfo();
+    // });
+  } 
+  
+
 addPalabra() {
   this.palabraDialog=true;
   
 }
+
+
 
 cancelPalabra(){
   this.palabraDialog=false;
@@ -92,8 +124,6 @@ cargarkeywords(){
   });
 }
 
-
-
 cambioEstructura(){  
   console.log(this.estructuraSelect);
   this.general_obj["Structure"]=this.estructuraSelect;
@@ -101,7 +131,15 @@ cambioEstructura(){
 
 cambio_nivel(){  
   console.log(this.nivel_select);
-  this.general_obj["Aggregation Level"]=this.nivelesAgregacion;
+  this.general_obj["Aggregation Level"]=this.nivel_select;
 }
+
+
+public saveInfo(){ 
+  this.general_obj["Keyword"]=this.columns;  
+  this.lompadservice.setObjectGeneral(this.general_obj);
+}
+
+
 
 }
