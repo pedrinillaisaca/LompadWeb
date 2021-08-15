@@ -184,12 +184,12 @@ import { Observable } from 'rxjs';
 					
                 </div>
 
-				<!-- ICONOS "-->
+				<!-- ICONOS "
 				<div class="icons" style="padding-top: 2.4%;">
 						<div class="icon icon-hastag">
 							<i class="pi pi-home" ></i>
 						</div>							
-				</div>
+				</div>-->
 				               
 				<div class="layout-topbar-wrapper">
 					<div class="layout-topbar-left"> 
@@ -239,7 +239,7 @@ export class AppTopBarComponent {
 	display1:boolean;
 
 	objprincipal:any;
-	objprincipal$: Observable<any>;
+	
 
 
     constructor(
@@ -262,9 +262,12 @@ export class AppTopBarComponent {
 			{label: 'LMRI', value: {id: 4, name: 'LMRI', code: 'lmri'}}                
         ];
 	
-		this.objprincipal$=this.loampadService.getObjectPrincipal$();
-		this.objprincipal$.subscribe(objto => this.objprincipal=objto);
+		// this.objprincipal$=this.loampadService.getObjectPrincipal$();
+		// this.objprincipal$.subscribe(objto => this.objprincipal=objto);
 
+		this.loampadService.objPricipal$.subscribe(param=>{
+			this.objprincipal=param;
+		});
 		
 		// this.conversionXML();
 		this.display1=false;				

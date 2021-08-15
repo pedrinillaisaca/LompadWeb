@@ -2,8 +2,14 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+const API_BACKEND="http://localhost:8000";
+
 export const environment = {
-  production: false
+  production: false,
+  URL_UPLOAD_FILE: `${API_BACKEND}/uploadfile`,
+  URL_READ_FILE: `${API_BACKEND}/private/read_file`,
+  URL_UPDATE_FILE:`${API_BACKEND}/private/update`,
+  URL_DOWNLOAD:`${API_BACKEND}/private_download`,
 };
 
 /*

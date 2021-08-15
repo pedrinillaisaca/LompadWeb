@@ -52,7 +52,7 @@ export class AnotacionComponent implements OnInit {
     this.rolSelect=this.objAnotacion["Rol"];
     this.fecha=new Date(this.objAnotacion["Date"]);    
     console.log("Desde Anotacion: ",this.modo_accesoSelect);
-    this.startTimer();
+    
   }
 
   timeLeft: number = 60;

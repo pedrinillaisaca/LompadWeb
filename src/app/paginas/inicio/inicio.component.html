@@ -17,7 +17,7 @@
                 <h5>Por favor configure la aplicación de acuerdo a lo que necesite</h5>
             </div>
 
-            <p-fileUpload (uploadHandler)="onUpload($event)" customUpload="true" multiple="multiple" accept=".rar,.zip" maxFileSize="1000000000000">
+            <p-fileUpload (uploadHandler)="onUpload($event)" customUpload="true" multiple="multiple" accept=".rar,.zip,.xml" maxFileSize="1000000000000">
                 <!-- <ng-template pTemplate="content">
                     <ul *ngIf="uploadedFiles.length">
                         <li *ngFor="let file of uploadedFiles" class="p-mb-3 p-text-center">{{file.name}} - {{file.size}} bytes</li>

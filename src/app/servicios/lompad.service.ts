@@ -1,37 +1,32 @@
-import { Injectable, OnInit } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Subject, Observable } from 'rxjs';
+import { EventEmitter, Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { ApiService } from './api.service';
+import { AppMainComponent } from '../app.main.component';
 
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type':  'application/json',
-    Authorization: 'my-auth-token'
-  })
-};
+
+
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class LompadService{  
-  private objPricipal:JSON;
-  private objPricipal$:Subject<JSON>
-
+export class LompadService{    
+  objPricipal$=new EventEmitter<JSON>();  
   private hash:string;
   private perfil:string;
+  private datosGenerales:any;
   
 
 
   constructor(
-    private http:HttpClient      
-  ) { 
-    this.objPricipal$=new Subject<JSON>();
-    this.hash="aqui va imsss_-8916712447647505675";
-    this.perfil="IMS";
-  }
-
-  onInit():void{
-    console.log("AAAAAAAAAAAAAAAAAAAAAAAA")
+    private http:HttpClient,
+    private api_servive:ApiService,
+    // private appMain:AppMainComponent   
+  ) {     
+    this.datosGenerales=JSON.parse(localStorage.getItem("perfil_hash"));//recuperacion DAtos
+    console.log("PREGARGA...  ",this.datosGenerales);
+    this.perfil=this.datosGenerales['PERFIL'];
+    this.hash=this.datosGenerales['HASHED_VALUE'];
   }
 
 
@@ -43,137 +38,162 @@ export class LompadService{
 
 
   setObjson(objsonp:any){
-    this.objPricipal=objsonp; 
-    // this.actualizacionGeneral();
-    // this.objPricipal$=objsonp;  
-    // console.log(this.objPricipal['DATA']['general']);
+    this.objPricipal$.emit(objsonp);
+    console.log('DATAAA');
+    console.log(this.objPricipal$);
   }
-   async getobject(){
-    // aqui va imsss_3938403494820753430
-    // this.http.get('http://localhost:8000/private/read_file/?hashed_code=ArchivoExportado_4602538962680866075&profile=SCORM').subscribe(
-    this.http.get('http://localhost:8000/private/read_file/?hashed_code=ArchivoExportado_-4735151486683075299&profile=SCORM').subscribe(  
+   async getobject(){    
+    this.http.get('http://localhost:8000/private/read_file/?hashed_code='+this.hash+'&profile='+this.perfil).subscribe(  
     (response)=> this.setObjson(response)    ,//console.log("Rsp===",response)
     (error)=> console.log("ERROR: ===>",error)      
-    );         
-    // this.http.post("http://localhost:8000/uploadfile", formData).subscribe(    
-    // (response) => this.lompadservice.setObjson(response), //this.lompadservice.setObjson(response)
-    // (error) => console.log(error)
-    // )  
+    );             
   }
 
-  getObjectPrincipal$(): Observable<JSON>{
-    return this.objPricipal$.asObservable();
+  // getObjectPrincipal$(): Observable<JSON>{
+  //   return this.objPricipal$.asObservable();
     
-  }
+  // }
 
-  getObjectGeneral() {
-    return this.objPricipal['DATA']['general'];  
-  }
+  // getObjectGeneral() {
+  //   return this.objPricipal['DATA']['general'];  
+  // }
 
-  getOjbLifeCycle(){
-    return  this.objPricipal["DATA"]["lifeCycle"];
-  }
+  // getOjbLifeCycle(){
+  //   return  this.objPricipal["DATA"]["lifeCycle"];
+  // }
 
-  getObjMetadata(){
-    return this.objPricipal["DATA"]["metaMetadata"];
-  }
+  // getObjMetadata(){
+  //   return this.objPricipal["DATA"]["metaMetadata"];
+  // }
 
-  getObjTecnica(){
-    return this.objPricipal["DATA"]["technical"];  
-  }
+  // getObjTecnica(){
+  //   return this.objPricipal["DATA"]["technical"];  
+  // }
 
-  getUsoEducativo(){
-    return this.objPricipal["DATA"]["educational"];
-  }
+  // getUsoEducativo(){
+  //   return this.objPricipal["DATA"]["educational"];
+  // }
 
-  getDerechos(){
-    return this.objPricipal["DATA"]["rights"];  
-  }
+  // getDerechos(){
+  //   return this.objPricipal["DATA"]["rights"];  
+  // }
 
-  getRelacion(){
-    return this.objPricipal["DATA"]["relation"];
-  }
+  // getRelacion(){
+  //   return this.objPricipal["DATA"]["relation"];
+  // }
 
-  getAnotacion(){
-    return this.objPricipal["DATA"]["annotation"];    
-  }
+  // getAnotacion(){
+  //   return this.objPricipal["DATA"]["annotation"];    
+  // }
 
-  getClasifiaction(){
-    return this.objPricipal["DATA"]["classification"];
-  }
+  // getClasifiaction(){
+  //   return this.objPricipal["DATA"]["classification"];
+  // }
 
+
+  // URL_UPLOAD_FILE: `${API_BACKEND}/uploadfile`,
+  // URL_READ_FILE: `${API_BACKEND}/private/read_file`,
+  // URL_UPDATE_FILE:`${API_BACKEND}/private/update`,
+  // URL_DOWNLOAD:`${API_BACKEND}/private_download`,
 
   // AREA DE ACTUALIZACION
   
   setObjectGeneral(obj:any) {
-    console.log("setObjetGeneral")
-    this.objPricipal['DATA']['general']=obj;
-    this.objPricipal$.next(this.objPricipal);
-    var data=JSON.stringify(obj.toLowerCase);    
-    console.log("DATA: ",typeof(data));
-    // this.http.post("http://localhost:8000/private/update/?hashed_code=ArchivoExportado_-4735151486683075299&hoja=general&data="+data,null).subscribe(    
-    // (response) => console.log(response), //this.lompadservice.setObjson(response)
-    // (error) => console.log("ERROR: ",error)
-    // )  
-    const init = {
-      method: 'POST'
-    };
+    console.log("setObjetGeneral: ")
+    // this.objPricipal['DATA']['general']=obj;
+    // this.actualizacionGeneral();
+    var data=JSON.stringify(obj).toLocaleLowerCase();    
+    // console.log("DATA: ",data);
+
     
-    fetch('http://localhost:8000/private/update/?hashed_code=ArchivoExportado_-4735151486683075299&hoja=general&data={"identifier":{"catalog":"weoritwru","entry":"entrada 1"},"title":"titutlo del general","language": "es","description": "descripcion del general.","keyword":["key1","key2"],"coverage":"ambitogeneral","structure":"atomic","aggregation level": "2"}', init)
-    .then((response) => {
-      return response.json(); // or .text() or .blob() ...
-    })
-    .then((text) => {
-      // text is the response body
-    })
-    .catch((e) => {
-      // error in e.message
-    });
+      console.log("ejecutando API");
+      this.api_servive.send_ObjectGeneral(data,'ArchivoExportado_-3762513805627016048','general')                
+    
+        
+    // var request = require('request');
+    // var options = {
+    //   'method': 'POST',
+    //   'url': 'http://localhost:8000/private/update/?hashed_code=ArchivoExportado_-3762513805627016048&hoja=general&data={"identifier":{"catalog":"PEDRO","entry":"ILLAISACA"},"title":"titutlo del general","language": "es","description": "descripcion del general.","keyword":["key1","key2"],"coverage":"ambitogeneral","structure":"atomic","aggregation level": "2"}',
+    //   'headers': {
+    //   }
+    // };
+    // request(options, function (error, response) {
+    //   if (error) throw new Error(error);
+    //   console.log("BIen!!!!!",response.body);
+    // });
+    
+    
   }
 
-  setOjbLifeCycle(obj:any){
-    this.objPricipal["DATA"]["lifeCycle"]=obj;
-    this.objPricipal$.next(this.objPricipal);
+  // setOjbLifeCycle(obj:any){
+  //   this.objPricipal["DATA"]["lifeCycle"]=obj;
+  //   this.actualizacionGeneral();
+  // }
+
+  // setObjMetadata(obj:any){
+  //   this.objPricipal["DATA"]["metaMetadata"]=obj;
+  //   this.actualizacionGeneral();
+  // }
+
+  // setObjTecnica(obj:any){
+  //   this.objPricipal["DATA"]["technical"]=obj;  
+  //   this.actualizacionGeneral();
+  // }
+
+  // setUsoEducativo(obj:any){
+  //   this.objPricipal["DATA"]["educational"]=obj;
+  //   this.actualizacionGeneral();
+  // }
+
+  // setDerechos(obj:any){
+  //   this.objPricipal["DATA"]["rights"]=obj;  
+  //   this.actualizacionGeneral();
+  // }
+
+  // setRelacion(obj:any){
+  //   this.objPricipal["DATA"]["relation"]=obj;
+  //   this.actualizacionGeneral();
+  // }
+
+  // setAnotacion(obj:any){
+  //   this.objPricipal["DATA"]["annotation"]=obj;    
+  //   this.actualizacionGeneral();
+  // }
+
+  // setClasifiaction(obj:any){
+  //   this.objPricipal["DATA"]["classification"]=obj;
+  //   this.actualizacionGeneral();
+  // }
+
+  // actualizacionGeneral(){    
+  //   this.objPricipal$.next(this.objPricipal);
+  //   // console.log("actualizaion Obj GENeral; ",this.objPricipal$);
+  // }
+
+
+  setArchivo(data:any){
+    console.log("Subiendo archivo...");
+
+    this.http.post("http://localhost:8000/uploadfile", data).subscribe(    
+      (response) => {
+        console.log("RESponse:  ",response);
+        localStorage.setItem("perfil_hash",JSON.stringify(response)); 
+        this.perfil=response['PERFIL'];
+        this.hash=response['HASHED_VALUE'];                 
+
+      }, 
+      (error) => console.log(error)
+    )  
+    console.log("submit2");
+    
+
+  // this.lompadservice.getobject();
+  
   }
 
-  setObjMetadata(obj:any){
-    this.objPricipal["DATA"]["metaMetadata"]=obj;
-    this.objPricipal$.next(this.objPricipal);
-  }
 
-  setObjTecnica(obj:any){
-    this.objPricipal["DATA"]["technical"]=obj;  
-    this.objPricipal$.next(this.objPricipal);
-  }
-
-  setUsoEducativo(obj:any){
-    this.objPricipal["DATA"]["educational"]=obj;
-    this.objPricipal$.next(this.objPricipal);
-  }
-
-  setDerechos(obj:any){
-    this.objPricipal["DATA"]["rights"]=obj;  
-    this.objPricipal$.next(this.objPricipal);
-  }
-
-  setRelacion(obj:any){
-    this.objPricipal["DATA"]["relation"]=obj;
-    this.objPricipal$.next(this.objPricipal);
-  }
-
-  setAnotacion(obj:any){
-    this.objPricipal["DATA"]["annotation"]=obj;    
-    this.objPricipal$.next(this.objPricipal);
-  }
-
-  setClasifiaction(obj:any){
-    this.objPricipal["DATA"]["classification"]=obj;
-    this.objPricipal$.next(this.objPricipal);
-  }
-
-  actualizacionGeneral(){    
-    this.objPricipal$.next(this.objPricipal);
-    console.log("actualizaion Obj GENeral; ",this.objPricipal$);
+  revLocal(){
+    return this.datosGenerales;
   }
 
   

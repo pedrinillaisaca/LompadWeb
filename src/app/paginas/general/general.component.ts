@@ -1,6 +1,6 @@
 
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, Input, OnChanges, OnInit, SimpleChanges, ɵNO_CHANGE } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
 import { AppComponent } from 'src/app/app.component';
 import { LompadService } from 'src/app/servicios/lompad.service';
 import { ObjOptions } from '../../modelo/objOptions';
@@ -11,10 +11,11 @@ import { ObjOptions } from '../../modelo/objOptions';
   templateUrl: './general.component.html',
   styleUrls: ['./general.component.css']
 })
-export class GeneralComponent implements OnInit {
+export class GeneralComponent implements OnInit, OnChanges {
   estructuras:any=[];
   nivelesAgregacion:any=[];
   columns:any[];
+
   palabra:string;  
   palabraDialog:boolean;  
   estructuraSelect:string;
@@ -34,23 +35,7 @@ export class GeneralComponent implements OnInit {
     private lompadservice: LompadService    
     ) {}
 
-
-
-  timeLeft: number = 60;
-  interval;
-startTimer() {
-      this.interval = setInterval(() => {          
-          this.saveInfo();
-        if(this.timeLeft > 0) {
-          this.timeLeft--;
-        } else {
-          this.timeLeft = 60;
-        }
-      },2000)
-    }   
-    
-
-
+ 
   ngOnInit(): void {    
     this.estructuras=[
       {label: 'atómica', value: 'atomic', code: 'ato'},
@@ -69,24 +54,20 @@ startTimer() {
     ];
 
     this.columns = [];
-
-
     this.ObjOptions=this.componentePrincipal.objOptions;
 
-
-
-    this.general_obj=this.lompadservice.getObjectGeneral();    
-    // this.objprincipal$=this.lompadservice.getObjectPrincipal$();
-		// this.objprincipal$.subscribe(objto => this.objprincipal=objto);
-    // this.general_obj=this.objprincipal["DATA"]["general"];
-    console.log("Desde General :  ",this.general_obj);
+    this.lompadservice.objPricipal$.subscribe(param=>{
+      this.general_obj=param;
+      console.log("Desde General :  ",this.general_obj);
+    });
+    
 
     // PILAS CON ESTOS
     this.estructuraSelect=this.general_obj["Structure"];
     this.nivel_select=this.general_obj['Aggregation Level'];
 
     this.cargarkeywords();
-    this.startTimer();
+    // this.startTimer();
     // this.lompadservice.customObservable.subscribe((res) => {
     //   this.saveInfo();
     // });
@@ -138,6 +119,10 @@ cambio_nivel(){
 public saveInfo(){ 
   this.general_obj["Keyword"]=this.columns;  
   this.lompadservice.setObjectGeneral(this.general_obj);
+}
+
+ngOnChanges(c:SimpleChanges):void {
+  console.log("CAMBIOS::    ", c);  
 }
 
 

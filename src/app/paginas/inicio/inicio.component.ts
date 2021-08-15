@@ -19,8 +19,7 @@ export class InicioComponent implements OnInit {
   uploadedFiles: any[] = [];
 
 
-  form: FormGroup;
-  API: "http://172.16.210.80:8000/uploadfile";
+  form: FormGroup;  
     
   
 
@@ -41,10 +40,16 @@ export class InicioComponent implements OnInit {
 
 
 ngOnInit(): void {   
-    this.submit();//importante 
+  this.comprobacion();
+    
 }
 
-
+comprobacion(){
+  if (this.lompadservice.revLocal()!=null){
+    this.lompadservice.getobject();
+    
+  }
+}
 
 onUpload(event) {    
   // const file = (event.target as HTMLInputElement).files[0];
@@ -53,8 +58,10 @@ onUpload(event) {
     file: file
   });
   this.form.get('file').updateValueAndValidity()   
-   
-  
+     
+  var formData: any = new FormData();
+  formData.append("file", this.form.get('file').value);
+  this.lompadservice.setArchivo(formData);
 }
 
   upload(event) {
@@ -66,22 +73,7 @@ onUpload(event) {
     this.form.get('file').updateValueAndValidity()
  }
 
- submit() {
-  console.log("Pulsando Submit");
-  // var formData: any = new FormData();
-  // formData.append("file", this.form.get('file').value);
-  // this.http.post("http://localhost:8000/uploadfile", formData).subscribe(    
-  //   (response) => this.lompadservice.setObjson(response), //this.lompadservice.setObjson(response)
-  //   (error) => console.log(error)
-  // )  
-  console.log("submit2");
-  this.appMain.staticMenuActive=true;
-  //AQUI TENGO QUE CONFIGUAR LA COOKIE PARA GUARDAR LOS DATOS DEL HASH DE CONEXION 
 
-  this.lompadservice.getobject();
-  // this.router.navigateByUrl("/paginas/general");
-  
-}
 
 }
 
