@@ -3,7 +3,6 @@ import {AppMainComponent} from './app.main.component';
 import { AppComponent } from './app.component';
 import { LompadService } from './servicios/lompad.service';
 import * as JsonToXML from 'js2xmlparser';
-import { Observable } from 'rxjs';
 
 
 
@@ -218,7 +217,23 @@ import { Observable } from 'rxjs';
 			
             <div class="p-field">	
 			<div *ngIf="band; then thenBlock else elseBlock"></div>
-			<ng-template #thenBlock><pre>{{objprincipal |  json}}</pre></ng-template>
+			<ng-template #thenBlock><pre>{{objprincipal |  json}}
+
+			<!-- <div *ngIf="(objprincipal | async) === true">
+			<li class="nav-item">
+				<p>hay algo</p>
+			</li>
+			</div>
+
+			<div *ngIf="(objprincipal | async) === false">
+			<li class="nav-item">
+				<p>no hay nada</p>
+			</li>
+			</div> -->
+
+			</pre></ng-template>
+
+
 			<ng-template #elseBlock><pre>{{objXML}}</pre></ng-template>
 		
 			<pre>{{objMostrar}}</pre>
@@ -268,6 +283,8 @@ export class AppTopBarComponent {
 		this.loampadService.objPricipal$.subscribe(param=>{
 			this.objprincipal=param;
 		});
+
+		this.objprincipal=this.loampadService.objPricipal['DATA'];
 		
 		// this.conversionXML();
 		this.display1=false;				

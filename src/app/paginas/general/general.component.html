@@ -1,5 +1,5 @@
 <div class="p-grid ">
-    <button (click)="saveInfo()">verga</button>
+
 
     <div *ngIf="ObjOptions.o1_1" class="p-col-12">
         <h5>{{"Idetificador" | translate}}</h5>
@@ -8,7 +8,7 @@
             <div class="p-fluid p-formgrid p-grid">
                 <label for="catalogo" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">{{"Catálogo" | translate}}</label>
                 <div class="p-field p-col">
-                    <input [(ngModel)]='general_obj["Identifier"]["Catalog"]' id="catalogo" type="text" pInputText>
+                    <input [(ngModel)]='general_obj["Identifier"]["Catalog"]' type="text" pInputText>
                 </div>
                 <label for="entrada" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">{{"Entrada" | translate}}</label>
                 <div class="p-field p-col">

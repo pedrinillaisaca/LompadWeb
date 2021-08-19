@@ -1,9 +1,9 @@
 
-import { Component, Input, OnChanges, OnInit, SimpleChanges, ɵNO_CHANGE } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AppComponent } from 'src/app/app.component';
 import { LompadService } from 'src/app/servicios/lompad.service';
 import { ObjOptions } from '../../modelo/objOptions';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -11,7 +11,7 @@ import { ObjOptions } from '../../modelo/objOptions';
   templateUrl: './general.component.html',
   styleUrls: ['./general.component.css']
 })
-export class GeneralComponent implements OnInit, OnChanges {
+export class GeneralComponent implements OnInit, OnDestroy {
   estructuras:any=[];
   nivelesAgregacion:any=[];
   columns:any[];
@@ -19,24 +19,23 @@ export class GeneralComponent implements OnInit, OnChanges {
   palabra:string;  
   palabraDialog:boolean;  
   estructuraSelect:string;
-  nivel_select:string;
-
-
+  nivel_select:string;  
   general_obj:any;
-
-  objprincipal:any;
-	objprincipal$: Observable<any>;
   
-
   
   ObjOptions:ObjOptions=new ObjOptions();
   constructor(
     private componentePrincipal: AppComponent,
     private lompadservice: LompadService    
-    ) {}
+  ) {}
 
+  loadDatos(){
+   this.general_obj=this.lompadservice.objPricipal['DATA']['general'];
+  }
+  
  
-  ngOnInit(): void {    
+  ngOnInit(): void { 
+    this.loadDatos();
     this.estructuras=[
       {label: 'atómica', value: 'atomic', code: 'ato'},
       {label: 'colección', value: 'collection', code: 'coll'},
@@ -52,79 +51,75 @@ export class GeneralComponent implements OnInit, OnChanges {
       {label: '3', value:  '3', code: '3'},
       {label: '4', value:  '4', code: '4'}
     ];
-
     this.columns = [];
     this.ObjOptions=this.componentePrincipal.objOptions;
-
-    this.lompadservice.objPricipal$.subscribe(param=>{
-      this.general_obj=param;
-      console.log("Desde General :  ",this.general_obj);
-    });
-    
-
+    // this.lompadservice.getobject().subscribe(param=>{
+    //   this.general_obj=param['DATA']['general'];
+    //   console.log('PARAMETRO: ',param);
+    // })
+    // this.general_obj=this.lompadservice.getObjectGeneral();
+    console.log("Desde General: ", this.general_obj);
     // PILAS CON ESTOS
     this.estructuraSelect=this.general_obj["Structure"];
     this.nivel_select=this.general_obj['Aggregation Level'];
-
-    this.cargarkeywords();
-    // this.startTimer();
-    // this.lompadservice.customObservable.subscribe((res) => {
-    //   this.saveInfo();
-    // });
+    this.cargarkeywords(); 
   } 
+
+ 
+  ngOnDestroy():void{    
+    this.general_obj["Keyword"]=this.columns;  
+    this.lompadservice.objPricipal['DATA']['general']=this.general_obj;    
+    console.log("Destroy General");    
+  }
   
 
-addPalabra() {
-  this.palabraDialog=true;
-  
-}
+  addPalabra() {
+    this.palabraDialog=true;
+    
+  }
 
 
 
-cancelPalabra(){
-  this.palabraDialog=false;
-}
+  cancelPalabra(){
+    this.palabraDialog=false;
+  }
 
-removeColumn() {
-  this.columns.splice(-1, 1);
-}
+  removeColumn() {
+    this.columns.splice(-1, 1);
+  }
 
-savePalabra(){
-  console.log(this.palabra);
-  this.palabraDialog=false;
-  this.columns.push(this.palabra);
-  this.palabra="";
-  
-}
+  savePalabra(){
+    console.log(this.palabra);
+    this.palabraDialog=false;
+    this.columns.push(this.palabra);
+    this.palabra="";
+    
+  }
 
-cargarkeywords(){
-  let keys:[]=this.general_obj["Keyword"];
-  keys.forEach(element => {
-    console.log("elementos ",element);
-    this.columns.push(element);    
-  });
-}
+  cargarkeywords(){
+    let keys:[]=this.general_obj["Keyword"];
+    keys.forEach(element => {
+      console.log("elementos ",element);
+      this.columns.push(element);    
+    });
+  }
 
-cambioEstructura(){  
-  console.log(this.estructuraSelect);
-  this.general_obj["Structure"]=this.estructuraSelect;
-}
+  cambioEstructura(){  
+    console.log(this.estructuraSelect);
+    this.general_obj["Structure"]=this.estructuraSelect;
+  }
 
-cambio_nivel(){  
-  console.log(this.nivel_select);
-  this.general_obj["Aggregation Level"]=this.nivel_select;
-}
+  cambio_nivel(){  
+    console.log(this.nivel_select);
+    this.general_obj["Aggregation Level"]=this.nivel_select;
+  }
 
 
-public saveInfo(){ 
-  this.general_obj["Keyword"]=this.columns;  
-  this.lompadservice.setObjectGeneral(this.general_obj);
-}
-
-ngOnChanges(c:SimpleChanges):void {
-  console.log("CAMBIOS::    ", c);  
-}
-
+  public saveInfo(){ 
+    
+    // this.lompadservice.setObjectGeneral(this.general_obj);
+    
+  }
 
 
 }

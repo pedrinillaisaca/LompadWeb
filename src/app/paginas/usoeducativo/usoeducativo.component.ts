@@ -36,7 +36,19 @@ export class UsoeducativoComponent implements OnInit {
     private lompadservice:LompadService
     ) { }
 
+  loadDatos(){
+    this.objUsoEdu=this.lompadservice.objPricipal['DATA']['educational'];
+  }
+     
+     
+  ngOnDestroy():void {
+    console.log("Destroy Uso Educativo");    
+    this.lompadservice.objPricipal['DATA']['educational']=this.objUsoEdu;
+  }
+       
+
   ngOnInit(): void {
+    this.loadDatos();
     this.tiposActividad=[
       {label: 'Activo', value: 'active', code: 'ac'},
       {label: 'Expositivo', value: 'expositive', code: 'ex'},    
@@ -99,7 +111,7 @@ export class UsoeducativoComponent implements OnInit {
 
     this.ObjOptions=this.componentePrincipal.objOptions;
 
-    this.objUsoEdu=this.lompadservice.getUsoEducativo();
+    // this.objUsoEdu=this.lompadservice.getUsoEducativo();
     console.log("DEsde Uso Edu: ", this.objUsoEdu);
 
     this.tiposActividadSelect=this.objUsoEdu["Interactivity Type"];
@@ -113,23 +125,12 @@ export class UsoeducativoComponent implements OnInit {
     this.edad=+this.objUsoEdu["Typical Age Range"];
 
 
-    this.startTimer();
+    
   }
 
 
 
-  timeLeft: number = 60;
-  interval;
-  startTimer() {
-      this.interval = setInterval(() => {          
-          this.saveInfo();
-        if(this.timeLeft > 0) {
-          this.timeLeft--;
-        } else {
-          this.timeLeft = 60;
-        }
-      },2000)
-    }  
+  
                                   
     cambio_tiposActividad(){
       console.log(this.tiposActividadSelect)
@@ -165,10 +166,6 @@ export class UsoeducativoComponent implements OnInit {
       console.log(this.dificultadesSelect);
       this.objUsoEdu["Difficulty"]=this.dificultadesSelect;
     }
-              
-  saveInfo(){
-    this.objUsoEdu["Typical Age Range"]=String(this.edad)
-    this.lompadservice.setUsoEducativo(this.objUsoEdu);
-  }
+
 
 }

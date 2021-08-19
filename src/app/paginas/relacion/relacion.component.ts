@@ -20,7 +20,16 @@ export class RelacionComponent implements OnInit {
     private lompadservice:LompadService
     ) { }
 
-
+  loadDatos(){
+    this.objRelacion=this.lompadservice.objPricipal['DATA']['relation'];
+  }
+     
+     
+  ngOnDestroy():void {
+    console.log("Destroy Relacion");    
+    this.lompadservice.objPricipal['DATA']['relation']=this.objRelacion;
+  }
+     
   ngOnInit(): void {
     this.tipos=[
       {label: 'es parte de', value: 'ispartof', code: 's_p_d'},
@@ -36,30 +45,18 @@ export class RelacionComponent implements OnInit {
       {label: 'es requerido por', value:  'is required by', code: 't234'}
     ];
     this.ObjOptions=this.componentePrincipal.objOptions;
-    this.objRelacion=this.lompadservice.getRelacion();
+    // this.objRelacion=this.lompadservice.getRelacion();
     this.tiposSelect=this.objRelacion["Kind"];
-    this.startTimer();
+    
   }
 
-  timeLeft: number = 60;
-  interval;
-  startTimer() {
-      this.interval = setInterval(() => {          
-          this.saveInfo();
-        if(this.timeLeft > 0) {
-          this.timeLeft--;
-        } else {
-          this.timeLeft = 60;
-        }
-      },2000)
-    }   
-  
+ 
   cambio_tiposSelect(){
     console.log(this.tiposSelect);    
     this.objRelacion["Kind"]=this.tiposSelect;
   }
-  saveInfo(){
-    this.lompadservice.setRelacion(this.objRelacion);
-  }
+  // saveInfo(){
+  //   this.lompadservice.setRelacion(this.objRelacion);
+  // }
 
 }

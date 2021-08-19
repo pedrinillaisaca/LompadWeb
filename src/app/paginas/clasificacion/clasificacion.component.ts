@@ -21,8 +21,14 @@ export class ClasificacionComponent implements OnInit {
   constructor(
     private componentePrincipal: AppComponent,
     private lompadservice:LompadService
-    ) { }
-  
+  ) { }
+  loadDatos(){
+    this.objClasification=this.lompadservice.objPricipal['DATA']['classification'];
+  }      
+  ngOnDestroy():void {
+    console.log("Destroy ciclo de vida");    
+    this.lompadservice.objPricipal['DATA']['classification']=this.objClasification;
+  }       
   ngOnInit(): void {
     this.propositos=[
       {label: 'disciplina', value: 'discipline', code: 'dis'},
@@ -38,10 +44,10 @@ export class ClasificacionComponent implements OnInit {
 
     this.ObjOptions=this.componentePrincipal.objOptions;
     this.columns = [];
-    this.objClasification=this.lompadservice.getClasifiaction();
+    
     this.propositosSelect=this.objClasification["Purpose"];
     console.log("DEsde Calsificacion: ", this.objClasification);
-    this.startTimer();
+    
   }
 
   addPalabra() {
@@ -71,22 +77,6 @@ export class ClasificacionComponent implements OnInit {
   }
 
 
-  timeLeft: number = 60;
-  interval;
-  startTimer() {
-      this.interval = setInterval(() => {          
-          this.saveInfo();
-        if(this.timeLeft > 0) {
-          this.timeLeft--;
-        } else {
-          this.timeLeft = 60;
-        }
-      },2000)
-    }   
-    
-  saveInfo(){
-    this.lompadservice.setClasifiaction(this.objClasification);
-  }
 
 
 

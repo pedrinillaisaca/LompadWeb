@@ -23,9 +23,17 @@ export class AnotacionComponent implements OnInit {
   constructor(
     private componentePrincipal: AppComponent,
     private lompadservice: LompadService
-    ) { }
+  ) { }
 
+  loadDatos(){
+    this.objAnotacion=this.lompadservice.objPricipal['DATA']['annotation'];
+  }      
+  ngOnDestroy():void {
+    console.log("Destroy ciclo de vida");    
+    this.lompadservice.objPricipal['DATA']['annotation']=this.objAnotacion;
+  }     
   ngOnInit(): void {
+    this.loadDatos();
     this.ObjOptions=this.componentePrincipal.objOptions;
     this.modo_acceso=[
       {label: 'visual', value: 'visual', code: 'visu'},
@@ -46,27 +54,14 @@ export class AnotacionComponent implements OnInit {
       {label: 'Profesores', value:  'teachers', code: 'prof'},
       {label: 'Aplicación', value: 'application', code: 'app'}      
     ];
-    this.objAnotacion=this.lompadservice.getAnotacion();
+    
     this.modo_accesoSelect=this.objAnotacion["Mode Access"];
     this.modo_suficienteSelect=this.objAnotacion["Mode Access Sufficient"];
     this.rolSelect=this.objAnotacion["Rol"];
     this.fecha=new Date(this.objAnotacion["Date"]);    
-    console.log("Desde Anotacion: ",this.modo_accesoSelect);
+    console.log("Desde Anotacion: ",this.objAnotacion);
     
   }
-
-  timeLeft: number = 60;
-  interval;
-  startTimer() {
-      this.interval = setInterval(() => {          
-          this.saveInfo();
-        if(this.timeLeft > 0) {
-          this.timeLeft--;
-        } else {
-          this.timeLeft = 60;
-        }
-      },2000)
-    }   
 
 
   cambio_modo_accesoSelect(){
@@ -85,8 +80,5 @@ export class AnotacionComponent implements OnInit {
   }
     
      
-  saveInfo(){
-    this.lompadservice.setAnotacion(this.objAnotacion);
-  }
 
 }

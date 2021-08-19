@@ -20,8 +20,18 @@ export class DerechosComponent implements OnInit {
   constructor(
     private componentePrincipal: AppComponent,
     private lompadservice:LompadService
-     ) { }
-  
+  ) { }
+
+  loadDatos(){
+    this.objderechos=this.lompadservice.objPricipal['DATA']['rights'];
+  }
+     
+     
+  ngOnDestroy():void {
+    console.log("Destroy Derechos");    
+    this.lompadservice.objPricipal['DATA']['rights']=this.objderechos;
+  } 
+          
   ngOnInit(): void {
     this.decision=[
       {label: 'si', value: 'yes', code: 'yes'},
@@ -31,27 +41,16 @@ export class DerechosComponent implements OnInit {
       {label: 'si', value: 'yes', code: 'yes'},
       {label: 'no', value: 'no', code: 'no'}
     ];
-    this.objderechos=this.lompadservice.getDerechos();
+    // this.objderechos=this.lompadservice.getDerechos();
     console.log("DEsde Derechos: ",this.objderechos);
     this.ObjOptions=this.componentePrincipal.objOptions;
     this.costeSelect=this.objderechos['Cost'];
     this.decisionSelect=this.objderechos['Copyright and Other Restrictions']; 
-    this.startTimer();
+    
   }
 
 
-  timeLeft: number = 60;
-  interval;
-  startTimer() {
-      this.interval = setInterval(() => {          
-          this.saveInfo();
-        if(this.timeLeft > 0) {
-          this.timeLeft--;
-        } else {
-          this.timeLeft = 60;
-        }
-      },2000)
-    }   
+  
     
   cambio_costeSelect(){
     console.log(this.costeSelect);
@@ -64,8 +63,8 @@ export class DerechosComponent implements OnInit {
   }
     
     
-  saveInfo(){
-    this.lompadservice.setDerechos(this.objderechos);
-  }
+  // saveInfo(){
+  //   this.lompadservice.setDerechos(this.objderechos);
+  // }
 
 }

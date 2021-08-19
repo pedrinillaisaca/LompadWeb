@@ -40,14 +40,15 @@ export class InicioComponent implements OnInit {
 
 
 ngOnInit(): void {   
-  this.comprobacion();
-    
+  // this.comprobacion();
+  this.appMain.staticMenuActive=true;
 }
 
 comprobacion(){
   if (this.lompadservice.revLocal()!=null){
-    this.lompadservice.getobject();
-    
+    this.lompadservice.getobject(); 
+    this.appMain.staticMenuActive=true;
+    this.router.navigateByUrl("/paginas/general");    
   }
 }
 
@@ -62,6 +63,8 @@ onUpload(event) {
   var formData: any = new FormData();
   formData.append("file", this.form.get('file').value);
   this.lompadservice.setArchivo(formData);
+  this.appMain.staticMenuActive=true;
+  this.router.navigateByUrl("/paginas/general");
 }
 
   upload(event) {
