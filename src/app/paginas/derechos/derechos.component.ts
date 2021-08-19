@@ -33,6 +33,7 @@ export class DerechosComponent implements OnInit {
   } 
           
   ngOnInit(): void {
+    this.loadDatos();
     this.decision=[
       {label: 'si', value: 'yes', code: 'yes'},
       {label: 'no', value: 'no', code: 'no'}
@@ -45,8 +46,7 @@ export class DerechosComponent implements OnInit {
     console.log("DEsde Derechos: ",this.objderechos);
     this.ObjOptions=this.componentePrincipal.objOptions;
     this.costeSelect=this.objderechos['Cost'];
-    this.decisionSelect=this.objderechos['Copyright and Other Restrictions']; 
-    
+    this.decisionSelect=this.objderechos['Copyright and Other Restrictions'];     
   }
 
 

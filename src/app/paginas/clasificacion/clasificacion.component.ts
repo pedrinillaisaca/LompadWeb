@@ -30,6 +30,7 @@ export class ClasificacionComponent implements OnInit {
     this.lompadservice.objPricipal['DATA']['classification']=this.objClasification;
   }       
   ngOnInit(): void {
+    this.loadDatos();
     this.propositos=[
       {label: 'disciplina', value: 'discipline', code: 'dis'},
       {label: 'idea', value: 'idea', code: 'id'},

@@ -31,6 +31,7 @@ export class RelacionComponent implements OnInit {
   }
      
   ngOnInit(): void {
+    this.loadDatos();
     this.tipos=[
       {label: 'es parte de', value: 'ispartof', code: 's_p_d'},
       {label: 'tiene parte', value:  'haspart', code: 't_p'},
@@ -45,7 +46,7 @@ export class RelacionComponent implements OnInit {
       {label: 'es requerido por', value:  'is required by', code: 't234'}
     ];
     this.ObjOptions=this.componentePrincipal.objOptions;
-    // this.objRelacion=this.lompadservice.getRelacion();
+    console.log("Desde Relacion: ",this.objRelacion);
     this.tiposSelect=this.objRelacion["Kind"];
     
   }
