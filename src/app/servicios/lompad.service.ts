@@ -24,7 +24,7 @@ export class LompadService{
 
   }
 
-  pregarga(){
+  pregarga(){//Usado cuando se desconecta el Frontend con el Blackend
     this.datosGenerales=JSON.parse(localStorage.getItem("perfil_hash"));//recuperacion DAtos
     if(this.datosGenerales !=null){
       console.log("tipo de dato;;;   ", typeof(this.datosGenerales));      
@@ -33,7 +33,17 @@ export class LompadService{
       console.log("perfl: ",this.perfil);
       console.log("hash; ",this.hash);      
       this.getobject();
-      // this.router.navigateByUrl("/paginas/general");/7PROBOCA ERRORES
+      // this.router.navigateByUrl("/paginas/general");//PROBOCA ERRORES
+    }    
+  }
+
+  pregargaSimple(){//Usado cuando se desconecta el Frontend con el Blackend
+    this.datosGenerales=JSON.parse(localStorage.getItem("perfil_hash"));//recuperacion DAtos
+    if(this.datosGenerales !=null){          
+      this.perfil=this.datosGenerales['PERFIL'];
+      this.hash=this.datosGenerales['HASHED_VALUE'];  
+      console.log("perfl: ",this.perfil);
+      console.log("hash; ",this.hash);                  
     }    
   }
 
@@ -49,41 +59,14 @@ export class LompadService{
     );              
   }
 
-  // AREA DE ACTUALIZACION
   
-  setObjectGeneral(obj:any) {
-    console.log("setObjetGeneral: ")
-    // this.objPricipal$['DATA']['general']=obj;
-    // this.actualizacionGeneral();
-    var data=JSON.stringify(obj).toLocaleLowerCase();    
-    // console.log("DATA: ",data);
+  
 
-    
-    console.log("ejecutando API");
-    this.api_servive.send_ObjectGeneral(data,'ArchivoExportado_-3762513805627016048','general')                
-    
-        
-    // var request = require('request');
-    // var options = {
-    //   'method': 'POST',
-    //   'url': 'http://localhost:8000/private/update/?hashed_code=ArchivoExportado_-3762513805627016048&hoja=general&data={"identifier":{"catalog":"PEDRO","entry":"ILLAISACA"},"title":"titutlo del general","language": "es","description": "descripcion del general.","keyword":["key1","key2"],"coverage":"ambitogeneral","structure":"atomic","aggregation level": "2"}',
-    //   'headers': {
-    //   }
-    // };
-    // request(options, function (error, response) {
-    //   if (error) throw new Error(error);
-    //   console.log("BIen!!!!!",response.body);
-    // });
-    
-    
-  }
 
 
 
   setArchivo(data:any){
-    console.log("Subiendo archivo...");
-    
-
+    console.log("Subiendo archivo...");    
     this.http.post("http://localhost:8000/uploadfile", data).subscribe(    
       (response) => {        
         localStorage.setItem("perfil_hash",JSON.stringify(response)); 
@@ -104,6 +87,49 @@ export class LompadService{
   revLocal(){
     return this.datosGenerales;
   }
+
+  // AREA DE ACTUALIZACION
+
+  saveObjectLompad(obj:any,hoja:string) {
+    console.log("Guardando: => ",hoja)  
+    var data=JSON.stringify(obj).toLocaleLowerCase();                     
+    this.pregargaSimple();
+    this.api_servive.send_ObjectApi(data,this.hash,hoja);//enviar solo el objeto y el has a actualizar                                    
+  }
+
+
+ 
+  // saveOjbLifeCycle(obj:any){   
+  // }
+ 
+  // saveObjMetadata(obj:any){
+  //   //return this.objPricipal["DATA"]["metaMetadata"];
+  // }
+ 
+  // saveObjTecnica(obj:any){
+  //   //return this.objPricipal["DATA"]["technical"];  
+  // }
+ 
+  // saveUsoEducativo(obj:any){
+  //   //return this.objPricipal["DATA"]["educational"];
+  // }
+ 
+  // saveDerechos(){
+  //   //return this.objPricipal["DATA"]["rights"];  
+  // }
+ 
+  // saveRelacion(){
+  //   //return this.objPricipal["DATA"]["relation"];
+  // }
+ 
+  // saveAnotacion(){
+  //   //return this.objPricipal["DATA"]["annotation"];    
+  // }
+ 
+  // saveClasifiaction(){
+  //   //return this.objPricipal["DATA"]["classification"];
+  // }
+ 
 
   
 

@@ -69,13 +69,13 @@ export class GeneralComponent implements OnInit, OnDestroy {
   ngOnDestroy():void{    
     this.general_obj["Keyword"]=this.columns;  
     this.lompadservice.objPricipal['DATA']['general']=this.general_obj;    
-    console.log("Destroy General");    
+    console.log("Destroy General");  
+    this.lompadservice.saveObjectLompad(this.general_obj,"general")  
   }
   
 
   addPalabra() {
-    this.palabraDialog=true;
-    
+    this.palabraDialog=true;    
   }
 
 

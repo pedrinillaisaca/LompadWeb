@@ -44,6 +44,7 @@ export class UsoeducativoComponent implements OnInit {
   ngOnDestroy():void {
     console.log("Destroy Uso Educativo");    
     this.lompadservice.objPricipal['DATA']['educational']=this.objUsoEdu;
+    this.lompadservice.saveObjectLompad(this.objUsoEdu,"educational");  
   }
        
 

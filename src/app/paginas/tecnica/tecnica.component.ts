@@ -28,6 +28,7 @@ export class TecnicaComponent implements OnInit {
     ngOnDestroy():void {
       console.log("Destroy tecnica");    
       this.lompadservice.objPricipal['DATA']['technical']=this.objTecnica;
+      this.lompadservice.saveObjectLompad(this.objTecnica,"technical");  
     }
          
   ngOnInit(): void {

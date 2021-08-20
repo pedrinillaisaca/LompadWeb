@@ -28,6 +28,7 @@ export class RelacionComponent implements OnInit {
   ngOnDestroy():void {
     console.log("Destroy Relacion");    
     this.lompadservice.objPricipal['DATA']['relation']=this.objRelacion;
+    this.lompadservice.saveObjectLompad(this.objRelacion,"relation");  
   }
      
   ngOnInit(): void {

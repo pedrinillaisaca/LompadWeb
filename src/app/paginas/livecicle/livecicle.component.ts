@@ -19,18 +19,16 @@ export class LivecicleComponent implements OnInit, OnDestroy {
   apellidoNew:string;
   mailNew:string;
   organizacionNew:string;
-  finalCard:string;
-  subcripcion:Subscription;
+    
       
   ObjOptions:ObjOptions=new ObjOptions();
   objprincipal:any;
-  objLiveClicle:any;
-  
-  fecha:any  
+  objLiveClicle:any;  
+  fecha:Date
 
   constructor(
     private componentePrincipal: AppComponent,
-    private lompadservice:LompadService   
+    private lompadservice:LompadService    
   ) {}
 
   loadDatos(){
@@ -71,18 +69,26 @@ export class LivecicleComponent implements OnInit, OnDestroy {
     console.log("desde ciclo de vida ",this.objLiveClicle);
     this.estadoSelect=this.objLiveClicle["Status"];
     this.tiposSelect=this.objLiveClicle["Contribute"]["Role"];
-    this.fecha= new Date(this.objLiveClicle["Contribute"]["Date"]);
+    this.fecha= new Date(this.objLiveClicle["Contribute"]["Date"]);        
     this.castVcard(this.objLiveClicle["Contribute"]["Entity"]);
             
   }
 
+//   getFormatedDate(date: Date, format: string) {    
+//     const datePipe = new DatePipe('en-US');
+//     return datePipe.transform(date, format);
+// }
+
   ngOnDestroy():void {
-    console.log("Destroy ciclo de vida");    
+    console.log("Destroy ciclo de vida"); 
+    this.actualizarVcard(this.objLiveClicle["Contribute"]["Entity"]);                       
+    this.objLiveClicle["Contribute"]["Date"]=this.fecha.toISOString();
     this.lompadservice.objPricipal['DATA']['lifeCycle']=this.objLiveClicle;
+    this.lompadservice.saveObjectLompad(this.objLiveClicle,"lifeCycle");  
   }
 
 
-  castVcard(card:string){    
+  castVcard(card:string){//lanzar desde ngOninit    
       var inicial=card;
       inicial=inicial.replace(" ","_");
       var list=inicial.split("\n");
@@ -101,7 +107,6 @@ export class LivecicleComponent implements OnInit, OnDestroy {
       console.log(mail)
       console.log(organization)
 
-
       this.nombreNew=nombre;
       
       this.apellidoNew=apellido
@@ -113,7 +118,7 @@ export class LivecicleComponent implements OnInit, OnDestroy {
 
   }
 
-  actualizarVcard(card:string){
+  actualizarVcard(card:string){//lanzar desde ngOnDestroy
     var carrd=card;
     var inicial=card;
       inicial=inicial.replace(" ","_");
@@ -128,13 +133,19 @@ export class LivecicleComponent implements OnInit, OnDestroy {
       var mail=list[4].split(":")[1];
       var organization=list[5].split(":")[1];
     
-
-      carrd=carrd.replace(nombre,this.nombreNew);
-      carrd=carrd.replace(apellido,this.apellidoNew);
-      carrd=carrd.replace(mail,this.mailNew);
-      carrd=carrd.replace(organization,this.organizacionNew);      
-      console.log("fiNal card: ",carrd);
-      this.objLiveClicle["Contribute"]["Entity"]=carrd;
+      carrd=carrd.replace(nombre,this.nombreNew.trim());
+      carrd=carrd.replace(apellido,this.apellidoNew.trim());
+      carrd=carrd.replace(mail,this.mailNew.trim());
+      carrd=carrd.replace(organization,this.organizacionNew.trim());   
+      const temFN=carrd.split("\n");
+      temFN[3]="FN:"+this.nombreNew.trim()+" "+this.apellidoNew.trim();
+      var final:string="";
+      temFN.forEach(element => {
+        final+=element+"\n";        
+      });
+      final=final.substring(0,final.length-1);
+      console.log("fiNal card: ",final);
+      this.objLiveClicle["Contribute"]["Entity"]=final;
   }
 
   
@@ -151,7 +162,7 @@ export class LivecicleComponent implements OnInit, OnDestroy {
 
 
   // saveInfo(){            
-  //   this.actualizarVcard(this.objLiveClicle["Contribute"]["Entity"]);              
+  
   //   this.lompadService.setOjbLifeCycle(this.objLiveClicle);     
   // }
 

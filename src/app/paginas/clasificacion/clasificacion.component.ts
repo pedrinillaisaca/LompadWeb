@@ -28,6 +28,7 @@ export class ClasificacionComponent implements OnInit {
   ngOnDestroy():void {
     console.log("Destroy ciclo de vida");    
     this.lompadservice.objPricipal['DATA']['classification']=this.objClasification;
+    this.lompadservice.saveObjectLompad(this.objClasification,"classification");  
   }       
   ngOnInit(): void {
     this.loadDatos();

@@ -30,6 +30,7 @@ export class DerechosComponent implements OnInit {
   ngOnDestroy():void {
     console.log("Destroy Derechos");    
     this.lompadservice.objPricipal['DATA']['rights']=this.objderechos;
+    this.lompadservice.saveObjectLompad(this.objderechos,"rights");  
   } 
           
   ngOnInit(): void {

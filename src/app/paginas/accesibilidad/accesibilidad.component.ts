@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AppComponent } from '../../app.component';
 import { LompadService } from '../../servicios/lompad.service';
 import { ObjOptions } from '../../modelo/objOptions';
+import { element } from 'protractor';
 
 @Component({
   selector: 'app-accesibilidad',
@@ -44,12 +45,33 @@ export class AccesibilidadComponent implements OnInit, OnDestroy {
       }       
     });
   }
+
+  updateArray(param:any[]){
+    const array=[];
+    param.forEach(element => {      
+      if(element.value==true){        
+        array.push(element.label);
+      }
+    });
+    return array;
+  }
+
+  updateValues(){
+    // var accessH_update:any[]=this.updateArray(this.accessApi);
+    this.objAccess['Accessibility Features']['Resource Content']['br']=this.updateArray(this.accessFeatures);
+    this.objAccess['Accessibility Hazard']['Properties']['br']=this.updateArray(this.accessHazard);
+    this.objAccess['Accessibility Control']['Methods']['br']=this.updateArray(this.accessControl);
+    this.objAccess['Accessibility API']['Compatible Resource']['br']=this.updateArray(this.accessApi);
+    
+  }
+  
+
    
   ngOnDestroy():void{
-    // this.accessFeatures.forEach(element => {
-    //   console.log("Elemento: ",element.label," Valor",element.value );
-    // });
-
+    console.log("Destroy Accesibilidad: ")
+    this.updateValues();
+    this.lompadservice.objPricipal['DATA']['accesibility']=this.objAccess;
+    this.lompadservice.saveObjectLompad(this.objAccess,"accesibility");  
   }
   ngOnInit(): void {        
     this.ObjOptions=this.componentePrincipal.objOptions;                                    
