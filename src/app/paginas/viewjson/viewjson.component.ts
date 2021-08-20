@@ -8,10 +8,10 @@ import { ApiService } from '../../servicios/api.service';
   styleUrls: ['./viewjson.component.css']
 })
 export class ViewjsonComponent implements OnInit {
-  public objson:Objson;
+  
   constructor(private apiservice: ApiService) { }  
   ngOnInit(): void {
-    this.apiservice.getObjson().subscribe(objson => (this.objson=objson));
+    
   }
 
 }

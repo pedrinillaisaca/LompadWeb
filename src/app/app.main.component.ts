@@ -181,6 +181,16 @@ export class AppMainComponent {
         event.preventDefault();
     }
 
+    onMegaMenuJSONClick(event){
+        this.megaMenuViewJSONClick=true;
+        event.preventDefault();
+    }
+
+    onMegaMenuXMLClick(event){
+        this.megaMenuViewXMLClick=true;
+        event.preventDefault();
+    }
+
     onMegaMenuClick(event) {
         this.megaMenuClick = true;
         event.preventDefault();

@@ -2,7 +2,6 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AppComponent } from '../../app.component';
 import { LompadService } from '../../servicios/lompad.service';
 import { ObjOptions } from '../../modelo/objOptions';
-import { element } from 'protractor';
 
 @Component({
   selector: 'app-accesibilidad',

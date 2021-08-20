@@ -2,6 +2,7 @@ import { EventEmitter, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ApiService } from './api.service';
 import { Router } from '@angular/router';
+import { saveAs } from 'file-saver';
 
 
 @Injectable({
@@ -17,7 +18,7 @@ export class LompadService{
   constructor(
     private http:HttpClient,
     private api_servive:ApiService,
-    private router:Router    
+    private router:Router,     
   ) {     
     this.pregarga();
 
@@ -59,11 +60,7 @@ export class LompadService{
     );              
   }
 
-  
-  
-
-
-
+    
 
   setArchivo(data:any){
     console.log("Subiendo archivo...");    
@@ -97,38 +94,33 @@ export class LompadService{
     this.api_servive.send_ObjectApi(data,this.hash,hoja);//enviar solo el objeto y el has a actualizar                                    
   }
 
+//AREA DE DESCARGA
+  downloadJSON(){
+    const file=new Blob([this.objPricipal],{type:'application/json'});
+    // const file=new Blob([JSON.stringify(this.objPricipal, null, 2)], {type: 'application/json'});    
+    // const url=window.URL.createObjectURL(file);
+    // new Blob([this.objPricipal], {type: 'application/json'});
+    var FileSaver = require('file-saver');    
+    var blob = new Blob([JSON.stringify(this.objPricipal, null, 2)], {type: 'application/json'});    
+    FileSaver.saveAs(blob, "pedro.json");
+  }
+
+
+  downloadXML(){
+    const file=new Blob([this.objPricipal],{type:'application/json'});
+    // const file=new Blob([JSON.stringify(this.objPricipal, null, 2)], {type: 'application/json'});    
+    // const url=window.URL.createObjectURL(file);
+    // new Blob([this.objPricipal], {type: 'application/json'});
+    var FileSaver = require('file-saver');    
+    var blob = new Blob([JSON.stringify(this.objPricipal, null, 2)], {type: 'application/json'});    
+    FileSaver.saveAs(blob, "pedro.json");
+  }
+
+
+
 
  
-  // saveOjbLifeCycle(obj:any){   
-  // }
- 
-  // saveObjMetadata(obj:any){
-  //   //return this.objPricipal["DATA"]["metaMetadata"];
-  // }
- 
-  // saveObjTecnica(obj:any){
-  //   //return this.objPricipal["DATA"]["technical"];  
-  // }
- 
-  // saveUsoEducativo(obj:any){
-  //   //return this.objPricipal["DATA"]["educational"];
-  // }
- 
-  // saveDerechos(){
-  //   //return this.objPricipal["DATA"]["rights"];  
-  // }
- 
-  // saveRelacion(){
-  //   //return this.objPricipal["DATA"]["relation"];
-  // }
- 
-  // saveAnotacion(){
-  //   //return this.objPricipal["DATA"]["annotation"];    
-  // }
- 
-  // saveClasifiaction(){
-  //   //return this.objPricipal["DATA"]["classification"];
-  // }
+  
  
 
   

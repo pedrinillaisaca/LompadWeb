@@ -2,10 +2,6 @@ import { Component,ViewChild } from '@angular/core';
 import {AppMainComponent} from './app.main.component';
 import { AppComponent } from './app.component';
 import { LompadService } from './servicios/lompad.service';
-import * as JsonToXML from 'js2xmlparser';
-
-
-
 
 @Component({
     selector: 'app-topbar',
@@ -16,7 +12,7 @@ import * as JsonToXML from 'js2xmlparser';
 					<!-- <div class="layout-topbar-logo-wrapper">
 						<a href="#" class="layout-topbar-logo">
 							<img src="assets/layout/images/logo-mirage@2x.png" alt="mirage-layout" />
-							<span class="app-name">PEDRO ILLAISACAAAAAAAAAAAAA </span>
+							<span class="app-name"> </span>
 						</a>
 					</div> -->
 
@@ -138,15 +134,22 @@ import * as JsonToXML from 'js2xmlparser';
 							
 						</ul>
 
-						<!-- MEGA MENU PERSONALIZADO 
+
+						
+
+
+					
+
+						<!-- MEGA MENU PERSONALIZADO  -->
 						<ul class="layout-megamenu" [ngClass]="{'layout-megamenu-active fadeInDown': appMain.megaMenuViewJSON}"
-							(click)="appMain.onMegaMenuPerfilClick($event)" style="margin-left: 0cm;">
+							(click)="appMain.onMegaMenuJSONClick($event)" style="margin-left: 14cm;">
 							<li>
-								
-								
+							<a href="#">{{'juan' | translate}}<i class="pi pi-angle-down"></i></a>
+								<ul><button pButton pRipple type="button" label="JSON" (click)="descarga()"></button></ul>								
+								<ul><button pButton pRipple type="button" label="XML"></button></ul>																															
 							</li>
 							
-						</ul> -->
+						</ul>
 
 
 						<!-- MEGA MENU PERSONALIZADO  
@@ -169,6 +172,10 @@ import * as JsonToXML from 'js2xmlparser';
 
 						<a class="layout-megamenu-button" style="margin-left: 30px;" href="#" (click)="appMain.onMegamenuButtonPerfiles($event)">							
 						{{'Perfíles' | translate}}
+						</a>
+
+						<a class="layout-megamenu-button" style="margin-left: 30px;" href="#" (click)="appMain.onMegamenuButtonJSON($event)">							
+						{{'DEscarga' | translate}}
 						</a>
 
 
@@ -218,19 +225,7 @@ import * as JsonToXML from 'js2xmlparser';
             <div class="p-field">	
 			<div *ngIf="band; then thenBlock else elseBlock"></div>
 			<ng-template #thenBlock><pre>{{objprincipal |  json}}
-
-			<!-- <div *ngIf="(objprincipal | async) === true">
-			<li class="nav-item">
-				<p>hay algo</p>
-			</li>
-			</div>
-
-			<div *ngIf="(objprincipal | async) === false">
-			<li class="nav-item">
-				<p>no hay nada</p>
-			</li>
-			</div> -->
-
+			
 			</pre></ng-template>
 
 
@@ -240,6 +235,9 @@ import * as JsonToXML from 'js2xmlparser';
             </div>
         </ng-template>       
     	</p-dialog>
+
+
+		
     `
 })
 export class AppTopBarComponent {
@@ -315,6 +313,12 @@ export class AppTopBarComponent {
 		}else{
 			this.band=false;
 		}
+	}
+
+
+	descarga(){
+		console.log("LLAMANDO A DESCARGA");
+		this.loampadService.downloadJSON();
 	}
 		   
 
