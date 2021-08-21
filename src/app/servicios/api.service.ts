@@ -31,6 +31,37 @@ export class ApiService {
     //   .catch(error => console.log('error', error));    
   }
 
+   api_DownloadFile(hash_param:string){   
+    console.log(hash_param);
+    var param;
+    fetch("http://localhost:8000/private/download/?hashed_code="+hash_param, {
+    // fetch("http://localhost:8000/private/download/?hashed_code=ArchivoExportado_-6482018054697832733",{
+      method: 'GET',
+      redirect: 'follow'
+    })
+      .then(response => response.text())
+      .then(result => param=result)
+      .catch(error => console.log('error', error));    
+    return param;
+  }
+
+  getXML(){
+    return new Promise((resolve,reject)=>{
+      var param;
+      // fetch("http://localhost:8000/private/download/?hashed_code="+hash_param, {
+      fetch("http://localhost:8000/private/download/?hashed_code=ArchivoExportado_-6482018054697832733",{
+        method: 'GET',
+        redirect: 'follow'
+      })
+        .then(response => response.text())
+        .then(result => param=result)
+        .catch(error => console.log('error', error));   
+      resolve(param);
+    });
+  }
+
+
+
   // send_OjbLifeCycle(obj:any){
  
   // }
