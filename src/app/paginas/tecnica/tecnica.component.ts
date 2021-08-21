@@ -13,20 +13,52 @@ export class TecnicaComponent implements OnInit {
   tiposOr:any[];
   objTecnica:any;
   req_tipo_select:string;
+  years:number;
+  months:number;
+  days:number;
+  hours:number;
+  minutes:number;
+
 
   ObjOptions:ObjOptions=new ObjOptions();
   constructor(
     private componentePrincipal: AppComponent,
     private lompadservice:LompadService
     ) { }
-  
+   
     loadDatos(){
       this.objTecnica=this.lompadservice.objPricipal['DATA']['technical'];
+      try {
+        this.castTime(this.objTecnica['Duration']); 
+      } catch (error) {
+        console.log("Controlado: años meses ...etc");
+      }
+      
+    }
+    castTime(param:string){
+      var one=param.split('DT')[0];
+      var dos=param.split('DT')[1];
+      one=one.substr(1,one.length);
+      this.years=+one.split("Y")[0];
+      this.months=+one.split("Y")[1].split("M")[0];      
+      this.days=+one.split("Y")[1].split("M")[1];
+
+      this.hours=+dos.split("H")[0];
+      this.minutes=+dos.split("H")[1].split('M')[0];    
+      
+    }
+
+    saveTime(){
+      this.objTecnica['Duration']="P"+this.years+"Y"+this.months+"M"+this.days+"DT"+this.hours+"H"+this.minutes+"M"
+      // console.log("P"+this.years+"Y"+this.months+"M"+this.days+"DT"+this.hours+"H"+this.minutes+"M")
     }
      
+    
+ 
      
     ngOnDestroy():void {
-      console.log("Destroy tecnica");    
+      console.log("Destroy tecnica"); 
+      this.saveTime();
       this.lompadservice.objPricipal['DATA']['technical']=this.objTecnica;
       this.lompadservice.saveObjectLompad(this.objTecnica,"technical");  
     }
@@ -50,9 +82,6 @@ export class TecnicaComponent implements OnInit {
     console.log(this.req_tipo_select);
     this.objTecnica['Requirement']['OrComposite']['Type']=this.req_tipo_select
   }
-
-  
-
-    
+      
 
 }

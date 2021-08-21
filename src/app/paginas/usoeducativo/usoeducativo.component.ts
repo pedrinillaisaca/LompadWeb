@@ -30,6 +30,12 @@ export class UsoeducativoComponent implements OnInit {
   destinatariosSelect:string
   contextosSelect:string
   dificultadesSelect:string
+  //
+  years:number;
+  months:number;
+  days:number;
+  hours:number;
+  minutes:number;
 
   constructor(
     private componentePrincipal: AppComponent,
@@ -43,13 +49,34 @@ export class UsoeducativoComponent implements OnInit {
      
   ngOnDestroy():void {
     console.log("Destroy Uso Educativo");    
+    this.saveTime();
     this.lompadservice.objPricipal['DATA']['educational']=this.objUsoEdu;
     this.lompadservice.saveObjectLompad(this.objUsoEdu,"educational");  
   }
+
+  castTime(param:string){
+    var one=param.split('DT')[0];
+    var dos=param.split('DT')[1];
+    one=one.substr(1,one.length);
+    this.years=+one.split("Y")[0];
+    this.months=+one.split("Y")[1].split("M")[0];      
+    this.days=+one.split("Y")[1].split("M")[1];
+
+    this.hours=+dos.split("H")[0];
+    this.minutes=+dos.split("H")[1].split('M')[0];    
+    
+  }
+
+  saveTime(){
+    this.objUsoEdu['Typical Learning Time']="P"+this.years+"Y"+this.months+"M"+this.days+"DT"+this.hours+"H"+this.minutes+"M"
+    // console.log("P"+this.years+"Y"+this.months+"M"+this.days+"DT"+this.hours+"H"+this.minutes+"M")
+  }
+   
        
 
   ngOnInit(): void {
     this.loadDatos();
+    this.castTime(this.objUsoEdu['Typical Learning Time']);
     this.tiposActividad=[
       {label: 'Activo', value: 'active', code: 'ac'},
       {label: 'Expositivo', value: 'expositive', code: 'ex'},    

@@ -103,29 +103,29 @@
             <div class="p-fluid p-formgrid p-grid">
                 <div class="p-field p-col">
                     <label for="anios">{{"Años" | translate}}</label>
-                    <p-inputNumber id="anios" mode="decimal" [showButtons]="true" [min]="0" [max]="100"></p-inputNumber>
+                    <p-inputNumber id="anios" mode="decimal" [showButtons]="true" [min]="0" [max]="100" [(ngModel)]='years'></p-inputNumber>
                 </div>
                 <div class="p-field p-col">
                     <label for="meses">{{"Meses" | translate}}</label>
-                    <p-inputNumber id="meses" mode="decimal" [showButtons]="true" [min]="0" [max]="12"></p-inputNumber>
+                    <p-inputNumber id="meses" mode="decimal" [showButtons]="true" [min]="0" [max]="12" [(ngModel)]='months'></p-inputNumber>
                 </div>
 
                 <div class="p-field p-col">
                     <label for="dias">{{"Días" | translate}}</label>
-                    <p-inputNumber id="dias" mode="decimal" [showButtons]="true" [min]="0" [max]="30"></p-inputNumber>
+                    <p-inputNumber id="dias" mode="decimal" [showButtons]="true" [min]="0" [max]="30" [(ngModel)]='days'></p-inputNumber>
                 </div>
                 <div class="p-field p-col">
                     <label for="horas">{{"Horas"| translate}}</label>
-                    <p-inputNumber id="horas" mode="decimal" [showButtons]="true" [min]="0" [max]="24"></p-inputNumber>
+                    <p-inputNumber id="horas" mode="decimal" [showButtons]="true" [min]="0" [max]="24" [(ngModel)]='hours'></p-inputNumber>
                 </div>
                 <div class="p-field p-col">
                     <label for="minutos">{{"Minutos" | translate}}</label>
-                    <p-inputNumber id="minutos" mode="decimal" [showButtons]="true" [min]="0" [max]="60"></p-inputNumber>
+                    <p-inputNumber id="minutos" mode="decimal" [showButtons]="true" [min]="0" [max]="60" [(ngModel)]='minutes'></p-inputNumber>
                 </div>
-                <div class="p-field p-col">
+                <!-- <div class="p-field p-col">
                     <label for="segundos">{{"Segundos"| translate}}</label>
-                    <p-inputNumber id="segundos" mode="decimal" [showButtons]="true" [min]="0" [max]="60"></p-inputNumber>
-                </div>
+                    <p-inputNumber id="segundos" mode="decimal" [showButtons]="true" [min]="0" [max]="60" [(ngModel)]='second'></p-inputNumber>
+                </div> -->
             </div>
 
 
