@@ -1,17 +1,22 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import {PrimeNGConfig} from 'primeng/api';
+import { PrimeNGConfig, MessageService } from 'primeng/api';
 import { ObjOptions } from './modelo/objOptions';
 import { GeneralComponent } from './paginas/general/general.component';
+import { LompadService } from './servicios/lompad.service';
+import { Router } from '@angular/router';
 
 
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
+    providers: [MessageService]
 })
-export class AppComponent implements OnInit{
+   
 
+export class AppComponent implements OnInit{
+    
     
 
     horizontalMenu: boolean;
@@ -41,6 +46,9 @@ export class AppComponent implements OnInit{
     constructor(
         private primengConfig: PrimeNGConfig,
         public translate:TranslateService,
+        private toas:MessageService,
+        private lompadSerice:LompadService,
+        private router:Router
         // private generalcom:GeneralComponent
         // private comMenuIz:AppMenuComponent
         ) 
@@ -49,6 +57,17 @@ export class AppComponent implements OnInit{
         translate.addLangs(['en', 'fr']);
         translate.setDefaultLang('es');
     }
+
+    // @HostListener('window:beforeunload', ['$event'])
+    // beforeunloadHandler(event) {
+        
+    //     this.router.navigateByUrl("/paginas/accesibilidad");
+    //     // this.service.add({key: 'tst', severity: 'info', summary: 'Info Message', detail: 'PrimeNG rocks'});
+    //     // this.service.add({key: 'tst', severity: 'warn', summary: 'Warn Message', detail: 'There are unsaved changes'});
+    //     // this.service.add({ key: 'tst', severity: 'error', summary: 'Error Message', detail: 'Validation failed' });
+    //     // this.toas.add({ key: 'tst', severity: 'success', summary: 'Success Message', detail: 'Message sent' });
+    // }
+
 
     ngOnInit() {
         
@@ -174,7 +193,10 @@ export class AppComponent implements OnInit{
         console.log("habilitando");
         this.enableGeneral=true;
     }
- 
+
+    
+
+   
     formatIEEE(){
         
         console.log("formateando IEEE");

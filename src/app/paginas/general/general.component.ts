@@ -1,16 +1,22 @@
 
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
 import { AppComponent } from 'src/app/app.component';
 import { LompadService } from 'src/app/servicios/lompad.service';
 import { ObjOptions } from '../../modelo/objOptions';
-import { Subscription } from 'rxjs';
+import { MessageService } from 'primeng/api';
+import { log } from 'console';
+
+
 
 
 @Component({
   selector: 'app-general',
   templateUrl: './general.component.html',
-  styleUrls: ['./general.component.css']
+  styleUrls: ['./general.component.css'],
+  providers: [MessageService]
 })
+
+
 export class GeneralComponent implements OnInit, OnDestroy {
   estructuras:any=[];
   nivelesAgregacion:any=[];
@@ -24,13 +30,34 @@ export class GeneralComponent implements OnInit, OnDestroy {
   
   
   ObjOptions:ObjOptions=new ObjOptions();
+
+
+  // @HostListener('window:beforeunload', ['$event'])
+  // beforeunloadHandler(event) {
+  //     console.log("SLIENFO")
+  //     // this.service.add({key: 'tst', severity: 'info', summary: 'Info Message', detail: 'PrimeNG rocks'});
+  //     // this.service.add({key: 'tst', severity: 'warn', summary: 'Warn Message', detail: 'There are unsaved changes'});
+  //     // this.service.add({ key: 'tst', severity: 'error', summary: 'Error Message', detail: 'Validation failed' });
+  //     // this.toas.add({ key: 'tst', severity: 'success', summary: 'Success Message', detail: 'Message sent' });
+  // }
+
   constructor(
     private componentePrincipal: AppComponent,
-    private lompadservice: LompadService    
+    private lompadservice: LompadService,
+    private toas:MessageService      
   ) {}
 
   loadDatos(){
-   this.general_obj=this.lompadservice.objPricipal['DATA']['general'];
+    // await this.precargaComprobar();
+    this.general_obj=this.lompadservice.objPricipal['DATA']['general'];
+  }
+
+
+  async precargaComprobar(){
+    return new Promise((resolve, reject) => {
+      resolve(2);
+      this.lompadservice.pregarga();
+  })
   }
   
  
@@ -65,7 +92,6 @@ export class GeneralComponent implements OnInit, OnDestroy {
     this.cargarkeywords(); 
   } 
 
- 
   ngOnDestroy():void{    
     this.general_obj["Keyword"]=this.columns;  
     this.lompadservice.objPricipal['DATA']['general']=this.general_obj;    
@@ -112,6 +138,13 @@ export class GeneralComponent implements OnInit, OnDestroy {
   cambio_nivel(){  
     console.log(this.nivel_select);
     this.general_obj["Aggregation Level"]=this.nivel_select;
+    this.toas.add({ key: 'tst', severity: 'success', summary: 'NO lo saques papi!!', detail: 'Message sent' });
+
+    // this.service.add({key: 'tst', severity: 'info', summary: 'Info Message', detail: 'PrimeNG rocks'});
+    // this.service.add({key: 'tst', severity: 'warn', summary: 'Warn Message', detail: 'There are unsaved changes'});
+    // this.service.add({ key: 'tst', severity: 'error', summary: 'Error Message', detail: 'Validation failed' });
+    // this.service.add({ key: 'tst', severity: 'success', summary: 'Success Message', detail: 'Message sent' });
+
   }
 
 

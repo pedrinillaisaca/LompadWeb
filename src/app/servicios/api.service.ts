@@ -7,6 +7,8 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class ApiService {
   // private objson: any = { value: "", icon_url: "", id: "", url: "" };
   
@@ -21,14 +23,14 @@ export class ApiService {
     // console.log("http://localhost:8000/private/update/?hashed_code="+hascode+"&hoja="+hoja+"&data="+obj);
     // console.log("=========================================");
         
-    // fetch("http://localhost:8000/private/update/?hashed_code="+hascode+"&hoja="+hoja+"&data="+obj, {
-    //   method: 'POST',
-    //   body: raw,
-    //   redirect: 'follow'
-    // })
-    //   .then(response => response.text())
-    //   .then(result => console.log("RESULTADO: ",result))
-    //   .catch(error => console.log('error', error));    
+    fetch("http://localhost:8000/private/update/?hashed_code="+hascode+"&hoja="+hoja+"&data="+obj, {
+      method: 'POST',
+      body: raw,
+      redirect: 'follow'
+    })
+      .then(response => response.text())
+      .then(result => console.log("RESULTADO: ",result))
+      .catch(error => console.log('error', error));    
   }
 
    api_DownloadFile(hash_param:string){   

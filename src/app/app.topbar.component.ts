@@ -1,13 +1,16 @@
-import { Component,ViewChild } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import {AppMainComponent} from './app.main.component';
 import { AppComponent } from './app.component';
 import { LompadService } from './servicios/lompad.service';
 import { DomSanitizer } from '@angular/platform-browser';
+import { MessageService } from 'primeng/api';
 
 
+@HostListener('window:beforeunload', ['$event'])
 @Component({
     selector: 'app-topbar',
     template: `
+		<p-toast key="tst"></p-toast>
         <div class="layout-topbar">
 			<div class="layout-topbar-wrapper">
                 <div class="layout-topbar-left">
@@ -242,8 +245,13 @@ import { DomSanitizer } from '@angular/platform-browser';
 
 
 		
-    `
+    `,
+	providers: [MessageService]
 })
+
+
+
+
 export class AppTopBarComponent {
 
 	object: Object = {foo: 'bar', baz: 'qux', nested: {xyz: 3, numbers: [1, 2, 3, 4, 5]}};
@@ -263,7 +271,8 @@ export class AppTopBarComponent {
 		public appMain: AppMainComponent,
 		private componentePrincipal: AppComponent,
 		private lompadService:LompadService,
-		private sanitizer: DomSanitizer
+		private sanitizer: DomSanitizer,
+		private toas:MessageService
 		) {}
 
 	ngOnInit(){
@@ -324,20 +333,18 @@ export class AppTopBarComponent {
 	}
 
 
-	descargaJSON(){
-		console.log("LLAMANDO A DESCARGA");
+	descargaJSON(){		
 		this.lompadService.downloadJSON();
+		// this.service.add({key: 'tst', severity: 'info', summary: 'Info Message', detail: 'PrimeNG rocks'});
+		// this.service.add({key: 'tst', severity: 'warn', summary: 'Warn Message', detail: 'There are unsaved changes'});
+		// this.service.add({ key: 'tst', severity: 'error', summary: 'Error Message', detail: 'Validation failed' });
+		this.toas.add({ key: 'tst', severity: 'success', summary: 'JSON descargado exitosamente', detail: 'Message sent' });
 	}
 
 	descargaXML(){
-		// this.lompadService.downloadXML();
-		this.someMethod();
-		const parser = new DOMParser();
-		const xml = parser.parseFromString(this.objXML, 'application/xml');
-		let p = xml.documentElement;
-		console.log(p)
+		this.lompadService.downloadXML();
 	}
-	htmlData
+	htmlData;
 	someHtml='pedro <script>alert("pedro")</script>';
 	url='javascript:alert("pedro")';
 
@@ -355,6 +362,10 @@ export class AppTopBarComponent {
 	   
 	  
 	  }
+
+	unloadHandler(event: Event) {
+		this.toas.add({ key: 'tst', severity: 'success', summary: 'pedro', detail: 'Message sent' });
+	}
 		   
 
 }

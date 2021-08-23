@@ -43,6 +43,7 @@ export class MessagesDemoComponent {
     }
 
     showInfoViaMessages() {
+        //info warn error success
         this.msgs = [];
         this.msgs.push({ severity: 'info', summary: 'Info Message', detail: 'PrimeNG rocks' });
     }

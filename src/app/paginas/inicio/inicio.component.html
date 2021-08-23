@@ -17,21 +17,39 @@
                 <h5>Por favor configure la aplicación de acuerdo a lo que necesite</h5>
             </div>
 
-            <p-fileUpload (uploadHandler)="onUpload($event)" customUpload="true" multiple="multiple" accept=".rar,.zip,.xml" maxFileSize="1000000000000">
-                <!-- <ng-template pTemplate="content">
+            <div *ngIf='fileCharger; then thenBlock else elseBlock'></div>
+            <ng-template #thenBlock>
+                <div class="p-field-radiobutton">
+                    <p-checkbox id='pp' [(ngModel)]='switch' binary="true"></p-checkbox>
+                    <label for="pp">Cargar un nuevo objeto de aprendizaje</label>
+                </div>
+
+                <div *ngIf='switch'>
+                    <p-fileUpload (uploadHandler)="onUpload($event)" customUpload="true" multiple="multiple" accept=".rar,.zip,.xml" maxFileSize="1000000000000"></p-fileUpload>
+                    <p-messages [value]="msgs1"></p-messages>
+                </div>
+                <p-messages [value]="msgs"></p-messages>
+                <div *ngIf="uploadedFiles.length">
+
+                </div>
+            </ng-template>
+            <ng-template #elseBlock>
+                <p-fileUpload (uploadHandler)="onUpload($event)" customUpload="true" multiple="multiple" accept=".rar,.zip,.xml" maxFileSize="1000000000000"></p-fileUpload>
+                <p-messages [value]="msgs"></p-messages>
+            </ng-template>
+        </div>
+    </div>
+</div>
+
+<!-- <ng-template pTemplate="content">
                     <ul *ngIf="uploadedFiles.length">
                         <li *ngFor="let file of uploadedFiles" class="p-mb-3 p-text-center">{{file.name}} - {{file.size}} bytes</li>
                     </ul>
                 </ng-template> -->
-            </p-fileUpload>
-            <!-- <br>
+<!-- <br>
             <div class="p-mb-3 p-text-center">
                 <button pButton pRipple type="button" label="Empezar" class="p-mr-2 p-mb-2" (click)="habilitar()"></button>
             </div> -->
-
-        </div>
-    </div>
-</div>
 
 <!-- <angular-file-uploader [config]="afuConfig">
 </angular-file-uploader> -->
