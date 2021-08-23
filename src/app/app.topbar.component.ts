@@ -127,7 +127,7 @@ import { MessageService } from 'primeng/api';
 
 						<!-- MEGA MENU PERSONALIZADO  -->
 						<ul class="layout-megamenu" [ngClass]="{'layout-megamenu-active fadeInDown': appMain.megaMenuPerfiles}"
-							(click)="appMain.onMegaMenuPerfilClick($event)" style="margin-left: 13cm;">
+							(click)="appMain.onMegaMenuPerfilClick($event)" style="margin-left: 10cm;">
 							<li>
 								<a href="#">{{'Perfíles' | translate}}<i class="pi pi-angle-down"></i></a>
 								<ul>
@@ -147,7 +147,7 @@ import { MessageService } from 'primeng/api';
 
 						<!-- MEGA MENU PERSONALIZADO  -->
 						<ul class="layout-megamenu" [ngClass]="{'layout-megamenu-active fadeInDown': appMain.megaMenuViewJSON}"
-							(click)="appMain.onMegaMenuJSONClick($event)" style="margin-left: 14cm;">
+							(click)="appMain.onMegaMenuJSONClick($event)" style="margin-left: 12.3cm;">
 							<li>
 							<a href="#">{{'Descargar como:' | translate}}<i class="pi pi-angle-down"></i></a>
 								<ul><button pButton pRipple type="button" label="JSON" (click)="descargaJSON()"></button></ul>								
