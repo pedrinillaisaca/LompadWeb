@@ -26,7 +26,7 @@ export class InicioComponent implements OnInit {
   form: FormGroup;  
     
   msgs: Message[] = [];
-  msgs1: Message[] = [];
+  
   
 
  constructor(
@@ -41,10 +41,15 @@ export class InicioComponent implements OnInit {
     this.form = this.fb.group({
       file: [null]
     });
-    this.msgs1.push({ severity: 'warn', summary: 'Advertencia: ', detail: 'Asegúrese de haber descargado el objeto de aprendizaje anteriormente cargado.' });
+    
 
    
   
+}
+
+mostrarAdvertencia(){
+  this.msgs = [];
+  this.msgs.push({ severity: 'warn', summary: 'Advertencia: ', detail: 'Asegúrese de haber descargado el objeto de aprendizaje anteriormente cargado.' });
 }
 
 

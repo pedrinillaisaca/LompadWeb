@@ -17,21 +17,18 @@
                 <h5>Por favor configure la aplicación de acuerdo a lo que necesite</h5>
             </div>
 
+
             <div *ngIf='fileCharger; then thenBlock else elseBlock'></div>
             <ng-template #thenBlock>
                 <div class="p-field-radiobutton">
-                    <p-checkbox id='pp' [(ngModel)]='switch' binary="true"></p-checkbox>
+                    <p-checkbox id='pp' [(ngModel)]='switch' binary="true" (click)='mostrarAdvertencia()'></p-checkbox>
                     <label for="pp">Cargar un nuevo objeto de aprendizaje</label>
                 </div>
 
                 <div *ngIf='switch'>
                     <p-fileUpload (uploadHandler)="onUpload($event)" customUpload="true" multiple="multiple" accept=".rar,.zip,.xml" maxFileSize="1000000000000"></p-fileUpload>
-                    <p-messages [value]="msgs1"></p-messages>
                 </div>
                 <p-messages [value]="msgs"></p-messages>
-                <div *ngIf="uploadedFiles.length">
-
-                </div>
             </ng-template>
             <ng-template #elseBlock>
                 <p-fileUpload (uploadHandler)="onUpload($event)" customUpload="true" multiple="multiple" accept=".rar,.zip,.xml" maxFileSize="1000000000000"></p-fileUpload>

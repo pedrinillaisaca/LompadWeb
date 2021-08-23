@@ -149,7 +149,7 @@ import { MessageService } from 'primeng/api';
 						<ul class="layout-megamenu" [ngClass]="{'layout-megamenu-active fadeInDown': appMain.megaMenuViewJSON}"
 							(click)="appMain.onMegaMenuJSONClick($event)" style="margin-left: 14cm;">
 							<li>
-							<a href="#">{{'juan' | translate}}<i class="pi pi-angle-down"></i></a>
+							<a href="#">{{'Descargar como:' | translate}}<i class="pi pi-angle-down"></i></a>
 								<ul><button pButton pRipple type="button" label="JSON" (click)="descargaJSON()"></button></ul>								
 								<ul><button pButton pRipple type="button" label="XML" (click)="descargaXML()"></button></ul>																															
 							</li>
@@ -180,7 +180,7 @@ import { MessageService } from 'primeng/api';
 						</a>
 
 						<a class="layout-megamenu-button" style="margin-left: 30px;" href="#" (click)="appMain.onMegamenuButtonJSON($event)">							
-						{{'Descarga' | translate}}
+						{{'Descargar' | translate}}
 						</a>
 
 
@@ -343,6 +343,7 @@ export class AppTopBarComponent {
 
 	descargaXML(){
 		this.lompadService.downloadXML();
+		this.toas.add({ key: 'tst', severity: 'success', summary: 'XML descargado exitosamente', detail: 'Message sent' });
 	}
 	htmlData;
 	someHtml='pedro <script>alert("pedro")</script>';

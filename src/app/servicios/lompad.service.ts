@@ -132,13 +132,13 @@ export class LompadService{
 
   downloadXML(){
   //  console.log("TIpo de dato:  ",typeof(this.objPrincipalXML));
-    // try {
-    //   var FileSaver = require('file-saver');  
-    //   var blob = new Blob([this.objPrincipalXML], {type: 'application/xml'});       
-    //   FileSaver.saveAs(blob, "pedro.xml");
-    // } catch (error) {
-    //   console.log("Error al Descargar XML: ======>", error);
-    // }          
+    try {
+      var FileSaver = require('file-saver');  
+      var blob = new Blob([this.objPrincipalXML], {type: 'application/xml'});       
+      FileSaver.saveAs(blob, "pedro.xml");
+    } catch (error) {
+      console.log("Error al Descargar XML: ======>", error);
+    }          
    
   }
 
