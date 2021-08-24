@@ -3,7 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { AppMainComponent } from './app.main.component';
 import { AppComponent } from './app.component';
 import { ObjOptions } from './modelo/objOptions';
-import { ObjetoGeneralService } from './servicios/objeto-general.service';
+
 
 @Component({
     selector: 'app-menu',
@@ -20,8 +20,7 @@ export class AppMenuComponent implements OnInit {
 
     constructor(
         public appMain: AppMainComponent,
-        public app:AppComponent,  
-        private serviceGeneral:ObjetoGeneralService            
+        public app:AppComponent
         ) {
         // this.enableGeneral=true;
     }
@@ -35,7 +34,7 @@ export class AppMenuComponent implements OnInit {
         // this.serviceGeneral.objOptions$.subscribe(param=>{
 		
 		// });
-        this.ObjOptions=this.app.objOptions;
+        this.ObjOptions=this.app.objOptions;//Esto es super util 
         this.onChange.subscribe(res=>{
             // console.log('FUCNIONAAAAAAAA!!!!!',res)
             this.recargarMenuLateral();

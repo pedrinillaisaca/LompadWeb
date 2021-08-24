@@ -3,15 +3,13 @@ import { HttpClient } from '@angular/common/http';
 import { ApiService } from './api.service';
 import { Router } from '@angular/router';
 import { saveAs } from 'file-saver';
-import { HostListener } from '@angular/core';
-import { MessageService } from 'primeng/api';
+// import { HostListener } from '@angular/core';
+
 
 
 @Injectable({
   providedIn: 'root'
 })
-
-@HostListener('window:beforeunload', ['$event'])
 
 export class LompadService{    
   objPricipal$=new EventEmitter<any>();  
@@ -28,17 +26,15 @@ export class LompadService{
     private router:Router, 
     // private toas:MessageService    
   ) {     
-    this.pregarga();
-    this.router.navigateByUrl("/");//Esto es necesario ya que cada vez que vayamos a actualizar debemos voler a la pagina de inicio
+    this.pregarga();    
     
-
   }
-
-  unloadHandler(event: Event) {
-    // Your logic on beforeunload
-    
-    console.log("Saliendo app")
-}
+//   @HostListener('window:beforeunload', ['$event'])
+//   unloadHandler(event: Event) {
+//     // Your logic on beforeunload
+//     this.router.navigateByUrl("/");
+//     console.log("Saliendo app")
+// }
 
   pregarga(){//Usado cuando se desconecta el Frontend con el Blackend
     this.datosGenerales=JSON.parse(localStorage.getItem("perfil_hash"));//recuperacion DAtos
@@ -65,6 +61,10 @@ export class LompadService{
     }    
   }
 
+  getPerfil(){
+   return this.perfil;
+  }
+
   setObjson(param:any){  
     this.objPricipal=param;
     this.objPricipal$.emit(param);
@@ -79,7 +79,6 @@ export class LompadService{
   }
 
     
-
   setArchivo(data:any){
     console.log("Subiendo archivo...");    
     this.http.post("http://localhost:8000/uploadfile", data).subscribe(    
@@ -120,22 +119,21 @@ export class LompadService{
     const url=window.URL.createObjectURL(file);
     new Blob([this.objPricipal], {type: 'application/json'});
     try {
-      var FileSaver = require('file-saver');  
+      // var FileSaver = require('file-saver');  
       var blob = new Blob([JSON.stringify(this.objPricipal, null, 2)], {type: 'application/json'});    
-      FileSaver.saveAs(blob, "pedro.json");      
+      saveAs(blob, "ArchivoExportado.json");      
     } catch (error) {
       console.log("Error al Descargar JSON: ======>", error);
     }
    
   }
 
-
   downloadXML(){
   //  console.log("TIpo de dato:  ",typeof(this.objPrincipalXML));
     try {
-      var FileSaver = require('file-saver');  
+      // var FileSaver = require('file-saver');  
       var blob = new Blob([this.objPrincipalXML], {type: 'application/xml'});       
-      FileSaver.saveAs(blob, "pedro.xml");
+      saveAs(blob, "ArchivoExportado.xml");
     } catch (error) {
       console.log("Error al Descargar XML: ======>", error);
     }          

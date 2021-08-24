@@ -4,7 +4,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 import { PrimeNGConfig, MegaMenuItem } from 'primeng/api';
 import {AppComponent} from './app.component';
 import { BehaviorSubject } from 'rxjs';
-
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -85,8 +85,11 @@ export class AppMainComponent {
         public renderer: Renderer2,
         private menuService: MenuService,
         private primengConfig: PrimeNGConfig,
-        public app: AppComponent        
-        ) {}
+        public app: AppComponent,
+        private router:Router      
+        ) {
+            this.router.navigateByUrl("");
+        }
 
         public setGeneral(param:boolean){
             this.enableGeneral=param;
@@ -166,10 +169,7 @@ export class AppMainComponent {
         event.preventDefault();
         this.brodCastChnage.next('something'); //PARA APRECIAR LOS CAMBIOS EN LA BARRA LATERAL         
     }
-
-    cambioDePerfil(){
-        
-    }
+ 
 
     onMegamenuButtonJSON(event){
         this.megaMenuViewJSONClick=true;

@@ -2,7 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { PrimeNGConfig, MessageService } from 'primeng/api';
 import { ObjOptions } from './modelo/objOptions';
-import { AppMainComponent } from './app.main.component';
+import { Router } from '@angular/router';
+import { LompadService } from './servicios/lompad.service';
 
 
 
@@ -46,7 +47,8 @@ export class AppComponent implements OnInit{
     constructor(
         private primengConfig: PrimeNGConfig,
         public translate:TranslateService,
-        // private appMainComponent:AppMainComponent
+        private router:Router,
+        private lompadService:LompadService
         // private generalcom:GeneralComponent
         // private comMenuIz:AppMenuComponent
         ) 
@@ -69,8 +71,11 @@ export class AppComponent implements OnInit{
 
 
     ngOnInit() {
-        this.formatCanCore();        
-        this.primengConfig.ripple = true;                                        
+        
+        this.router.navigateByUrl("/");//Esto es necesario ya que cada vez que vayamos a actualizar debemos voler a la pagina de inicio    
+        this.primengConfig.ripple = true; 
+        this.cambioPerfilLocal(this.lompadService.getPerfil())
+
     }
 
     // public saveInfoGen(){
@@ -81,18 +86,36 @@ export class AppComponent implements OnInit{
         console.log(event.value.name);
         this.translate.use(event.value.name);
     }
+    
 
-    public cambioPerfil(event){        
-        if (event.value.name === "IEEE LOM"){            
+    cambioPerfilLocal(param){  
+            
+        if (param === "IEEE LOM"){            
             this.formatIEEE();               
         }
-        else if(event.value.name === "CanCore"){
+        else if(param === "CanCore"){
             this.formatCanCore();                              
         }
-        else if(event.value.name === "LMRI"){
+        else if(param === "LMRI"){
             this.formatLMRI();                        
         }
-        else if(event.value.name === "SCORM"){
+        else if(param === "SCORM"){
+            this.formatScorm();                                   
+        }
+
+    }
+    public cambioPerfil(event){        
+        
+        if (event.value === "IEEE LOM"){            
+            this.formatIEEE();               
+        }
+        else if(event.value === "CanCore"){
+            this.formatCanCore();                              
+        }
+        else if(event.value === "LMRI"){
+            this.formatLMRI();                        
+        }
+        else if(event.value === "SCORM"){
             this.formatScorm();                                   
         }
 
