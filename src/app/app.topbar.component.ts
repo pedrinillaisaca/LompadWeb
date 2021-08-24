@@ -299,7 +299,7 @@ export class AppTopBarComponent {
 		this.lompadService.objPrincipalXML$.subscribe(param=>{
 			this.objXML=param;
 			console.log("DESDE TOOPBAR: ",typeof(this.objXML));
-		})
+		});
 
 		
 		this.display1=false;				

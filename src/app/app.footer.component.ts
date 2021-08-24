@@ -17,9 +17,7 @@ import {Component} from '@angular/core';
 				</div>
 			</div>
 			
-				
-			
-
+							
 			<div class="p-mb-3 p-text-center">
 				<a href="https://catedraunescoinclusion.org/">
 					<img src="assets/layout/images/unitwin_ec_salesiana_sp.png" style="height: 80px; width:200px" >					

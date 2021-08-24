@@ -4,7 +4,7 @@ import { AppComponent } from 'src/app/app.component';
 import { LompadService } from 'src/app/servicios/lompad.service';
 import { ObjOptions } from '../../modelo/objOptions';
 import { MessageService } from 'primeng/api';
-import { log } from 'console';
+
 
 
 

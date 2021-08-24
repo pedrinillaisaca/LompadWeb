@@ -3,6 +3,7 @@ import { MenuService } from './app.menu.service';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { PrimeNGConfig, MegaMenuItem } from 'primeng/api';
 import {AppComponent} from './app.component';
+import { BehaviorSubject } from 'rxjs';
 
 
 
@@ -23,6 +24,8 @@ import {AppComponent} from './app.component';
 })
 
 export class AppMainComponent {
+
+    brodCastChnage: BehaviorSubject<any> = new BehaviorSubject(null);
 
     rightPanelClick: boolean;
 
@@ -161,6 +164,11 @@ export class AppMainComponent {
         this.megaMenuPerfilesClick=true;
         this.megaMenuPerfiles=!this.megaMenuPerfiles;
         event.preventDefault();
+        this.brodCastChnage.next('something'); //PARA APRECIAR LOS CAMBIOS EN LA BARRA LATERAL         
+    }
+
+    cambioDePerfil(){
+        
     }
 
     onMegamenuButtonJSON(event){

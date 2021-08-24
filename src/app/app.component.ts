@@ -1,10 +1,10 @@
-import {Component, HostListener, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { PrimeNGConfig, MessageService } from 'primeng/api';
 import { ObjOptions } from './modelo/objOptions';
-import { GeneralComponent } from './paginas/general/general.component';
-import { LompadService } from './servicios/lompad.service';
-import { Router } from '@angular/router';
+import { AppMainComponent } from './app.main.component';
+
+
 
 
 
@@ -40,15 +40,13 @@ export class AppComponent implements OnInit{
     enableGeneral:boolean;
 
     public objOptions:ObjOptions=new ObjOptions();
-
+    
 
     // ESTE ES EL PRINCIPAL
     constructor(
         private primengConfig: PrimeNGConfig,
         public translate:TranslateService,
-        private toas:MessageService,
-        private lompadSerice:LompadService,
-        private router:Router
+        // private appMainComponent:AppMainComponent
         // private generalcom:GeneralComponent
         // private comMenuIz:AppMenuComponent
         ) 
@@ -56,6 +54,7 @@ export class AppComponent implements OnInit{
         this.enableGeneral=false;
         translate.addLangs(['en', 'fr']);
         translate.setDefaultLang('es');
+        this.ngOnInit();
     }
 
     // @HostListener('window:beforeunload', ['$event'])
@@ -70,98 +69,8 @@ export class AppComponent implements OnInit{
 
 
     ngOnInit() {
-        
-        this.objOptions.o1=true;        
-        this.objOptions.o1_1=true;
-        this.objOptions.o1_2=true;
-        this.objOptions.o1_3=true;
-        this.objOptions.o1_4=true;
-        this.objOptions.o1_5=true;
-        this.objOptions.o1_6=true;
-        this.objOptions.o1_7=true;
-        this.objOptions.o1_8=true;
-
-        this.objOptions.o2=true;
-        this.objOptions.o2_1=true;
-        this.objOptions.o2_2=true;
-        this.objOptions.o2_3=true;
-        this.objOptions.o2_3_1=true;
-        this.objOptions.o2_3_2=true;
-        this.objOptions.o2_3_3=true;
-
-
-        this.objOptions.o3=true;
-        this.objOptions.o3_1=true;
-
-        this.objOptions.o3_2=true;
-        this.objOptions.o3_2_1=true;
-        this.objOptions.o3_2_2=true;
-        this.objOptions.o3_2_3=true;
-
-        this.objOptions.o3_3=true;
-        this.objOptions.o3_4=true;
-
-
-
-        this.objOptions.o4=true;
-        this.objOptions.o4_1=true;
-        this.objOptions.o4_2=true;
-        this.objOptions.o4_3=true;
-        this.objOptions.o4_4=true;
-        this.objOptions.o4_4_1=true;
-        this.objOptions.o4_5=true;
-        this.objOptions.o4_6=true;
-        this.objOptions.o4_7=true;
-
-        this.objOptions.o5=true;
-        this.objOptions.o5_1=true;
-        this.objOptions.o5_2=true;
-        this.objOptions.o5_3=true;
-        this.objOptions.o5_4=true;
-        this.objOptions.o5_5=true;
-        this.objOptions.o5_6=true;
-        this.objOptions.o5_7=true;
-        this.objOptions.o5_8=true;
-        this.objOptions.o5_9=true;
-        this.objOptions.o5_10=true;
-        this.objOptions.o5_11=true;
-
-
-
-        this.objOptions.o6=true;
-        this.objOptions.o6_1=true;
-        this.objOptions.o6_2=true;
-        this.objOptions.o6_3=true;
-
-        this.objOptions.o7=true;
-        this.objOptions.o7_1=true;
-        this.objOptions.o7_2=true;
-        this.objOptions.o7_2_1=true;
-        this.objOptions.o7_2_2=true;
-
-        this.objOptions.o8=true;
-        this.objOptions.o8_1=true;
-        this.objOptions.o8_2=true;
-        this.objOptions.o8_3=true;
-        this.objOptions.o8_4=true;
-        this.objOptions.o8_5=true;
-        this.objOptions.o8_6=true;
-        
-        
-
-        this.objOptions.o9=true;
-        this.objOptions.o9_1=true;
-        this.objOptions.o9_2=true;
-        this.objOptions.o9_2_1=true;
-        this.objOptions.o9_2_2=true;
-        this.objOptions.o9_3=true;
-        this.objOptions.o9_4=true;
-
-        this.objOptions.o10=true;
-        this.primengConfig.ripple = true;
-
-        
-                                
+        this.formatCanCore();        
+        this.primengConfig.ripple = true;                                        
     }
 
     // public saveInfoGen(){
@@ -175,16 +84,16 @@ export class AppComponent implements OnInit{
 
     public cambioPerfil(event){        
         if (event.value.name === "IEEE LOM"){            
-            this.formatIEEE();
+            this.formatIEEE();               
         }
         else if(event.value.name === "CanCore"){
-            this.formatCanCore();
+            this.formatCanCore();                              
         }
         else if(event.value.name === "LMRI"){
-            this.formatLMRI();
+            this.formatLMRI();                        
         }
         else if(event.value.name === "SCORM"){
-            this.formatScorm();
+            this.formatScorm();                                   
         }
 
     }
@@ -195,6 +104,7 @@ export class AppComponent implements OnInit{
     }
 
     
+
 
    
     formatIEEE(){

@@ -1,4 +1,4 @@
-<div class="layout-wrapper" (click)="onLayoutClick()" [ngClass]="{'layout-horizontal': app.horizontalMenu,
+<div class="layout-wrapper" [ngClass]="{'layout-horizontal': app.horizontalMenu,
                 'layout-wrapper-static': staticMenuActive,
                 'layout-rightpanel-active': rightPanelActive,
                 'layout-topbar-mobile-active': topbarMobileMenuActive,
@@ -8,7 +8,7 @@
                 'p-ripple-disabled': !app.ripple}" [class]="app.menuColor">
 
     <!-- ESTE  ES EL MENU LATERAL IZQUIERDO -->
-    <app-menu></app-menu>
+    <app-menu [onChange]="brodCastChnage"></app-menu>
     <!-- ESTA ES LA PAGINA EN LA QUE HAY QUE PONER LOS COMPONENETES -->
     <div class="layout-main">
         <!-- Contiene la barra superior -->
@@ -16,7 +16,7 @@
 
         <!-- <app-rightpanel></app-rightpanel> -->
         <!--  este componente sirve para ver en donde estamos en el sistema -->
-        <app-breadcrumb></app-breadcrumb>
+        <!-- <app-breadcrumb></app-breadcrumb> -->
 
         <div class="layout-content">
             <!-- DONDE SE ENCUENTRAN TODOS LOS COMPONENTES   -->

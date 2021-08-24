@@ -7,29 +7,47 @@ import { MenuService } from './app.menu.service';
 import { AppMainComponent } from './app.main.component';
 
 @Component({
-    /* tslint:disable:component-selector */
+    // tslint:disable:component-selector 
     selector: '[app-menuitem]',
     /* tslint:enable:component-selector   INTERNACIONALIZACION DE LA BARRA VERTICAL...*/
     template: `
           <ng-container>
+              <!-- PARA QUE SE RENDERIZE LAS SUBLISTAS  -->              
               <a [attr.href]="item.url" (click)="itemClick($event)" *ngIf="!item.routerLink || item.items" (mouseenter)="onMouseEnter()" (keydown.enter)="itemClick($event)"
                 [attr.target]="item.target" [attr.tabindex]="0" [ngClass]="item.class">
-                  <span class="menuitem-text">{{item.label | translate}}</span>
+                  <span class="menuitem-text">{{item.label | translate}}</span>                  
                   <i class="pi pi-fw pi-angle-down layout-submenu-toggler" *ngIf="item.items"></i>
                   <i [ngClass]="item.icon" class="layout-menuitem-icon"></i>
               </a>
-              <a (click)="itemClick($event)" (mouseenter)="onMouseEnter()" *ngIf="item.routerLink && !item.items"
-                  [routerLink]="item.routerLink" routerLinkActive="active-menuitem-routerlink" [ngClass]="item.class"
-                  [routerLinkActiveOptions]="{exact: true}" [attr.target]="item.target" [attr.tabindex]="0">
-                  <span class="menuitem-text">{{item.label | translate}}</span>
-                  <i class="pi pi-fw pi-angle-down layout-submenu-toggler" *ngIf="item.items"></i>
-                  <i [ngClass]="item.icon" class="layout-menuitem-icon"></i>
-              </a>
-              <ul *ngIf="item.items && active" [@children]="(appMain.isHorizontal() && root) ? (active ? 'visible' : 'hidden') : (active ? 'visibleAnimated' : 'hiddenAnimated')">
+              <!-- PARA QUE SE RENDERIZE LAS SUBLISTAS ^^^^^^^^^^^^ -->
+
+              <div *ngIf="item.disable; then thenBlock else elseBlock"></div>
+                <ng-template #thenBlock>                    
+                    <a (click)="itemClick($event)" (mouseenter)="onMouseEnter()" *ngIf="item.routerLink && !item.items"
+                    [routerLink]="item.routerLink" routerLinkActive="active-menuitem-routerlink" [ngClass]="item.class"
+                    [routerLinkActiveOptions]="{exact: true}" [attr.target]="item.target" [attr.tabindex]="0">
+                    <span class="menuitem-text">{{item.label | translate}}</span>                
+                    <i class="pi pi-fw pi-angle-down layout-submenu-toggler" *ngIf="item.items"></i>
+                    <i [ngClass]="item.icon" class="layout-menuitem-icon"></i>
+                    </a> 
+                </ng-template>
+                    
+                <ng-template #elseBlock>
+                     
+                    <a (click)="itemClick($event)" (mouseenter)="onMouseEnter()" *ngIf="item.routerLink && !item.items"
+                    [routerLink]="item.routerLink" routerLinkActive="active-menuitem-routerlink" [ngClass]="item.class"
+                    [routerLinkActiveOptions]="{exact: true}" [attr.target]="item.target" [attr.tabindex]="0" style="pointer-events: none;cursor: default;">
+                    <span class="menuitem-text" style="color: #ccc;">{{item.label | translate}}</span>                
+                    <i class="pi pi-fw pi-angle-down layout-submenu-toggler" *ngIf="item.items"></i>
+                    <i [ngClass]="item.icon" class="layout-menuitem-icon"></i>
+                    </a>                  
+                </ng-template>
+              
+              <!-- <ul *ngIf="item.items && active" [@children]="(appMain.isHorizontal() && root) ? (active ? 'visible' : 'hidden') : (active ? 'visibleAnimated' : 'hiddenAnimated')">
                   <ng-template ngFor let-child let-i="index" [ngForOf]="item.items">
                       <li app-menuitem [item]="child" [index]="i" [parentKey]="key" [class]="child.badgeClass"></li>
                   </ng-template>
-              </ul>
+              </ul> -->
           </ng-container>
       `,
     host: {
@@ -70,6 +88,8 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
     @Input() root: boolean;
 
     @Input() parentKey: string;
+
+
 
     active = false;
 
