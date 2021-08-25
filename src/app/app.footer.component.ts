@@ -23,8 +23,9 @@ import {Component} from '@angular/core';
 					<img src="assets/layout/images/unitwin_ec_salesiana_sp.png" style="height: 80px; width:200px" >					
 				</a>				
 				<div class="text">
-				<span>© 2021 Todos los derechos reservados | Developed By EduTech</span>							
-				<span>Términos y condiciones</span>
+				<span>© 2021 {{"Todos los derechos reservados" | translate }} | Developed By EduTech</span>	
+				<br>						
+				<span>{{"Términos y condiciones" | translate }}</span>
 				</div>				
 			</div>
 									

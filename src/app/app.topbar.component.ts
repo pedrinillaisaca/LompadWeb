@@ -168,11 +168,11 @@ import { MessageService } from 'primeng/api';
 						</ul>-->
 					
 						<a class="layout-megamenu-button" style="margin-left: 30px;" href="#" (click)="runDialog(1)">							
-							Previsualización JSON
+							{{"Previsualización JSON" | translate }}
 						</a>
 
 						<a class="layout-megamenu-button" style="margin-left: 30px;" href="#" (click)="runDialog(2)">							
-							Previsualización XML
+							{{"Previsualización XML" | translate }}
 						</a>
 
 						<a class="layout-megamenu-button" style="margin-left: 30px;" href="#" (click)="appMain.onMegamenuButtonPerfiles($event)">							
@@ -259,7 +259,7 @@ export class AppTopBarComponent {
 	idiomas: any[];
     activeItem: number;
 	perfiles: any[];
-	perfilesSelect="SCORM";
+	perfilesSelect:string;
 	objXML:any;
 	objMostrar:any
 	display1:boolean;
@@ -277,7 +277,7 @@ export class AppTopBarComponent {
 		) {}
 
 	ngOnInit(){
-		// this.perfilesSelect=this.lompadService.getPerfil();
+		this.perfilesSelect=this.lompadService.getPerfil();
 		// console.log("DESDE TOOPBAR PERFIL: ",this.perfilesSelect);
 
 		this.idiomas=[

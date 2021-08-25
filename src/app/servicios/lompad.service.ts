@@ -13,7 +13,7 @@ import { saveAs } from 'file-saver';
 
 export class LompadService{    
   objPricipal$=new EventEmitter<any>();  
-  objPricipal:any;
+  objPricipal:JSON;
   objPrincipalXML$=new EventEmitter<any>();  
   objPrincipalXML:any;
   private hash:string;
@@ -106,7 +106,11 @@ export class LompadService{
 
   saveObjectLompad(obj:any,hoja:string) {
     console.log("Guardando: => ",hoja)  
-    var data=JSON.stringify(obj).toLocaleLowerCase();                     
+    // var data=JSON.stringify(obj).toLocaleLowerCase(); 
+    // var pedro=JSON.parse(JSON.stringify(this.objPricipal).replace(/\s(?=\w+":)/g, ""));  
+    var data=JSON.parse(JSON.stringify(obj).replace(/\s(?=\w+":)/g, "")); 
+    data=JSON.stringify(data).toLocaleLowerCase(); 
+    console.log("Enviando.... ",data, "Hoja: ",hoja);
     this.pregargaSimple();
     this.api_service.send_ObjectApi(data,this.hash,hoja);//enviar solo el objeto y el has a actualizar                                    
     this.downloadXML_API(this.hash);//Actualiza el objecto cada vez que se guarde los cambiaos realiados
@@ -114,13 +118,14 @@ export class LompadService{
 
 //AREA DE DESCARGA
   downloadJSON(){
-    const file=new Blob([this.objPricipal],{type:'application/json'});
-    // const file=new Blob([JSON.stringify(this.objPricipal, null, 2)], {type: 'application/json'});    
-    const url=window.URL.createObjectURL(file);
-    new Blob([this.objPricipal], {type: 'application/json'});
+    var pedro=JSON.parse(JSON.stringify(this.objPricipal).replace(/\s(?=\w+":)/g, ""));
+    // const file=new Blob([pedro],{type:'application/json'});
+    // // const file=new Blob([JSON.stringify(this.objPricipal, null, 2)], {type: 'application/json'});    
+    // const url=window.URL.createObjectURL(file);
+    // new Blob([pedro], {type: 'application/json'});
     try {
       // var FileSaver = require('file-saver');  
-      var blob = new Blob([JSON.stringify(this.objPricipal, null, 2)], {type: 'application/json'});    
+      var blob = new Blob([JSON.stringify(pedro, null, 2)], {type: 'application/json'});    
       saveAs(blob, "ArchivoExportado.json");      
     } catch (error) {
       console.log("Error al Descargar JSON: ======>", error);

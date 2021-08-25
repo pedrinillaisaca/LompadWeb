@@ -19,7 +19,7 @@ export class ApiService {
 
   send_ObjectApi(obj:any,hascode:string,hoja:string){
     var raw = "";
-    console.log("PILAS CON EL api");
+    console.log("PILAS CON EL api  objecto: ",obj);
     // console.log("http://localhost:8000/private/update/?hashed_code="+hascode+"&hoja="+hoja+"&data="+obj);
     // console.log("=========================================");
         
