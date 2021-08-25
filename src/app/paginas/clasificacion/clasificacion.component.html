@@ -4,7 +4,14 @@
         <div class="card">
             <div class="p-fluid">
                 <!-- [(ngModel)]="selectedDrop" -->
-                <p-dropdown [options]="propositos" [(ngModel)]='propositosSelect' name='propositosSelect' (onChange)='cambio_propositosSelect()' placeholder='{{"Seleccionar"| translate}} ' [showClear]="true"></p-dropdown>
+                <p-dropdown [options]="propositos" [(ngModel)]='propositosSelect' name='propositosSelect' (onChange)='cambio_propositosSelect()' placeholder='{{"Seleccionar"| translate}} ' [showClear]="true">
+                    <ng-template pTemplate="item" let-item>
+                        {{item.label| translate }}
+                    </ng-template>
+                    <ng-template let-selectedItem pTemplate="selectedItem">
+                        {{selectedItem.label | translate }}
+                    </ng-template>
+                </p-dropdown>
             </div>
         </div>
     </div>

@@ -4,7 +4,14 @@
         <div class="card">
             <div class="p-fluid">
                 <!-- [(ngModel)]="selectedDrop" -->
-                <p-dropdown [options]="tiposActividad" [(ngModel)]='tiposActividadSelect' name='tiposActividadSelect' (onChange)='cambio_tiposActividad()' placeholder='{{"Seleccionar" | translate}} ' [showClear]="true"></p-dropdown>
+                <p-dropdown [options]="tiposActividad" [(ngModel)]='tiposActividadSelect' name='tiposActividadSelect' (onChange)='cambio_tiposActividad()' placeholder='{{"Seleccionar" | translate}} ' [showClear]="true">
+                    <ng-template pTemplate="item" let-item>
+                        {{item.label| translate }}
+                    </ng-template>
+                    <ng-template let-selectedItem pTemplate="selectedItem">
+                        {{selectedItem.label | translate }}
+                    </ng-template>
+                </p-dropdown>
             </div>
         </div>
     </div>
@@ -15,7 +22,14 @@
         <div class="card">
             <div class="p-fluid">
                 <!-- [(ngModel)]="selectedDrop" -->
-                <p-dropdown [options]="tiposRecursEducativos" [(ngModel)]='tiposRecursEducativosSelect' name='tiposRecursEducativosSelect' (onChange)='cambio_tiposRecursEducativos()' placeholder='{{"Seleccionar" | translate}} ' [showClear]="true"></p-dropdown>
+                <p-dropdown [options]="tiposRecursEducativos" [(ngModel)]='tiposRecursEducativosSelect' name='tiposRecursEducativosSelect' (onChange)='cambio_tiposRecursEducativos()' placeholder='{{"Seleccionar" | translate}} ' [showClear]="true">
+                    <ng-template pTemplate="item" let-item>
+                        {{item.label| translate }}
+                    </ng-template>
+                    <ng-template let-selectedItem pTemplate="selectedItem">
+                        {{selectedItem.label | translate }}
+                    </ng-template>
+                </p-dropdown>
             </div>
         </div>
     </div>
@@ -25,7 +39,14 @@
         <div class="card">
             <div class="p-fluid">
                 <!-- [(ngModel)]="selectedDrop" -->
-                <p-dropdown [options]="nivelesInteractividad" [(ngModel)]='nivelesInteractividadSelect' name='nivelesInteractividadSelect' (onChange)='cambio_nivelesInteractividadSelect()' placeholder='{{"Seleccionar" | translate}} ' [showClear]="true"></p-dropdown>
+                <p-dropdown [options]="nivelesInteractividad" [(ngModel)]='nivelesInteractividadSelect' name='nivelesInteractividadSelect' (onChange)='cambio_nivelesInteractividadSelect()' placeholder='{{"Seleccionar" | translate}} ' [showClear]="true">
+                    <ng-template pTemplate="item" let-item>
+                        {{item.label| translate }}
+                    </ng-template>
+                    <ng-template let-selectedItem pTemplate="selectedItem">
+                        {{selectedItem.label | translate }}
+                    </ng-template>
+                </p-dropdown>
             </div>
         </div>
     </div>
@@ -34,7 +55,14 @@
         <div class="card">
             <div class="p-fluid">
                 <!-- [(ngModel)]="selectedDrop" -->
-                <p-dropdown [options]="densiadesSemanticas" [(ngModel)]='densiadesSemanticasSelect' name='densiadesSemanticasSelect' (onChange)='cambio_densiadesSemanticasSelect()' placeholder='{{"Seleccionar" | translate}} ' [showClear]="true"></p-dropdown>
+                <p-dropdown [options]="densiadesSemanticas" [(ngModel)]='densiadesSemanticasSelect' name='densiadesSemanticasSelect' (onChange)='cambio_densiadesSemanticasSelect()' placeholder='{{"Seleccionar" | translate}} ' [showClear]="true">
+                    <ng-template pTemplate="item" let-item>
+                        {{item.label| translate }}
+                    </ng-template>
+                    <ng-template let-selectedItem pTemplate="selectedItem">
+                        {{selectedItem.label | translate }}
+                    </ng-template>
+                </p-dropdown>
             </div>
         </div>
     </div>
@@ -43,7 +71,14 @@
         <div class="card">
             <div class="p-fluid">
                 <!-- [(ngModel)]="selectedDrop" -->
-                <p-dropdown [options]="destinatarios" [(ngModel)]='destinatariosSelect' name='destinatariosSelect' (onChange)='cambio_destinatariosSelect()' placeholder='{{"Seleccionar" | translate}} ' [showClear]="true"></p-dropdown>
+                <p-dropdown [options]="destinatarios" [(ngModel)]='destinatariosSelect' name='destinatariosSelect' (onChange)='cambio_destinatariosSelect()' placeholder='{{"Seleccionar" | translate}} ' [showClear]="true">
+                    <ng-template pTemplate="item" let-item>
+                        {{item.label| translate }}
+                    </ng-template>
+                    <ng-template let-selectedItem pTemplate="selectedItem">
+                        {{selectedItem.label | translate }}
+                    </ng-template>
+                </p-dropdown>
             </div>
         </div>
     </div>
@@ -52,7 +87,14 @@
         <div class="card">
             <div class="p-fluid">
                 <!-- [(ngModel)]="selectedDrop" -->
-                <p-dropdown [options]="contextos" [(ngModel)]='contextosSelect' name='contextosSelect' (onChange)='cambio_contextosSelect()' placeholder='{{"Seleccionar" | translate}} ' [showClear]="true"></p-dropdown>
+                <p-dropdown [options]="contextos" [(ngModel)]='contextosSelect' name='contextosSelect' (onChange)='cambio_contextosSelect()' placeholder='{{"Seleccionar" | translate}} ' [showClear]="true">
+                    <ng-template pTemplate="item" let-item>
+                        {{item.label| translate }}
+                    </ng-template>
+                    <ng-template let-selectedItem pTemplate="selectedItem">
+                        {{selectedItem.label | translate }}
+                    </ng-template>
+                </p-dropdown>
             </div>
         </div>
     </div>
@@ -80,7 +122,14 @@
         <div class="card">
             <div class="p-fluid">
                 <!-- [(ngModel)]="selectedDrop" -->
-                <p-dropdown [options]="dificultades" [(ngModel)]='dificultadesSelect' name='dificultadesSelect' (onChange)='cambio_dificultadesSelect()' placeholder='{{"Seleccionar" | translate}} ' [showClear]="true "></p-dropdown>
+                <p-dropdown [options]="dificultades" [(ngModel)]='dificultadesSelect' name='dificultadesSelect' (onChange)='cambio_dificultadesSelect()' placeholder='{{"Seleccionar" | translate}} ' [showClear]="true ">
+                    <ng-template pTemplate="item" let-item>
+                        {{item.label| translate }}
+                    </ng-template>
+                    <ng-template let-selectedItem pTemplate="selectedItem">
+                        {{selectedItem.label | translate }}
+                    </ng-template>
+                </p-dropdown>
             </div>
         </div>
     </div>

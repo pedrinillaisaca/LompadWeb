@@ -76,8 +76,23 @@
         <div class="card">
             <h5>{{"Estructura" | translate}}</h5>
             <div class="p-fluid">
-                <p-dropdown [options]="estructuras" [(ngModel)]='estructuraSelect' name='estructuraSelect' (onChange)="cambioEstructura()" placeholder='{{"Seleccionar" | translate}} ' [showClear]="true"> </p-dropdown>
+                <p-dropdown [(ngModel)]='estructuraSelect' [options]='estructuras' name='estructuraSelect' (onChange)="cambioEstructura()" placeholder='{{"Seleccionar" | translate}} ' [showClear]="true">
+                    <ng-template pTemplate="item" let-item>
+                        {{item.label| translate }}
+                    </ng-template>
+                    <ng-template let-selectedItem pTemplate="selectedItem">
+                        {{selectedItem.label | translate }}
+                    </ng-template>
+                </p-dropdown>
             </div>
+            <!-- <p-dropdown [(ngModel)]="choosedOption" [options]="sortOptions ">
+                <ng-template pTemplate="item" let-item>
+                    {{item.label }}
+                </ng-template>
+                <ng-template let-selectedItem pTemplate="selectedItem">
+                    {{item.selectedItem }}
+                </ng-template>
+            </p-dropdown> -->
 
         </div>
 
@@ -88,7 +103,14 @@
             <h5>{{"Nivel de Agregación" | translate }}</h5>
             <div class="p-fluid">
                 <!-- [(ngModel)]="selectedDrop" -->
-                <p-dropdown [options]="nivelesAgregacion" [(ngModel)]='nivel_select' name='nivel_select' (onChange)="cambio_nivel()" placeholder='{{"Seleccionar" | translate}} ' [showClear]="true"></p-dropdown>
+                <p-dropdown [options]="nivelesAgregacion" [(ngModel)]='nivel_select' name='nivel_select' (onChange)="cambio_nivel()" placeholder='{{"Seleccionar" | translate}} ' [showClear]="true">
+                    <ng-template pTemplate="item" let-item>
+                        {{item.label| translate }}
+                    </ng-template>
+                    <ng-template let-selectedItem pTemplate="selectedItem">
+                        {{selectedItem.label | translate }}
+                    </ng-template>
+                </p-dropdown>
             </div>
 
         </div>

@@ -16,7 +16,14 @@
         <div class="card">
             <h5>{{"Estado" | translate}}</h5>
             <div class="p-fluid">
-                <p-dropdown [options]="estados" [(ngModel)]='estadoSelect' name='estadoSelect' (onChange)='cambioEstados()' placeholder='{{"Seleccionar"| translate}} ' [showClear]="true"></p-dropdown>
+                <p-dropdown [options]="estados" [(ngModel)]='estadoSelect' name='estadoSelect' (onChange)='cambioEstados()' placeholder='{{"Seleccionar"| translate}} ' [showClear]="true">
+                    <ng-template pTemplate="item" let-item>
+                        {{item.label| translate }}
+                    </ng-template>
+                    <ng-template let-selectedItem pTemplate="selectedItem">
+                        {{selectedItem.label | translate }}
+                    </ng-template>
+                </p-dropdown>
             </div>
 
         </div>
@@ -35,7 +42,14 @@
                 <h5>{{"Tipo" | translate}}</h5>
                 <div class="p-fluid">
                     <!-- [(ngModel)]="selectedDrop" -->
-                    <p-dropdown [options]="tipos" [(ngModel)]='tiposSelect' name='tiposSelect' (onChange)='cambio_contr_tipo()' placeholder='{{"Seleccionar"| translate}} ' [showClear]="true"></p-dropdown>
+                    <p-dropdown [options]="tipos" [(ngModel)]='tiposSelect' name='tiposSelect' (onChange)='cambio_contr_tipo()' placeholder='{{"Seleccionar"| translate}} ' [showClear]="true">
+                        <ng-template pTemplate="item" let-item>
+                            {{item.label| translate }}
+                        </ng-template>
+                        <ng-template let-selectedItem pTemplate="selectedItem">
+                            {{selectedItem.label | translate }}
+                        </ng-template>
+                    </p-dropdown>
                 </div>
 
             </div>

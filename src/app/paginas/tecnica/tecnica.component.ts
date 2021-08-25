@@ -11,8 +11,10 @@ import { LompadService } from '../../servicios/lompad.service';
 })
 export class TecnicaComponent implements OnInit {
   tiposOr:any[];
+  tiposSystem:any[];
   objTecnica:any;
   req_tipo_select:string;
+  nombreSelect:string
   years:number;
   months:number;
   days:number;
@@ -52,9 +54,7 @@ export class TecnicaComponent implements OnInit {
       this.objTecnica['Duration']="P"+this.years+"Y"+this.months+"M"+this.days+"DT"+this.hours+"H"+this.minutes+"M"
       // console.log("P"+this.years+"Y"+this.months+"M"+this.days+"DT"+this.hours+"H"+this.minutes+"M")
     }
-     
-    
- 
+          
      
     ngOnDestroy():void {
       console.log("Destroy tecnica"); 
@@ -70,10 +70,20 @@ export class TecnicaComponent implements OnInit {
       {label: 'Navegador', value:  'browser', code: 'nav'}    
     ];
 
+    this.tiposSystem=[
+      {label: 'pc-dos', value:  'pc-dos', code: 'sys_o'},
+      {label: 'ms-windows', value:  'ms-windows', code: 'nav'},    
+      {label: 'macos', value:  'macos', code: 'nav'},    
+      {label: 'unix', value:  'unix', code: 'nav'},    
+      {label: 'multi-os', value:  'multi-os', code: 'nav'},    
+      {label: 'Ninguno', value:  'none', code: 'nav'}
+    ];
+
     this.ObjOptions=this.componentePrincipal.objOptions;
     // this.objTecnica=this.lompadservice.getObjTecnica();
     console.log("DEsde TEcnica: ",this.objTecnica);
     this.req_tipo_select=this.objTecnica['Requirement']['OrComposite']['Type'];
+    this.nombreSelect=this.objTecnica['Requirement']['OrComposite']['Name'];
     
   }
 
@@ -81,6 +91,11 @@ export class TecnicaComponent implements OnInit {
   cambioreq_tipo_select(){
     console.log(this.req_tipo_select);
     this.objTecnica['Requirement']['OrComposite']['Type']=this.req_tipo_select
+  }
+
+  cambioreq_nombre(){
+    console.log(this.nombreSelect);    
+    this.objTecnica['Requirement']['OrComposite']['Name']=this.nombreSelect;
   }
       
 
