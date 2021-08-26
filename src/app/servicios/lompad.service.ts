@@ -111,7 +111,7 @@ export class LompadService{
     var data=JSON.parse(JSON.stringify(obj).replace(/\s(?=\w+":)/g, "")); 
     data=JSON.stringify(data).toLocaleLowerCase(); 
     console.log("Enviando.... ",data, "Hoja: ",hoja);
-    this.pregargaSimple();
+    // this.pregargaSimple();
     this.api_service.send_ObjectApi(data,this.hash,hoja);//enviar solo el objeto y el has a actualizar                                    
     this.downloadXML_API(this.hash);//Actualiza el objecto cada vez que se guarde los cambiaos realiados
   }
