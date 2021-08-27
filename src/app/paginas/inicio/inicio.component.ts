@@ -3,8 +3,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { LompadService } from 'src/app/servicios/lompad.service';
 import { AppMainComponent } from '../../app.main.component';
 
-import { Router } from '@angular/router';
-import { Message, MessageService } from 'primeng/api';
+import { Message } from 'primeng/api';
+import { CookieService } from 'ngx-cookie-service';
 
 
 
@@ -33,8 +33,7 @@ export class InicioComponent implements OnInit {
    public fb: FormBuilder,     
    private lompadservice: LompadService,
    private appMain:AppMainComponent,
-   private router:Router, 
-   private mensajesService:MessageService,
+   private cookieService:CookieService 
    
    ) 
    {
@@ -58,9 +57,9 @@ ngOnInit(): void {
 }
 
 pregarga(){//Usado para mostrar mensaje 
-   var datosGenerales=JSON.parse(localStorage.getItem("perfil_hash"));//recuperacion DAtos
-  if(datosGenerales != undefined){
-    this.fileCharger=true;
+  //  var datosGenerales=JSON.parse(localStorage.getItem("perfil_hash"));//recuperacion DAtos
+  if(this.cookieService.check("perfil")){//PILAS AQUI PUEDE DER EL PERFIL O TAMBIEN EL HASH    
+    this.fileCharger=true;    
     this.appMain.staticMenuActive=true;
     this.msgs = [];
     this.msgs.push({ severity: 'info', summary: 'OK', detail: 'Objeto de aprendizaje cargado.' });
@@ -71,13 +70,13 @@ pregarga(){//Usado para mostrar mensaje
   
 }
 
-comprobacion(){
-  if (this.lompadservice.revLocal()!=null){
-    this.lompadservice.getobject(); 
-    this.appMain.staticMenuActive=true;
-    this.router.navigateByUrl("/paginas/general");    
-  }
-}
+// comprobacion(){
+//   if (this.lompadservice.revLocal()!=null){
+//     this.lompadservice.getobject(); 
+//     this.appMain.staticMenuActive=true;
+//     this.router.navigateByUrl("/paginas/general");    
+//   }
+// }
 
 onUpload(event) {    
   // const file = (event.target as HTMLInputElement).files[0];

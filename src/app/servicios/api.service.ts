@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Objson } from '../modelo/objson';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -34,7 +32,7 @@ export class ApiService {
   }
 
    api_DownloadFile(hash_param:string){   
-    console.log(hash_param);
+    // console.log(hash_param);
     var param;
     fetch("http://localhost:8000/private/download/?hashed_code="+hash_param, {
     // fetch("http://localhost:8000/private/download/?hashed_code=ArchivoExportado_-6482018054697832733",{

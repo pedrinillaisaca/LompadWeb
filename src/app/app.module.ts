@@ -173,6 +173,7 @@ import { GeneralComponent } from './paginas/general/general.component';
 //internacionalizacion 
 import { TranslateHttpLoader} from "@ngx-translate/http-loader";
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { CookieService } from 'ngx-cookie-service';
 
 
 export function HttpLoaderFactory(http: HttpClient){
@@ -344,7 +345,7 @@ export function HttpLoaderFactory(http: HttpClient){
     providers: [
         {provide: LocationStrategy, useClass: HashLocationStrategy},
         CountryService, CustomerService, EventService, IconService, NodeService,
-        PhotoService, ProductService, MenuService, BreadcrumbService
+        PhotoService, ProductService, MenuService, BreadcrumbService,CookieService
     ],
     bootstrap: [AppComponent]
 })

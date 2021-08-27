@@ -88,7 +88,8 @@ export class AppMainComponent {
         public app: AppComponent,
         private router:Router      
         ) {
-            this.router.navigateByUrl("");
+            this.router.navigateByUrl("");            
+
         }
 
         public setGeneral(param:boolean){
@@ -167,6 +168,10 @@ export class AppMainComponent {
         this.megaMenuPerfilesClick=true;
         this.megaMenuPerfiles=!this.megaMenuPerfiles;
         event.preventDefault();
+        
+    }
+
+    cambioPerfil(){
         this.brodCastChnage.next('something'); //PARA APRECIAR LOS CAMBIOS EN LA BARRA LATERAL         
     }
  

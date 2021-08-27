@@ -46,7 +46,7 @@ export class GeneralComponent implements OnInit, OnDestroy {
   async precargaComprobar() {
     return new Promise((resolve, reject) => {
       resolve(2);
-      this.lompadservice.pregarga();
+      this.lompadservice.precarga();
     });
   }
 

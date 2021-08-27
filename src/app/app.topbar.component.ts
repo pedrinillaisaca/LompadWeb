@@ -1,261 +1,20 @@
-import { Component, HostListener } from '@angular/core';
+import { Component } from '@angular/core';
 import {AppMainComponent} from './app.main.component';
 import { AppComponent } from './app.component';
 import { LompadService } from './servicios/lompad.service';
-import { DomSanitizer } from '@angular/platform-browser';
 import { MessageService } from 'primeng/api';
+import { CookieService } from 'ngx-cookie-service';
 
 
-@HostListener('window:beforeunload', ['$event'])
 @Component({
     selector: 'app-topbar',
-    template: `
-		<p-toast key="tst"></p-toast>
-        <div class="layout-topbar">
-			<div class="layout-topbar-wrapper">
-                <div class="layout-topbar-left">
-					<!-- <div class="layout-topbar-logo-wrapper">
-						<a href="#" class="layout-topbar-logo">
-							<img src="assets/layout/images/logo-mirage@2x.png" alt="mirage-layout" />
-							<span class="app-name"> </span>
-						</a>
-					</div> -->
-
-					<a href="#" class="sidebar-menu-button" (click)="appMain.onMenuButtonClick($event)">
-						<i class="pi pi-bars"></i>
-					</a>
-
-					<a href="#" class="megamenu-mobile-button" (click)="appMain.onMegaMenuMobileButtonClick($event)">
-						<i class="pi pi-align-right megamenu-icon"></i>
-					</a>
-
-					<a href="#" class="topbar-menu-mobile-button" (click)="appMain.onTopbarMobileMenuButtonClick($event)">
-						<i class="pi pi-ellipsis-v"></i>
-					</a>
-
-					<div class="layout-megamenu-wrapper">
-					<!-- PONER AQUI EL ENLACE AL INICIO -->
-						<!-- <a class="layout-megamenu-button" href="#" (click)="appMain.onMegaMenuButtonClick($event)">
-							<i class="pi pi-comment"></i>
-							Mega Menu
-						</a>						 -->
-
-						<ul class="layout-megamenu" [ngClass]="{'layout-megamenu-active fadeInDown': appMain.megaMenuActive}"
-                            (click)="appMain.onMegaMenuClick($event)">
-							<div class="layout-topbar-wrapper">
-								<div class="layout-topbar-left"> 
-									<div class="p-col-6">
-										<label>{{'Lenguaje' | translate}}</label>                                                                                 
-									</div>          
-									<div class="p-col-6">
-										<p-dropdown [options]="idiomas" (onChange)="cambioIdioma($event)"  styleClass="p-mb-2 p-mb-md-0"></p-dropdown>
-									</div>
-								</div>                                       
-                			</div>
-						</ul>
-
-						<ul class="layout-megamenu" [ngClass]="{'layout-megamenu-active fadeInDown': appMain.megaMenuActive}"
-                            (click)="appMain.onMegaMenuClick($event)">
-							<li [ngClass]="{'active-topmenuitem': activeItem === 1}" (click)="mobileMegaMenuItemClick(1)">
-								<a href="#">JavaServer Faces <i class="pi pi-angle-down"></i></a>
-								<ul>
-									<li class="active-row ">
-										<i class="pi pi-circle-on"></i>
-										<span>
-                                        <h5>PrimeFaces</h5>
-                                        <span>UI Components for JSF</span>
-                                    </span>
-									</li>
-									<li>
-										<i class="pi pi-circle-on"></i>
-										<span>
-                                        <h5>Premium Templates</h5>
-                                        <span>UI Components for JSF</span>
-                                    </span>
-									</li>
-									<li>
-										<i class="pi pi-circle-on"></i>
-										<span>
-                                        <h5>Extensions</h5>
-                                        <span>UI Components for JSF</span>
-                                    </span>
-									</li>
-								</ul>
-							</li>
-							<li [ngClass]="{'active-topmenuitem': activeItem === 2}" (click)="mobileMegaMenuItemClick(2)">
-								<a href="#">Angular <i class="pi pi-angle-down"></i></a>
-								<ul>
-									<li>
-										<i class="pi pi-circle-on"></i>
-										<span>
-                                        <h5>PrimeNG</h5>
-                                        <span>UI Components for Angular</span>
-                                    </span>
-
-									</li>
-									<li>
-										<i class="pi pi-circle-on"></i>
-										<span>
-                                        <h5>Premium Templates</h5>
-                                        <span>UI Components for Angular</span>
-                                    </span>
-									</li>
-								</ul>
-							</li>
-							<li [ngClass]="{'active-topmenuitem': activeItem === 3}" (click)="mobileMegaMenuItemClick(3)">
-								<a href="#">React <i class="pi pi-angle-down"></i></a>
-								<ul>
-									<li>
-										<i class="pi pi-circle-on"></i>
-										<span>
-                                        <h5>PrimeReact</h5>
-                                        <span>UI Components for React</span>
-                                    </span>
-									</li>
-									<li class="active-row">
-										<i class="pi pi-circle-on"></i>
-										<span>
-                                        <h5>Premium Templates</h5>
-                                        <span>UI Components for React</span>
-                                    </span>
-									</li>
-								</ul>
-							</li>
-						</ul>
-
-
-
-						<!-- MEGA MENU PERSONALIZADO  -->
-						<ul class="layout-megamenu" [ngClass]="{'layout-megamenu-active fadeInDown': appMain.megaMenuPerfiles}"
-							(click)="appMain.onMegaMenuPerfilClick($event)" style="margin-left: 10cm;">
-							<li>
-								<a href="#">{{'Perfíles' | translate}}<i class="pi pi-angle-down"></i></a>
-								<ul>
-								<!-- (onChange)=""  -->
-								<p-dropdown [options]="perfiles"  [(ngModel)]='perfilesSelect'  (onChange)="cambioPerfil($event)" styleClass="p-mb-2 p-mb-md-0"></p-dropdown>
-									
-								</ul>
-							</li>
-							
-						</ul>
-
-
-						
-
-
-					
-
-						<!-- MEGA MENU PERSONALIZADO  -->
-						<ul class="layout-megamenu" [ngClass]="{'layout-megamenu-active fadeInDown': appMain.megaMenuViewJSON}"
-							(click)="appMain.onMegaMenuJSONClick($event)" style="margin-left: 12.3cm;">
-							<li>
-							<a href="#">{{'Descargar como:' | translate}}<i class="pi pi-angle-down"></i></a>
-								<ul><button pButton pRipple type="button" label="JSON" (click)="descargaJSON()"></button></ul>								
-								<ul><button pButton pRipple type="button" label="XML" (click)="descargaXML()"></button></ul>																															
-							</li>
-							
-						</ul>
-
-
-						<!-- MEGA MENU PERSONALIZADO  
-						<ul class="layout-megamenu" [ngClass]="{'layout-megamenu-active fadeInDown': appMain.megaMenuViewXML}"
-							(click)="appMain.onMegaMenuPerfilClick($event)" style="margin-left: 5cm;">
-							<li>
-								<h5>ver XML</h5>				
-				
-							</li>
-							
-						</ul>-->
-					
-						<a class="layout-megamenu-button" style="margin-left: 30px;" href="#" (click)="runDialog(1)">							
-							{{"Previsualización JSON" | translate }}
-						</a>
-
-						<a class="layout-megamenu-button" style="margin-left: 30px;" href="#" (click)="runDialog(2)">							
-							{{"Previsualización XML" | translate }}
-						</a>
-
-						<a class="layout-megamenu-button" style="margin-left: 30px;" href="#" (click)="appMain.onMegamenuButtonPerfiles($event)">							
-						{{'Perfíles' | translate}}
-						</a>
-
-						<a class="layout-megamenu-button" style="margin-left: 30px;" href="#" (click)="appMain.onMegamenuButtonJSON($event)">							
-						{{'Descargar' | translate}}
-						</a>
-
-
-						
-
-
-						<!-- <a class="layout-megamenu-button" href="#" (click)="appMain.onMegaMenuButtonClick($event)">
-							<i class="pi pi-comment"></i>
-							Mega Menu
-						</a> -->
-					</div>
-					
-                </div>
-
-				<!-- ICONOS "
-				<div class="icons" style="padding-top: 2.4%;">
-						<div class="icon icon-hastag">
-							<i class="pi pi-home" ></i>
-						</div>							
-				</div>-->
-				               
-				<div class="layout-topbar-wrapper">
-					<div class="layout-topbar-left"> 
- 						<div class="p-col-6">
-                        	<label>{{'Lenguaje' | translate}}</label>                       
-                       <!-- <select #lanSelect (change)="translate.use(lanSelect.value)">
-                           <option *ngFor="let lang of translate.getLangs()" [value]="lang"
-                           [selected]="lang===translate.currentLang"
-                           >{{lang}}</option>
-                       </select> -->                                      
-                    	</div>          
-						<div class="p-col-6">
-							<p-dropdown [options]="idiomas" (onChange)="cambioIdioma($event)" styleClass="p-mb-2 p-mb-md-0"></p-dropdown>
-						</div>
-
-					</div>
-                   
-                    
-                </div>
-            </div>
-        </div>
-		
-
-		<p-dialog  id="we" [(visible)]="display1" [style]="{width: '80%'}" header="" [modal]="true" styleClass="p-fluid">
-        <ng-template pTemplate="content">	
-			
-            <div class="p-field">	
-			<div *ngIf="band; then thenBlock else elseBlock"></div>
-			<ng-template #thenBlock>
-				<pre>{{objprincipal |  json}}</pre>
-			</ng-template>
-
-
-			<ng-template #elseBlock>
-				<!-- <pre><div><a [href]='url'> pulsame</a></div></pre> -->
-				<pre>{{objXML}}</pre>
-			</ng-template>
-					
-            </div>
-        </ng-template>       
-    	</p-dialog>
-
-
-		
-    `,
+    templateUrl: './app.topbar.component.html',
 	providers: [MessageService]
 })
 
 
-
-
 export class AppTopBarComponent {
-
-	object: Object = {foo: 'bar', baz: 'qux', nested: {xyz: 3, numbers: [1, 2, 3, 4, 5]}};
-
+	
 	idiomas: any[];
     activeItem: number;
 	perfiles: any[];
@@ -271,15 +30,15 @@ export class AppTopBarComponent {
     constructor(
 		public appMain: AppMainComponent,
 		private componentePrincipal: AppComponent,
-		private lompadService:LompadService,
-		private sanitizer: DomSanitizer,
-		private toas:MessageService
+		private lompadService:LompadService,		
+		private toas:MessageService,
+		private cookieService:CookieService
 		) {}
 
 	ngOnInit(){
-		this.perfilesSelect=this.lompadService.getPerfil();
-		// console.log("DESDE TOOPBAR PERFIL: ",this.perfilesSelect);
-
+		
+				
+		
 		this.idiomas=[
             {label: 'es', value: {id: 1, name: 'es', code: 'es'}},
             {label: 'en', value: {id: 2, name: 'en', code: 'en'}},
@@ -292,9 +51,7 @@ export class AppTopBarComponent {
             {label: 'SCORM', value: 'SCORM', code: 'scorm'},
 			{label: 'LMRI', value:  'LMRI', code: 'lmri'}              
         ];
-
-		
-	
+			
 		// this.objprincipal$=this.lompadService.getObjectPrincipal$();
 		// this.objprincipal$.subscribe(objto => this.objprincipal=objto);
 
@@ -302,13 +59,32 @@ export class AppTopBarComponent {
 			this.objprincipal=param;
 		});
 
+		// this.objprincipal=this.lompadService.objPricipal;
+
 		this.lompadService.objPrincipalXML$.subscribe(param=>{
-			this.objXML=param;
-			
+			this.objXML=param;			
+		});
+
+		this.lompadService.perfil$.subscribe(param=> {
+			this.perfilesSelect=param;
+			this.componentePrincipal.cambioPerfilLocal(param);
+			this.appMain.cambioPerfil();
 		});
 
 		
 		this.display1=false;				
+
+		console.log("DESDE TOOPBAR PERFIL: ",this.perfilesSelect);
+		console.log("DESDE TOOPBAR OBJECTO PRINCIPAL JSON: ",this.objprincipal);
+		console.log("DESDE TOOPBAR OBJECTO PRINCIPAL XML: ",this.objXML);
+
+		if(this.cookieService.check('perfil')){//Realizo esto solamente para que aparecza en el top bar
+			this.lompadService.objPricipal$.unsubscribe();
+			this.objprincipal=this.lompadService.objPricipal;
+			this.perfilesSelect=this.lompadService.getPerfil();
+			this.componentePrincipal.cambioPerfilLocal(this.lompadService.getPerfil());
+			this.appMain.cambioPerfil();   
+		}
 
 	}
 
@@ -324,7 +100,8 @@ export class AppTopBarComponent {
 
 
 	cambioPerfil(event){
-		this.componentePrincipal.cambioPerfil(event);		
+		this.componentePrincipal.cambioPerfil(event);	
+		this.appMain.cambioPerfil()      	
 	}
 	band:boolean;
 	runDialog(param:number){
@@ -350,16 +127,13 @@ export class AppTopBarComponent {
 	descargaXML(){
 		this.lompadService.downloadXML();
 		this.toas.add({ key: 'tst', severity: 'success', summary: 'XML descargado exitosamente', detail: 'Message sent' });
+	}	
+
+
+	ngOnDestroy(): void {		
+		this.lompadService.objPricipal$.unsubscribe();
+		this.lompadService.objPrincipalXML$.unsubscribe();
+		this.lompadService.perfil$.unsubscribe();
 	}
-	htmlData;
-	someHtml='naty <script>alert("naty")</script>';
-	url='javascript:alert("naty")';
-
-
-
-	unloadHandler(event: Event) {
-		this.toas.add({ key: 'tst', severity: 'success', summary: 'naty', detail: 'Message sent' });
-	}
-		   
 
 }

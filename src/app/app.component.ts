@@ -9,6 +9,7 @@ import { LompadService } from './servicios/lompad.service';
 
 
 
+
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
@@ -17,8 +18,7 @@ import { LompadService } from './servicios/lompad.service';
    
 
 export class AppComponent implements OnInit{
-    
-    
+        
 
     horizontalMenu: boolean;
 
@@ -46,9 +46,9 @@ export class AppComponent implements OnInit{
     // ESTE ES EL PRINCIPAL
     constructor(
         private primengConfig: PrimeNGConfig,
-        public translate:TranslateService,
-        private router:Router,
-        private lompadService:LompadService
+        public translate:TranslateService,        
+        private lompadService:LompadService,
+        private router:Router
         // private generalcom:GeneralComponent
         // private comMenuIz:AppMenuComponent
         ) 
@@ -74,7 +74,7 @@ export class AppComponent implements OnInit{
         
         this.router.navigateByUrl("/");//Esto es necesario ya que cada vez que vayamos a actualizar debemos voler a la pagina de inicio    
         this.primengConfig.ripple = true; 
-        this.cambioPerfilLocal(this.lompadService.getPerfil())
+        // this.cambioPerfilLocal(this.lompadService.getPerfil())
 
     }
 
@@ -88,7 +88,7 @@ export class AppComponent implements OnInit{
     }
     
 
-    cambioPerfilLocal(param){  
+    cambioPerfilLocal(param:string){  
             
         if (param === "IEEE LOM"){            
             this.formatIEEE();               
@@ -102,7 +102,7 @@ export class AppComponent implements OnInit{
         else if(param === "SCORM"){
             this.formatScorm();                                   
         }
-
+        
     }
     public cambioPerfil(event){        
         

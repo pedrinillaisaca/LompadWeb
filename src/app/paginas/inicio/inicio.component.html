@@ -32,7 +32,7 @@
                 <p-messages [value]="msgs"></p-messages>
             </ng-template>
             <ng-template #elseBlock>
-                <p-fileUpload (uploadHandler)="onUpload($event)" customUpload="true" multiple="multiple" accept=".rar,.zip,.xml" maxFileSize="1000000000000"></p-fileUpload>
+                <p-fileUpload (uploadHandler)="onUpload($event)" customUpload="true" multiple="multiple" accept=".rar,.zip,.xml" maxFileSize="1000000000000" [chooseLabel]="'Seleccionar Archivo' | translate" [uploadLabel]="'Subir' | translate" [cancelLabel]="'Cancelar' | translate"></p-fileUpload>
                 <p-messages [value]="msgs"></p-messages>
             </ng-template>
         </div>
