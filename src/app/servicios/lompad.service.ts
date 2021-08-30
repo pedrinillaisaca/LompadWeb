@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -124,11 +125,12 @@ export class LompadService{
   saveObjectLompad(obj:any,hoja:string) {
     localStorage.setItem('objPrincipal',JSON.stringify(this.objPricipal));
     console.log("Guardando: => ",hoja)  
-    // var data=JSON.stringify(obj).toLocaleLowerCase(); 
+    var data=JSON.stringify(obj)//.toLocaleLowerCase(); 
+    console.log("TIPO DE DATOS ",typeof(data));
     // var pedro=JSON.parse(JSON.stringify(this.objPricipal).replace(/\s(?=\w+":)/g, ""));  
           
-    var data=JSON.parse(JSON.stringify(obj).replace(/\s(?=\w+":)/g, ""));     
-    data=JSON.stringify(data).toLocaleLowerCase(); 
+    // var data=JSON.parse(JSON.stringify(obj).replace(/\s(?=\w+":)/g, ""));     
+    // data=JSON.stringify(data).toLocaleLowerCase(); 
     console.log("Enviando.... ",data, "Hoja: ",hoja);
     // this.precargaSimple();
     this.api_service.send_ObjectApi(data,this.hash,hoja);//enviar solo el objeto y el has a actualizar                                    
