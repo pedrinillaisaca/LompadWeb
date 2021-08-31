@@ -87,7 +87,8 @@ onUpload(event) {
   this.form.get('file').updateValueAndValidity()   
      
   var formData: any = new FormData();
-  formData.append("file", this.form.get('file').value);
+  formData.append("file", this.form.get('file').value);  
+  this.cookieService.set("tipoArchivo",file.name.split(".")[1]);
   this.lompadservice.setArchivo(formData);
   this.appMain.staticMenuActive=true;
    //info warn error success

@@ -132,6 +132,8 @@
                         <a href="#">{{'Descargar como:' | translate}}<i class="pi pi-angle-down"></i></a>
                         <ul><button pButton pRipple type="button" label="JSON" (click)="descargaJSON()"></button></ul>
                         <ul><button pButton pRipple type="button" label="XML" (click)="descargaXML()"></button></ul>
+                        <ul><button pButton pRipple type="button" label="ZIP" (click)="descargaZIP()"></button></ul>
+                        <!-- <ul><a mat-raised-button href="http://localhost:8000/private/download?hashed_code=aqui iba el sco_-8698188764084338299">Stackoverflow</a></ul> -->
                     </li>
 
                 </ul>
@@ -184,17 +186,19 @@
 
         <div class="layout-topbar-wrapper">
             <div class="layout-topbar-left">
-                <div class="p-col-6">
-                    <label>{{'Lenguaje' | translate}}</label>
-                    <!-- <select #lanSelect (change)="translate.use(lanSelect.value)">
-                           <option *ngFor="let lang of translate.getLangs()" [value]="lang"
-                           [selected]="lang===translate.currentLang"
-                           >{{lang}}</option>
-                       </select> -->
-                </div>
-                <div class="p-col-6">
-                    <p-dropdown [options]="idiomas" (onChange)="cambioIdioma($event)" styleClass="p-mb-2 p-mb-md-0"></p-dropdown>
-                </div>
+
+                <ul>
+                    <div class="icon icon-hastag">
+                        <a href="/"><i class="pi pi-home"></i></a>
+                    </div>
+                </ul>
+                <ul>
+                    <li style="list-style: none;">
+                        <label>{{'Lenguaje' | translate}}</label>
+                        <p-dropdown [options]="idiomas" (onChange)="cambioIdioma($event)" styleClass="p-mb-2 p-mb-md-0"></p-dropdown>
+                    </li>
+                </ul>
+
 
             </div>
 

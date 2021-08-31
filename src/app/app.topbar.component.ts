@@ -20,7 +20,8 @@ export class AppTopBarComponent {
 	perfiles: any[];
 	perfilesSelect:string;
 	objXML:any;
-	objMostrar:any
+	objMostrar:any;
+	hash:any;
 	display1:boolean;
 
 	objprincipal:any;
@@ -36,6 +37,8 @@ export class AppTopBarComponent {
 		) {}
 
 	ngOnInit(){
+
+
 		
 				
 		
@@ -58,6 +61,10 @@ export class AppTopBarComponent {
 		this.lompadService.objPricipal$.subscribe(param=>{
 			this.objprincipal=param;
 		});
+
+		this.lompadService.hash$.subscribe(param=>{
+			this.hash=param;
+		});	
 
 		// this.objprincipal=this.lompadService.objPricipal;
 
@@ -84,6 +91,7 @@ export class AppTopBarComponent {
 			this.perfilesSelect=this.lompadService.getPerfil();
 			this.componentePrincipal.cambioPerfilLocal(this.lompadService.getPerfil());
 			this.appMain.cambioPerfil();   
+			this.hash=this.lompadService.getHash();
 		}
 
 	}
@@ -125,15 +133,29 @@ export class AppTopBarComponent {
 	}
 
 	descargaXML(){
-		this.lompadService.downloadXML();
-		this.toas.add({ key: 'tst', severity: 'success', summary: 'XML descargado exitosamente', detail: 'Message sent' });
+		if(this.cookieService.get('tipoArchivo')=== 'xml'){
+			this.lompadService.downloadXML();
+			this.toas.add({ key: 'tst', severity: 'success', summary: 'XML descargado exitosamente', detail: 'Message sent' });
+		}else{
+			this.toas.add({ key: 'tst', severity: 'error', summary: 'Formato no soportado', detail: 'Message sent' });
+		}
 	}	
+
+	descargaZIP(){
+		if(this.cookieService.get('tipoArchivo')=== 'zip'){
+			window.location.href="http://localhost:8000/private/download?hashed_code="+this.hash;
+			this.toas.add({ key: 'tst', severity: 'success', summary: 'ZIP descargado exitosamente', detail: 'Message sent' });
+		}else{
+			this.toas.add({ key: 'tst', severity: 'error', summary: 'Formato no soportado', detail: 'Message sent' });
+		}
+	}
 
 
 	ngOnDestroy(): void {		
 		this.lompadService.objPricipal$.unsubscribe();
 		this.lompadService.objPrincipalXML$.unsubscribe();
 		this.lompadService.perfil$.unsubscribe();
+		this.lompadService.hash$.unsubscribe();
 	}
-
+	
 }

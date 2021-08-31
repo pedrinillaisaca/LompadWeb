@@ -6,9 +6,6 @@ import { CookieService } from 'ngx-cookie-service';
 import { Observable } from 'rxjs';
 
 
-
-
-
 @Injectable({
   providedIn: 'root'
 })
@@ -18,6 +15,7 @@ export class LompadService{
   objPricipal:JSON;
   objPrincipalXML$=new EventEmitter<any>();  
   objPrincipalXML:any;
+  hash$=new EventEmitter<any>();  
   private hash:string;
   private perfil:string;
   perfil$=new EventEmitter<any>();
@@ -72,6 +70,10 @@ export class LompadService{
    return this.perfil;
   }
 
+  getHash(){
+    return this.hash;
+  }
+
   // setObjson(param:any){  
   //   this.objPricipal=param;
   //   this.objPricipal$.emit(param);
@@ -84,6 +86,7 @@ export class LompadService{
     this.objPricipal$.emit(this.objPricipal);
     this.objPrincipalXML$.emit(this.api_service.api_DownloadFile(this.hash));   
     this.perfil$.emit(this.perfil);
+    this.hash$.emit(this.hash);
     console.log("DATA: TYPE: ",typeof(this.objPricipal));  
   }
 
