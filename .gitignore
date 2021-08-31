@@ -1,5 +1,6 @@
 build
 # dist
+e2e
 node_modules
 .DS_Store
 sassdoc
