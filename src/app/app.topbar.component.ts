@@ -143,7 +143,7 @@ export class AppTopBarComponent {
 
 	descargaZIP(){
 		if(this.cookieService.get('tipoArchivo')=== 'zip'){
-			window.location.href="http://34.133.222.217:8000/private/download?hashed_code="+this.hash;
+			window.location.href="http://localhost:8000/private/download?hashed_code="+this.hash;
 			this.toas.add({ key: 'tst', severity: 'success', summary: 'ZIP descargado exitosamente', detail: 'Message sent' });
 		}else{
 			this.toas.add({ key: 'tst', severity: 'error', summary: 'Formato no soportado', detail: 'Message sent' });
