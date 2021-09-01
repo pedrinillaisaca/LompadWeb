@@ -18,6 +18,8 @@ COPY ./ /usr/local/app/
 RUN npm install
 # Generate the build of the application
 RUN npm run build --prod
+# COMANDO PARA APLICAR NUEVOS CAMBOS EN LA APP (UPDATE)
+# >>>>>>>>>> ng build --prod <<<<<<<<<<<<
 # Stage 2: Serve app with nginx server
 # Use official nginx image as the base image
 FROM nginx:1.14.2

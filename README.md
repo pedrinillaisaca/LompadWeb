@@ -25,3 +25,27 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Indicaciones para despliege en un servidor 
+
+En el caso usar una distribución Centos desacticar SElinux caso contrario no funcionara las configuraciones
+con un servidor web como en el caso de nginx 
+
+## En el caso de desplegar con un contendor docker 
+
+
+`docker build -t ultimate .`
+`docker create volume nodenew`
+`docker run -d -it -p 8080:80 -v nodenew:/usr/share/nginx/html ultimate`
+
+## Ruta por defecto de los volumenes de docker 
+
+`/var/lib/docker/volumes/`
+
+## Comando para producción:
+
+`npm run build --prod`
+
+## Comando para aplicar cambios a un proyecto en producción
+
+`ng build --prod`
