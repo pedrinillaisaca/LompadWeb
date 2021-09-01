@@ -31,6 +31,10 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 En el caso usar una distribución Centos desacticar SElinux caso contrario no funcionara las configuraciones
 con un servidor web como en el caso de nginx 
 
+https://www.cyberciti.biz/faq/disable-selinux-on-centos-7-rhel-7-fedora-linux/
+
+https://www.devdungeon.com/content/deploy-angular-apps-nginx 
+
 ## En el caso de desplegar con un contendor docker 
 
 
