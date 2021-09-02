@@ -1,4 +1,4 @@
-const API_BACKEND="http://localhost:8000";
+const API_BACKEND="http://127.0.0.1:8000";
 export const environment = {
   production: true,
   URL_UPLOAD_FILE: `${API_BACKEND}/uploadfile`,

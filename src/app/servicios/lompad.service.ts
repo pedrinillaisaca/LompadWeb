@@ -92,7 +92,7 @@ export class LompadService{
 
   async getobject(){  
                     
-    const response= await fetch("http://localhost:8000/private/read_file/?hashed_code="+this.hash+"&profile="+this.perfil, {
+    const response= await fetch("http://127.0.0.1:8000/private/read_file/?hashed_code="+this.hash+"&profile="+this.perfil, {
       method: 'GET',
       redirect: 'follow'
     });
@@ -108,12 +108,12 @@ export class LompadService{
   }
 
   getObject1():Observable<any>{
-    return this.http.get<any>("http://localhost:8000/private/read_file/?hashed_code="+this.hash+"&profile="+this.perfil);
+    return this.http.get<any>("http://127.0.0.1:8000/private/read_file/?hashed_code="+this.hash+"&profile="+this.perfil);
   }
     
   setArchivo(data:any){
     console.log("Subiendo archivo...");    
-    this.http.post("http://localhost:8000/uploadfile", data).subscribe(    
+    this.http.post("http://127.0.0.1:8000/uploadfile", data).subscribe(    
       (response) => this.precargaSimple(response), 
       (error) => console.log(error)
     )              
@@ -171,7 +171,7 @@ export class LompadService{
 
   downloadXML_API(hash_param:string){       
     
-    fetch("http://localhost:8000/private/download/?hashed_code="+hash_param, {
+    fetch("http://127.0.0.1:8000/private/download/?hashed_code="+hash_param, {
     
       method: 'GET',
       redirect: 'follow'
