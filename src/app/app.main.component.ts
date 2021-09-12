@@ -5,6 +5,7 @@ import { PrimeNGConfig, MegaMenuItem } from 'primeng/api';
 import {AppComponent} from './app.component';
 import { BehaviorSubject } from 'rxjs';
 import { Router } from '@angular/router';
+import { AppTopBarComponent } from './app.topbar.component';
 
 
 @Component({
@@ -86,6 +87,7 @@ export class AppMainComponent {
         private menuService: MenuService,
         private primengConfig: PrimeNGConfig,
         public app: AppComponent,
+        // private appTopBar: AppTopBarComponent,
         private router:Router      
         ) {
             this.router.navigateByUrl("");            
@@ -157,6 +159,7 @@ export class AppMainComponent {
     // saveInfoGeneral(){
     //     this.generalcom.saveInfo();
     // }
+   
 
     onMegaMenuButtonClick(event) {
         this.megaMenuClick = true;

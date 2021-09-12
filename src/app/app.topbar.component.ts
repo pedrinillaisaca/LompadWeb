@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { LompadService } from './servicios/lompad.service';
 import { MessageService } from 'primeng/api';
 import { CookieService } from 'ngx-cookie-service';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -25,6 +26,9 @@ export class AppTopBarComponent {
 	display1:boolean;
 
 	objprincipal:any;
+
+	private objJson: Subscription;
+	private obj_XML: Subscription;
 	
 
 
@@ -58,17 +62,17 @@ export class AppTopBarComponent {
 		// this.objprincipal$=this.lompadService.getObjectPrincipal$();
 		// this.objprincipal$.subscribe(objto => this.objprincipal=objto);
 
-		this.lompadService.objPricipal$.subscribe(param=>{
-			this.objprincipal=param;
-		});
-
+		
 		this.lompadService.hash$.subscribe(param=>{
 			this.hash=param;
 		});	
-
+		
 		// this.objprincipal=this.lompadService.objPricipal;
-
-		this.lompadService.objPrincipalXML$.subscribe(param=>{
+		
+		this.objJson=this.lompadService.objPricipal$.subscribe(param=>{
+			this.objprincipal=param;
+		});
+		this.obj_XML=this.lompadService.objPrincipalXML$.subscribe(param=>{
 			this.objXML=param;			
 		});
 
@@ -118,8 +122,10 @@ export class AppTopBarComponent {
 		this.display1=true;	
 		if (param === 1){
 			this.band=true;
+			this.rebootPrincipal();
 		}else{
 			this.band=false;
+			this.rebootXML();
 		}
 	}
 
@@ -143,7 +149,7 @@ export class AppTopBarComponent {
 
 	descargaZIP(){
 		if(this.cookieService.get('tipoArchivo')=== 'zip'){
-			window.location.href="http://127.0.0.1:8000/private/download?hashed_code="+this.hash;
+			window.location.href="http://localhost:8000/private/download?hashed_code="+this.hash;
 			this.toas.add({ key: 'tst', severity: 'success', summary: 'ZIP descargado exitosamente', detail: 'Message sent' });
 		}else{
 			this.toas.add({ key: 'tst', severity: 'error', summary: 'Formato no soportado', detail: 'Message sent' });
@@ -156,6 +162,14 @@ export class AppTopBarComponent {
 		this.lompadService.objPrincipalXML$.unsubscribe();
 		this.lompadService.perfil$.unsubscribe();
 		this.lompadService.hash$.unsubscribe();
+	}
+
+	rebootPrincipal(){
+		this.objprincipal=this.lompadService.objPricipal;
+	}
+
+	rebootXML(){		
+		this.objXML=this.lompadService.objPrincipalXML;
 	}
 	
 }

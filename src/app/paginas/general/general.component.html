@@ -32,30 +32,31 @@
             </div>
         </div>
     </div>
+</div>
 
 
+<div *ngIf="ObjOptions.o1_5" class="p-col-12">
+    <h5>{{"Palabra Clave" | translate}}</h5>
 
-
-    <div *ngIf="ObjOptions.o1_5" class="p-col-12">
-        <h5>{{"Palabra Clave" | translate}}</h5>
-        <div class="card">
-            <div class="p-fluid p-formgrid p-grid">
-                <div class="p-field p-col-12 ">
-                    <!-- <label for="palabraclave1">{{"Palabra Clave" | translate}}</label>
-                     <input id="palabraclave1" type="text" pInputText> -->
-                    <button pButton pRipple type="button" icon="pi pi-plus" title="Add Column" (click)="addPalabra()" [disabled]="columns.length === 20" class="p-mr-2"></button>
-                    <button pButton pRipple type="button" icon="pi pi-minus" title="Remove Column" (click)="removeColumn()" [disabled]="columns.length === 1"></button>
-
-                    <div class="p-col-12 p-md-10" *ngFor="let col of columns; let i" [@animation]="'visible'">
-                        <div class="box">{{i}}</div>
-                    </div>
-
-                </div>
+    <button pButton pRipple type="button" icon="pi pi-plus" title="Add Column" (click)="addPalabra()" [disabled]="columns.length === 20" class="p-mr-2"></button>
+    <button pButton pRipple type="button" icon="pi pi-minus" title="Remove Column" (click)="removeColumn()" [disabled]="columns.length === 1"></button>
+    <div class="p-grid p-mt-2">
+        <div class="p-col" *ngFor="let col of columns; let i" [@animation]="'visible'">
+            <div class="box">{{i}}</div>
+        </div>
+    </div>
+    <!-- <div class="card">
+        <div class="p-fluid p-formgrid p-grid">
+            <div class="p-field p-col-12 ">
 
             </div>
-        </div>
 
-    </div>
+        </div>
+    </div> -->
+
+</div>
+
+<div class="grid">
 
 
     <div *ngIf="ObjOptions.o1_6" class="p-col-12">

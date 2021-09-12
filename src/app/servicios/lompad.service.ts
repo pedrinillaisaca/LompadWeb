@@ -3,7 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { ApiService } from './api.service';
 import { saveAs } from 'file-saver';
 import { CookieService } from 'ngx-cookie-service';
-import { Observable } from 'rxjs';
+
+
 
 
 @Injectable({
@@ -55,7 +56,7 @@ export class LompadService{
 
 
   // PILAS CON EL FORMATO
-  precargaSimple(response:any){//Usado cuando se sube un archivo por primera vez
+  precargaSimple(response:any){//Usado cuando se sube un archivo por primera vez    
     this.cookieService.set('perfil',response['PERFIL']);
     this.cookieService.set('hash',response['HASHED_VALUE']);    
     this.perfil=this.cookieService.get('perfil');
@@ -90,34 +91,46 @@ export class LompadService{
     console.log("DATA: TYPE: ",typeof(this.objPricipal));  
   }
 
-  async getobject(){  
-                    
-    const response= await fetch("http://127.0.0.1:8000/private/read_file/?hashed_code="+this.hash+"&profile="+this.perfil, {
+
+  async subGetObject(){
+    
+    const response= await fetch("http://localhost:8000/private/read_file/?hashed_code="+this.hash+"&profile="+this.perfil, {
       method: 'GET',
       redirect: 'follow'
     });
-    
-    if(response.ok){
-      const obj= await response.json();      
-      this.mapReload(obj);
-     
-    }else{
-      console.log("Error LOMPAD linea 101");
-    } 
 
+
+    if(response.status !==200){
+      throw Error("Algo sucede con el api")
+    }
+        
+    return response.json()
   }
 
-  getObject1():Observable<any>{
-    return this.http.get<any>("http://127.0.0.1:8000/private/read_file/?hashed_code="+this.hash+"&profile="+this.perfil);
+  async getobject(){                      
+    try {
+      const objjson=await this.subGetObject();
+      // console.log(objjson['DATA']['general']);      
+      this.mapReload(objjson);      
+    } catch (error) {
+      console.log(`Error: =======> ${error}`);
+    }
+  }
+
+  
+  async subSetArchivo(data:any){
+
+    const response = await fetch("http://localhost:8000/uploadfile", {method: 'POST', body: data,redirect: 'follow'})
+    if(response.status !== 200){
+      throw Error(" Error con el Api al enviar el objeto ");
+    }
+    return response.json();
+  }
+
+  async setArchivo(data:any){                    
+    this.precargaSimple(await this.subSetArchivo(data));
   }
     
-  setArchivo(data:any){
-    console.log("Subiendo archivo...");    
-    this.http.post("http://127.0.0.1:8000/uploadfile", data).subscribe(    
-      (response) => this.precargaSimple(response), 
-      (error) => console.log(error)
-    )              
-  }
 
   // revLocal(){
   //   return this.datosGenerales;
@@ -135,9 +148,9 @@ export class LompadService{
     // var data=JSON.parse(JSON.stringify(obj).replace(/\s(?=\w+":)/g, ""));     
     // data=JSON.stringify(data).toLocaleLowerCase(); 
     console.log("Enviando.... ",data, "Hoja: ",hoja);
-    // this.precargaSimple();
-    this.api_service.send_ObjectApi(data,this.hash,hoja);//enviar solo el objeto y el has a actualizar                                    
-    this.downloadXML_API(this.hash);//Actualiza el objecto cada vez que se guarde los cambiaos realiados
+    
+    this.api_service.send_ObjectApi(data,this.hash,hoja);//enviar solo el objeto y el hash a actualizar                                    
+    this.downloadXML_API(this.hash);//Actualiza el objecto cada vez que se guarde los cambiaos realizados
   }
 
 //AREA DE DESCARGA
@@ -171,7 +184,7 @@ export class LompadService{
 
   downloadXML_API(hash_param:string){       
     
-    fetch("http://127.0.0.1:8000/private/download/?hashed_code="+hash_param, {
+    fetch("http://localhost:8000/private/download/?hashed_code="+hash_param, {
     
       method: 'GET',
       redirect: 'follow'
@@ -184,13 +197,7 @@ export class LompadService{
       .catch(error => console.log('error', error));        
   }
 
-  exitApp(){
-    console.log("saLIENDO APP#################33")
-  }
 
-
-
- 
   
  
 

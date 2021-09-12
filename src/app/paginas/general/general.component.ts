@@ -4,8 +4,56 @@ import { LompadService } from "src/app/servicios/lompad.service";
 import { ObjOptions } from "../../modelo/objOptions";
 import { MessageService } from "primeng/api";
 
+
+import {trigger, state, style, transition, animate} from '@angular/animations';
+
+
 @Component({
   selector: "app-general",
+  styles: [`
+  .box {
+      background-color: var(--surface-e);
+      text-align: center;
+      padding: 1.25rem;
+      font-size: 1.5rem;
+      border-radius: 4px;
+      box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+  }
+
+  .box-stretched {
+      height: 100%;
+  }
+
+  .vertical-container {
+      margin: 0;
+      height: 200px;
+      background: var(--surface-d);
+      border-radius: 4px;
+  }
+
+  .nested-grid .p-col-4 {
+      padding-bottom: 1rem;
+  }
+`],
+animations: [
+  trigger('animation', [
+      state('visible', style({
+          transform: 'translateX(0)',
+          opacity: 1
+      })),
+      transition('void => *', [
+          style({transform: 'translateX(50%)', opacity: 0}),
+          animate('300ms ease-out')
+      ]),
+      transition('* => void', [
+          animate(('250ms ease-in'), style({
+              height: 0,
+              opacity: 0,
+              transform: 'translateX(50%)'
+          }))
+      ])
+  ])
+],
   templateUrl: "./general.component.html",
   styleUrls: ["./general.component.css"],
   providers: [MessageService],
@@ -68,11 +116,7 @@ export class GeneralComponent implements OnInit, OnDestroy {
     ];
     this.columns = [];
     this.ObjOptions = this.componentePrincipal.objOptions;
-    // this.lompadservice.getobject().subscribe(param=>{
-    //   this.general_obj=param['DATA']['general'];
-    //   console.log('PARAMETRO: ',param);
-    // })
-    // this.general_obj=this.lompadservice.getObjectGeneral();
+
     console.log("Desde General: ", this.general_obj);
     // PILAS CON ESTOS
     this.estructuraSelect = this.general_obj["Structure"];

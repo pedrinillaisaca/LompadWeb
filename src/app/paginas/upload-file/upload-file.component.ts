@@ -62,7 +62,7 @@ export class UploadFileComponent implements OnInit {
 //   console.log(formData)
 //   // https://orange-yak-68.loca.lt/docs
 //   // http://172.16.210.80:8000/uploadfile
-//   this.http.post("http://127.0.0.1:8000/uploadfile", formData).subscribe(    
+//   this.http.post("http://localhost:8000/uploadfile", formData).subscribe(    
 //     (response) => this.lompadservice.setObjson(response), //this.lompadservice.setObjson(response)
 //     (error) => console.log(error)
 //   )

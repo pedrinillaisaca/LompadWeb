@@ -21,20 +21,20 @@ export class ApiService {
     
     // console.log("=========================================");
         
-    fetch("http://127.0.0.1:8000/private/update/?hashed_code="+hascode+"&hoja="+hoja+"&data="+obj, {
+    fetch("http://localhost:8000/private/update/?hashed_code="+hascode+"&hoja="+hoja+"&data="+obj, {
       method: 'POST',
       body: raw,
       redirect: 'follow'
     })
       .then(response => response.text())
-      .then(result => console.log("RESULTADO: ",result))
+      .then(result => console.log("$$RESULTADO$$:  ",typeof(result)))
       .catch(error => console.log('error', error));    
   }
 
    api_DownloadFile(hash_param:string){   
     // console.log(hash_param);
     var param;
-    fetch("http://127.0.0.1:8000/private/download/?hashed_code="+hash_param, {    
+    fetch("http://localhost:8000/private/download/?hashed_code="+hash_param, {    
       method: 'GET',
       redirect: 'follow'
     })
@@ -47,7 +47,7 @@ export class ApiService {
   getXML(){
     return new Promise((resolve,reject)=>{
       var param;      
-      fetch("http://127.0.0.1:8000/private/download/?hashed_code=ArchivoExportado_-6482018054697832733",{
+      fetch("http://localhost:8000/private/download/?hashed_code=ArchivoExportado_-6482018054697832733",{
         method: 'GET',
         redirect: 'follow'
       })

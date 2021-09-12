@@ -6,8 +6,6 @@ import { AppMainComponent } from '../../app.main.component';
 import { Message } from 'primeng/api';
 import { CookieService } from 'ngx-cookie-service';
 
-
-
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.component.html',
@@ -21,7 +19,6 @@ export class InicioComponent implements OnInit {
   fileCharger:boolean=false;
   switch:boolean=false;
   
-
 
   form: FormGroup;  
     
@@ -58,7 +55,7 @@ ngOnInit(): void {
 
 pregarga(){//Usado para mostrar mensaje 
   //  var datosGenerales=JSON.parse(localStorage.getItem("perfil_hash"));//recuperacion DAtos
-  if(this.cookieService.check("perfil")){//PILAS AQUI PUEDE DER EL PERFIL O TAMBIEN EL HASH    
+  if(this.cookieService.check("perfil")){//PILAS AQUI PUEDE SER EL PERFIL O TAMBIEN EL HASH    
     this.fileCharger=true;    
     this.appMain.staticMenuActive=true;
     this.msgs = [];
@@ -89,6 +86,7 @@ onUpload(event) {
   var formData: any = new FormData();
   formData.append("file", this.form.get('file').value);  
   this.cookieService.set("tipoArchivo",file.name.split(".")[1]);
+  
   this.lompadservice.setArchivo(formData);
   this.appMain.staticMenuActive=true;
    //info warn error success

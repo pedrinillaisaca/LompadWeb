@@ -50,6 +50,7 @@ https://www.devdungeon.com/content/deploy-angular-apps-nginx
 
 `npm run build --prod`
 
+
 ## Comando para aplicar cambios a un proyecto en producción
 
 `ng build --prod`

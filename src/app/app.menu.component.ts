@@ -166,7 +166,7 @@ export class AppMenuComponent implements OnInit {
         // Para que el submenu quede estatico    
         // this.appMain.sidebarActive=true;
         // this.appMain.staticMenuActive=true;//este es el mas importante
-
+     
     }
 
     recargarMenuLateral() {  

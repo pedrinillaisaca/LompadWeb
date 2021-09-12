@@ -55,15 +55,20 @@ export class UsoeducativoComponent implements OnInit {
   }
 
   castTime(param:string){
-    var one=param.split('DT')[0];
-    var dos=param.split('DT')[1];
-    one=one.substr(1,one.length);
-    this.years=+one.split("Y")[0];
-    this.months=+one.split("Y")[1].split("M")[0];      
-    this.days=+one.split("Y")[1].split("M")[1];
-
-    this.hours=+dos.split("H")[0];
-    this.minutes=+dos.split("H")[1].split('M')[0];    
+    try {
+      var one=param.split('DT')[0];
+      var dos=param.split('DT')[1];
+      one=one.substr(1,one.length);
+      this.years=+one.split("Y")[0];
+      this.months=+one.split("Y")[1].split("M")[0];      
+      this.days=+one.split("Y")[1].split("M")[1];
+  
+      this.hours=+dos.split("H")[0];
+      this.minutes=+dos.split("H")[1].split('M')[0];    
+      
+    } catch (error) {
+      console.log(error)
+    }
     
   }
 
