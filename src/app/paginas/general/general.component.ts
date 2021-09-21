@@ -61,7 +61,7 @@ animations: [
 export class GeneralComponent implements OnInit, OnDestroy {
   estructuras: any = [];
   nivelesAgregacion: any = [];
-  columns: any[];
+  columns: any[];//CONTIENE A LAS PALABRAS CLAVE
 
   palabra: string;
   palabraDialog: boolean;
@@ -166,12 +166,7 @@ export class GeneralComponent implements OnInit, OnDestroy {
   cambio_nivel() {
     console.log(this.nivel_select);
     this.general_obj["Aggregation Level"] = this.nivel_select;
-    this.toas.add({
-      key: "tst",
-      severity: "success",
-      summary: "NO lo saques papi!!",
-      detail: "Message sent",
-    });
+   
 
     // this.service.add({key: 'tst', severity: 'info', summary: 'Info Message', detail: 'PrimeNG rocks'});
     // this.service.add({key: 'tst', severity: 'warn', summary: 'Warn Message', detail: 'There are unsaved changes'});

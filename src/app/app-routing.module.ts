@@ -38,6 +38,7 @@ import {AppLoginComponent} from './pages/app.login.component';
 import {AppCrudComponent} from './pages/app.crud.component';
 import {AppCalendarComponent} from './pages/app.calendar.component';
 import {AppTimelineDemoComponent} from './pages/app.timelinedemo.component';
+
 import { InicioComponent } from './paginas/inicio/inicio.component';
 import { LivecicleComponent } from './paginas/livecicle/livecicle.component';
 import { ViewxmlComponent } from './paginas/viewxml/viewxml.component';
